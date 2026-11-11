@@ -83,13 +83,19 @@ def test_red_flag_and_driver_flags_handling():
         {"date": _ts(0), "category": "SessionStatus", "flag": None, "scope": None, "message": "SESSION STARTED"},
         {"date": _ts(30), "category": "Flag", "flag": "BLUE", "scope": "Driver", "message": "WAVED BLUE FLAG FOR CAR 18"},
         {"date": _ts(60), "category": "Flag", "flag": "RED", "scope": "Track", "message": "RED FLAG"},
+        # TRACK CLEAR while under RED flag must not prematurely restore GREEN
+        {"date": _ts(100), "category": "Flag", "flag": "CLEAR", "scope": "Track", "message": "TRACK CLEAR"},
         {"date": _ts(180), "category": "SessionStatus", "flag": None, "scope": None, "message": "SESSION RESUMED"},
+        {"date": _ts(190), "category": "Other", "flag": None, "scope": None, "message": "STANDING START"},
+        {"date": _ts(220), "category": "Other", "flag": None, "scope": None, "message": "PIT EXIT OPEN"},
     ]
-    ivs = build_track_status_intervals(999, events, _ts(0), _ts(240))
+    ivs = build_track_status_intervals(999, events, _ts(0), _ts(260))
     assert [(iv.start_utc, iv.end_utc, iv.status) for iv in ivs] == [
         (_ts(0), _ts(60), "GREEN"),
         (_ts(60), _ts(180), "RED"),
-        (_ts(180), _ts(240), "GREEN"),
+        (_ts(180), _ts(190), "GREEN"),
+        (_ts(190), _ts(220), "SC"),
+        (_ts(220), _ts(260), "GREEN"),
     ]
 
 

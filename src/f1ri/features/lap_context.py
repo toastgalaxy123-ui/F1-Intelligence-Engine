@@ -203,7 +203,9 @@ def build_track_status_intervals(
                 active_sector_flags.clear()
                 rule_candidate = "TRACK_GREEN"
             elif flag == "CLEAR" and (scope == "Track" or "TRACK CLEAR" in msg):
-                neutralization = None
+                # TRACK CLEAR ends VSC/SC/sector yellows, but never ends an active RED flag suspension.
+                if neutralization != "RED":
+                    neutralization = None
                 active_sector_flags.clear()
                 rule_candidate = "TRACK_CLEAR"
             elif flag == "DOUBLE YELLOW":
@@ -226,8 +228,30 @@ def build_track_status_intervals(
             else:
                 neutralization = "UNKNOWN"
                 rule_candidate = "UNRECOGNIZED_FLAG_EVENT"
+        elif cat == "Other":
+            if "RED FLAG" in msg or "RACE SUSPENDED" in msg:
+                initialized = True
+                neutralization = "RED"
+                active_sector_flags.clear()
+                rule_candidate = "RED_FLAG_MESSAGE"
+            elif (
+                "STANDING START" in msg
+                or "EXTRA FORMATION LAP" in msg
+                or "ROLLING START" in msg
+            ):
+                initialized = True
+                if neutralization != "RED":
+                    neutralization = "SC"
+                    rule_candidate = "RESTART_PROCEDURE"
+            elif (
+                "PIT EXIT OPEN" in msg or "OVERTAKE ENABLED" in msg
+            ) and current_rule == "RESTART_PROCEDURE":
+                neutralization = None
+                rule_candidate = "RESTART_GREEN"
+            else:
+                continue
         else:
-            # Categories like Drs or Other do not directly change track status unless RED FLAG.
+            # Categories like Drs do not directly change track status.
             continue
 
         new_status, new_conf = _effective_state(initialized, neutralization, active_sector_flags)

@@ -1,0 +1,36 @@
+experiment:
+  name: stage2_pace_v1
+  version: "1.0.0"
+  random_seed: 42
+  primary_horizon: 1
+  secondary_horizons: [3, 5]
+  clean_air_gap_s: 2.0
+
+cohort:
+  train:
+    - {year: 2023, session_key: 7953, label: "2023 Bahrain GP", inspected: false}
+    - {year: 2023, session_key: 9102, label: "2023 Spanish GP", inspected: false}
+    - {year: 2023, session_key: 9157, label: "2023 Italian GP", inspected: false}
+    - {year: 2023, session_key: 9165, label: "2023 Singapore GP", inspected: false}
+    - {year: 2024, session_key: 9472, label: "2024 Bahrain GP", inspected: false}
+    - {year: 2024, session_key: 9515, label: "2024 Emilia Romagna GP", inspected: false}
+    - {year: 2024, session_key: 9590, label: "2024 Italian GP", inspected: false}
+    - {year: 2024, session_key: 9606, label: "2024 Singapore GP", inspected: false}
+  val:
+    - {year: 2025, session_key: 10014, label: "2025 Bahrain GP", inspected: false}
+    - {year: 2025, session_key: 9987, label: "2025 Emilia Romagna GP", inspected: true}
+  test:
+    - {year: 2025, session_key: 9912, label: "2025 Italian GP", inspected: false}
+    - {year: 2025, session_key: 9896, label: "2025 Singapore GP", inspected: true}
+  transfer_2026:
+    - {year: 2026, session_key: 11253, label: "2026 Japanese GP", inspected: false}
+    - {year: 2026, session_key: 11361, label: "2026 Italian GP", inspected: false}
+    - {year: 2026, session_key: 11388, label: "2026 Singapore GP", inspected: false}
+
+model:
+  ridge_alpha: 10.0
+  online_shrinkage_k: 3.0
+  stint_shrinkage_k: 2.0
+  include_quadratic_age: false
+  include_track_temp: true
+  min_std_seconds: 0.18

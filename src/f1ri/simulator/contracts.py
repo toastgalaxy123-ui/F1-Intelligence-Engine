@@ -1,5 +1,6 @@
 """Domain types: simulation has no dependency on OpenF1 column names."""
 from __future__ import annotations
+
 from dataclasses import dataclass
 from datetime import datetime
 

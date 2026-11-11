@@ -28,3 +28,4 @@ modeling:
   clean_air_label_required_for_final_pace_model: true
   split_unit: session_key
   forward_test_only: true
+  default_experiment_config: config/experiments/stage2_pace_v1.yaml

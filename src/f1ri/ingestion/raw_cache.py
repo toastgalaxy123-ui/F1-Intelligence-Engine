@@ -1,12 +1,12 @@
 """Immutable-by-default source snapshots and lightweight provenance metadata."""
 from __future__ import annotations
 
-from datetime import datetime, timezone
-from hashlib import sha256
-from pathlib import Path
-import shutil
 import json
 import os
+import shutil
+from datetime import UTC, datetime
+from hashlib import sha256
+from pathlib import Path
 
 
 def snapshot_path(root: Path, year: int, endpoint: str, session_key: int | None) -> Path:
@@ -51,7 +51,7 @@ def save_snapshot(
         "source": "openf1",
         "url": url,
         "query": params,
-        "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+        "retrieved_at_utc": datetime.now(UTC).isoformat(),
         "sha256": sha256(raw_bytes).hexdigest(),
         "records": len(content),
         "notes": "Source snapshot; do not manually edit. --refresh is explicit replacement.",

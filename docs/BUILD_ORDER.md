@@ -18,12 +18,11 @@ are unchanged without `--refresh`; a full race is inspectable in DuckDB.
 **Done when:** conservative green-flag pace laps can be identified and
 verified by manually inspecting several dry and disrupted races.
 
-## Stage 2 — Validated lap-pace baseline
-- Train on prior races; predict laps of completely held-out later races.
-- Baselines: driver/race mean, recent stint median, compound-specific median.
-- Model fuel-load/race-lap trend + tyre-age effects and circuit/team effects.
-- Report MAE, RMSE, residuals by compound/stint/track/year, intervals.
-- Compare 2023-25 vs 2026 regulation eras, use out-of-time testing.
+## Stage 2 — Validated lap-pace baseline (COMPLETED — see `docs/STAGE2_SPEC.md` and `artifacts/reports/stage2_validation.md`)
+- Train on prior races (2023-2024); validate on early 2025; test on held-out late 2025.
+- Baselines (`E0`-`E3`): historical circuit prior, recent clean-lap median, compound-specific stint median, race-progress drift.
+- Regularized additive model (`E4`-`E8` `PaceModelV1`): race-progress trend + compound-specific tire-age effects + track temp + empirical-Bayes online pace adaptation + calibrated 50%/90% intervals.
+- Report race-weighted and lap-weighted MAE, RMSE, bias, CRPS, 50%/90% coverage, sliced residuals, and 2026 transfer/adaptation (`E9`-`E10`).
 **Done when:** at least one model beats simple baselines on held-out races
 and uncertainty/residual diagnostics are acceptable.
 

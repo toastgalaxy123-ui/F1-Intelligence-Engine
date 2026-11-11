@@ -82,6 +82,11 @@ def main() -> None:
     p.add_argument("--session-key", type=int, required=True)
     p = sub.add_parser("check", help="Run core data-quality checks")
     p.add_argument("--session-key", type=int, required=True)
+    p = sub.add_parser("ingest-batch", help="Ingest, build, and validate the configured race cohort")
+    p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
+    p.add_argument("--refresh", action="store_true")
+    p = sub.add_parser("stage2", help="Run Stage 2 dataset audit, examples build, and E0-E10 backtest")
+    p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
     args = parser.parse_args()
     root = args.root.resolve()
     if args.command == "discover":
@@ -99,6 +104,21 @@ def main() -> None:
             print(f"{key}: {val}")
         assert_valid(result)
         print("Passed critical invariants; see docs for remaining labeling limitations")
+    elif args.command == "ingest-batch":
+        from f1ri.ingestion.batch import load_experiment_cohort, run_batch_ingestion
+        cohort = load_experiment_cohort(root, args.config)
+        manifest = run_batch_ingestion(root, cohort, full=True, refresh=args.refresh)
+        print(
+            f"Batch complete: {manifest['ready_sessions']}/{manifest['total_sessions']} ready."
+        )
+    elif args.command == "stage2":
+        from f1ri.validation.backtest import run_stage2_pipeline
+        res = run_stage2_pipeline(root, args.config)
+        for exp_id, m in res["experiments"].items():
+            v = m.get("val_h1", {}).get("race_weighted_mae_s")
+            t = m.get("test_h1", {}).get("race_weighted_mae_s")
+            tr = m.get("transfer_2026_h1", {}).get("race_weighted_mae_s")
+            print(f"{exp_id:32} | val_mae={v!s:<7} | test_mae={t!s:<7} | 2026_mae={tr!s:<7}")
 
 
 if __name__ == "__main__":

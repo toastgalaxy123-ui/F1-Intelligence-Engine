@@ -4,6 +4,7 @@ from __future__ import annotations
 import os
 import time
 from pathlib import Path
+from typing import Self
 
 import httpx
 
@@ -20,7 +21,7 @@ class OpenF1Client:
             headers["Authorization"] = f"Bearer {os.environ['OPENF1_TOKEN']}"
         self.client = httpx.Client(timeout=90.0, headers=headers, follow_redirects=True)
 
-    def __enter__(self) -> "OpenF1Client":
+    def __enter__(self) -> Self:
         return self
 
     def __exit__(self, *_: object) -> None:
@@ -73,7 +74,7 @@ class OpenF1Client:
                 response.raise_for_status()
                 payload = response.json()
                 if not isinstance(payload, list):
-                    raise ValueError(f"Expected a JSON array from {response.url}")
+                    raise ValueError(f"Expected a JSON array from {response.url}")  # noqa: TRY004
                 return response.content, str(response.url)
             except (httpx.ConnectError, httpx.ReadTimeout, httpx.RemoteProtocolError):
                 if attempt == 4:

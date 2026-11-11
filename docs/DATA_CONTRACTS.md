@@ -87,13 +87,18 @@ where `is_clean_green_pace_lap = TRUE`.
   `non_green_overlap_s`, `is_clean_green_pace_lap`, `exclusion_reason`
   (pipe-delimited reasons or `NULL` when usable clean green-flag pace lap).
 
+`gold.pace_training_examples` (Stage 2):
+- One row per continued-stint forecast opportunity `(session_key, driver_number, cutoff_lap_number, horizon)`.
+- Prediction metadata: `target_lap_number`, `forecast_as_of_utc` (completion UTC of `cutoff_lap_number`), `target_lap_start_utc`, `target_lap_end_utc`, `modeling_eligibility` (`ELIGIBLE_CLEAN_GREEN` or `INELIGIBLE_TARGET`).
+- Context & normalized identities: `season`, `regulation_era`, `circuit_key`, `circuit_short_name`, `team_id`, `driver_id`, `scheduled_race_laps`, `race_progress`.
+- Tire & recent clean-pace predictors (strictly as of `forecast_as_of_utc`): `compound`, `tyre_age_at_lap_start`, `stint_number`, `current_stint_laps_completed`, `tyre_age_at_stint_start`, `actual_compound_code`, `compound_mapping_source`, `compound_mapping_confidence`, `last_clean_lap_time_s`, `median_last_3_clean_laps_s`, `median_last_5_clean_laps_s`, `median_stint_clean_laps_s`, `clean_laps_observed_current_stint`, `clean_laps_observed_race`, `last_clean_lap_age`.
+- Point-in-time weather: `last_known_track_temp_c`, `last_known_air_temp_c`, `last_known_rainfall`, `temperature_observation_age_s`.
+- Target fields (never used as predictors): `observed_target_lap_time_s`, `target_is_clean_green`, `target_exclusion_reason`.
+
 ## Necessary future gold tables
 
 `gold.race_state_snapshots`: session_key, as_of_utc, completed_laps,
 positions, gaps, tires, retirements, weather status and source freshness.
-
-`gold.training_examples`: target event time, feature cutoff UTC, feature
-provenance, target available_at time, split IDs and exclusion rationale.
 
 **Observed vs estimated vs simulated:**
 `observed_` is from source; `estimated_` is inferred; `predicted_` is output

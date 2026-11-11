@@ -28,13 +28,13 @@ GOLD DuckDB (observational lap/stint features, point-in-time race states)
 ```
 
 Layer boundaries:
-- `ingestion`: knows provider URLs and rate limits; returns source bytes only.
-- `warehouse`: owns stable typed silver and gold structures; never predicts.
-- `features`: feature builders and quality flags; no future data.
-- `models`: input/output protocols, training, inference, calibration.
+- `ingestion`: knows provider URLs and rate limits; returns source bytes only (`openf1.py`, `raw_cache.py`, `batch.py`).
+- `warehouse`: owns stable typed silver and gold structures; never predicts (`schema.py`, `build.py`).
+- `features`: feature builders, track-status state machine, point-in-time forecast examples, and quality flags; no future data (`lap_context.py`, `pace_features.py`, `pace_examples.py`).
+- `models`: input/output protocols, baselines, regularized additive models, and residual interval calibration (`contracts.py`, `pace_baselines.py`, `pace_linear.py`, `pace_calibration.py`, `pace.py`).
 - `simulator`: pure, deterministic-with-seed race transitions; calls models via
   interfaces and does not know which vendor supplied the data.
-- `validation`: data-integrity checks, chronological splits, leakage tests.
+- `validation`: data-integrity checks, chronological race splits, leakage/truncation-invariance tests, and probabilistic calibration (`quality.py`, `splits.py`, `leakage.py`, `calibration.py`, `backtest.py`).
 - `dashboard`: presentation only, never secretly refits models on user clicks.
 
 Raw and warehouse layers should remain independently rebuildable. A future

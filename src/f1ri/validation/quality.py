@@ -36,9 +36,18 @@ def check_session(root: Path, session_key: int) -> dict[str, int]:
                       ON l.session_key=s.session_key AND l.driver_number=s.driver_number
                      AND l.lap_number BETWEEN s.lap_start AND s.lap_end
                     WHERE l.session_key=?
-                    GROUP BY l.driver_number, l.lap_number, l.lap_duration
+                    GROUP BY l.session_key, l.driver_number, l.lap_number, l.lap_duration
                     HAVING COUNT(s.stint_number) > 1
-                        OR (l.lap_duration IS NOT NULL AND l.lap_duration > 0 AND COUNT(s.stint_number) <> 1)
+                        OR (
+                            l.lap_duration IS NOT NULL
+                            AND l.lap_duration > 0
+                            AND COUNT(s.stint_number) <> 1
+                            AND NOT EXISTS (
+                                SELECT 1 FROM silver.stints s2
+                                WHERE s2.session_key = l.session_key
+                                  AND s2.driver_number = l.driver_number
+                            )
+                        )
                 )
             """),
             "track_status_interval_gaps_or_overlaps": count("""

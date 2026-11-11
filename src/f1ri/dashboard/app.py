@@ -1,5 +1,4 @@
 """Placeholder dashboard entry point; add after validated analytical outputs exist."""
-from pathlib import Path
 import streamlit as st
 
 st.set_page_config(page_title="F1 Race Intelligence", layout="wide")

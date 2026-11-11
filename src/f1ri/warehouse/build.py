@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import duckdb
 import pandas as pd
@@ -40,14 +41,40 @@ def _load_silver_table(con: duckdb.DuckDBPyConnection, endpoint: str, rows: list
     if not rows:
         return
     # A small pandas adapter is appropriate for lap/event data. Telemetry never goes here.
+    if endpoint == "stints":
+        # Sort per-driver stints and resolve any boundary overlap or open-ended stint_end in raw OpenF1 feeds.
+        by_driver: dict[Any, list[dict]] = {}
+        for r in rows:
+            by_driver.setdefault(r.get("driver_number"), []).append(dict(r))
+        normalized_rows: list[dict] = []
+        for drv_rows in by_driver.values():
+            drv_rows.sort(key=lambda x: (x.get("stint_number") or 0, x.get("lap_start") or 0))
+            for idx in range(len(drv_rows) - 1):
+                cur_end = drv_rows[idx].get("lap_end")
+                nxt_start = drv_rows[idx + 1].get("lap_start")
+                cur_start = drv_rows[idx].get("lap_start")
+                if (
+                    cur_end is not None
+                    and nxt_start is not None
+                    and cur_start is not None
+                    and cur_end >= nxt_start > cur_start
+                ):
+                    drv_rows[idx]["lap_end"] = nxt_start - 1
+            normalized_rows.extend(drv_rows)
+        rows = normalized_rows
     fixed_rows = []
     for row in rows:
         fixed = {col: row.get(col) for col in schema}
         if endpoint == "starting_grid":
             fixed["session_key"] = session_key
         if endpoint == "intervals":
-            fixed["gap_to_leader_raw"] = row.get("gap_to_leader")
-            fixed["interval_raw"] = row.get("interval")
+            g_raw = row.get("gap_to_leader")
+            i_raw = row.get("interval")
+            fixed["gap_to_leader_raw"] = None if g_raw is None else str(g_raw)
+            fixed["interval_raw"] = None if i_raw is None else str(i_raw)
+        for col, dtype in schema.items():
+            if dtype == "VARCHAR" and fixed.get(col) is not None:
+                fixed[col] = str(fixed[col])
         fixed_rows.append(fixed)
     df = pd.DataFrame(fixed_rows, columns=list(schema))
     con.register("_incoming", df)

@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
+
 import pytest
 
 pytest.importorskip("duckdb")
 from f1ri.ingestion.raw_cache import snapshot_path
+from f1ri.validation.quality import assert_valid, check_session
 from f1ri.warehouse.build import build_warehouse
-from f1ri.validation.quality import check_session, assert_valid
 from f1ri.warehouse.schema import SILVER_SCHEMAS
 
 

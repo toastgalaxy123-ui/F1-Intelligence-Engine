@@ -1,5 +1,5 @@
 """An intentional extension point: no unvalidated 'strategy probabilities'."""
-from f1ri.simulator.contracts import RaceState, StrategyCandidate, SimulationSummary
+from f1ri.simulator.contracts import RaceState, SimulationSummary, StrategyCandidate
 
 
 def simulate_remaining_race(
