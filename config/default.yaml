@@ -1,0 +1,30 @@
+project:
+  name: f1-race-intelligence
+  timezone: UTC
+  canonical_session_id: openf1_session_key
+  target_era: 2026
+
+data:
+  openf1_base_url: https://api.openf1.org/v1
+  min_seconds_between_requests: 2.1  # respects 30 requests/minute free tier
+  core_endpoints:
+    - sessions
+    - drivers
+    - laps
+    - stints
+    - pit
+    - weather
+    - race_control
+    - session_result
+    - starting_grid
+  additional_endpoints:
+    - position
+    - intervals
+  telemetry_endpoints: [car_data, location]
+
+modeling:
+  random_seed: 42
+  first_lap_excluded_from_pace: true
+  clean_air_label_required_for_final_pace_model: true
+  split_unit: session_key
+  forward_test_only: true
