@@ -3,9 +3,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pandas as pd
 import duckdb
+import pandas as pd
 
+from f1ri.features.lap_context import populate_session_lap_context
 from f1ri.ingestion.raw_cache import read_snapshot, snapshot_path
 from f1ri.warehouse.schema import SILVER_SCHEMAS
 
@@ -131,6 +132,16 @@ def build_warehouse(root: Path, year: int, session_key: int) -> Path:
                   ON l.session_key=s.session_key
                  AND l.driver_number=s.driver_number
                  AND l.lap_number BETWEEN s.lap_start AND s.lap_end
+            """)
+            populate_session_lap_context(db, session_key)
+            db.execute("""
+                UPDATE gold.lap_observations AS obs
+                SET track_status = ctx.track_status,
+                    confirmed_green_lap = ctx.confirmed_green_lap
+                FROM gold.lap_context AS ctx
+                WHERE obs.session_key = ctx.session_key
+                  AND obs.driver_number = ctx.driver_number
+                  AND obs.lap_number = ctx.lap_number
             """)
             db.execute("COMMIT")
         except Exception:

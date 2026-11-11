@@ -47,23 +47,47 @@ cannot be interpreted as numeric seconds.
 - `pit_event_lap`: OpenF1 says pit lane passed on this lap.
 - `pit_out_lap`: OpenF1 flag.
 - `latest_observed_track_temp_c`: weather reading at or before lap start.
-- `track_status = 'UNCLASSIFIED'`: status parser not yet built.
-- `confirmed_green_lap = FALSE`: do not treat it as green.
+- `track_status`: synchronized from `gold.lap_context` (`GREEN`, `YELLOW`,
+  `DOUBLE_YELLOW`, `VSC`, `SC`, `RED`, `UNKNOWN`).
+- `confirmed_green_lap`: `TRUE` iff the entire lap window overlapped only
+  `GREEN` intervals in `gold.track_status_intervals`.
 - `provisional_pace_candidate`: obvious first/pit-in/out laps excluded but
   safety cars, VSC, yellow flags and traffic are NOT excluded.
 
 **DO NOT** train a publishable pace/degradation model treating provisional
-candidates as verified clean-air green-flag laps.
+candidates as verified clean-air green-flag laps; use `gold.lap_context`
+where `is_clean_green_pace_lap = TRUE`.
+
+`gold.track_status_intervals` (Stage 1):
+- `session_key`, `start_utc`, `end_utc`, `status` (`GREEN`, `YELLOW`,
+  `DOUBLE_YELLOW`, `VSC`, `SC`, `RED`, `UNKNOWN`), `source_rule`, `confidence`.
+- Built via a two-layer state machine (`src/f1ri/features/lap_context.py`)
+  separating track-wide neutralization (`RED`, `SC`, `VSC`) from sector-level
+  yellow/double-yellow flags so sector clears during VSC/SC never restore `GREEN`.
+- Defaults to `UNKNOWN` (`confidence = 'LOW'`) when race-control events are
+  missing or uninitialized.
+
+`gold.lap_context` (Stage 1):
+- Keys & metadata: `session_key`, `meeting_key`, `driver_number`, `season`,
+  `circuit_key`, `circuit_short_name`, `regulation_era`, `lap_number`,
+  `race_total_laps`.
+- Timing & stint: `lap_start_utc`, `lap_end_estimate_utc`, `elapsed_race_time_s`,
+  `observed_lap_time_s`, `sector_1_s`, `sector_2_s`, `sector_3_s`,
+  `stint_number`, `compound`, `tyre_age_at_lap_start`, `fuel_load_proxy`.
+- Weather & as-of position/intervals: `track_temperature_c`, `air_temperature_c`,
+  `rainfall`, `position_at_lap_start`, `gap_to_leader_at_start_raw`,
+  `gap_to_leader_at_start_s` (`NULL` when lapped, e.g. `'+1 LAP'`),
+  `gap_ahead_at_start_raw`, `gap_ahead_at_start_s` (`NULL` for P1 or non-numeric).
+- Physical track traffic & blue flags: `track_gap_ahead_at_start_s`,
+  `track_gap_ahead_at_end_s` (control-line physical proximity including lapped
+  cars), `had_in_lap_on_track_pass`, `is_blue_flagged_lap`,
+  `is_clean_air_at_start`, `is_clean_air`.
+- Pit & track-status masking: `is_pit_in_lap`, `is_pit_out_lap`, `is_pit_lap`,
+  `stint_pit_mismatch`, `track_status`, `confirmed_green_lap`,
+  `non_green_overlap_s`, `is_clean_green_pace_lap`, `exclusion_reason`
+  (pipe-delimited reasons or `NULL` when usable clean green-flag pace lap).
 
 ## Necessary future gold tables
-
-`gold.track_status_intervals`: session_key, start_utc, end_utc, status,
-source_rule, confidence. Build a STATE MACHINE from race-control events.
-Include ambiguity state and manually inspect every unusual GP.
-
-`gold.lap_context`: session_key, driver_number, lap_number,
-start/end approx timestamp, safety status, pit flags, gaps, traffic exposure,
-weather, tire age, fuel-load proxy, elapsed seconds, masking reasons.
 
 `gold.race_state_snapshots`: session_key, as_of_utc, completed_laps,
 positions, gaps, tires, retirements, weather status and source freshness.

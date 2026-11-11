@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 import duckdb
 
 
@@ -35,9 +36,26 @@ def check_session(root: Path, session_key: int) -> dict[str, int]:
                       ON l.session_key=s.session_key AND l.driver_number=s.driver_number
                      AND l.lap_number BETWEEN s.lap_start AND s.lap_end
                     WHERE l.session_key=?
-                    GROUP BY l.driver_number, l.lap_number
-                    HAVING COUNT(s.stint_number) <> 1
+                    GROUP BY l.driver_number, l.lap_number, l.lap_duration
+                    HAVING COUNT(s.stint_number) > 1
+                        OR (l.lap_duration IS NOT NULL AND l.lap_duration > 0 AND COUNT(s.stint_number) <> 1)
                 )
+            """),
+            "track_status_interval_gaps_or_overlaps": count("""
+                SELECT COUNT(*) FROM (
+                    SELECT
+                        start_utc,
+                        end_utc,
+                        LAG(end_utc) OVER (PARTITION BY session_key ORDER BY start_utc) AS prev_end_utc
+                    FROM gold.track_status_intervals
+                    WHERE session_key=?
+                )
+                WHERE end_utc <= start_utc
+                   OR (prev_end_utc IS NOT NULL AND prev_end_utc <> start_utc)
+            """),
+            "clean_green_pace_laps": count("""
+                SELECT COUNT(*) FROM gold.lap_context
+                WHERE session_key=? AND is_clean_green_pace_lap
             """),
         }
         return results
@@ -46,7 +64,11 @@ def check_session(root: Path, session_key: int) -> dict[str, int]:
 
 
 def assert_valid(results: dict[str, int]) -> None:
-    critical = ("duplicate_lap_keys", "missing_or_overlapping_stints")
+    critical = (
+        "duplicate_lap_keys",
+        "missing_or_overlapping_stints",
+        "track_status_interval_gaps_or_overlaps",
+    )
     if (results["laps"] == 0 or results["session_metadata_rows"] != 1
             or any(results[key] > 0 for key in critical)):
         raise RuntimeError(f"Data quality failed: {results}")
