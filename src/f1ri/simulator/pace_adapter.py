@@ -14,6 +14,8 @@ import numpy as np
 from f1ri.features.stint_examples import DRY_COMPOUNDS
 from f1ri.models.contracts import (
     SCENARIO_CONTINUE_STINT,
+    SCENARIO_NEW_FRESH,
+    SCENARIO_NEW_USED,
     SUPPORT_UNSUPPORTED,
     StintForecastRequest,
     StintTrajectoryForecast,
@@ -154,6 +156,33 @@ def forecast_pace(bundle: PaceBundle, request: StintForecastRequest) -> PaceTraj
     batch = _trajectory(bundle, request)
     if batch.forecast.support_status == SUPPORT_UNSUPPORTED:
         raise UnsupportedPaceForecast("Pace V2 returned an unsupported continuation forecast")
+    return batch
+
+
+def forecast_new_stint(bundle: PaceBundle, request: StintForecastRequest) -> PaceTrajectoryBatch:
+    """Use D8's original new-stint path, with an explicit unseen-circuit support gate."""
+    bundle.validate_cutoff(request)
+    age = request.tyre_age_at_start
+    scenario = SCENARIO_NEW_USED if age else SCENARIO_NEW_FRESH
+    if (
+        request.scenario_type != scenario or request.compound_relative not in DRY_COMPOUNDS
+        or age < 0 or request.planned_start_lap <= request.cutoff_lap_number
+        or not 1 <= request.horizon_laps <= 20
+        or request.planned_start_lap + request.horizon_laps - 1 > request.scheduled_race_laps
+        or request.n_trajectory_samples < 2 or request.random_seed < 0
+        or request.clean_laps_observed_current_stint or request.median_stint_clean_laps_s is not None
+        or request.observed_stint_clean_times_s or request.observed_stint_clean_ages
+        or request.observed_stint_clean_progress
+    ):
+        raise ValueError("Invalid S2 replacement-tire request")
+    if (
+        request.circuit_short_name not in bundle.model.prior_baseline_.circuit_medians_
+        and (request.clean_laps_observed_race <= 0 or request.median_last_3_clean_laps_s is None)
+    ):
+        raise UnsupportedPaceForecast("Unseen-circuit new stint needs observed clean race pace")
+    batch = _trajectory(bundle, request)
+    if batch.forecast.support_status == SUPPORT_UNSUPPORTED:
+        raise UnsupportedPaceForecast("Pace V2 returned an unsupported replacement-tire forecast")
     return batch
 
 

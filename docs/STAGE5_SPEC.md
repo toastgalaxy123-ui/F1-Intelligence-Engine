@@ -17,8 +17,11 @@ chronological cohorts before evaluating forecasting accuracy.
 | S4 | Experimental incident and race-control scenarios |
 | S5 | Integrated forecasting with independent evidence of skill and calibration |
 
-The current release implements S0 and the conditional Pace V2 integration
-described in the [Stage 5.1 specification](STAGE5_S1_SPEC.md). An engineering release requires correct
+The current release implements S0, conditional Pace V2, and synthetic S2 pit
+execution with replacement-tire forecasts. The locked P1 run remains
+dependent on the original artifact. [Stage 5.1 specification](STAGE5_S1_SPEC.md) · [Stage 5.2 specification](STAGE5_S2_SPEC.md)
+
+An engineering release requires correct
 state transitions, reproducible traces, and explicit handling of missing data.
 Forecast approval requires chronological, race-weighted validation against
 simple probabilistic baselines, useful calibration, and an explicit support

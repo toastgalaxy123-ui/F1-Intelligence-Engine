@@ -160,3 +160,16 @@ timing quality, event taxonomy and unsupported neutralization cases.
 - Evaluation starts at the first full future lap. A complete-window metric
   requires clean, same-stint outcomes for every target lap. Eligibility and
   censoring are retrospective fields. [Stage 5.1 specification](STAGE5_S1_SPEC.md)
+
+## Stage 5.2 pit-transition contracts
+
+- One stop has a cutoff, scenario identity, driver, canonical in-lap,
+  replacement set, and one execution mode.
+- The result carries old and new stint IDs, normal two-lap time, elapsed
+  two-lap time, incremental loss, and optional resolved route times. The
+  out-lap boundary closes accounting. An incomplete window has no realized
+  two-lap loss.
+- The merge comparison uses passage times at one common checkpoint and
+  retains each comparator's completed laps. Coarse execution has null
+  physical timestamps and an unresolved merge.
+[Stage 5.2 specification](STAGE5_S2_SPEC.md)

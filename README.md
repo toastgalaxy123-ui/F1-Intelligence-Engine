@@ -122,6 +122,19 @@ metrics, snapshots, trajectory samples, and diagnostics to
 `artifacts/runs/stage5_s1_pace`. The frozen model covers the 2023–2025 era.
 [Stage 5.1 validation report](artifacts/reports/stage5_s1_validation.md)
 
+### Stage 5.2 — Pit execution and tire changes
+
+```bash
+f1ri stage5-s2 --stage3-root /path/to/original-stage3-project
+```
+
+The S2 runner verifies synthetic route and coarse timing, paired frozen D8
+stop-versus-continue scenarios, and recorded pit windows. Use
+`--local-warehouse` if the Netherlands and Azerbaijan sessions are in a
+different warehouse. Supply `--p1-artifact` to use the original locked P1
+pickle. The loader checks its digest against Stage 4.1's selection record.
+[Stage 5.2 validation report](artifacts/reports/stage5_s2_validation.md)
+
 ## Useful SQL
 
 ```python

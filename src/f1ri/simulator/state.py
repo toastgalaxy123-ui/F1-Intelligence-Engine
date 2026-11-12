@@ -40,7 +40,11 @@ class CarStatus(StrEnum):
 
 class Route(StrEnum):
     ON_TRACK = "ON_TRACK"
+    PIT_ENTRY = "PIT_ENTRY"
     PIT_LANE = "PIT_LANE"
+    PIT_SERVICE = "PIT_SERVICE"
+    PIT_EXIT = "PIT_EXIT"
+    PIT_TRANSITION_COARSE = "PIT_TRANSITION_COARSE"
     OFF_TRACK = "OFF_TRACK"
 
 
@@ -55,12 +59,22 @@ class TyreState:
     compound: str
     age_laps: int | None
     stint_number: int = 1
+    compound_absolute: str | None = None
+    set_id: str | None = None
+    initial_age_laps: int | None = None
+    stint_start_lap: int | None = None
 
     def __post_init__(self) -> None:
         if not self.compound.strip() or self.stint_number < 1:
             raise ValueError("Tyres require a compound and positive stint number")
         if self.age_laps is not None and self.age_laps < 0:
             raise ValueError("Tyre age must be nonnegative")
+        if self.initial_age_laps is not None and (
+            self.initial_age_laps < 0 or self.age_laps is None or self.age_laps < self.initial_age_laps
+        ):
+            raise ValueError("Tyre age cannot precede the set's initial age")
+        if self.stint_start_lap is not None and self.stint_start_lap <= 0:
+            raise ValueError("Stint start lap must be positive")
 
 
 @dataclass(frozen=True, slots=True)
@@ -74,6 +88,7 @@ class CarState:
     completed_checkpoints: int = 0
     last_crossing_us: int | None = None
     finish_us: int | None = None
+    pit_box: str | None = None
 
     def __post_init__(self) -> None:
         if self.driver_number <= 0 or (self.grid_position is not None and self.grid_position <= 0):
@@ -90,6 +105,8 @@ class CarState:
             raise ValueError("Finished status requires a finish time")
         if self.finish_us is not None and self.finish_us != self.last_crossing_us:
             raise ValueError("A car must finish at its last crossing")
+        if (self.route is Route.PIT_SERVICE) != (self.pit_box is not None):
+            raise ValueError("Only a car in service can occupy a pit box")
 
     @property
     def completed_laps(self) -> int:

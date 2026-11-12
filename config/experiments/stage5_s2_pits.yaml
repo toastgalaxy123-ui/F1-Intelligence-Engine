@@ -1,0 +1,21 @@
+experiment: stage5_s2_pits
+seed: 42
+pace_samples: 1000
+paired_realizations: 100
+scenario:
+  session_key: 9896
+  scheduled_laps: 62
+  driver_number: 63
+  cutoff_utc: "2025-10-05T12:52:29.272000+00:00"
+  horizon: 15
+  pit_in_lap: 33
+  compound: MEDIUM
+  compound_absolute: C4
+  fresh_age: 0
+  used_age: 3
+  synthetic_net_loss_s: 22
+historical:
+  - {session_key: 9896, scheduled_laps: 62, cohort: development, source: stage3}
+  - {session_key: 9987, scheduled_laps: 63, cohort: replay_only, source: stage3}
+  - {session_key: 9920, scheduled_laps: 72, cohort: new_to_pace, source: local}
+  - {session_key: 9904, scheduled_laps: 51, cohort: new_to_pace, source: local}

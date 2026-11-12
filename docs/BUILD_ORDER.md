@@ -47,8 +47,13 @@ and uncertainty/residual diagnostics are acceptable.
   [Singapore and Imola audits](../artifacts/reports/stage5_replay.md).
 - S1 integrates correlated Pace V2 trajectories and checks parity, snapshot
   leakage, and historical clean-air performance. [Stage 5.1 validation](../artifacts/reports/stage5_s1_validation.md)
-- Integrate provisional P1 pit costs before adding interaction models,
-  incident hazards and behavioral pit policies.
+- S2 gate A requires synthetic two-lap conservation and stale-checkpoint
+  invalidation. Gate B requires fresh/used D8 parity before using P1. Gate C
+  requires supported synthetic merges and exclusive box service before
+  interpreting physical rejoin order. [Stage 5.2 specification](STAGE5_S2_SPEC.md)
+- Run the locked P1 artifact before interpreting provisional model-based pit
+  costs. Add physical proximity, traffic, incident hazards and behavioral pit
+  policies in later increments.
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import math
-from collections.abc import Iterable
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, replace
 from enum import StrEnum
 
@@ -36,14 +36,27 @@ class RaceRun:
     capability: str = "S0"
 
 
+_PIT_ROUTE_CHANGES = {
+    EventKind.PIT_ROUTE_ENTRY: (Route.ON_TRACK, Route.PIT_ENTRY),
+    EventKind.PIT_LANE_ENTRY: (Route.PIT_ENTRY, Route.PIT_LANE),
+    EventKind.PIT_SERVICE_START: (Route.PIT_LANE, Route.PIT_SERVICE),
+    EventKind.PIT_SERVICE_END: (Route.PIT_SERVICE, Route.PIT_LANE),
+    EventKind.PIT_LANE_EXIT: (Route.PIT_LANE, Route.PIT_EXIT),
+    EventKind.TRACK_REJOIN: (Route.PIT_EXIT, Route.ON_TRACK),
+    EventKind.COARSE_PIT_TRANSITION: (Route.ON_TRACK, Route.PIT_TRANSITION_COARSE),
+}
+
+
 def _cross(
     state: RaceState, car: CarState, event: Event,
 ) -> tuple[RaceState, CarState]:
     checkpoint = event.checkpoint
     assert checkpoint is not None
     historical = state.mode is SimulationMode.HISTORICAL_RECONSTRUCTION
+    coarse = car.route is Route.PIT_TRANSITION_COARSE
     if checkpoint != car.completed_checkpoints + 1 and not (
-        historical and car.completed_checkpoints < checkpoint
+        (historical or (coarse and event.kind is EventKind.LAP_COMPLETED))
+        and car.completed_checkpoints < checkpoint
         and (checkpoint - 1) // 3 == car.completed_laps
     ):
         raise ValueError(f"Invalid checkpoint sequence for driver {car.driver_number}")
@@ -54,12 +67,16 @@ def _cross(
     car = replace(car, completed_checkpoints=checkpoint, last_crossing_us=event.at_us)
     if event.kind is not EventKind.LAP_COMPLETED:
         return state, car
-    if car.tyres.age_laps is not None:
+    if coarse:
+        car = replace(car, route=Route.ON_TRACK)
+    if (car.tyres.age_laps is not None
+            and car.completed_laps >= (car.tyres.stint_start_lap or 1)):
         car = replace(car, tyres=replace(car.tyres, age_laps=car.tyres.age_laps + 1))
     if state.chequered_us is None and car.completed_laps == state.ruleset.scheduled_laps:
         state = replace(state, chequered_us=event.at_us, phase=RacePhase.FINISHING)
     if state.chequered_us is not None:
-        car = replace(car, status=CarStatus.FINISHED, route=Route.OFF_TRACK, finish_us=event.at_us)
+        car = replace(car, status=CarStatus.FINISHED, route=Route.OFF_TRACK,
+                      finish_us=event.at_us, pit_box=None)
     return state, car
 
 
@@ -90,7 +107,39 @@ def run_checkpoint_window(initial: RaceState, events: Iterable[Event]) -> RaceRu
     return _run_timeline(initial, crossings, capability="S1")
 
 
-def _run_timeline(initial: RaceState, events: Iterable[Event], *, capability: str) -> RaceRun:
+def run_pit_window(
+    initial: RaceState, events: Iterable[Event],
+    diversions: Mapping[Event, tuple[Event, ...]],
+) -> RaceRun:
+    """Advance a declared S2 itinerary, replacing a car's racing plan on pit entry."""
+    if (
+        initial.phase not in (RacePhase.PRESTART, RacePhase.RUNNING)
+        or initial.mode is not SimulationMode.CONDITIONAL_SIMULATION
+        or initial.track_state not in (TrackState.GREEN, TrackState.VSC, TrackState.SC)
+        or any(car.status is not CarStatus.ACTIVE or car.route is not Route.ON_TRACK
+               for car in initial.cars)
+    ):
+        raise ValueError("Pit execution requires a declared conditional field on the racing route")
+    return _run_timeline(initial, events, capability="S2", diversions=diversions)
+
+
+def _pit_route_change(state: RaceState, car: CarState, event: Event) -> CarState:
+    expected, route = _PIT_ROUTE_CHANGES[event.kind]
+    if car.route is not expected:
+        raise ValueError(f"{event.kind.name} requires route {expected}")
+    if event.pit_box and any(other.pit_box == event.pit_box for other in state.cars):
+        raise ValueError(f"Pit box already occupied: {event.pit_box}")
+    fits_tires = event.kind in (EventKind.PIT_SERVICE_END, EventKind.COARSE_PIT_TRANSITION)
+    if fits_tires and (event.tyres is None or event.tyres.stint_number != car.tyres.stint_number + 1):
+        raise ValueError("Pit service must commit the next tire stint")
+    return replace(car, route=route, pit_box=event.pit_box if route is Route.PIT_SERVICE else None,
+                   tyres=event.tyres if fits_tires else car.tyres)
+
+
+def _run_timeline(
+    initial: RaceState, events: Iterable[Event], *, capability: str,
+    diversions: Mapping[Event, tuple[Event, ...]] | None = None,
+) -> RaceRun:
     scheduler = Scheduler(
         {car.driver_number: car.grid_position for car in initial.cars},
         scheduled_laps=initial.ruleset.scheduled_laps,
@@ -123,6 +172,7 @@ def _run_timeline(initial: RaceState, events: Iterable[Event], *, capability: st
         elif event.kind in {
             EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED,
             EventKind.PIT_ENTRY, EventKind.PIT_EXIT, EventKind.RETIREMENT,
+            *_PIT_ROUTE_CHANGES,
         }:
             index = next(i for i, car in enumerate(state.cars)
                          if car.driver_number == event.driver_number)
@@ -135,7 +185,15 @@ def _run_timeline(initial: RaceState, events: Iterable[Event], *, capability: st
             if event.kind in {EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED}:
                 state, car = _cross(state, car, event)
             elif event.kind is EventKind.RETIREMENT:
-                car = replace(car, status=CarStatus.RETIRED, route=Route.OFF_TRACK)
+                car = replace(car, status=CarStatus.RETIRED, route=Route.OFF_TRACK, pit_box=None)
+            elif event.kind in _PIT_ROUTE_CHANGES:
+                car = _pit_route_change(state, car, event)
+                if diversions is not None and event in diversions:
+                    generation = scheduler.invalidate(car.driver_number)
+                    for replacement in diversions[event]:
+                        if replacement.driver_number != car.driver_number:
+                            raise ValueError("A pit diversion can only reroute the pitting car")
+                        scheduler.schedule(replace(replacement, generation=generation))
             elif event.kind is EventKind.PIT_ENTRY:
                 if car.route is not Route.ON_TRACK:
                     raise ValueError("Pit entry requires a car on track")

@@ -91,3 +91,12 @@ prefix and emits one field snapshot with independent driver lap counts.
 `simulator.pace_field` allocates per-driver seeds and schedules checkpoint
 events from complete pace draws. The backtest attaches retrospective
 clean-air labels after prediction. [Stage 5.1 specification](STAGE5_S1_SPEC.md)
+
+## Stage 5.2 pit integration
+
+`simulator.pit_execution` builds resolved and coarse itineraries for the
+shared checkpoint scheduler. The race engine commits route changes and tire
+fits. `simulator.pit_pace` preserves S1's old-stint prefix and uses the
+frozen D8 replacement request for subsequent laps. The optional P1 loader
+consumes only ex-ante features and supplies a provisional net cost.
+[Stage 5.2 specification](STAGE5_S2_SPEC.md)
