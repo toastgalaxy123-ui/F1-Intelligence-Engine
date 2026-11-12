@@ -102,8 +102,9 @@ f1ri stage5-replay --session-key 9987 --scheduled-laps 63
 
 Use `--warehouse` for an existing DuckDB file or `--output` to save the JSON
 audit. To build a missing session, run `f1ri ingest --year 2025 --session-key
-<key> --full` and then `f1ri build --year 2025 --session-key <key>`. See the
-[replay report](artifacts/reports/stage5_replay.md) for the two race audits.
+<key> --full` and then `f1ri build --year 2025 --session-key <key>`.
+See the [Stage 5 report](artifacts/reports/stage5_full_report.md) for results,
+engineering validation, and the remaining forecasting work.
 
 ## Useful SQL
 
