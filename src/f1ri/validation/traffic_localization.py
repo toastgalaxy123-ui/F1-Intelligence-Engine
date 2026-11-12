@@ -24,6 +24,12 @@ from f1ri.simulator.proximity import (
 )
 from f1ri.validation.proximity_pilot import _asof, _driver_rows, _fixes, _physical_row, _pit_route
 from f1ri.validation.traffic_acquisition import TrafficWindow
+from f1ri.validation.traffic_coverage import (
+    MATCHED_RETRO,
+    NO_SPEED,
+    CoverageReplay,
+    observation_context,
+)
 
 
 def _abs_seconds(left, right):
@@ -105,12 +111,13 @@ def control_passage_checks(
 
 def independent_marker_checks(
     geometry: TrackGeometry, markers: list[float], traces, laps: pd.DataFrame, window: TrafficWindow,
-    reference_driver: int, used_drivers: set[int], tolerance: float,
+    reference_driver: int, used_drivers: set[int], tolerance: float, maximum_laps: int = 1,
 ) -> list[dict]:
     start, end = window.telemetry.start_utc, window.telemetry.end_utc
     eligible = laps[laps.is_clean_green_pace_lap & laps.sector_1_s.notna() & laps.sector_2_s.notna()
                     & laps.lap_start_utc.gt(start + timedelta(seconds=tolerance))
                     & laps.lap_end_estimate_utc.lt(end - timedelta(seconds=tolerance))]
+    rows = []
     for lap in eligible.itertuples():
         if lap.driver_number == reference_driver or lap.driver_number in used_drivers:
             continue
@@ -124,7 +131,6 @@ def independent_marker_checks(
         first = lap.lap_start_utc
         times = (first, first + timedelta(seconds=lap.sector_1_s),
                  first + timedelta(seconds=lap.sector_1_s + lap.sector_2_s), line_end)
-        rows = []
         for label, marker, at in zip(("start", "sector_1", "sector_2", "finish"),
                                       (*markers, 0.), times, strict=True):
             crossings = forward_passages(own, marker, geometry.length_m)
@@ -133,8 +139,9 @@ def independent_marker_checks(
                          "lap_number": int(lap.lap_number), "marker": label, "timing_utc": at,
                          "projected_utc": match, "error_s": (match - at).total_seconds() if match else None})
         used_drivers.add(lap.driver_number)
-        return rows
-    return []
+        if len(rows) >= maximum_laps * 4:
+            break
+    return rows
 
 
 def dropout_checks(geometry: TrackGeometry, traces, window: str, stride: int) -> list[dict]:
@@ -174,6 +181,7 @@ def localize_window(
     geometry: TrackGeometry, window: TrafficWindow, location: pd.DataFrame, speed: pd.DataFrame, inputs: dict,
     markers: list[float], config: dict, period: float, reference_driver: int, used_drivers: set[int],
     off_track_evidence: dict[int, dict],
+    *, coverage_replay: CoverageReplay | None = None, marker_laps_per_window: int = 1,
 ) -> tuple[list[dict], list[dict], dict, dict[str, list[dict]]]:
     drivers = inputs["drivers"].driver_number
     split = {int(driver): frame for driver, frame in location.groupby("driver_number")}
@@ -187,27 +195,37 @@ def localize_window(
     positions, neighbors = [], []
     metrics, reasons = Counter(), Counter()
     start, end = window.telemetry.start_utc, window.telemetry.end_utc
+    modes = [(mode.value, mode) for mode in LocalizationMode]
+    if coverage_replay is not None:
+        modes.extend(((NO_SPEED, LocalizationMode.POINT_IN_TIME), (MATCHED_RETRO, LocalizationMode.RETROSPECTIVE)))
     at = start + timedelta(seconds=period)
     while at < end:
         metadata = {"session_key": window.telemetry.session_key, "window": window.name,
                     "window_kind": window.kind, "layout_version": geometry.version, "as_of_utc": at,
                     "track_state": "GREEN"}
-        for mode in LocalizationMode:
+        indices = {driver: bisect_right(times[driver], at) for driver in traces}
+        if coverage_replay is not None:
+            contexts = {driver: observation_context(
+                trace, indices[driver], _asof(car_speed, driver, at), at, start, end,
+                markers, config["speed_fallback_max_age_s"],
+            ) for driver, trace in traces.items()}
+        for label, mode in modes:
             cars = []
             speed_clocks = {}
             for driver, trace in traces.items():
-                i = bisect_right(times[driver], at)
+                i = indices[driver]
                 after = int(mode is LocalizationMode.RETROSPECTIVE)
                 # Projection is forward-only. The archive uses its sample clock
                 # as availability, so only the local visible prefix is needed.
                 prefix = trace[max(0, i - 2):i + after]
                 fallback_speed, speed_utc = None, None
-                if mode is LocalizationMode.POINT_IN_TIME:
+                if mode is LocalizationMode.POINT_IN_TIME and label != NO_SPEED:
                     fallback_speed, speed_utc = recent_speed_at(
                         car_speed, driver, at, config["speed_fallback_max_age_s"],
                     )
                 car = _physical_row(geometry, prefix, at, driver, mode, laps, reported,
-                                    pits.get(driver, ((), ()))[1], fallback_speed_mps=fallback_speed)
+                                    pits.get(driver, ((), ()))[1], fallback_speed_mps=fallback_speed,
+                                    route_mode=LocalizationMode.POINT_IN_TIME if label == MATCHED_RETRO else None)
                 car = apply_off_track_evidence(car, at, off_track_evidence.get(driver))
                 if car.reason == "CAR_SPEED_FALLBACK":
                     speed_clocks[driver] = speed_utc
@@ -215,6 +233,10 @@ def localize_window(
             snapshot = PhysicalSnapshot(window.telemetry.session_key, at, geometry.version,
                                         geometry.length_m, tuple(cars))
             groups = physical_neighborhoods(snapshot)
+            if coverage_replay is not None:
+                coverage_replay.capture(metadata, label, snapshot, groups, contexts, off_track_evidence)
+            if label != mode.value:
+                continue
             metrics[f"{mode.value}_snapshots"] += 1
             metrics[f"{mode.value}_complete"] += snapshot.complete
             for car in cars:
@@ -247,12 +269,15 @@ def localize_window(
                     "completed_laps": car.completed_laps, "classification": car.classification,
                 })
         at += timedelta(seconds=period)
+    if coverage_replay is not None:
+        coverage_replay.check_dropouts(geometry, traces, car_speed, window, config)
     checks = {
         "control_passages": control_passage_checks(geometry, traces, inputs["passes"], pits, window, config),
         "dropped_fixes": dropout_checks(geometry, traces, window.name, config["dropout_stride"]),
         "markers": independent_marker_checks(geometry, markers, traces, inputs["laps"], window,
                                              reference_driver, used_drivers,
-                                             config["maximum_timing_marker_match_s"])
+                                             config["maximum_timing_marker_match_s"],
+                                             min(marker_laps_per_window, config["independent_laps"] - len(used_drivers)))
         if len(used_drivers) < config["independent_laps"] else [],
     }
     quality = {

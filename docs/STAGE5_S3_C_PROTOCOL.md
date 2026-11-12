@@ -102,3 +102,47 @@ Use `ENGINEERING_VERIFIED` for known-result mechanics,
 `RESEARCH_ONLY` for experimental outputs. Statistical approval and
 dynamic simulator approval have separate gates. A lap-level model needs
 independent traversal-level validation before checkpoint integration.
+
+## Paired coverage replay and Hungary extension
+
+The coverage command adds three comparisons to the frozen point-in-time
+replay. One disables archived speed fallback. One interpolates using the
+same cutoff-visible route mask. The original retrospective replay keeps its
+archived pit mask and is reported separately. All modes share the sample
+clock, roster and geometry. Diagnostics keep the evidence-backed off-track
+rows and every unresolved driver. The sector for a loss is the sector of
+its latest projected observation when available. The first and last second
+of a window are reported separately from its interior.
+
+The development pilot is frozen to Hungary. Within each stratum in priority
+order, it uses the earliest original anchor for which 300 seconds before
+and 20 seconds after fit inside a high-confidence green interval after
+geometry availability. Each block is disjoint from previously selected
+blocks. This produces one close, one clean and one random 480-second block.
+The original draws remain intact. Existing bounded slices are reused wherever
+they overlap a block. New queries fill the uncovered intervals with one
+second of overlap at internal joins. Merging deduplicates the raw driver
+and timestamp keys and excludes conflicting coordinates or speeds.
+The longer blocks still use the existing four-driver timing screen. The
+final block supplies any outstanding check slots, keeping failed marker
+checks in the denominator.
+[Frozen acquisition budget](../config/experiments/stage5_s3_c_coverage_pilot.yaml)
+
+The audit keeps all sampled lap-start cutoffs in a separate table and
+records full-window eligibility and censoring on the outcome ledger.
+The matched-control clock is bounded by elapsed completion, next timing
+lines and relevant archive evidence for overlapping laps and pit reports.
+Pre-cutoff same-stint history comes from the existing D8 request builder.
+An earlier completed development control must have its audit evidence
+available before a target's cutoff. The extension uses one record per
+session, driver and lap. Within the blocks it uses the extension replay,
+and it may use earlier original controls outside the blocks. These clocks
+use the observation-time proxy for source availability.
+
+Report fragments and sampled segments separately from unique following
+laps, drivers, stints and driver–leader–stint groups. One group may
+contribute several laps or fragments, so group counts are concentration
+diagnostics. Imola stays reconstruction-only. Hungary was part of the
+reported Stage 3 test cohort, with D8 selection and calibration on the
+earlier validation cohort. Monza is an inspected validation race. This
+increment leaves model fitting and the reserved races closed.

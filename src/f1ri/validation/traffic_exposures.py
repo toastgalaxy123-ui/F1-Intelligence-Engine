@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from bisect import bisect_left, bisect_right
 from collections import Counter
+from dataclasses import dataclass, field
 from datetime import timedelta
 from itertools import groupby
 
@@ -11,6 +12,12 @@ import pandas as pd
 from f1ri.features.physical_positions import LocalizationMode
 
 _LAP_RELATIONS = {"SAME_LAP", "LAPPING", "BEING_LAPPED"}
+
+
+@dataclass(slots=True)
+class LapEligibilityAudit:
+    cutoffs: list[dict] = field(default_factory=list)
+    outcomes: list[dict] = field(default_factory=list)
 
 
 def exposure_state(row: dict, config: dict) -> str:
@@ -102,6 +109,7 @@ def build_traffic_exposures(neighbors: list[dict], config: dict, period: float) 
 
 def lap_opportunities(
     neighbors: list[dict], segments: list[dict], laps: pd.DataFrame, config: dict, split: str,
+    *, audit: LapEligibilityAudit | None = None,
 ) -> tuple[list[dict], list[dict], dict]:
     """Expose the forecast input at lap start and hold elapsed-time outcomes separately."""
     exposure, reference = config["exposure"], config["reference"]
@@ -126,31 +134,73 @@ def lap_opportunities(
         own = by_driver.get(driver)
         if own is None:
             continue
-        targets = own[own.lap_start_utc.between(times[0], times[-1]) & own.observed_lap_time_s.notna()]
+        targets = own[own.lap_start_utc.between(times[0], times[-1])]
+        if audit is not None:
+            left = own[own.lap_start_utc.lt(times[0]) & own.lap_end_estimate_utc.gt(times[0])]
+            for lap_number, lap in left.iterrows():
+                key = rows[0]["session_key"]
+                audit.outcomes.append({
+                    "opportunity_id": f"{key}/{driver}/{lap_number}", "session_key": key,
+                    "split": split, "driver_number": driver, "lap_number": int(lap_number),
+                    "window": window, "window_kind": rows[0]["window_kind"], "as_of_utc": lap.lap_start_utc,
+                    "screen": "LEFT_TRUNCATED_WINDOW", "full_lap": False,
+                })
         for lap_number, lap in targets.iterrows():
             start = lap.lap_start_utc
+            cutoff = rows[bisect_right(times, start) - 1]
+            state = exposure_state(cutoff, exposure)
+            opportunity = f"{cutoff['session_key']}/{driver}/{lap_number}"
+            common = {"opportunity_id": opportunity, "split": split, "session_key": cutoff["session_key"],
+                      "driver_number": driver, "lap_number": int(lap_number)}
+            feature = common | {
+                "as_of_utc": start, "physical_as_of_utc": cutoff["as_of_utc"], "window": window,
+                "opponent_number": cutoff["ahead"], "encounter": cutoff["encounter"],
+                "cutoff_exposure": state, "gap_m": cutoff["gap_m"],
+                "gap_lower_m": cutoff["gap_lower_m"], "gap_upper_m": cutoff["gap_upper_m"],
+            }
+            ledger = {}
+            if audit is not None:
+                audit.cutoffs.append(feature | {"window_kind": cutoff["window_kind"], "horizon_laps": 1})
+                ledger = common | {
+                    "window": window, "window_kind": cutoff["window_kind"], "as_of_utc": start,
+                    "stint_number": int(lap.stint_number) if pd.notna(lap.stint_number) else None,
+                    "track_status": lap.track_status, "archive_pass_indication": lap.had_in_lap_on_track_pass,
+                    "pit_or_stint_transition": bool(lap.is_pit_lap or lap.stint_pit_mismatch),
+                    "cutoff_episode_id": episode_at.get((window, driver, cutoff["as_of_utc"])),
+                    "cutoff_exposure": state,
+                    "full_lap": False,
+                }
+                audit.outcomes.append(ledger)
+            if pd.isna(lap.observed_lap_time_s):
+                ledger["screen"] = "MISSING_OBSERVED_ELAPSED"
+                continue
             elapsed = float(lap.observed_lap_time_s)
             end = start + timedelta(seconds=elapsed)
+            ledger["completed_utc"] = end
             if end > times[-1] + period_delta or elapsed <= 0:
                 counts["PARTIAL_WINDOW"] += 1
+                ledger["screen"] = "PARTIAL_WINDOW"
                 continue
             counts["FULL_LAPS_IN_WINDOW"] += 1
+            ledger["full_lap"] = True
             next_lap = lap_number + 1
             if next_lap not in own.index or abs((own.loc[next_lap].lap_start_utc - end).total_seconds()) > 2:
                 counts["TIMING_BOUNDARY_UNSUPPORTED"] += 1
+                ledger["screen"] = "TIMING_BOUNDARY_UNSUPPORTED"
                 continue
+            ledger["next_line_utc"] = own.loc[next_lap].lap_start_utc
             if lap.track_status != "GREEN" or not lap.confirmed_green_lap or lap.rainfall != 0:
                 counts["GREEN_DRY_OUTCOME_UNSUPPORTED"] += 1
+                ledger["screen"] = "GREEN_DRY_OUTCOME_UNSUPPORTED"
                 continue
             if lap.is_pit_lap or lap.stint_pit_mismatch:
                 counts["PIT_OR_STINT_TRANSITION"] += 1
+                ledger["screen"] = "PIT_OR_STINT_TRANSITION"
                 continue
             if lap.had_in_lap_on_track_pass:
                 counts["ARCHIVE_PASS_INDICATION_CENSORED"] += 1
+                ledger["screen"] = "ARCHIVE_PASS_INDICATION_CENSORED"
                 continue
-            cutoff_index = bisect_right(times, start) - 1
-            cutoff = rows[cutoff_index]
-            state = exposure_state(cutoff, exposure)
             samples = rows[bisect_left(times, start):bisect_left(times, end)]
             usable = []
             for sample in samples:
@@ -161,8 +211,10 @@ def lap_opportunities(
                         and retrospective["route"] == "RACING" and other and other["route"] == "RACING"):
                     usable.append(sample)
             support = min(1., len(usable) * period / elapsed)
+            ledger["physical_coverage"] = support
             if support < reference["label_minimum_coverage"] or state == "UNSUPPORTED":
                 counts["PHYSICAL_SUPPORT_BELOW_MINIMUM"] += 1
+                ledger["screen"] = "PHYSICAL_SUPPORT_BELOW_MINIMUM"
                 continue
             clear_fraction = sum(exposure_state(sample, exposure) == "CLEAR" for sample in usable) / len(usable)
             close_fraction = sum(exposure_state(sample, exposure) == "CLOSE" for sample in usable) / len(usable)
@@ -174,15 +226,13 @@ def lap_opportunities(
             cutoff_episode = episode_at.get((window, driver, cutoff["as_of_utc"]))
             if state == "CLOSE" and cutoff_episode in episode_ids:
                 kind = "FOLLOWING"
-            opportunity = f"{cutoff['session_key']}/{driver}/{lap_number}"
-            common = {"opportunity_id": opportunity, "split": split, "session_key": cutoff["session_key"],
-                      "driver_number": driver, "lap_number": int(lap_number)}
-            features.append(common | {
-                "as_of_utc": start, "physical_as_of_utc": cutoff["as_of_utc"], "window": window,
-                "opponent_number": cutoff["ahead"], "encounter": cutoff["encounter"],
-                "cutoff_exposure": state, "gap_m": cutoff["gap_m"],
-                "gap_lower_m": cutoff["gap_lower_m"], "gap_upper_m": cutoff["gap_upper_m"],
+            ledger.update({
+                "screen": kind, "cutoff_episode_id": cutoff_episode,
+                "cutoff_encounter_continued": cutoff_episode in episode_ids,
+                "later_or_different_episode": any(identifier != cutoff_episode for identifier in episode_ids),
+                "outcome_episode_ids": episode_ids, "cutoff_opponent": cutoff["ahead"],
             })
+            features.append(feature)
             outcomes.append(common | {
                 "completed_utc": end, "observed_lap_s": elapsed, "outcome_group": kind,
                 "physical_coverage": support, "clear_fraction": clear_fraction,

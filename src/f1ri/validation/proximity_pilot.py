@@ -192,14 +192,15 @@ def _asof(lookup, driver, at):
     return rows[index] if index >= 0 else None
 
 
-def _physical_row(geometry, trace, at, driver, mode, laps, reported, pits, *, fallback_speed_mps=None):
+def _physical_row(geometry, trace, at, driver, mode, laps, reported, pits, *,
+                  fallback_speed_mps=None, route_mode=None):
     lap, position = _asof(laps, driver, at), _asof(reported, driver, at)
     lap_count = int(lap.lap_number) - 1 if lap else None
     classification = int(position.position) if position and pd.notna(position.position) else None
     if lap is None or (at - lap.lap_start_utc).total_seconds() > 160:
         return TrackPosition(driver, PhysicalRoute.UNKNOWN, lap_count, classification,
                              reason="LAP_EVIDENCE_MISSING_OR_STALE")
-    route, route_reason = _pit_route(at, mode, pits)
+    route, route_reason = _pit_route(at, route_mode or mode, pits)
     if route is not PhysicalRoute.RACING:
         return TrackPosition(driver, route, lap_count, classification, reason=route_reason)
     if mode is LocalizationMode.POINT_IN_TIME:

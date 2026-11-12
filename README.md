@@ -164,6 +164,18 @@ f1ri stage5-s3-continue --warehouse /path/to/f1ri.duckdb \
 
 [Continuation results](artifacts/reports/stage5_s3_c_validation.md)
 
+The coverage replay audits missing cars and compares the original Hungary
+windows with the frozen development extension. It writes to a separate run
+directory by default.
+
+```bash
+f1ri stage5-s3-continue --warehouse /path/to/f1ri.duckdb \
+  --stage3-root /path/to/original-stage3-project \
+  --coverage-pilot config/experiments/stage5_s3_c_coverage_pilot.yaml
+```
+
+[Coverage and target-readiness report](artifacts/reports/stage5_s3_c_coverage_report.md)
+
 ## Useful SQL
 
 ```python

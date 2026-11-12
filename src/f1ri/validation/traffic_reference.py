@@ -13,6 +13,7 @@ from f1ri.simulator.pace_adapter import PaceBundle, UnsupportedPaceForecast, for
 
 def clean_pace_references(
     warehouse: Path, scheduled_laps: int, features: list[dict], bundle: PaceBundle, config: dict,
+    *, audit_history: bool = False,
 ) -> list[dict]:
     rows = []
     for feature in features:
@@ -24,12 +25,19 @@ def clean_pace_references(
                 or cutoff <= max(bundle.trained_through_utc, bundle.calibrated_through_utc)):
             rows.append(base | {"pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE"})
             continue
-        field = build_field_snapshot(warehouse, key, cutoff.to_pydatetime(), scheduled_laps, 1)
+        history = {} if audit_history else None
+        field = build_field_snapshot(warehouse, key, cutoff.to_pydatetime(), scheduled_laps, 1,
+                                     clean_history_audit=history)
         subject = next(driver for driver in field.drivers if driver.driver_number == feature["driver_number"])
         request = subject.request
         if request is None or request.planned_start_lap != feature["lap_number"]:
             rows.append(base | {"pace_status": subject.support_reason or "PACE_LAP_ALIGNMENT_UNSUPPORTED"})
             continue
+        if audit_history:
+            evidence = history.get(subject.driver_number, [])
+            base |= {"stint_number": request.stint_number,
+                     "prior_clean_lap_numbers": [row["lap_number"] for row in evidence],
+                     "prior_clean_available_by_utc": [row["available_by_utc"] for row in evidence]}
         if request.clean_laps_observed_current_stint < config["minimum_prior_clean_stint_laps"]:
             rows.append(base | {"pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS"})
             continue
@@ -55,6 +63,8 @@ def clean_pace_references(
 def residual_research(references: list[dict], outcomes: list[dict], config: dict) -> list[dict]:
     """Join elapsed outcomes after forecasting and match only completed development controls."""
     by_id = {row["opportunity_id"]: row for row in outcomes}
+    if len(by_id) != len(outcomes) or len({row["opportunity_id"] for row in references}) != len(references):
+        raise ValueError("Traffic residuals require unique session, driver and lap keys")
     rows = []
     for ref in references:
         if ref["pace_status"] != SUPPORT_SUPPORTED:
@@ -65,13 +75,18 @@ def residual_research(references: list[dict], outcomes: list[dict], config: dict
         rows.append(outcome | ref | {"signed_residual_s": outcome["observed_lap_s"] - ref["expected_clean_s"]})
     controls = [row for row in rows if row["outcome_group"] == "CLEAN_CONTROL" and row["split"] == "development"]
     for row in rows:
-        matched = [control["signed_residual_s"] for control in controls
-                   if control["completed_utc"] < row["as_of_utc"]
+        matched = [control for control in controls
+                   if control["opportunity_id"] != row["opportunity_id"]
+                   and control["completed_utc"] < row["as_of_utc"]
+                   and control.get("outcome_available_by_utc", control["completed_utc"]) < row["as_of_utc"]
                    and control["compound"] == row["compound"]
                    and abs(control["tyre_age"] - row["tyre_age"]) <= config["control_max_tyre_age_delta"]
                    and abs(control["race_progress"] - row["race_progress"]) <= config["control_max_progress_delta"]]
-        bias = median(matched) if len(matched) >= config["minimum_matched_controls"] else None
+        bias = (median(control["signed_residual_s"] for control in matched)
+                if len(matched) >= config["minimum_matched_controls"] else None)
         row["matched_control_count"] = len(matched)
+        if "outcome_available_by_utc" in row:
+            row["matched_control_ids"] = [control["opportunity_id"] for control in matched]
         row["clean_control_bias_s"] = bias
         row["signed_proxy_s"] = row["signed_residual_s"] - bias if bias is not None else None
     return rows

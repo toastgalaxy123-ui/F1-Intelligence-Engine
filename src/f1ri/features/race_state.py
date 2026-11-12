@@ -137,6 +137,29 @@ def _known(value):
     return None if pd.isna(value) else value
 
 
+def _prior_clean_laps(laps: pd.DataFrame, next_lap: int, cutoff: datetime) -> pd.DataFrame:
+    past = laps[(laps.lap_number < next_lap) & (laps.lap_end_estimate_utc <= cutoff)]
+    return past[past.is_clean_green_pace_lap.fillna(False) & past.compound.isin(DRY_COMPOUNDS)]
+
+
+def _clean_lap_evidence(laps: pd.DataFrame, request: StintForecastRequest) -> list[dict]:
+    clean = _prior_clean_laps(laps, request.planned_start_lap, request.as_of_utc)
+    clean = clean[clean.stint_number.eq(request.stint_number) & clean.observed_lap_time_s.notna()]
+    starts = laps.set_index("lap_number").lap_start_utc.to_dict()
+    evidence = []
+    for row in clean.itertuples():
+        next_line = starts.get(row.lap_number + 1)
+        if pd.isna(next_line):
+            raise ValueError("Visible clean history requires its next timing line")
+        available = max(row.lap_end_estimate_utc, next_line)
+        if available > request.as_of_utc:
+            raise ValueError("Visible clean history cannot depend on future timing")
+        evidence.append({"lap_number": int(row.lap_number), "available_by_utc": available})
+    if len(evidence) != request.clean_laps_observed_current_stint:
+        raise ValueError("Clean history audit differs from the Pace V2 request")
+    return evidence
+
+
 def _driver_request(
     session: dict, driver: dict, grid: dict, laps: pd.DataFrame, current: pd.Series,
     weather: dict, allocations: pd.DataFrame, cutoff: datetime, distance: int, horizon: int,
@@ -147,7 +170,7 @@ def _driver_request(
     meeting = int(session["meeting_key"])
     allocation = resolve_compound_allocation(allocations, meeting, compound, cutoff)
     past = laps[(laps.lap_number < next_lap) & (laps.lap_end_estimate_utc <= cutoff)]
-    clean = past[past.is_clean_green_pace_lap.fillna(False) & past.compound.isin(DRY_COMPOUNDS)]
+    clean = _prior_clean_laps(laps, next_lap, cutoff)
     stats = compute_recent_clean_stats(clean, current_stint=stint, target_lap_number=next_lap)
     stint_clean = clean[clean.stint_number == stint]
     previous = past[past.stint_number < stint]
@@ -184,6 +207,7 @@ def _driver_request(
 
 def build_field_snapshot(
     warehouse: Path, session_key: int, cutoff: datetime, scheduled_laps: int, horizon: int,
+    *, clean_history_audit: dict[int, list[dict]] | None = None,
 ) -> FieldSnapshot:
     """Build the whole field from one observation cutoff without joining race results."""
     if cutoff.utcoffset() is None or scheduled_laps <= 0 or not 1 <= horizon <= 20:
@@ -250,6 +274,8 @@ def build_field_snapshot(
                     session, driver, grid.get(number, {}), laps, current, weather,
                     frames["allocations"], cutoff, scheduled_laps, horizon,
                 )
+                if clean_history_audit is not None:
+                    clean_history_audit[number] = _clean_lap_evidence(laps, request)
         drivers.append(DriverSnapshot(number, completed, crossing, elapsed,
                                       positions.get(number), gaps.get(number), request, reason))
     sectors = context.loc[context.is_clean_green_pace_lap.fillna(False),

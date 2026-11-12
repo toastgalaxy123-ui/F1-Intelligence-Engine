@@ -1,0 +1,13 @@
+version: s3-c-coverage-v1
+frozen_protocol_sha256: e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda
+session_key: 9928
+split: development
+selection: earliest_original_anchor_within_stratum_then_nonoverlap
+strata_priority: [close_seed, clean_seed, random_green]
+prefix_seconds: 300
+suffix_seconds: 20
+maximum_chunk_seconds: 180
+boundary_overlap_seconds: 1
+maximum_new_source_seconds: 820
+maximum_new_requests: 18
+anchors: [close_seed_132236, clean_seed_133350, random_green_134657]

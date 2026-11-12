@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import duckdb
@@ -14,9 +14,16 @@ from f1ri.ingestion.telemetry import TelemetryWindow, load_telemetry_window
 
 
 @dataclass(frozen=True, slots=True)
+class ReplaySpan:
+    session_key: int
+    start_utc: datetime
+    end_utc: datetime
+
+
+@dataclass(frozen=True, slots=True)
 class TrafficWindow:
     kind: str
-    telemetry: TelemetryWindow
+    telemetry: TelemetryWindow | ReplaySpan
     seed_driver: int | None = None
     seed_lap: int | None = None
 

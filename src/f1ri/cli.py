@@ -124,7 +124,9 @@ def main() -> None:
     p.add_argument("--warehouse", type=Path, required=True, help="Warehouse with the initial race cohort")
     p.add_argument("--stage3-root", type=Path, help="Original project with the frozen Pace V2 artifact")
     p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_c_protocol.yaml"))
-    p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_c"))
+    p.add_argument("--output", type=Path, help="Run directory. Coverage options default to a separate run.")
+    p.add_argument("--coverage-diagnostics", action="store_true", help="Replay paired coverage modes and audit targets")
+    p.add_argument("--coverage-pilot", type=Path, help="Run the frozen Hungary extension plan with the diagnostics")
     p.add_argument("--ingest", action="store_true", help="Fetch missing bounded OpenF1 windows")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
@@ -195,11 +197,15 @@ def main() -> None:
     elif args.command == "stage5-s3-continue":
         from f1ri.validation.traffic_continuation import run_traffic_continuation
 
+        run_name = "stage5_s3_c_coverage" if args.coverage_diagnostics or args.coverage_pilot else "stage5_s3_c"
+        output = root / (args.output or Path("artifacts/runs") / run_name)
         result = run_traffic_continuation(root, root / args.warehouse, root / args.config,
-                                          root / args.output, ingest=args.ingest,
-                                          stage3_root=root / args.stage3_root if args.stage3_root else None)
+                                          output, ingest=args.ingest,
+                                          stage3_root=root / args.stage3_root if args.stage3_root else None,
+                                          coverage_diagnostics=args.coverage_diagnostics,
+                                          coverage_pilot=root / args.coverage_pilot if args.coverage_pilot else None)
         print(f"Stage 5.3-C | {len(result['races'])} races | {result['traffic_model_status']}")
-        print(root / args.output / "metrics.json")
+        print(output / "metrics.json")
     elif args.command == "stage5-s3":
         from f1ri.validation.proximity_pilot import run_stage5_s3
 
