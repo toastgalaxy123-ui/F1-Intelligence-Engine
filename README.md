@@ -106,6 +106,22 @@ audit. To build a missing session, run `f1ri ingest --year 2025 --session-key
 See the [Stage 5 report](artifacts/reports/stage5_full_report.md) for results,
 engineering validation, and the remaining forecasting work.
 
+### Stage 5.1 — Pace V2 field simulation
+
+Run the numerical parity checks, historical clean-air backtest, and
+conditional field simulations with the frozen Stage 3 bundle.
+
+```bash
+f1ri stage5-s1 --stage3-root /path/to/original-stage3-project
+```
+
+The Stage 3 root supplies the saved model, run metadata, and original
+warehouse. The local warehouse supplies the two new-to-Pace sessions
+(`9920` and `9904`), or use `--holdout-warehouse`. The command writes
+metrics, snapshots, trajectory samples, and diagnostics to
+`artifacts/runs/stage5_s1_pace`. The frozen model covers the 2023–2025 era.
+[Stage 5.1 validation report](artifacts/reports/stage5_s1_validation.md)
+
 ## Useful SQL
 
 ```python

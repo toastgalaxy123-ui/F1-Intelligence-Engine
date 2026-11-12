@@ -1,0 +1,20 @@
+experiment: stage5_s1_pace
+seed: 42
+samples: 1000
+field_realizations: 100
+horizons: [1, 3, 5, 10, 15, 20]
+leader_completed_laps: [10, 20, 30, 40]
+
+cohorts:
+  development:
+    - {session_key: 9896, scheduled_laps: 62, label: Singapore 2025}
+  stage3_test_reuse:
+    - {session_key: 9955, scheduled_laps: 71, label: Austria 2025}
+    - {session_key: 9928, scheduled_laps: 70, label: Hungary 2025}
+    - {session_key: 9888, scheduled_laps: 56, label: United States 2025}
+    - {session_key: 9839, scheduled_laps: 58, label: Abu Dhabi 2025}
+  new_to_pace:
+    - {session_key: 9920, scheduled_laps: 72, label: Netherlands 2025}
+    - {session_key: 9904, scheduled_laps: 51, label: Azerbaijan 2025}
+  transfer_2026:
+    - {session_key: 11388, scheduled_laps: 62, label: Singapore 2026}

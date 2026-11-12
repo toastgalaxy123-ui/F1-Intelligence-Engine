@@ -101,6 +101,12 @@ def main() -> None:
     p.add_argument("--scheduled-laps", type=int, required=True, help="Prescribed race distance")
     p.add_argument("--warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
     p.add_argument("--output", type=Path, help="Save the JSON audit at this path")
+    p = sub.add_parser("stage5-s1", help="Verify and backtest frozen Pace V2 field integration")
+    p.add_argument("--stage3-root", type=Path, required=True, help="Project with the saved Stage 3 run")
+    p.add_argument("--warehouse", type=Path, help="Override the Stage 3 warehouse path")
+    p.add_argument("--holdout-warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
+    p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s1_pace.yaml"))
+    p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s1_pace"))
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
     p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
@@ -167,6 +173,16 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-s1":
+        from f1ri.validation.pace_integration_backtest import run_stage5_s1
+
+        stage3 = root / args.stage3_root
+        warehouse = root / args.warehouse if args.warehouse else stage3 / "data/warehouse/f1ri.duckdb"
+        result = run_stage5_s1(root, stage3, warehouse, root / args.holdout_warehouse,
+                               root / args.config, root / args.output)
+        print(f"Stage 5.1 | {len(result['parity'])} frozen parity cases | "
+              f"{len(result['opportunities'])} field cutoffs | {len(result['skipped'])} skips")
+        print(root / args.output / "metrics.json")
     elif args.command == "stage5-replay":
         import json
 

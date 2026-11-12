@@ -17,7 +17,8 @@ chronological cohorts before evaluating forecasting accuracy.
 | S4 | Experimental incident and race-control scenarios |
 | S5 | Integrated forecasting with independent evidence of skill and calibration |
 
-The current release implements S0. An engineering release requires correct
+The current release implements S0 and the conditional Pace V2 integration
+described in the [Stage 5.1 specification](STAGE5_S1_SPEC.md). An engineering release requires correct
 state transitions, reproducible traces, and explicit handling of missing data.
 Forecast approval requires chronological, race-weighted validation against
 simple probabilistic baselines, useful calibration, and an explicit support
@@ -29,7 +30,7 @@ domain. Strategy optimization is Stage 6.
 | --- | --- |
 | Historical reconstruction | `replay_session` reads recorded laps, pit events, track states and end-of-session evidence. Official position and lap totals serve as comparison targets. DNF/DNS flags may establish retrospective participation status. |
 | Conditional simulation | `simulate_deterministic` accepts an initial grid and explicit lap, pit and retirement inputs. It has no data-source access. |
-| Genuine forecasting | Reserved for a cutoff-bound entry point. Initialize from observations available at the cutoff, with training data and artifacts frozen before that cutoff. All future events must come from the model bundle. |
+| Genuine forecasting | S1 uses cutoff-bound observations for clean-air pace under a declared continuation. Integrated race forecasting requires model-generated future events and independent calibration evidence. |
 
 Persist the mode, capability, session identity, scenario or cutoff, ruleset,
 model versions and seed with future probabilistic artifacts. Test forecast

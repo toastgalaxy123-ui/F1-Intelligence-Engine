@@ -144,3 +144,19 @@ penalty. Shared reference error enters the normal reference positively and the
 pit loss negatively. Pre-stop requests reject realized service time and actual
 future track-state timelines. See [STAGE4_SPEC.md](STAGE4_SPEC.md) for full modes,
 timing quality, event taxonomy and unsupported neutralization cases.
+
+## Stage 5.1 snapshot and outcome contracts
+
+- A field snapshot uses one UTC cutoff. Each driver carries a last observed
+  crossing, completed-lap count, elapsed time in the current lap, optional
+  reported position and gap, and a continuation request or support reason.
+- Current-lap durations and sectors are masked until a dated next-lap start
+  confirms completion. Dated pit reports and lap starts bound the visible
+  stint prefix. Final results and future stint endpoints are absent from inputs.
+- Each trajectory batch carries the unchanged Stage 3 forecast, a
+  realizations-by-laps array, the artifact digest, and a driver stream
+  identity. Checkpoint accounting retains clean lap time, elapsed time
+  before cutoff, following delay, and crossing time in microseconds.
+- Evaluation starts at the first full future lap. A complete-window metric
+  requires clean, same-stint outcomes for every target lap. Eligibility and
+  censoring are retrospective fields. [Stage 5.1 specification](STAGE5_S1_SPEC.md)

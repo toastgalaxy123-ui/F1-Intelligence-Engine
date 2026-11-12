@@ -45,8 +45,10 @@ and uncertainty/residual diagnostics are acceptable.
 - S0 implements race state, a deterministic checkpoint engine, and historical
   replay. See [the specification](STAGE5_SPEC.md) and
   [Singapore and Imola audits](../artifacts/reports/stage5_replay.md).
-- Integrate correlated Pace V2 trajectories and provisional P1 pit costs
-  before adding interaction models, incident hazards and behavioral pit policies.
+- S1 integrates correlated Pace V2 trajectories and checks parity, snapshot
+  leakage, and historical clean-air performance. [Stage 5.1 validation](../artifacts/reports/stage5_s1_validation.md)
+- Integrate provisional P1 pit costs before adding interaction models,
+  incident hazards and behavioral pit policies.
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

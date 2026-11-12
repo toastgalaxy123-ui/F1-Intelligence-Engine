@@ -1,0 +1,43 @@
+{
+  "model_version": "PaceV2_D8_correlated",
+  "model_path": "artifacts/models/degradation_v1/pace_v2_degradation_v1.pkl",
+  "regulation_era": "2023_2025",
+  "files_sha256": {
+    "artifacts/models/degradation_v1/pace_v2_degradation_v1.pkl": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "artifacts/runs/stage3_degradation_v1/config.yaml": "5dd69e4303701fa086dfb29aede3a8cec5b1920aeb09cff67686e489b5bb6471",
+    "artifacts/runs/stage3_degradation_v1/data_manifest.json": "c49717cf493d50bbd1cb1a80b724dffa3823b7a57d31454029ab960be43ccebd",
+    "artifacts/runs/stage3_degradation_v1/run_metadata.json": "4faf8212099ab41dcf20529d8041ce2d168db6db50563ea5639b238370026312",
+    "artifacts/runs/stage3_degradation_v1/splits.json": "3962f53dd2c4cf4717562cfa3eeb4175a8c2b65a6489b8a960e0139be9626922",
+    "data/raw/reference/pirelli_allocations.csv": "2aba39622b471b997ff57aff4ea1e2ba99de1f5692a92bf40a7116bcc601c85c"
+  },
+  "trained_through_utc": "2024-10-20T20:38:45.387000+00:00",
+  "calibrated_through_utc": "2025-06-01T14:36:47.725000+00:00",
+  "train_sessions": [
+    7953,
+    7779,
+    9102,
+    9118,
+    9133,
+    9157,
+    9165,
+    9173,
+    9472,
+    9496,
+    9515,
+    9539,
+    9566,
+    9582,
+    9590,
+    9606,
+    9617
+  ],
+  "calibration_sessions": [
+    10006,
+    10014,
+    9987,
+    9971
+  ],
+  "stage3_source_revision": "fbee238f4b4eafacfe450f52b0b1dbdd5da4da6d",
+  "stage3_config_sha256": "d4752ddcf16993d1900340d8561d74e685a7ee266bc56989761010788a2b19df",
+  "compound_mapping_sha256": "2aba39622b471b997ff57aff4ea1e2ba99de1f5692a92bf40a7116bcc601c85c"
+}

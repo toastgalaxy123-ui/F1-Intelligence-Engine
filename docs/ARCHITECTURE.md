@@ -82,3 +82,12 @@ service, transition, neutralization and shared uncertainty components.
 `simulator.pit` combines equal-distance clean trajectories with net loss once;
 positions, queue formation and strategy selection remain future stages.
 See [the Stage 4 contract](STAGE4_SPEC.md) and its evidence gates.
+
+## Stage 5.1 pace integration
+
+`features.race_state` rebuilds the existing lap context on an observation
+prefix and emits one field snapshot with independent driver lap counts.
+`simulator.pace_adapter` verifies and calls the saved Pace V2 bundle.
+`simulator.pace_field` allocates per-driver seeds and schedules checkpoint
+events from complete pace draws. The backtest attaches retrospective
+clean-air labels after prediction. [Stage 5.1 specification](STAGE5_S1_SPEC.md)

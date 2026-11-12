@@ -71,6 +71,26 @@ def run_timeline(initial: RaceState, events: Iterable[Event]) -> RaceRun:
         for car in initial.cars
     ):
         raise ValueError("The checkpoint engine requires a prestart grid")
+    return _run_timeline(initial, events, capability="S0")
+
+
+def run_checkpoint_window(initial: RaceState, events: Iterable[Event]) -> RaceRun:
+    """Advance a green-flag conditional field from a running checkpoint state."""
+    if (
+        initial.phase is not RacePhase.RUNNING or initial.track_state is not TrackState.GREEN
+        or initial.mode is not SimulationMode.CONDITIONAL_SIMULATION
+        or any(car.status is not CarStatus.ACTIVE or car.route is not Route.ON_TRACK
+               for car in initial.cars)
+    ):
+        raise ValueError("A running green-flag continuation field is required")
+    crossings = tuple(events)
+    if any(event.kind not in {EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED}
+           or event.at_us <= initial.race_clock_us for event in crossings):
+        raise ValueError("Continuation events must be future checkpoint crossings")
+    return _run_timeline(initial, crossings, capability="S1")
+
+
+def _run_timeline(initial: RaceState, events: Iterable[Event], *, capability: str) -> RaceRun:
     scheduler = Scheduler(
         {car.driver_number: car.grid_position for car in initial.cars},
         scheduled_laps=initial.ruleset.scheduled_laps,
@@ -134,7 +154,7 @@ def run_timeline(initial: RaceState, events: Iterable[Event]) -> RaceRun:
         trace.append(TraceFrame(event, state))
     if not trace:
         raise ValueError("The timeline requires a race start")
-    return RaceRun(trace[-1].state, tuple(trace))
+    return RaceRun(trace[-1].state, tuple(trace), capability)
 
 
 class TimingMode(StrEnum):
@@ -157,6 +177,17 @@ class CarPlan:
     start_gap_s: float = 0.0
     pits: tuple[SyntheticPitStop, ...] = ()
     retirement_s: float | None = None
+
+
+def checkpoint_offsets_us(
+    seconds: float, sector_fractions: tuple[float, float, float],
+) -> tuple[int, int, int]:
+    duration = elapsed_us(seconds)
+    first = round(duration * sector_fractions[0])
+    second = round(duration * sum(sector_fractions[:2]))
+    if not 0 < first < second < duration:
+        raise ValueError("Each sector must have positive elapsed time")
+    return first, second, duration
 
 
 def simulate_deterministic(
@@ -206,13 +237,9 @@ def simulate_deterministic(
         now = elapsed_us(plan.start_gap_s)
         crossings = []
         for lap, seconds in enumerate(plan.lap_times_s, start=1):
-            duration = elapsed_us(seconds)
-            offsets = (round(duration * sector_fractions[0]),
-                       round(duration * sum(sector_fractions[:2])), duration)
+            offsets = checkpoint_offsets_us(seconds, sector_fractions)
             for sector, offset in enumerate(offsets, start=1):
                 previous_offset = offsets[sector - 2] if sector > 1 else 0
-                if offset <= previous_offset:
-                    raise ValueError("Each sector must have positive elapsed time")
                 checkpoint = (lap - 1) * 3 + sector
                 now += offset - previous_offset
                 if timing is TimingMode.NO_PASS and ahead:
