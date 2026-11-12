@@ -6,7 +6,7 @@ import importlib.metadata
 import json
 import pickle
 import subprocess
-from dataclasses import asdict, replace
+from dataclasses import fields, replace
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -72,7 +72,7 @@ def evaluate_pit_model(
         prediction = model.predict_pit_loss(request)
         validate_pit_forecast_timestamp(request, prediction)
         event = lookup.loc[example["pit_event_id"]]
-        row = {k: v for k, v in asdict(prediction).items() if not k.startswith("sampled_")}
+        row = {f.name: getattr(prediction, f.name) for f in fields(prediction) if not f.name.startswith("sampled_")}
         row.update({k: example[k] for k in (
             "pit_event_id", "session_key", "split", "forecast_as_of_utc", "track_status_at_cutoff",
             "target_lane_duration_s", "target_stop_duration_s", "target_transition_loss_s",
@@ -82,6 +82,10 @@ def evaluate_pit_model(
                    season=request.season, team_id=request.team_id,
                    timing_quality=event.timing_quality,
                    pit_sequence=int(event.pit_sequence), eligible_direct_lane=bool(event.eligible_direct_lane),
+                   eligible_direct_stationary=bool(event.get("eligible_direct_stationary", event.eligible_direct_lane)),
+                   routine_status=event.get("routine_status", "ROUTINE_UNVERIFIED"),
+                   classification_flags_json=event.get("classification_flags_json", "[]"),
+                   eligibility_exclusion_reasons_json=event.get("eligibility_exclusion_reasons_json", "[]"),
                    pit_lap_bucket=f"{request.intended_pit_lap//10*10}-{request.intended_pit_lap//10*10+9}",
                    pit_speed_limit_kph=request.pit_speed_limit_kph,
                    historical_support_bucket="0" if prediction.n_circuit_events == 0 else (
@@ -90,6 +94,9 @@ def evaluate_pit_model(
                        "SLOW" if example["target_stop_duration_s"] > 4.5 else "ORDINARY"))
         target = example["target_transition_loss_s"]
         row["crps_s"] = empirical_crps(np.asarray(prediction.sampled_losses_s), target) if pd.notna(target) else None
+        row["lane_crps_s"] = empirical_crps(np.asarray(prediction.sampled_lane_durations_s), example["target_lane_duration_s"]) if pd.notna(example["target_lane_duration_s"]) else None
+        stationary = example["target_stop_duration_s"]
+        row["service_crps_s"] = empirical_crps(np.asarray(prediction.sampled_stationary_durations_s), stationary) if prediction.sampled_stationary_durations_s is not None and pd.notna(stationary) else None
         row["residual_s"] = target-prediction.expected_loss_s if pd.notna(target) else None
         # Keep structured diagnostics as JSON, not mixed Arrow object columns.
         row["assumptions"] = json.dumps(row["assumptions"])

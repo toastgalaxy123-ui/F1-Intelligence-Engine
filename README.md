@@ -60,6 +60,32 @@ is not automatically approved for strategy optimization: superior held-out
 accuracy, sourced pit-lane references and supported VSC/SC estimates remain
 evidence-based acceptance gates. The dashboard remains a placeholder.
 
+### Stage 4.1 stabilization
+
+The [stabilization report](artifacts/reports/stage4_1_stabilization.md) documents
+exceptional-event filtering, expanded historical service evidence, independent
+label checks and separate familiar/unseen circuit tests. Stage 5 remains deferred.
+
+```bash
+f1ri stage4-stabilize --phase prepare --ingest
+f1ri stage4-stabilize --phase validate
+f1ri stage4-stabilize --phase evaluate --ingest
+f1ri stage4-stabilize --phase report
+```
+
+Use `config/experiments/stage4_1_stabilization.yaml`. Preparation/validation never
+fetch reserved tests. Validation writes a source/data/model selection lock;
+evaluation verifies it and records test access before ingestion. Once test
+outcomes are open, fitting and selection for that study are disabled. Frozen
+evaluation/reporting can be reproduced without retuning. Keep a new study name
+and preregister new tests for subsequent modeling changes. The reviewed Stage 4
+run is preserved separately and is required for its before/after audit.
+
+See [the stabilization protocol](docs/STAGE4_STABILIZATION.md) for eligibility,
+conditional tire scenarios, reference sourcing and remaining acceptance gaps.
+The [official FIA reference audit](artifacts/reports/stage4_1_fia_reference_audit.md)
+adds dated source evidence separately from the frozen evaluation inputs.
+
 ## Useful SQL
 
 ```python
@@ -95,7 +121,7 @@ Read `docs/ARCHITECTURE.md`, `docs/DATA_SOURCES.md`, `docs/DATA_CONTRACTS.md`,
 ## What is deliberately deferred?
 
 - F1 TV/FastF1 authentication (not necessary for the first milestones)
-- Verified pit-route geometry, historical speed limits, and validated VSC/SC pit-loss references
+- Measured pit-route geometry, remaining historical speed coverage, and validated VSC/SC pit-loss references
 - Multi-car race simulation, rejoin positions, traffic, overtaking, and Safety Car queues
 - Unrestricted strategy-model approval, pit-timing optimization, and opponent responses
 - Full dashboard charts and live ingestion

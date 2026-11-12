@@ -1,0 +1,19 @@
+{
+  "created_at_utc": "2026-11-12T02:55:43.752865+00:00",
+  "study": "stage4_1_fixed_model_replication",
+  "reason": "Primary unseen cohort has one usable dry net-loss race: Montreal stint/pit-out reconciliation fails for ordinary stops and Silverstone dry-reference labels are unsupported. Obtain one additional independent outcome without altering the original cohort or selected model.",
+  "primary_results_already_observed": true,
+  "role": "SUPPLEMENTARY_REPLICATION_NOT_ORIGINAL_PREREGISTRATION",
+  "no_weight_calibration_eligibility_or_selection_changes": true,
+  "selection_lock_sha256": "8e324f7944fa032c1e26ca8d7156babd3bfa58e93df2c9a8807ea68b38dd025d",
+  "sessions": [
+    {
+      "year": 2025,
+      "session_key": 9939,
+      "circuit": "Spa-Francorchamps",
+      "population": "unseen"
+    }
+  ],
+  "outcomes_absent_when_registered": true,
+  "evaluation": "Report supplementary unseen and combined descriptive results separately; no promotion or selection based on these outcomes."
+}

@@ -39,6 +39,12 @@ def pit_reference_as_of(
                      & (frame.available_as_of_utc <= cutoff)
                      & (frame.effective_from_utc <= cutoff)
                      & (frame.effective_to_utc > cutoff)]
+    # A separately audited speed directive supersedes the original metadata-only
+    # row, while the latter stays in the raw reference table for provenance.
+    if "verification_status" in selected:
+        verified = selected[selected.verification_status == "VERIFIED_OFFICIAL_SPEED_ONLY"]
+        if not verified.empty:
+            selected = verified
     if len(selected) > 1:
         raise ValueError("Ambiguous pit-lane layout at forecast cutoff")
     return selected.iloc[0].to_dict() if len(selected) == 1 else {}
@@ -47,10 +53,16 @@ def pit_reference_as_of(
 def populate_pit_lane_reference(con: duckdb.DuckDBPyConnection, root: Path) -> pd.DataFrame:
     path = root / "data/raw/reference/pit_lane_reference.csv"
     schema = REFERENCE_SCHEMAS["pit_lane_reference"]
-    frame = load_pit_lane_reference(path) if path.exists() else pd.DataFrame(columns=list(schema))
+    sources = [p for p in (path, path.with_name("pit_lane_reference_verified.csv")) if p.exists()]
+    frames = [load_pit_lane_reference(p) for p in sources]
+    frame = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame(columns=list(schema))
+    if frame.reference_id.duplicated().any():
+        raise ValueError("Duplicate pit-lane reference IDs across source files")
     con.execute("CREATE SCHEMA IF NOT EXISTS silver")
     con.execute("CREATE TABLE IF NOT EXISTS silver.pit_lane_reference (" + ", ".join(
         f'"{k}" {v}' for k, v in schema.items()) + ")")
+    for key, dtype in schema.items():
+        con.execute(f'ALTER TABLE silver.pit_lane_reference ADD COLUMN IF NOT EXISTS "{key}" {dtype}')
     con.execute("DELETE FROM silver.pit_lane_reference")
     if not frame.empty:
         con.register("_pit_reference", frame)

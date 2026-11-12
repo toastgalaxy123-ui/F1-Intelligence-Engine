@@ -92,6 +92,12 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
     p = sub.add_parser("stage4", help="Reconstruct pit events and run chronological pit-loss backtests")
     p.add_argument("--config", type=Path, default=None, help="Stage 4 experiment YAML path")
+    p = sub.add_parser("stage4-stabilize", help="Stage 4.1 development, locked selection and separate reserved tests")
+    p.add_argument("--config", type=Path, default=None)
+    p.add_argument("--phase", choices=("prepare", "validate", "evaluate", "report", "all"), default="all")
+    p.add_argument("--ingest", action="store_true", help="Fetch missing snapshots; tests only after selection lock")
+    p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
+    p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
     p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
     p.add_argument("--session-key", type=int, required=True)
     p.add_argument("--driver-number", type=int, required=True)
@@ -162,6 +168,14 @@ def main() -> None:
         print(f"Stage 4: {result['events']} events; {result['primary_labels']} primary labels; "
               f"validation selection={result['selected_model']}; {result['completion_status']}")
         print(f"Artifacts: {result['run_directory']}")
+    elif args.command == "stage4-stabilize":
+        from f1ri.validation.pit_stabilization import run_stage4_stabilization
+        print(run_stage4_stabilization(root, args.config, phase=args.phase, ingest=args.ingest))
+    elif args.command == "pit-reference-import":
+        import json
+
+        from f1ri.ingestion.pit_reference_documents import import_fia_pit_reference
+        print(import_fia_pit_reference(root, json.loads(args.metadata.read_text())))
     elif args.command == "pit-telemetry":
         from f1ri.ingestion.pit_telemetry import ingest_pit_telemetry
         if args.start.tzinfo is None or args.end.tzinfo is None:

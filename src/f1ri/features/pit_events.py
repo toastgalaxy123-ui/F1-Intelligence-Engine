@@ -11,6 +11,8 @@ from typing import Any
 import duckdb
 import pandas as pd
 
+from f1ri.features.pit_policy import apply_pit_eligibility
+
 
 def number(value: Any) -> float | None:
     try:
@@ -87,6 +89,7 @@ def reconstruct_pit_events(
     pits: pd.DataFrame, laps: pd.DataFrame, stints: pd.DataFrame,
     session: dict, intervals: pd.DataFrame, drivers: pd.DataFrame | None = None,
     annotations: pd.DataFrame | None = None,
+    race_control: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
     """Reconcile raw pit lap ±1 against raw out marker AND both stint boundaries.
 
@@ -101,7 +104,7 @@ def reconstruct_pit_events(
         return pd.DataFrame()
     result = []
     pits = pits.copy()
-    pits["_date"] = pd.to_datetime(pits["date"], utc=True, errors="coerce")
+    pits["_date"] = pd.to_datetime(pits["date"], utc=True, errors="coerce", format="ISO8601")
     pits["_sort"] = pits.apply(lambda r: json.dumps(
         {k: str(v) for k, v in r.items() if k != "_sort"}, sort_keys=True), axis=1)
     drivers = drivers if drivers is not None else pd.DataFrame()
@@ -256,7 +259,38 @@ def reconstruct_pit_events(
                         frame.loc[frame.pit_event_id == a["pit_event_id"], "possible_double_stack"] = True
         mask = frame.possible_double_stack
         frame.loc[mask, "eligible_primary_label"] = False
-    return frame
+    return apply_pit_eligibility(add_transition_evidence(frame, laps, race_control))
+
+
+def add_transition_evidence(
+    events: pd.DataFrame, laps: pd.DataFrame, race_control: pd.DataFrame | None,
+) -> pd.DataFrame:
+    """Recorded traffic/other-visit evidence, not the size of a forecast residual."""
+    events = events.copy()
+    events["blue_flag_overlap"] = False
+    events["multiple_pit_transitions"] = False
+    if events.empty:
+        return events
+    rc = race_control if race_control is not None else pd.DataFrame()
+    for index, event in events.iterrows():
+        start, end = utc(event.get("transition_start_utc")), utc(event.get("transition_end_utc"))
+        if start is None or end is None:
+            continue
+        inlap = laps[(laps.driver_number == event.driver_number)
+                     & (laps.lap_number == event.resolved_in_lap)]
+        if not inlap.empty and inlap.iloc[0].get("is_pit_out_lap") in (True, 1):
+            events.at[index, "multiple_pit_transitions"] = True
+        same = events[(events.driver_number == event.driver_number)
+                      & (events.session_key == event.session_key)]
+        report_times = pd.to_datetime(same.pit_timestamp_utc, utc=True, errors="coerce")
+        if int(((report_times >= start) & (report_times < end)).sum()) > 1:
+            events.at[index, "multiple_pit_transitions"] = True
+        if not rc.empty:
+            dates = pd.to_datetime(rc.date, utc=True, format="ISO8601")
+            match = (dates >= start) & (dates < end) & (rc.driver_number == event.driver_number)
+            match &= rc.flag.fillna("").str.upper().eq("BLUE")
+            events.at[index, "blue_flag_overlap"] = bool(match.any())
+    return events
 
 
 def load_pit_annotations(root: Path) -> pd.DataFrame:
@@ -274,11 +308,11 @@ def populate_session_pit_events(
 ) -> pd.DataFrame:
     from f1ri.warehouse.schema import PIT_EVENT_SCHEMA
     frames = {name: con.execute(f"SELECT * FROM silver.{name} WHERE session_key=?", [session_key]).df()
-              for name in ("pit", "laps", "stints", "sessions", "drivers")}
+              for name in ("pit", "laps", "stints", "sessions", "drivers", "race_control")}
     intervals = con.execute("SELECT * FROM gold.track_status_intervals WHERE session_key=?", [session_key]).df()
     frame = reconstruct_pit_events(
         frames["pit"], frames["laps"], frames["stints"],
-        frames["sessions"].iloc[0].to_dict(), intervals, frames["drivers"], annotations,
+        frames["sessions"].iloc[0].to_dict(), intervals, frames["drivers"], annotations, frames["race_control"],
     ) if not frames["sessions"].empty else pd.DataFrame()
     replace_session_frame(con, "gold.pit_events", frame, PIT_EVENT_SCHEMA, session_key)
     return frame

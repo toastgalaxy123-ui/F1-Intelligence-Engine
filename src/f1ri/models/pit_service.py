@@ -20,6 +20,8 @@ class StationaryServiceModel:
         self.team_values_ = {}
         if frame.empty:
             return self
+        if "eligible_direct_stationary" in frame:
+            frame = frame[frame.eligible_direct_stationary.fillna(False)]
         # Do not impute or turn unavailable stationary measurements into zeros.
         values = pd.to_numeric(frame.stop_duration_s, errors="coerce")
         lanes = pd.to_numeric(frame.lane_duration_s, errors="coerce")

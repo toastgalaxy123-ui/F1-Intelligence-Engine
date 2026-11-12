@@ -30,7 +30,7 @@ def request_from_json(payload: str) -> PitLossRequest:
 def _latest(frame: pd.DataFrame, as_of, driver: int | None = None) -> dict:
     if frame.empty or "date" not in frame:
         return {}
-    dates = pd.to_datetime(frame.date, utc=True, errors="coerce")
+    dates = pd.to_datetime(frame.date, utc=True, errors="coerce", format="ISO8601")
     selected = frame[dates <= as_of]
     if driver is not None and "driver_number" in frame:
         selected = selected[selected.driver_number == driver]
@@ -55,7 +55,7 @@ def build_pit_opportunity(
         raise ValueError("Missing forecast cutoff")
     dnum = int(driver["driver_number"])
     known = laps[laps.driver_number == dnum].copy()
-    starts = pd.to_datetime(known.date_start, utc=True, errors="coerce")
+    starts = pd.to_datetime(known.date_start, utc=True, errors="coerce", format="ISO8601")
     times = pd.to_numeric(known.lap_duration, errors="coerce")
     ends = starts + pd.to_timedelta(times, unit="s")
     known = known[(ends <= cutoff) & (times > 0)].sort_values("lap_number")
@@ -74,7 +74,7 @@ def build_pit_opportunity(
     old_age += intended_pit_lap - int(current.lap_start) + 1
     rc = race_control.copy()
     if not rc.empty:
-        rc = rc[pd.to_datetime(rc.date, utc=True) <= cutoff].sort_values("date")
+        rc = rc[pd.to_datetime(rc.date, utc=True, format="ISO8601") <= cutoff].sort_values("date")
     records = rc.to_dict("records")
     for row in records:
         row["date"] = utc(row["date"]).to_pydatetime()

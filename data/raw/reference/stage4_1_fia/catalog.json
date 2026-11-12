@@ -1,0 +1,2473 @@
+{
+  "retrieved_at_utc": "2026-11-12T03:39:10.318783+00:00",
+  "role": "POST_LOCK_REFERENCE_AUDIT_NOT_USED_TO_RESELECT_OR_REFIT",
+  "events": [
+    {
+      "session_key": 7953,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Sakhir",
+      "first_forecast_as_of_utc": "2023-03-05T15:00:00+00:00",
+      "speed_reference": {
+        "reference_id": "2023:Sakhir:6e8564def7755390",
+        "circuit_short_name": "Sakhir",
+        "season": 2023,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2023-03-04T23:59:59.999999+00:00",
+        "effective_to_utc": "2023-03-05T17:00:00+00:00",
+        "available_as_of_utc": "2023-03-04T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Offence%20-%20Car%2010%20-%20Pit%20lane%20speeding.pdf",
+        "source_sha256": "6e8564def7755390f45ac3f96a3951ab428f69ce99bb72d0d8c4634ce6b9a4ea",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "03.03.23 12:28 CET",
+          "archive_publication_date": "2023-03-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "37a16533639db8dcdb6a4992fb6455f2663732fe943f45a5869160a34007a58a",
+          "available_as_of_utc": "2023-03-03T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "01.03.23 09:45 CET",
+          "archive_publication_date": "2023-03-01",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5af301e33ea94186aa3e91d39496ad66d1a3af84e2897b8eef6cf7e531efe1e8",
+          "available_as_of_utc": "2023-03-01T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "27f68dd68e9d0fd78b66637a6eb34834c4988a5c34fa34ef8a55d6c3253245b1",
+          "quote": "Changes to the Circuit\n22.1   No changes to the event in 2022.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                        4"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "af4a52acb01cce66188734158a7b8d26a75cdb47112893a59fa046df79db6fe3",
+          "quote": "Changes to the Circuit\n23.1   No changes to the event in 2022.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                        4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Bahrain%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "02.03.23 12:16 CET",
+          "archive_publication_date": "2023-03-02",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "27f68dd68e9d0fd78b66637a6eb34834c4988a5c34fa34ef8a55d6c3253245b1"
+        },
+        {
+          "title": "Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "03.03.23 19:51 CET",
+          "archive_publication_date": "2023-03-03",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "af4a52acb01cce66188734158a7b8d26a75cdb47112893a59fa046df79db6fe3"
+        },
+        {
+          "title": "Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "03.03.23 12:28 CET",
+          "archive_publication_date": "2023-03-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "37a16533639db8dcdb6a4992fb6455f2663732fe943f45a5869160a34007a58a"
+        },
+        {
+          "title": "Offence - Car 10 - Pit lane speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Offence%20-%20Car%2010%20-%20Pit%20lane%20speeding.pdf",
+          "archive_published_literal": "04.03.23 17:31 CET",
+          "archive_publication_date": "2023-03-04",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "6e8564def7755390f45ac3f96a3951ab428f69ce99bb72d0d8c4634ce6b9a4ea"
+        },
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "01.03.23 09:45 CET",
+          "archive_publication_date": "2023-03-01",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5af301e33ea94186aa3e91d39496ad66d1a3af84e2897b8eef6cf7e531efe1e8"
+        }
+      ]
+    },
+    {
+      "session_key": 7779,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Jeddah",
+      "first_forecast_as_of_utc": "2023-03-19T17:00:00+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map V4",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20V4.pdf",
+          "archive_published_literal": "17.03.23 15:12 CET",
+          "archive_publication_date": "2023-03-17",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "ea5b3672374fb2016f3f617b17c42572a0dea87fe30c074a4ddf5bf4b0299a98",
+          "available_as_of_utc": "2023-03-17T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "15.03.23 14:31 CET",
+          "archive_publication_date": "2023-03-15",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "375cd7b7f855e0dcc4a8596552000a2747a3d7762972fc64d782c0c6c7862aeb",
+          "available_as_of_utc": "2023-03-15T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "c8192ee89b97a65b01242ea601fa8b05d2e56dd19ab872841c6a36e34a821974",
+          "quote": "Changes to the Circuit\n \u2022 Turn 3: Painted kerb.\n \u2022 Turn 4: Steel plate removed.\n \u2022 Turn 5: The existing mobile steel kerb has been replaced by a permanent concrete bevelled kerb.\n    At the back of the kerb an asphalt transmission has been constructed with not more than 4%\n    inclination.\n \u2022 Turn 8: New alignment of wall, offset to old wall 7.80 m.\n \u2022 Turn 8: The existing mobile steel kerbs (apex and exit) have been replaced by a permanent\n    concrete bevelled kerb.\n \u2022 Turn 10: New alignment of wall, offset to old wall 9.40 m.\n \u2022 Turn 10: The existing mobile steel kerbs (apex and exit) has been replaced by a permanent\n    concrete bevelled kerb.\n \u2022 Turn 11: A row of grey TECPRO Barriers have been installed at the inside of Turn 11 exit on drivers\n    left from the vehicle opening to the end of the track light posts.\n \u2022 Turn 11: A \u201cRumble strip\u201d has been added behind to the verge at RHS.\n \u2022 Turn 14: New alignment of wall, offset to old wall 5.80 m.\n \u2022 Turn 14: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 16: Steel plate removed.\n \u2022 Turn 17: The existing mobile steel kerb has been replaced by a permanent concrete bevelled kerb.\n \u2022 Turn 19: A painted kerb and \u201crumble line\u201d has been added in the verge.\n \u2022 Turn 20: New alignment of wall, offset to old wall 3.70 m.\n \u2022 Turn 20: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 21: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 22: Steel plate removed.\n \u2022 Turn 22/23: Turn 22 starts approx. 10 m later, Turn 23 moved by approx. 5 m. The existing mobile\n    steel kerbs have been replaced by a permanent concrete bevelled kerb. This is the only layout\n    modification.\n \u2022 Turn 24: Steel plate removed.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V3.pdf",
+          "source_sha256": "1b38741335d82ecc3e0525ec9ab8a807df3758130dd99f64b6eeec9836072c69",
+          "quote": "Changes to the Circuit\n \u2022 Turn 3: Painted kerb.\n \u2022 Turn 4: Steel plate removed.\n \u2022 Turn 5: The existing mobile steel kerb has been replaced by a permanent concrete bevelled kerb.\n    At the back of the kerb an asphalt transmission has been constructed with not more than 4%\n    inclination.\n \u2022 Turn 8: New alignment of wall, offset to old wall 7.80 m.\n \u2022 Turn 8: The existing mobile steel kerbs (apex and exit) have been replaced by a permanent\n    concrete bevelled kerb.\n \u2022 Turn 10: New alignment of wall, offset to old wall 9.40 m.\n \u2022 Turn 10: The existing mobile steel kerbs (apex and exit) has been replaced by a permanent\n    concrete bevelled kerb.\n \u2022 Turn 11: A row of grey TECPRO Barriers have been installed at the inside of Turn 11 exit on drivers\n    left from the vehicle opening to the end of the track light posts.\n \u2022 Turn 11: A \u201cRumble strip\u201d has been added behind to the verge at RHS.\n \u2022 Turn 14: New alignment of wall, offset to old wall 5.80 m.\n \u2022 Turn 14: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 16: Steel plate removed.\n \u2022 Turn 17: The existing mobile steel kerb has been replaced by a permanent concrete bevelled kerb.\n \u2022 Turn 19: A painted kerb and \u201crumble line\u201d has been added in the verge.\n \u2022 Turn 20: New alignment of wall, offset to old wall 3.70 m.\n \u2022 Turn 20: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 21: Painted kerb and \u201crumble strip\u201d has been added to the verge.\n \u2022 Turn 22: Steel plate removed.\n \u2022 Turn 22/23: Turn 22 starts approx. 10 m later, Turn 23 moved by approx. 5 m. The existing mobile\n    steel kerbs have been replaced by a permanent concrete bevelled kerb. This is the only layout\n    modification.\n \u2022 Turn 24: Steel plate removed.\n                                                       5\n\fNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                    6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Saudi%20Arabian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "16.03.23 14:23 CET",
+          "archive_publication_date": "2023-03-16",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "c8192ee89b97a65b01242ea601fa8b05d2e56dd19ab872841c6a36e34a821974"
+        },
+        {
+          "title": "Race Director's Event Notes V3",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V3.pdf",
+          "archive_published_literal": "18.03.23 12:10 CET",
+          "archive_publication_date": "2023-03-18",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "1b38741335d82ecc3e0525ec9ab8a807df3758130dd99f64b6eeec9836072c69"
+        },
+        {
+          "title": "Event Notes - Circuit Map V4",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20V4.pdf",
+          "archive_published_literal": "17.03.23 15:12 CET",
+          "archive_publication_date": "2023-03-17",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "ea5b3672374fb2016f3f617b17c42572a0dea87fe30c074a4ddf5bf4b0299a98"
+        },
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Saudi%20Arabian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "15.03.23 14:31 CET",
+          "archive_publication_date": "2023-03-15",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "375cd7b7f855e0dcc4a8596552000a2747a3d7762972fc64d782c0c6c7862aeb"
+        }
+      ]
+    },
+    {
+      "session_key": 9102,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Catalunya",
+      "first_forecast_as_of_utc": "2023-06-04T13:08:56.361000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "01.06.23 11:32 CET",
+          "archive_publication_date": "2023-06-01",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "2f1c42afd99f95c03f1c5bcd50599a3f346f87297e8b14ed3333676d4a5bad7c",
+          "available_as_of_utc": "2023-06-01T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "f88593885b1e3d2d49a2df690c78751c0584b6a9ff9d83a3e715eec592932e54",
+          "quote": "Changes to the Circuit\n \u2022    Turn 1 run-off has been extended by approximately 30 meters. New walls and fences including a\n      rescue road have been built.\n \u2022    The artificial gras has been removed in Turn 3.\n \u2022    New concrete verge at RHS entry Turn 7.\n \u2022    Tec2 high speed barriers have been added in Turn 13 and Turn 16.\n \u2022    New layout between Turn 13 and Turn 14.\n \u2022    Removal of temporary kerbs at Turn 1 apex, Turn 2 apex and run-off area, Turn 4 exit, Turn 5 apex,\n      Turn 7 apex, Turn 9 apex and exit and Turn 12 apex.\n \u2022    Width of white line at exit Turn 12 LHS extended up to 30 cm.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                   5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "77de28259e8caa96207a6107e35023e3871a84a0ef1767c7723f2e3461019252",
+          "quote": "Changes to the Circuit\n \u2022    Turn 1 run-off has been extended by approximately 30 meters. New walls and fences including a\n      rescue road have been built.\n \u2022    The artificial gras has been removed in Turn 3.\n \u2022    New concrete verge at RHS entry Turn 7.\n \u2022    Tec2 high speed barriers have been added in Turn 13 and Turn 16.\n \u2022    New layout between Turn 13 and Turn 14.\n \u2022    Removal of temporary kerbs at Turn 1 apex, Turn 2 apex and run-off area, Turn 4 exit, Turn 5 apex,\n      Turn 7 apex, Turn 9 apex and exit and Turn 12 apex.\n \u2022    Width of white line at exit Turn 12 LHS extended up to 30 cm.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                   5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Spanish%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "01.06.23 12:33 CET",
+          "archive_publication_date": "2023-06-01",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "f88593885b1e3d2d49a2df690c78751c0584b6a9ff9d83a3e715eec592932e54"
+        },
+        {
+          "title": "Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "02.06.23 11:45 CET",
+          "archive_publication_date": "2023-06-02",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "77de28259e8caa96207a6107e35023e3871a84a0ef1767c7723f2e3461019252"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "01.06.23 11:32 CET",
+          "archive_publication_date": "2023-06-01",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "2f1c42afd99f95c03f1c5bcd50599a3f346f87297e8b14ed3333676d4a5bad7c"
+        }
+      ]
+    },
+    {
+      "session_key": 9118,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Spielberg",
+      "first_forecast_as_of_utc": "2023-07-02T13:04:06.179000+00:00",
+      "speed_reference": {
+        "reference_id": "2023:Spielberg:cd582a59b542dada",
+        "circuit_short_name": "Spielberg",
+        "season": 2023,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2023-06-30T23:59:59.999999+00:00",
+        "effective_to_utc": "2023-07-02T15:00:00+00:00",
+        "available_as_of_utc": "2023-06-30T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Infringement%20-%20Car%2044%20-%20Pit%20Lane%20Speeding.pdf",
+        "source_sha256": "cd582a59b542dada78368f142d9ae149d10cf9997274612bf6206bd346254593",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "29.06.23 15:45 CET",
+          "archive_publication_date": "2023-06-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "e83808bb57b20ad6fdede27e10191d7feac558791a38c9afbd5fdeaef3d43f88",
+          "available_as_of_utc": "2023-06-29T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "29.06.23 12:45 CET",
+          "archive_publication_date": "2023-06-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5640d42dd940d618d64778c84a9d6a3b549245e78efd5df829572dbcf14d630e",
+          "available_as_of_utc": "2023-06-29T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "07d74be2e06364306235f440edd3e84cc425eb14bffe960f85fe86de0d1a4d06",
+          "quote": "Changes to the Circuit\n      \u2022     New verge between Turn 2 and Turn 3 on both sides, same width as before.\n      \u2022     Verge behind 2nd kerb shortened at the apex of Turn 8 on RHS.\n      \u2022     Temporary kerbs at Turn 8 on RHS have been removed.\n\n26)"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "91a9122f29e14cc855601bbfece4ba34e0e1d113ce8fe3cc6f1dbde02b06fd32",
+          "quote": "Changes to the Circuit\n      \u2022        New verge between Turn 2 and Turn 3 on both sides, same width as before.\n      \u2022        Verge behind 2nd kerb shortened at the apex of Turn 8 on RHS.\n      \u2022        Temporary kerbs at Turn 8 on RHS have been removed.\n\n26)"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Austrian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "29.06.23 12:42 CET",
+          "archive_publication_date": "2023-06-29",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "07d74be2e06364306235f440edd3e84cc425eb14bffe960f85fe86de0d1a4d06"
+        },
+        {
+          "title": "Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "30.06.23 13:41 CET",
+          "archive_publication_date": "2023-06-30",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "91a9122f29e14cc855601bbfece4ba34e0e1d113ce8fe3cc6f1dbde02b06fd32"
+        },
+        {
+          "title": "Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "29.06.23 15:45 CET",
+          "archive_publication_date": "2023-06-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "e83808bb57b20ad6fdede27e10191d7feac558791a38c9afbd5fdeaef3d43f88"
+        },
+        {
+          "title": "Infringement - Car 44 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Infringement%20-%20Car%2044%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "30.06.23 14:08 CET",
+          "archive_publication_date": "2023-06-30",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "cd582a59b542dada78368f142d9ae149d10cf9997274612bf6206bd346254593"
+        },
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Austrian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "29.06.23 12:45 CET",
+          "archive_publication_date": "2023-06-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5640d42dd940d618d64778c84a9d6a3b549245e78efd5df829572dbcf14d630e"
+        }
+      ]
+    },
+    {
+      "session_key": 9133,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Hungaroring",
+      "first_forecast_as_of_utc": "2023-07-23T13:13:21.976000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Hungarian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "20.07.23 11:10 CET",
+          "archive_publication_date": "2023-07-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "bd5b513c1dda50a08a0c7030f1be7bde691b5c4784442931a5d6e3b2c7802bdd",
+          "available_as_of_utc": "2023-07-20T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Hungarian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "5d5f68e7d7cd89f72bb6ae2e2f1580f7d6f9d2c7084627b17548e4312a83ee34",
+          "quote": "Changes to the Circuit\n      \u2022 New tyre barriers on RHS in Turn 2.\n      \u2022 Guardrail replaced with concrete barrier and debris fence at RHS in Turn 2.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n                                                       4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Hungarian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Hungarian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "20.07.23 16:26 CET",
+          "archive_publication_date": "2023-07-20",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "5d5f68e7d7cd89f72bb6ae2e2f1580f7d6f9d2c7084627b17548e4312a83ee34"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Hungarian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "20.07.23 11:10 CET",
+          "archive_publication_date": "2023-07-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "bd5b513c1dda50a08a0c7030f1be7bde691b5c4784442931a5d6e3b2c7802bdd"
+        }
+      ]
+    },
+    {
+      "session_key": 9157,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Monza",
+      "first_forecast_as_of_utc": "2023-09-03T13:36:39.956000+00:00",
+      "speed_reference": {
+        "reference_id": "2023:Monza:3ef9b1d9c3ae2f80",
+        "circuit_short_name": "Monza",
+        "season": 2023,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2023-09-01T23:59:59.999999+00:00",
+        "effective_to_utc": "2023-09-03T15:00:00+00:00",
+        "available_as_of_utc": "2023-09-01T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Infringement%20-%20Car%201%20-%20Pit%20Lane%20Speeding.pdf",
+        "source_sha256": "3ef9b1d9c3ae2f80694456b1c7732de7e51657acd47539273188f13fccef65cf",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "31.08.23 11:25 CET",
+          "archive_publication_date": "2023-08-31",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "64a4cca3871dcac6c74014bd5fd30f5d07637483b912b3b396addb92e2bc0db7",
+          "available_as_of_utc": "2023-08-31T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "b1ce079e1e2c9ac21d383e8176ddcc0895f7aed98388590e6187489921c82dd3",
+          "quote": "Changes to the Circuit\n       \u2022 Removal of speed bumps at Turn 4 \u2013 Turn 5.\n       \u2022 Removal of speed bumps at Turn 8.\n       \u2022 Removal of the first speed bumps at Turn 10.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20v3.pdf",
+          "source_sha256": "116484e58d0fa834b6b1870a6146eff8f70cd0d501e944c3921cee05f1a1377b",
+          "quote": "Changes to the Circuit\n       \uf0b7 Removal of speed bumps at Turn 4 \u2013 Turn 5.\n       \uf0b7 Removal of speed bumps at Turn 8.\n       \uf0b7 Removal of the first speed bumps at Turn 10.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                    5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Italian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "31.08.23 15:40 CET",
+          "archive_publication_date": "2023-08-31",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "b1ce079e1e2c9ac21d383e8176ddcc0895f7aed98388590e6187489921c82dd3"
+        },
+        {
+          "title": "Race Director's Event Notes v3",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20v3.pdf",
+          "archive_published_literal": "02.09.23 09:32 CET",
+          "archive_publication_date": "2023-09-02",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "116484e58d0fa834b6b1870a6146eff8f70cd0d501e944c3921cee05f1a1377b"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "31.08.23 11:25 CET",
+          "archive_publication_date": "2023-08-31",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "64a4cca3871dcac6c74014bd5fd30f5d07637483b912b3b396addb92e2bc0db7"
+        },
+        {
+          "title": "Infringement - Car 1 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Italian%20Grand%20Prix%20-%20Infringement%20-%20Car%201%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "01.09.23 18:05 CET",
+          "archive_publication_date": "2023-09-01",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "3ef9b1d9c3ae2f80694456b1c7732de7e51657acd47539273188f13fccef65cf"
+        }
+      ]
+    },
+    {
+      "session_key": 9165,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Singapore",
+      "first_forecast_as_of_utc": "2023-09-17T12:34:21.630000+00:00",
+      "speed_reference": {
+        "reference_id": "2023:Singapore:2b56894ce15b587b",
+        "circuit_short_name": "Singapore",
+        "season": 2023,
+        "layout_version": null,
+        "pit_speed_limit_kph": 60.0,
+        "effective_from_utc": "2023-09-14T23:59:59.999999+00:00",
+        "effective_to_utc": "2023-09-17T14:00:00+00:00",
+        "available_as_of_utc": "2023-09-14T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+        "source_sha256": "2b56894ce15b587b318e12f72fa3ff0ddfc95948181c8c6e787e54eb95ae04c4",
+        "source_quote": "Pit Lane Speed limit detailed in Article 34.7 of the Sporting Regulations is hereby amended to\n       60km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "14.09.23 10:51 CET",
+          "archive_publication_date": "2023-09-14",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "bff74a4d47c3351ed442d3aac736ad7f6c719e6d0c5cf0f5782470129b21017e",
+          "available_as_of_utc": "2023-09-14T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "2b56894ce15b587b318e12f72fa3ff0ddfc95948181c8c6e787e54eb95ae04c4",
+          "quote": "Changes to the Circuit\n \u2022    Removal of the paint in the working lane.\n \u2022    Realignment of the walls from Turn 15 until old Turn 20, old Turns 16, 17, 18 and 19 removed.\n \u2022    Resurfacing start of Pit Straight until exit Turn 6.\n \u2022    Resurfacing from entry Turn 14 until exit Turn 16.\n \u2022    Re-alignment of the concrete wall at Turn 17 on LHS.\n\n\n\n                                                      4\n\fNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                    5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Singapore%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "14.09.23 11:16 CET",
+          "archive_publication_date": "2023-09-14",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "2b56894ce15b587b318e12f72fa3ff0ddfc95948181c8c6e787e54eb95ae04c4"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "14.09.23 10:51 CET",
+          "archive_publication_date": "2023-09-14",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "bff74a4d47c3351ed442d3aac736ad7f6c719e6d0c5cf0f5782470129b21017e"
+        },
+        {
+          "title": "Infringement - Car 27 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Singapore%20Grand%20Prix%20-%20Infringement%20-%20Car%2027%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "16.09.23 12:04 CET",
+          "archive_publication_date": "2023-09-16",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "541695d5c9f32eb2ce022875f77630a4ad4144170c197bbe64cb65b8636323d5"
+        }
+      ]
+    },
+    {
+      "session_key": 9173,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Suzuka",
+      "first_forecast_as_of_utc": "2023-09-24T05:06:16.454000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane Drawing and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Japanese%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "21.09.23 05:16 CET",
+          "archive_publication_date": "2023-09-21",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "56090ad25f957ca6d4b82a9e14a6ab66bc4deb69c2ed35f24692a670b7f86057",
+          "available_as_of_utc": "2023-09-21T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Japanese%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "7e4306668de833f00259f7d432b11346bcee96b407e716089bdc57f60a4408ac",
+          "quote": "Changes to the Circuit\n23.1   New drainage in Turn 1 on LHS.\n23.2   Resurfacing from entry Turn 3 until exit Turn 4.\n23.3   New drainage in Turn 7 on RHS.\n23.4   Resurfacing from entry Turn 7 until exit Turn 7.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Japanese%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Japanese%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "21.09.23 09:07 CET",
+          "archive_publication_date": "2023-09-21",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "7e4306668de833f00259f7d432b11346bcee96b407e716089bdc57f60a4408ac"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane Drawing and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Japanese%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "21.09.23 05:16 CET",
+          "archive_publication_date": "2023-09-21",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "56090ad25f957ca6d4b82a9e14a6ab66bc4deb69c2ed35f24692a670b7f86057"
+        }
+      ]
+    },
+    {
+      "session_key": 9472,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Sakhir",
+      "first_forecast_as_of_utc": "2024-03-02T15:17:00.072000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "28.02.24 12:45 CET",
+          "archive_publication_date": "2024-02-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "eabea9dceaaecba63abb26bdb166eff07793550c55703243fa462e8bb095fc8e",
+          "available_as_of_utc": "2024-02-28T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "1e8c113c9901bec78baef02ef44e9219c4538b1f8c2c17079598bb0e45734c69",
+          "quote": "Changes to the Circuit\n      No changes to the circuit compared to the event in 2023.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n                                                       3"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "08a24b0aee14c1ac3b72cb57a26d5441aabab4f5ec921f8517453307d1ec811a",
+          "quote": "Changes to the Circuit\n      No changes to the circuit compared to the event in 2023.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Bahrain%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "27.02.24 15:15 CET",
+          "archive_publication_date": "2024-02-27",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "1e8c113c9901bec78baef02ef44e9219c4538b1f8c2c17079598bb0e45734c69"
+        },
+        {
+          "title": "Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "01.03.24 08:55 CET",
+          "archive_publication_date": "2024-03-01",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "08a24b0aee14c1ac3b72cb57a26d5441aabab4f5ec921f8517453307d1ec811a"
+        },
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Bahrain%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "28.02.24 12:45 CET",
+          "archive_publication_date": "2024-02-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "eabea9dceaaecba63abb26bdb166eff07793550c55703243fa462e8bb095fc8e"
+        }
+      ]
+    },
+    {
+      "session_key": 9496,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Suzuka",
+      "first_forecast_as_of_utc": "2024-04-07T05:39:07.345000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Suzuka:7199e1f0aa15ca1d",
+        "circuit_short_name": "Suzuka",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2024-04-05T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-04-07T07:00:00+00:00",
+        "available_as_of_utc": "2024-04-05T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Infringement%20-%20Car%2018%20-%20Pit%20Lane%20Speeding.pdf",
+        "source_sha256": "7199e1f0aa15ca1df32f98e04881bd90899a453360669904ce4f9c188423c4cd",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "04.04.24 10:22 CET",
+          "archive_publication_date": "2024-04-04",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "146c23c1279f5239ad07c5129683507ca735b029934f366eba60acf6bafaa899",
+          "available_as_of_utc": "2024-04-04T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "04.04.24 09:39 CET",
+          "archive_publication_date": "2024-04-04",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "610a81cc0af31f2795ece891fd0407538a8f197058d5c77f0887182e2f8d4012",
+          "available_as_of_utc": "2024-04-04T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Race%20Director%C2%B4s%20Event%20Notes.pdf",
+          "source_sha256": "10f256d8fc8ca68f1ea2beceb79087677f174ce6c38fdd58b092165c0c2ce5df",
+          "quote": "Changes to the Circuit\n\u2022 New debris fence at Turn 7 on RHS.\n\u2022 New debris fence at Turn 9 on RHS.\n\u2022 New debris fence at Turn 11 on RHS.\n\u2022 New debris fence at Turn 15 on RHS.\n\u2022 Renewal of tire barrier at the exit of Turn 12 on LHS.\n\n                                                       3\n\f\u2022   Removal of artificial gras between Turn 16 and Turn 17 on LHS.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                  4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Japanese%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director\u00b4s Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Race%20Director%C2%B4s%20Event%20Notes.pdf",
+          "archive_published_literal": "04.04.24 06:00 CET",
+          "archive_publication_date": "2024-04-04",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "10f256d8fc8ca68f1ea2beceb79087677f174ce6c38fdd58b092165c0c2ce5df"
+        },
+        {
+          "title": "Event Notes - Circuit Map",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map.pdf",
+          "archive_published_literal": "04.04.24 10:22 CET",
+          "archive_publication_date": "2024-04-04",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "146c23c1279f5239ad07c5129683507ca735b029934f366eba60acf6bafaa899"
+        },
+        {
+          "title": "Infringement - Car 18 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Infringement%20-%20Car%2018%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "05.04.24 07:27 CET",
+          "archive_publication_date": "2024-04-05",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "7199e1f0aa15ca1df32f98e04881bd90899a453360669904ce4f9c188423c4cd"
+        },
+        {
+          "title": "Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Japanese%20Grand%20Prix%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "04.04.24 09:39 CET",
+          "archive_publication_date": "2024-04-04",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "610a81cc0af31f2795ece891fd0407538a8f197058d5c77f0887182e2f8d4012"
+        }
+      ]
+    },
+    {
+      "session_key": 9515,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Imola",
+      "first_forecast_as_of_utc": "2024-05-19T13:11:46.379000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Imola:ee272bb482a2e7a6",
+        "circuit_short_name": "Imola",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2024-05-17T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-05-19T15:00:00+00:00",
+        "available_as_of_utc": "2024-05-17T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Emilia%20Romagna%20Grand%20Prix%20-%20Infringement%20-%20Car%2011%20-%20Pit%20Lane%20Speeding.pdf",
+        "source_sha256": "ee272bb482a2e7a63780033fff1d4a67e8ee1c0aeb89159273a2d2bfc116c78a",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane Drawing and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/doc_3_-_2024_emilia_romagna_grand_prix_-_event_notes_-_circuit_map_pit_lane_drawing_and_red_zone.pdf",
+          "archive_published_literal": "16.05.24 14:30 CET",
+          "archive_publication_date": "2024-05-16",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "d06539f52166f9d8fe6d5a480cb45143b776d9a0ad7a4c556f3828574aaf04ba",
+          "available_as_of_utc": "2024-05-16T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/doc_4_-_2024_emilia_romagna_grand_prix_-_race_directors_event_notes.pdf",
+          "source_sha256": "418755d1ec8961b3f09759ba0a2c5361db0d5f916f7bdf7e78a31cc330fa9744",
+          "quote": "Changes to the Circuit\n\u2022 New double kerb installed in Turn 2 on LHS.\n\u2022 New double kerb installed in Turn 3 on RHS.\n\u2022 New double kerb installed in Turn 4 on LHS.\n\u2022 New double kerb installed in Turn 5 on LHS.\n\u2022 New double kerb installed in Turn 6 on RHS.\n\u2022 At the beginning of the kerb in Turn 6 on RHS an asphalt patch has been installed to remove the step\n   between kerb and verge.\n\u2022 Between Turn 7 and Turn 8 on RHS two drain covers have been replaced with a French drain.\n\u2022 New double kerb installed in Turn 9 on LHS.\n\u2022 Reduction of the asphalt run-off in the exit of Turn 9 on RHS.\n\u2022 New double kerb installed in Turn 11 on RHS.\n\u2022 New double kerb installed in Turn 12 on RHS.\n\u2022 Reduction of the asphalt run-off between Turn 12 and Turn 13 on LHS.\n\u2022 New double kerb installed at the exit of Turn 15 on RHS.\n\u2022 Reduction of the asphalt run-off in Turn 15 on RHS.\n\u2022 New double kerb installed in Turn 19 on LHS.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n                                                        4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Emilia%20Romagna%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/doc_4_-_2024_emilia_romagna_grand_prix_-_race_directors_event_notes.pdf",
+          "archive_published_literal": "16.05.24 14:30 CET",
+          "archive_publication_date": "2024-05-16",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "418755d1ec8961b3f09759ba0a2c5361db0d5f916f7bdf7e78a31cc330fa9744"
+        },
+        {
+          "title": "Event Notes - Circuit Map, Pit Lane Drawing and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/doc_3_-_2024_emilia_romagna_grand_prix_-_event_notes_-_circuit_map_pit_lane_drawing_and_red_zone.pdf",
+          "archive_published_literal": "16.05.24 14:30 CET",
+          "archive_publication_date": "2024-05-16",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "d06539f52166f9d8fe6d5a480cb45143b776d9a0ad7a4c556f3828574aaf04ba"
+        },
+        {
+          "title": "Infringement - Car 11 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Emilia%20Romagna%20Grand%20Prix%20-%20Infringement%20-%20Car%2011%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "17.05.24 14:35 CET",
+          "archive_publication_date": "2024-05-17",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "ee272bb482a2e7a63780033fff1d4a67e8ee1c0aeb89159273a2d2bfc116c78a"
+        }
+      ]
+    },
+    {
+      "session_key": 9539,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Catalunya",
+      "first_forecast_as_of_utc": "2024-06-23T13:14:24.539000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 12 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones%20V2.pdf",
+          "archive_published_literal": "21.06.24 13:00 CET",
+          "archive_publication_date": "2024-06-21",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "88fd2169c22fdc927375ab203cfaec9d891543f3073138db29faa1e2f6b74036",
+          "available_as_of_utc": "2024-06-21T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "20.06.24 15:17 CET",
+          "archive_publication_date": "2024-06-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "f8ab65186932cfdc17b46392f069357d4886eb65fdd0ccbf6df9049057a8da8b",
+          "available_as_of_utc": "2024-06-20T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "7845c3a334d5e9683aa2a7870600bbb4c68091d43665a279530ce69524f83c86",
+          "quote": "Changes to the Circuit\n\u2022 Concrete verge extended at exit Turn 2 on LHS.\n\u2022 Concrete verge extended at apex Turn 7 on RHS.\n\u2022 New bollards at exit Turn 2 on LHS.\n\u2022 Concrete verge at apex Turn 2 on RHS repaired and newly painted.\n\u2022 Concrete verge between Turn 13 and Turn 14 on LHS repaired and newly painted.\n\u2022 New opening between Turn 13 and Turn 14 on LHS.\n\u2022 New Marshal Post 11.2 in Turn 12 on RHS.\n\u2022 All stickers removed from Pit Lane surface.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "69023a503425f799444dad0352f133356c7d3514f37c3ea45cacd84045d40056",
+          "quote": "Changes to the Circuit\n\u2022 Concrete verge extended at exit Turn 2 on LHS.\n\u2022 Concrete verge extended at apex Turn 7 on RHS.\n\u2022 New bollards at exit Turn 2 on LHS.\n\u2022 Concrete verge at apex Turn 2 on RHS repaired and newly painted.\n\u2022 Concrete verge between Turn 13 and Turn 14 on LHS repaired and newly painted.\n\u2022 New opening between Turn 13 and Turn 14 on LHS.\n\u2022 New Marshal Post 11.2 in Turn 12 on RHS.\n\u2022 All stickers removed from Pit Lane surface.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Spanish%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "20.06.24 15:21 CET",
+          "archive_publication_date": "2024-06-20",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "7845c3a334d5e9683aa2a7870600bbb4c68091d43665a279530ce69524f83c86"
+        },
+        {
+          "title": "Doc 17 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "21.06.24 15:42 CET",
+          "archive_publication_date": "2024-06-21",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "69023a503425f799444dad0352f133356c7d3514f37c3ea45cacd84045d40056"
+        },
+        {
+          "title": "Doc 12 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones%20V2.pdf",
+          "archive_published_literal": "21.06.24 13:00 CET",
+          "archive_publication_date": "2024-06-21",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "88fd2169c22fdc927375ab203cfaec9d891543f3073138db29faa1e2f6b74036"
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Spanish%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "20.06.24 15:17 CET",
+          "archive_publication_date": "2024-06-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "f8ab65186932cfdc17b46392f069357d4886eb65fdd0ccbf6df9049057a8da8b"
+        }
+      ]
+    },
+    {
+      "session_key": 9566,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Hungaroring",
+      "first_forecast_as_of_utc": "2024-07-21T13:04:34.940000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Hungarian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "18.07.24 15:40 CET",
+          "archive_publication_date": "2024-07-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "3233837bdbefb2ce70aca5511d7c5a96793bc4254a2b774608520933be4d07c7",
+          "available_as_of_utc": "2024-07-18T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Hungarian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "6ed7eb3bab4a19821d998ef7930025a449666830cd57d26042799c6650e9646a",
+          "quote": "Changes to the Circuit\n\u2022 Fully rebuild paddock.\n\n                                                       4\n\f\u2022   Guardrail in Turn 2 on RHS has been replaced with concrete walls and debris fence.\n\u2022   Tyre barriers in Turn 1, Turn 2, Turn 4, Turn 7, Turn 10, Turn 12, Turn 13 exit and Turn 14 exit replaced\n    with new tyres.\n\u2022   Installation of new concrete walls with debris fence in the run-off in Turn 4 and Turn 12.\n\u2022   Installation of new concrete walls with debris fence at pit entry on RHS.\n\u2022   Temporary concrete walls with debris fence on LHS in Turn 13 and Turn 14 around the temporary\n    pedestrian bridge.\n\u2022   Installation of a 2.5m wide grass verge behind the kerb at the exit of Turn 5 on LHS.\n\u2022   Installation of a 2.5m wide gravel strip at the exit of Turn 12 on LHS.\n\u2022   New 14m wide asphalt strip on start/finish straight in the area of the race control tower and at pit exit\n    covering the full width of the track and the pit lane.\n\u2022   The white line in Turn 4 on RHS has been moved further to the right to reduce the distance between\n    the white line and the end of the kerb.\n\u2022   The white line in Turn11 on LHS has been moved further to the left to reduce the distance between\n    the white line and the end of the kerb.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                     5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Hungarian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Hungarian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "18.07.24 15:48 CET",
+          "archive_publication_date": "2024-07-18",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "6ed7eb3bab4a19821d998ef7930025a449666830cd57d26042799c6650e9646a"
+        },
+        {
+          "title": "Doc 28 - Race Director's Event Notes V3",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Hungarian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V3.pdf",
+          "archive_published_literal": "21.07.24 08:06 CET",
+          "archive_publication_date": "2024-07-21",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "fa9fd53ecf4954964db2b79b3b53495c6e3d1e6ba1d81575b3875055f0adaab0"
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Hungarian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "18.07.24 15:40 CET",
+          "archive_publication_date": "2024-07-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "3233837bdbefb2ce70aca5511d7c5a96793bc4254a2b774608520933be4d07c7"
+        }
+      ]
+    },
+    {
+      "session_key": 9582,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Zandvoort",
+      "first_forecast_as_of_utc": "2024-08-25T13:17:37.943000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Zandvoort:65fd68b32f706f97",
+        "circuit_short_name": "Zandvoort",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 60.0,
+        "effective_from_utc": "2024-08-22T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-08-25T15:00:00+00:00",
+        "available_as_of_utc": "2024-08-22T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+        "source_sha256": "65fd68b32f706f97b15398df96bcadaa6545cf3c3583ab71029fd5f9d54ff1fc",
+        "source_quote": "Pit Lane Speed limit detailed in Article 34.7 of the Sporting Regulations is hereby amended to\n       60km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "22.08.24 20:23 CET",
+          "archive_publication_date": "2024-08-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "71de7a63ba4f68bb837b2cdfdf9a03db9d7c13d14e46b3921ddda0730c2f527d",
+          "available_as_of_utc": "2024-08-22T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "65fd68b32f706f97b15398df96bcadaa6545cf3c3583ab71029fd5f9d54ff1fc",
+          "quote": "Changes to the Circuit\n\u2022 Pit lane building has been extended by 6 garages.\n\u2022 Re-alignment of the barriers in Turn 6 on RHS.\n\u2022 Re-alignment of the barriers in Turn 2 on LHS.\n\u2022 New concrete walls with FIA fence installed between Turn 10 and Turn 11 on RHS.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                      6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Dutch%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 2 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "22.08.24 15:11 CET",
+          "archive_publication_date": "2024-08-22",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "65fd68b32f706f97b15398df96bcadaa6545cf3c3583ab71029fd5f9d54ff1fc"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "22.08.24 20:23 CET",
+          "archive_publication_date": "2024-08-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "71de7a63ba4f68bb837b2cdfdf9a03db9d7c13d14e46b3921ddda0730c2f527d"
+        },
+        {
+          "title": "Doc 12 - Infringement - Car 2 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Dutch%20Grand%20Prix%20-%20Infringement%20-%20Car%202%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "23.08.24 12:59 CET",
+          "archive_publication_date": "2024-08-23",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "b0713d76b7223812b9404b75617b45a6994b803fb648df4fe050e94884f09de6"
+        }
+      ]
+    },
+    {
+      "session_key": 9590,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Monza",
+      "first_forecast_as_of_utc": "2024-09-01T13:09:30.974000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "29.08.24 15:52 CET",
+          "archive_publication_date": "2024-08-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "0140e225b4c242e1f68ea68cfa14ce6d75673af49259b41a494317789ba64dd5",
+          "available_as_of_utc": "2024-08-29T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "568d6f5486b604e263210aaa76e3e9f421be643dfc07c3a7483b01d45458f243",
+          "quote": "Changes to the Circuit\n\u2022 The track has been fully resurfaced.\n\u2022 The bollards in the run-off in Turn 2 on LHS have been replaced with a 2.5m wide gravel strip.\n\u2022 Between Turn 4 and Turn 5 on RHS a 2.5m wide gravel strip has been installed with a distance of 1m\n   from the track edge.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V4.pdf",
+          "source_sha256": "899e53e6aad00d0c14292bd875b6e9d7d95d3306d92e7421f60d4a4e7807d07e",
+          "quote": "Changes to the Circuit\n\u2022 The track has been fully resurfaced.\n                                                        5\n\f\u2022   All kerbs have been replaced with new kerbs.\n\u2022   The bollards in the run-off in Turn 2 on LHS have been replaced with a 2.5m wide gravel strip.\n\u2022   Between Turn 4 and Turn 5 on RHS a 2.5m wide gravel strip has been installed with a distance of 1m\n    from the track edge.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                  6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Italian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 2 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "29.08.24 11:56 CET",
+          "archive_publication_date": "2024-08-29",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "568d6f5486b604e263210aaa76e3e9f421be643dfc07c3a7483b01d45458f243"
+        },
+        {
+          "title": "Doc 47 - Race Director's Event Notes V4",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V4.pdf",
+          "archive_published_literal": "31.08.24 19:26 CET",
+          "archive_publication_date": "2024-08-31",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "899e53e6aad00d0c14292bd875b6e9d7d95d3306d92e7421f60d4a4e7807d07e"
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Italian%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "29.08.24 15:52 CET",
+          "archive_publication_date": "2024-08-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "0140e225b4c242e1f68ea68cfa14ce6d75673af49259b41a494317789ba64dd5"
+        }
+      ]
+    },
+    {
+      "session_key": 9606,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Singapore",
+      "first_forecast_as_of_utc": "2024-09-22T12:19:06.966000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Singapore:eefc2b2faf136ef2",
+        "circuit_short_name": "Singapore",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 60.0,
+        "effective_from_utc": "2024-09-19T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-09-22T14:00:00+00:00",
+        "available_as_of_utc": "2024-09-19T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+        "source_sha256": "eefc2b2faf136ef22882138300d732bca8351a3fdcb4c631c80fe9ad55d51532",
+        "source_quote": "Pit Lane Speed limit detailed in Article 34.7 of the Sporting Regulations is hereby amended to\n       60km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Singapore%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "19.09.24 15:26 CET",
+          "archive_publication_date": "2024-09-19",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "20ead22663c0fb6b413926ad13a39c0e31def2e48bdcb98cf1b10a96c7649995",
+          "available_as_of_utc": "2024-09-19T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "eefc2b2faf136ef22882138300d732bca8351a3fdcb4c631c80fe9ad55d51532",
+          "quote": "Changes to the Circuit\n\u2022 Removal of the artificial grass on RHS in Turn 2 and Turn 3.\n\u2022 New 4.0 m gate at Turn 5 on RHS.\n\u2022 New 6.0 m gate at Turn 15 on LHS.\n\u2022 Opening closed at MP15.5 on LHS\n\u2022 Resurfacing between entry Turn 3 until exit Turn 8.\n\u2022 Resurfacing between exit Turn 10 until exit Turn 12.\n\u2022 Resurfacing between exit Turn 14 until entry Turn 16.\n\u2022 Resurfacing between exit Turn 16 until exit Turn 17.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                      5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Singapore%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Singapore%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "19.09.24 11:01 CET",
+          "archive_publication_date": "2024-09-19",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "eefc2b2faf136ef22882138300d732bca8351a3fdcb4c631c80fe9ad55d51532"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Singapore%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "19.09.24 15:26 CET",
+          "archive_publication_date": "2024-09-19",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "20ead22663c0fb6b413926ad13a39c0e31def2e48bdcb98cf1b10a96c7649995"
+        }
+      ]
+    },
+    {
+      "session_key": 9617,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Austin",
+      "first_forecast_as_of_utc": "2024-10-20T19:07:24.853000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "17.10.24 21:20 CET",
+          "archive_publication_date": "2024-10-17",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "a482a96bc9a8b5d8fd493a6546c3bd18207745fc1434c5bdc73f80887bfe9f9f",
+          "available_as_of_utc": "2024-10-17T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "edcf2c53e8d74e6c022f9780d9daa41ddef25ccdd85168cebe06c56dcca6d51d",
+          "quote": "Changes to the Circuit\n\u2022 Resurfacing between entry Turn 16 until entry Turn 3.\n\u2022 Resurfacing between entry Turn 9 until entry Turn 12.\n\u2022 Installation of new kerbs in Turn 9 RHS.\n\u2022 Installation of new kerbs in Turn 10 LHS.\n\u2022 Installation of new kerbs in Turn 18 RHS.\n\u2022 New TecPro barriers in Turn 1 run-off.\n\u2022 New TecPro barriers in Turn 2 LHS.\n\u2022 New TecPro barriers in Turn 6 LHS.\n\u2022 New TecPro barriers in Turn 8 LHS.\n\u2022 New TecPro barriers in Turn 10 RHS.\n\u2022 New TecPro barriers between Turn 13 and Turn 15 LHS.\n\u2022 Asphalt verge shortened to 1.5 m at the apex of Turn 6, Turn 13, Turn 14 and Turn 15.\n\u2022 Concrete walls realigned between Turn 11 and Turn 12 on LHS.\n\u2022 Removal of the bump at the entry of Turn 12.\n\u2022 White line at the exit of Turn 9 has been moved to 1.5m distance to the back of the kerb.\n\u2022 White line at the exit of Turn 19 has been moved to 1.5m distance to the back of the kerb.\n\u2022 Width of white line doubled at exit of Turn 11, Turn 12, Turn 15 and Turn 20.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n                                                    5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "f13226f17e4d8f604a29ced2ddc916a882c5a2b88b709eee087fb2dae0c27543",
+          "quote": "Changes to the Circuit\n\u2022 Resurfacing between entry Turn 16 until entry Turn 3.\n\u2022 Resurfacing between entry Turn 9 until entry Turn 12.\n\u2022 Installation of new kerbs in Turn 9 RHS.\n\u2022 Installation of new kerbs in Turn 10 LHS.\n\u2022 Installation of new kerbs in Turn 18 RHS.\n\u2022 New TecPro barriers in Turn 1 run-off.\n\u2022 New TecPro barriers in Turn 2 LHS.\n\u2022 New TecPro barriers in Turn 6 LHS.\n\u2022 New TecPro barriers in Turn 8 LHS.\n\u2022 New TecPro barriers in Turn 10 RHS.\n\u2022 New TecPro barriers between Turn 13 and Turn 15 LHS.\n\u2022 Asphalt verge shortened to 1.5 m at the apex of Turn 6, Turn 13, Turn 14 and Turn 15.\n\u2022 Concrete walls realigned between Turn 11 and Turn 12 on LHS.\n\u2022 Removal of the bump at the entry of Turn 12.\n\u2022 White line at the exit of Turn 9 has been moved to 1.5m distance to the back of the kerb.\n\u2022 White line at the exit of Turn 19 has been moved to 1.5m distance to the back of the kerb.\n\u2022 Width of white line doubled at exit of Turn 11, Turn 12, Turn 15 and Turn 20.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n                                                     5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/United%20States%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "17.10.24 19:45 CET",
+          "archive_publication_date": "2024-10-17",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "edcf2c53e8d74e6c022f9780d9daa41ddef25ccdd85168cebe06c56dcca6d51d"
+        },
+        {
+          "title": "Doc 12 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "18.10.24 17:48 CET",
+          "archive_publication_date": "2024-10-18",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "f13226f17e4d8f604a29ced2ddc916a882c5a2b88b709eee087fb2dae0c27543"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20United%20States%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "17.10.24 21:20 CET",
+          "archive_publication_date": "2024-10-17",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "a482a96bc9a8b5d8fd493a6546c3bd18207745fc1434c5bdc73f80887bfe9f9f"
+        }
+      ]
+    },
+    {
+      "session_key": 9189,
+      "season": 2023,
+      "split": "train",
+      "circuit_short_name": "Las Vegas",
+      "first_forecast_as_of_utc": "2023-11-19T06:08:12.199000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Event Notes - Circuit Map V3",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20V3.pdf",
+          "archive_published_literal": "18.11.23 04:10 CET",
+          "archive_publication_date": "2023-11-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "98d5f178d636e3a02e4d15893c996ff6ac55f304c966965e3918d8d6b3e13c57",
+          "available_as_of_utc": "2023-11-18T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "16.11.23 07:26 CET",
+          "archive_publication_date": "2023-11-16",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "ac5655d45068c59c4f5388fe71073ff42a3a22566422ea902f6d775468bc5efe",
+          "available_as_of_utc": "2023-11-16T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "f9e5025f48b319051cbb887b96d71ce899c20bd8e0237fd33081f0dda73b6595",
+          "quote": "Changes to the Circuit\n  \u2022   New circuit.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                       4"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2023-2042/event/Las%20Vegas%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "16.11.23 10:55 CET",
+          "archive_publication_date": "2023-11-16",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "f9e5025f48b319051cbb887b96d71ce899c20bd8e0237fd33081f0dda73b6595"
+        },
+        {
+          "title": "Race Director's Event Notes V4",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V4.pdf",
+          "archive_published_literal": "19.11.23 03:07 CET",
+          "archive_publication_date": "2023-11-19",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "2f4239d94c3524a34fd3c1154a3f33314de528feddf7ab9a59564e313334b2b5"
+        },
+        {
+          "title": "Event Notes - Circuit Map V3",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20V3.pdf",
+          "archive_published_literal": "18.11.23 04:10 CET",
+          "archive_publication_date": "2023-11-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "98d5f178d636e3a02e4d15893c996ff6ac55f304c966965e3918d8d6b3e13c57"
+        },
+        {
+          "title": "Event Notes - Circuit Map and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2023%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "16.11.23 07:26 CET",
+          "archive_publication_date": "2023-11-16",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "ac5655d45068c59c4f5388fe71073ff42a3a22566422ea902f6d775468bc5efe"
+        }
+      ]
+    },
+    {
+      "session_key": 9625,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Mexico City",
+      "first_forecast_as_of_utc": "2024-10-27T20:34:28.688000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Mexico%20City%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "24.10.24 19:39 CET",
+          "archive_publication_date": "2024-10-24",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "f03e9f8c54cfc384040e8a21079676ad1d4c16ec8fc2d70a73bcfb8d28e96a21",
+          "available_as_of_utc": "2024-10-24T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Mexico%20City%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "003b64f5872effd63fd2fcd2ca0d1db398df4213df8b695759f0d533c4856208",
+          "quote": "Changes to the Circuit\n\u2022 The concrete walls between Turn 9 and Turn 10 on LHS have been realigned.\n\u2022 The concrete wall between Turn 12 and Turn 13 on LHS has been extended.\n\u2022 The concrete wall between Turn 13 and Turn 14 on LHS has been realigned.\n\u2022 Between Turn 11 and Turn 12, in the area of the medical center, a part of 50 meters distance has been\n   resurfaced.\n\u2022 The track has been resurfaced between Turn 12 and Turn 15.\n\u2022 Several small areas have been resurfaced in the pit lane.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                      5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Mexico%20City%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Mexico%20City%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "24.10.24 19:33 CET",
+          "archive_publication_date": "2024-10-24",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "003b64f5872effd63fd2fcd2ca0d1db398df4213df8b695759f0d533c4856208"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Mexico%20City%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "24.10.24 19:39 CET",
+          "archive_publication_date": "2024-10-24",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "f03e9f8c54cfc384040e8a21079676ad1d4c16ec8fc2d70a73bcfb8d28e96a21"
+        }
+      ]
+    },
+    {
+      "session_key": 9636,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Interlagos",
+      "first_forecast_as_of_utc": "2024-11-03T16:22:40.994000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "31.10.24 18:28 CET",
+          "archive_publication_date": "2024-10-31",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5aeb7e77e68f671a9010b7b8360f8b43bb9aadf8692f804777ef6ac84ca1bd9f",
+          "available_as_of_utc": "2024-10-31T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "source_sha256": "ac66adcffb33ecc98e5ecc9e1f1fe717cd66d4f38a327bc65e038e465596b5bd",
+          "quote": "Changes to the Circuit\n\u2022 The track and the pit lane have been fully resurfaced.\n\u2022 The grass pavers in Turn 7 on LHS and RHS have been replaced with a layer of concrete.\n\u2022 New debris fence between Turn 13 and Turn 14 on LHS.\n\u2022 The debris fence between Turn 14 and Turn 1 has been replaced with new debris fence.\n\u2022 The guardrail and tyre barrier in Turn 7 on LHS has been realigned.\n\u2022 New openings installed in Turn 1 run-off and in Turn 15 on RHS.\n\u2022 New opening installed on Start/Finish on RHS.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                6"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "source_sha256": "7357ce9345673d90468dca2d7782ff26416aadc16953c3b0f4c7db1842e42a83",
+          "quote": "Changes to the Circuit\n\u2022 The track and the pit lane have been fully resurfaced.\n\u2022 The grass pavers in Turn 7 on LHS and RHS have been replaced with a layer of concrete.\n\u2022 New debris fence between Turn 13 and Turn 14 on LHS.\n\u2022 The debris fence between Turn 14 and Turn 1 has been replaced with new debris fence.\n\u2022 The guardrail and tyre barrier in Turn 7 on LHS has been realigned.\n\u2022 New openings installed in Turn 1 run-off and in Turn 15 on RHS.\n\u2022 New opening installed on Start/Finish on RHS.\n\n\n\n\nNiels Wittich\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                      6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/S%C3%A3o%20Paulo%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes.pdf",
+          "archive_published_literal": "31.10.24 16:52 CET",
+          "archive_publication_date": "2024-10-31",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "ac66adcffb33ecc98e5ecc9e1f1fe717cd66d4f38a327bc65e038e465596b5bd"
+        },
+        {
+          "title": "Doc 50 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "02.11.24 23:35 CET",
+          "archive_publication_date": "2024-11-02",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "7357ce9345673d90468dca2d7782ff26416aadc16953c3b0f4c7db1842e42a83"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane Drawing and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20S%C3%A3o%20Paulo%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20Drawing%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "31.10.24 18:28 CET",
+          "archive_publication_date": "2024-10-31",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5aeb7e77e68f671a9010b7b8360f8b43bb9aadf8692f804777ef6ac84ca1bd9f"
+        }
+      ]
+    },
+    {
+      "session_key": 9644,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Las Vegas",
+      "first_forecast_as_of_utc": "2024-11-24T06:08:53.957000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Las Vegas:4d92aebe41a5fe83",
+        "circuit_short_name": "Las Vegas",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2024-11-23T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-11-24T07:59:59+00:00",
+        "available_as_of_utc": "2024-11-23T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Infringement%20-%20Car%2014%20-%20Pit%20lane%20speeding.pdf",
+        "source_sha256": "4d92aebe41a5fe83200a80431fce1f5d360b780bcb4fa7e3017ad6f19df4f8c5",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 14 - Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "22.11.24 06:25 CET",
+          "archive_publication_date": "2024-11-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "547dc02b688826e87248f8cc4a9b2135b9281e2f00fb768a6f9bddc1d4e721c3",
+          "available_as_of_utc": "2024-11-22T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Doc 9 - Event Notes - Circuit Map and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "22.11.24 03:27 CET",
+          "archive_publication_date": "2024-11-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "893fd78f8f9944b980411506032c659370a3231f3740bb4feb97e71dde9d9406",
+          "available_as_of_utc": "2024-11-22T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Race%20Director%20Event%20Notes%20V2.pdf",
+          "source_sha256": "53bf501ec5cc633344a5e3ee1e886481df5c4ba919ff18536a91f671f429f72b",
+          "quote": "Changes to the Circuit\n   \u2022   Walls at Pit Entry on RHS realigned.\n   \u2022   2 gates in Pit Wall relocated.\n   \u2022   MP 9.9 moved upstream.\n   \u2022   MP 12.9 moved upstream.\n   \u2022   MP 13.1 moved upstream.\n   \u2022   Vehicle opening removed at MP 13.1.\n   \u2022   MP 13.2 moved upstream.\n   \u2022   Vehicle opening installed at exit Turn 15 on RHS.\n   \u2022   Grinding of the asphalt at the exit of Turn 12\n   \u2022   Repositioned and widened white lane at the exit of turn 4.\n   \u2022   Widened the pit entry white line.\n   \u2022   Pit boards in orange and brake markers added.\n\n\n\n\nRui Marques\n\nThe FIA Formula One Race Director\n\n                                                       5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Las%20Vegas%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 19 - Race Director Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Race%20Director%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "23.11.24 02:08 CET",
+          "archive_publication_date": "2024-11-23",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "53bf501ec5cc633344a5e3ee1e886481df5c4ba919ff18536a91f671f429f72b"
+        },
+        {
+          "title": "Doc 14 - Event Notes - Pit Lane Drawing",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Pit%20Lane%20Drawing.pdf",
+          "archive_published_literal": "22.11.24 06:25 CET",
+          "archive_publication_date": "2024-11-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "547dc02b688826e87248f8cc4a9b2135b9281e2f00fb768a6f9bddc1d4e721c3"
+        },
+        {
+          "title": "Doc 22 - Infringement - Car 14 - Pit lane speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Infringement%20-%20Car%2014%20-%20Pit%20lane%20speeding.pdf",
+          "archive_published_literal": "23.11.24 06:22 CET",
+          "archive_publication_date": "2024-11-23",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "4d92aebe41a5fe83200a80431fce1f5d360b780bcb4fa7e3017ad6f19df4f8c5"
+        },
+        {
+          "title": "Doc 9 - Event Notes - Circuit Map and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Las%20Vegas%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "22.11.24 03:27 CET",
+          "archive_publication_date": "2024-11-22",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "893fd78f8f9944b980411506032c659370a3231f3740bb4feb97e71dde9d9406"
+        }
+      ]
+    },
+    {
+      "session_key": 9655,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Lusail",
+      "first_forecast_as_of_utc": "2024-12-01T16:15:47.845000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Lusail:d6988bb22d24480a:visual",
+        "circuit_short_name": "Lusail",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2024-11-28T23:59:59.999999+00:00",
+        "available_as_of_utc": "2024-11-28T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-12-01T18:00:00+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Qatar%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+        "source_sha256": "d6988bb22d24480a4988b3b6a0aa30727fc093cdf520d6291b56001f36e651b7",
+        "source_quote": "Visual observation, PDF page 3: the 2024 Qatar GP pit lane drawing dated 28 November 2024, V1, shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+        "verification_status": "VERIFIED_OFFICIAL_MAP_SPEED_SIGN",
+        "mapping_confidence": "VISUALLY_REVIEWED_OFFICIAL_PIT_MAP",
+        "notes": "Visual evidence on PDF page 3; route length and provider timing boundaries remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Qatar%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "28.11.24 20:31 CET",
+          "archive_publication_date": "2024-11-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "d6988bb22d24480a4988b3b6a0aa30727fc093cdf520d6291b56001f36e651b7",
+          "available_as_of_utc": "2024-11-28T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Qatar%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20.pdf",
+          "source_sha256": "ae622df8f1f4ec49014bd5841a4bd1896cc12bf8a769634824fdb143dc248019",
+          "quote": "Changes to the Circuit\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 1.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 2.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 3.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 4.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 5.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 12.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 13.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 14.\n \u2022 2.0 m wide gravel strip installed behind kerb at exit Turn 15.\n \u2022 Kerb height reduced at exit Turn 1.\n\n                                                       5\n\f\u2022 Kerb height reduced at exit Turn 2.\n\u2022 Kerb height reduced at exit Turn 3.\n\u2022 Kerb height reduced at exit Turn 4.\n\u2022 Kerb height reduced at exit Turn 5\n\u2022 Kerb height reduced at exit Turn 10.\n\u2022 Kerb height reduced at entry and exit Turn 12.\n\u2022 Kerb height reduced at exit Turn 13.\n\u2022 Kerb height reduced at exit Turn 14.\n\u2022 White line moved to a distance of 1.5 m to the gravel at exit Turns 1, 2, 3, 4, 5, 13, 14, 15 and entry\nTurn 12\n\u2022 White line moved to a distance of 1.5 m to the back edge of the kerb at the exit of Turn 10.\n\n\n\n\nRui Marques\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                     6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Qatar%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Qatar%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20.pdf",
+          "archive_published_literal": "28.11.24 20:21 CET",
+          "archive_publication_date": "2024-11-28",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "ae622df8f1f4ec49014bd5841a4bd1896cc12bf8a769634824fdb143dc248019"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane and Red Zone",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Qatar%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zone.pdf",
+          "archive_published_literal": "28.11.24 20:31 CET",
+          "archive_publication_date": "2024-11-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "d6988bb22d24480a4988b3b6a0aa30727fc093cdf520d6291b56001f36e651b7"
+        }
+      ]
+    },
+    {
+      "session_key": 9662,
+      "season": 2024,
+      "split": "train",
+      "circuit_short_name": "Yas Marina Circuit",
+      "first_forecast_as_of_utc": "2024-12-08T13:07:19.903000+00:00",
+      "speed_reference": {
+        "reference_id": "2024:Yas Marina Circuit:6061a6a05a81272a",
+        "circuit_short_name": "Yas Marina Circuit",
+        "season": 2024,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2024-12-06T23:59:59.999999+00:00",
+        "effective_to_utc": "2024-12-08T15:00:00+00:00",
+        "available_as_of_utc": "2024-12-06T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Infringement%20-%20Car%2037%20-%20Pit%20Lane%20Speeding.pdf",
+        "source_sha256": "6061a6a05a81272a651692d3c88f62ac3942e5415acff4a2c6800259c5c44d3d",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 2 - Event Notes - Circuit Map, Pit Lane and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "05.12.24 15:09 CET",
+          "archive_publication_date": "2024-12-05",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "7a8239673e286d353d29552279ade649951c2b7cf4c470e69a6dcf860463845b",
+          "available_as_of_utc": "2024-12-05T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20.pdf",
+          "source_sha256": "f647c74c69e6c39816c0e062b2c7415772d94fe7a75cd486eca8c483a5acc5f6",
+          "quote": "Changes to the Circuit\n          \u2022 Debris fence in Turn 3 on LHS upgraded to 3.5 m.\n          \u2022 Grass verge in Turn 4 on RHS replaced with asphalt.\n          \u2022 Artificial grass removed in Turn 1 on RHS.\n          \u2022 Artificial grass removed in Turn 4 on LHS.\n          \u2022 Artificial grass removed in Turn 7 on LHS.\n          \u2022 Guardrail extended by 4,0 m in Turn 11 on RHS at vehicle opening.\n          \u2022 All CCTV cameras replaced with new cameras.\n          \u2022 The white line in Turn 5 on RHS has been moved further to the right to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 9 on RHS has been moved further to the right to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 15 on LHS has been moved further to the left to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 16 on LHS has been moved further to the left to reduce the\n            distance between the white line and the back of the kerb.\n\nRui Marques\n\nThe FIA Formula One Race Director\n\n\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Race%20Director%C2%B4s%20Event%20Notes%20V2.pdf",
+          "source_sha256": "41d914d896115244996ea6866c589fc22a2f680e10bd78b883edca07197dd166",
+          "quote": "Changes to the Circuit\n          \u2022 Debris fence in Turn 3 on LHS upgraded to 3.5 m.\n          \u2022 Grass verge in Turn 4 on RHS replaced with asphalt.\n          \u2022 Artificial grass removed in Turn 1 on RHS.\n          \u2022 Artificial grass removed in Turn 4 on LHS.\n          \u2022 Artificial grass removed in Turn 7 on LHS.\n          \u2022 Guardrail extended by 4,0 m in Turn 11 on RHS at vehicle opening.\n          \u2022 All CCTV cameras replaced with new cameras.\n          \u2022 The white line in Turn 5 on RHS has been moved further to the right to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 9 on RHS has been moved further to the right to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 15 on LHS has been moved further to the left to reduce the\n            distance between the white line and the back of the kerb.\n          \u2022 The white line in Turn 16 on LHS has been moved further to the left to reduce the\n            distance between the white line and the back of the kerb.\n\nRui Marques\nThe FIA Formula One Race Director\n                                                       5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2024-2043/event/Abu%20Dhabi%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Race%20Director's%20Event%20Notes%20.pdf",
+          "archive_published_literal": "05.12.24 15:33 CET",
+          "archive_publication_date": "2024-12-05",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "f647c74c69e6c39816c0e062b2c7415772d94fe7a75cd486eca8c483a5acc5f6"
+        },
+        {
+          "title": "Doc 13 - Race Director\u00b4s Event Notes V2",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Race%20Director%C2%B4s%20Event%20Notes%20V2.pdf",
+          "archive_published_literal": "06.12.24 09:28 CET",
+          "archive_publication_date": "2024-12-06",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "41d914d896115244996ea6866c589fc22a2f680e10bd78b883edca07197dd166"
+        },
+        {
+          "title": "Doc 2 - Event Notes - Circuit Map, Pit Lane and Red Zones",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Event%20Notes%20-%20Circuit%20Map,%20Pit%20Lane%20and%20Red%20Zones.pdf",
+          "archive_published_literal": "05.12.24 15:09 CET",
+          "archive_publication_date": "2024-12-05",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "7a8239673e286d353d29552279ade649951c2b7cf4c470e69a6dcf860463845b"
+        },
+        {
+          "title": "Doc 21 - Infringement - Car 37 - Pit Lane Speeding",
+          "url": "https://www.fia.com/sites/default/files/decision-document/2024%20Abu%20Dhabi%20Grand%20Prix%20-%20Infringement%20-%20Car%2037%20-%20Pit%20Lane%20Speeding.pdf",
+          "archive_published_literal": "06.12.24 11:59 CET",
+          "archive_publication_date": "2024-12-06",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "6061a6a05a81272a651692d3c88f62ac3942e5415acff4a2c6800259c5c44d3d"
+        }
+      ]
+    },
+    {
+      "session_key": 10006,
+      "season": 2025,
+      "split": "val",
+      "circuit_short_name": "Suzuka",
+      "first_forecast_as_of_utc": "2025-04-06T05:16:42.437000+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Suzuka:58ebda99a3fe36ad",
+        "circuit_short_name": "Suzuka",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-04-04T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-04-06T07:00:00+00:00",
+        "available_as_of_utc": "2025-04-04T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_infringement_-_car_12_-_pit_lane_speeding.pdf",
+        "source_sha256": "58ebda99a3fe36adfb31a9daf6faab5074647667962586a8fe443dbe9d9afb4c",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine and Red Zone",
+          "url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_and_red_zone.pdf",
+          "archive_published_literal": "03.04.25 12:33 CET",
+          "archive_publication_date": "2025-04-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "aff1230361e3581b426717f0d8fb5265301218d0b6fb0faada5b2460c9c3fc79",
+          "available_as_of_utc": "2025-04-03T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "a0b8c5e7e17dd19949a5cc5dbdf08bf36867946e1575fee9a3013f9394b9c9db",
+          "quote": "Changes to the Circuit\n           \u2022 Resurfacing between Turn 1 until entry Turn 8.\n           \u2022 Gravel was brought to the back of the double kerb at Turn 2, Turn 8 and Turn 9.\n           \u2022 Marshal posts were protected with debris fences.\n           \u2022 Driver exit aperture sign installed throughout the circuit.\n           \u2022 Extinguishers signals supported by plastic posts instead of wooden.\n           \u2022 New double kerb at Turn 9.\n           \u2022 Realignment of the white line and add a blue line at the exit of turns 1, 2, 8, 9, 14, 15\n\nRui Marques\nThe FIA Formula One Race Director\n                                                       5"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_race_directors_event_notes_v3.pdf",
+          "source_sha256": "7e107171ad1da61a87abfe7ec5dc60602078d1cb3751d4e0552758e3720c4f86",
+          "quote": "Changes to the Circuit\n          \u2022 Resurfacing between Turn 1 until entry Turn 8.\n          \u2022 Gravel was brought to the back of the double kerb at Turn 2, Turn 8 and Turn 9.\n          \u2022 Marshal posts were protected with debris fences.\n          \u2022 Driver exit aperture sign installed throughout the circuit.\n          \u2022 Extinguishers signals supported by plastic posts instead of wooden.\n          \u2022 New double kerb at Turn 9.\n          \u2022 Realignment of the white line and add a blue line at the exit of turns 1, 2, 8, 9, 13, 14, 15\n          \u2022 Grinding asphalt exit T14 RHS\n\n\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                    6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Japanese%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "03.04.25 11:41 CET",
+          "archive_publication_date": "2025-04-03",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "a0b8c5e7e17dd19949a5cc5dbdf08bf36867946e1575fee9a3013f9394b9c9db"
+        },
+        {
+          "title": "Doc 32 - Race Director's Event Notes V3",
+          "url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_race_directors_event_notes_v3.pdf",
+          "archive_published_literal": "05.04.25 07:19 CET",
+          "archive_publication_date": "2025-04-05",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "7e107171ad1da61a87abfe7ec5dc60602078d1cb3751d4e0552758e3720c4f86"
+        },
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine and Red Zone",
+          "url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_and_red_zone.pdf",
+          "archive_published_literal": "03.04.25 12:33 CET",
+          "archive_publication_date": "2025-04-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "aff1230361e3581b426717f0d8fb5265301218d0b6fb0faada5b2460c9c3fc79"
+        },
+        {
+          "title": "Doc 12 - Infringement - Car 12 - Pit Lane Speeding",
+          "url": "https://www.fia.com/system/files/decision-document/2025_japanese_grand_prix_-_infringement_-_car_12_-_pit_lane_speeding.pdf",
+          "archive_published_literal": "04.04.25 05:56 CET",
+          "archive_publication_date": "2025-04-04",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "58ebda99a3fe36adfb31a9daf6faab5074647667962586a8fe443dbe9d9afb4c"
+        }
+      ]
+    },
+    {
+      "session_key": 10014,
+      "season": 2025,
+      "split": "val",
+      "circuit_short_name": "Sakhir",
+      "first_forecast_as_of_utc": "2025-04-13T15:10:39.633000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "10.04.25 17:32 CET",
+          "archive_publication_date": "2025-04-10",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "efd18c6ff527d5055d746739c490c346c5ce458eec850f82764abe5a64c78a11",
+          "available_as_of_utc": "2025-04-10T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "d4c0742e29039f2c2d3600b93676e1205ac31fec67da06917e76005a65a4e30b",
+          "quote": "Changes to the Circuit\n          \u2022 Exit turn 4 gravel bed has been extended.\n          \u2022 U-drains close to the racing line were closed off by cement and moved away from the\n            white line into the runoff areas.\n          \u2022 Repair of the bumps at the start line straight and turn 9.\n          \u2022 Remove the kerb at turn 3 RHS (another version of the track).\n          \u2022 Replace the glasses at the start and finish platforms.\n          \u2022 Blue line added behind the white line at the entrance of turns 4 and 6.\n          \u2022 Blue line added behind the white line at the exit of turns 2, 4, 10, 11, 13, 14 and 15.\n\n\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                  6"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "source_sha256": "9d8396d00c2638595c9ddb2af6a8b5a5d4045c7bc60f143452d7dc2cf57a675e",
+          "quote": "Changes to the Circuit\n          \u2022 Exit turn 4 gravel bed has been extended.\n          \u2022 U-drains close to the racing line were closed off by cement and moved away from the\n            white line into the runoff areas.\n          \u2022 Repair of the bumps at the start line straight and turn 9.\n          \u2022 Remove the kerb at turn 3 RHS (another version of the track).\n          \u2022 Replace the glasses at the start and finish platforms.\n          \u2022 Blue line added behind the white line at the entrance of turns 4 and 6.\n          \u2022 Blue line added behind the white line at the exit of turns 2, 4, 10, 11, 13, 14 and 15.\n          \u2022 Widened the white line at the exit of turn 4 and repositioned the blue line behind the white\n            line.\n\n\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                   6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Bahrain%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "10.04.25 15:12 CET",
+          "archive_publication_date": "2025-04-10",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "d4c0742e29039f2c2d3600b93676e1205ac31fec67da06917e76005a65a4e30b"
+        },
+        {
+          "title": "Doc 23 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "archive_published_literal": "12.04.25 11:00 CET",
+          "archive_publication_date": "2025-04-12",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "9d8396d00c2638595c9ddb2af6a8b5a5d4045c7bc60f143452d7dc2cf57a675e"
+        },
+        {
+          "title": "Doc 38 - Event Notes - Pit Lane Drawing V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_event_notes_-_pit_lane_drawing_v2.pdf",
+          "archive_published_literal": "13.04.25 11:10 CET",
+          "archive_publication_date": "2025-04-13",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "84b1a482cfb9bcc49233ae28e4aebf6b5a82a70fc61c054c3a0d20b66dbef81f"
+        },
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_bahrain_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "10.04.25 17:32 CET",
+          "archive_publication_date": "2025-04-10",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "efd18c6ff527d5055d746739c490c346c5ce458eec850f82764abe5a64c78a11"
+        }
+      ]
+    },
+    {
+      "session_key": 9987,
+      "season": 2025,
+      "split": "val",
+      "circuit_short_name": "Imola",
+      "first_forecast_as_of_utc": "2025-05-18T13:14:39.665000+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Imola:5ffb1a2fb35caeb3",
+        "circuit_short_name": "Imola",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-05-16T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-05-18T15:00:00+00:00",
+        "available_as_of_utc": "2025-05-16T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_infringement_-_car_55_-_pit_lane_speeding.pdf",
+        "source_sha256": "5ffb1a2fb35caeb3bc59710ae42528a9afa1bad3ef4ebe899f7c6f3bec091b28",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "ef5784141af22e25a67705fc44ddc7c5f86bbc168c7da7210093a17e0dd623be",
+          "quote": "Changes to the Circuit\n          - Turn 4 apex: realign white line and blue line at the back, 1,5m from the kerb.\n          - Turn 4 exit: realign white line and blue line at the back, 1,5m from the gravel.\n          - Turn 6 apex: realign white line and blue line at the back, 1,5m from the gravel.\n          - Turn 6 exit: realign white line and blue line at the back, 1,5m from the gravel.\n          - Turn 7 exit: realign white line and blue line at the back, 1,5m from the grass.\n          - Turn 9 exit: realign white line and blue line at the back, 1,5m from the gravel.\n                                                      5\n\f          -   Turn 11 exit: realign white line and blue line at the back, 1,5m from the back of the kerb.\n          -   Turn 12 apex: realign white line and blue line at the back, 1,5m from the back of the kerb.\n          -   Turn 12 exit/ Turn 13 apex: realign white line and blue line at the back, 1,5m from the\n              gravel.\n          -   Turn 14 apex: realign white line and the bollard behind the kerb\n          -   Turn 15 exit: realign white line and blue line at the back, 1,5m from the gravel.\n          -   Turn 17 exit: realign white line and blue line at the back, 1,5m from the gravel.\n          -   Turn 18 exit: realign white line and blue line at the back, 1,5m from the gravel.\n          -   Turn 19 apex: realign white line to 1,5 meters from the wall.\n\n\n\n\nRui Marques\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                   6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Emilia%20Romagna%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "15.05.25 18:44 CET",
+          "archive_publication_date": "2025-05-15",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "ef5784141af22e25a67705fc44ddc7c5f86bbc168c7da7210093a17e0dd623be"
+        },
+        {
+          "title": "Doc 5 - Race Director Event Notes - Circuit Map, Pit Lane, Emergency Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_race_director_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "15.05.25 19:51 CET",
+          "archive_publication_date": "2025-05-15",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "16e91058e4c86d5719dcabe9548fdc40ca6da1530d98765bda2d1daff3642e46"
+        },
+        {
+          "title": "Doc 13 - Infringement - Car 55 - Pit Lane Speeding",
+          "url": "https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_infringement_-_car_55_-_pit_lane_speeding.pdf",
+          "archive_published_literal": "16.05.25 16:56 CET",
+          "archive_publication_date": "2025-05-16",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "5ffb1a2fb35caeb3bc59710ae42528a9afa1bad3ef4ebe899f7c6f3bec091b28"
+        }
+      ]
+    },
+    {
+      "session_key": 9971,
+      "season": 2025,
+      "split": "val",
+      "circuit_short_name": "Catalunya",
+      "first_forecast_as_of_utc": "2025-06-01T13:10:19.298000+00:00",
+      "speed_reference": null,
+      "layout_documents": [],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_spanish_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "65bb10df9474e148f0c27dd5e15bffd7344628bdfb93f484811afc64ab75f31b",
+          "quote": "Changes to the Circuit\n         - The guardrail on the RHS approaching Turn 1 was replaced by a concrete wall with debris\n            fences.\n         - Turn 2 exit: realigned the white line.\n         - Turn 5 exit: realigned the white line and paint a blue line behind the white line.\n         - Turn 9 exit: realigned the white line and paint a blue line behind the white line.\n         - Turn 10 exit: realigned the white line and paint a blue line behind the white line.\n         - Turn 12 exit: realigned the white line and paint a blue line behind the white line.\n         - Turn 14: realigned the white line and paint a blue line behind the white line.\n         - New fences to protect the Marshals Posts\n\n\n\n\nRui Marques\n\nThe FIA Formula One Race Director\n\n\n\n\n                                                      5"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Spanish%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 3 - Race Director Event Notes - Circuit Map, Pit Lane, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_spanish_grand_prix_-_race_director_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "29.05.25 17:55 CET",
+          "archive_publication_date": "2025-05-29",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "61257ccbaa6aaf4db9eb8223f0f06e7e9e84f10b5f20dc0ea4768bb140c67811"
+        },
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_spanish_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "29.05.25 18:50 CET",
+          "archive_publication_date": "2025-05-29",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "65bb10df9474e148f0c27dd5e15bffd7344628bdfb93f484811afc64ab75f31b"
+        }
+      ]
+    },
+    {
+      "session_key": 9920,
+      "season": 2025,
+      "split": "test",
+      "circuit_short_name": "Zandvoort",
+      "first_forecast_as_of_utc": "2025-08-31T13:12:32.831000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 18 - Event Notes - Pit Lane Drawing V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_event_notes_-_pit_lane_drawing_v2.pdf",
+          "archive_published_literal": "29.08.25 18:19 CET",
+          "archive_publication_date": "2025-08-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "32b139832f3a88597e73651870d675f57b94a8b7dd045ae294cfe2bf1a21602a",
+          "available_as_of_utc": "2025-08-29T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Map, Emergency Exit Map, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_event_notes_-_circuit_map_pit_lane_map_emergency_exit_map_quarantine_zone_and_red_zones_.pdf",
+          "archive_published_literal": "28.08.25 17:02 CET",
+          "archive_publication_date": "2025-08-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "c0d7f1fc5d761cdce94580d181aee108c0e2c01506c345ece5bbc21150f4cb1f",
+          "available_as_of_utc": "2025-08-28T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "dd5d1483622112ccce5431de710c824f21845fe9d47218497e4b501b830a7d7a",
+          "quote": "Changes to the Circuit\n       \u2022   Reprofile the end of the kerb at the apex of Turn 6.\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                     8"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Dutch%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "28.08.25 18:15 CET",
+          "archive_publication_date": "2025-08-28",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "dd5d1483622112ccce5431de710c824f21845fe9d47218497e4b501b830a7d7a"
+        },
+        {
+          "title": "Doc 18 - Event Notes - Pit Lane Drawing V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_event_notes_-_pit_lane_drawing_v2.pdf",
+          "archive_published_literal": "29.08.25 18:19 CET",
+          "archive_publication_date": "2025-08-29",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "32b139832f3a88597e73651870d675f57b94a8b7dd045ae294cfe2bf1a21602a"
+        },
+        {
+          "title": "Doc 3 - Event Notes - Circuit Map, Pit Lane Map, Emergency Exit Map, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_event_notes_-_circuit_map_pit_lane_map_emergency_exit_map_quarantine_zone_and_red_zones_.pdf",
+          "archive_published_literal": "28.08.25 17:02 CET",
+          "archive_publication_date": "2025-08-28",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "c0d7f1fc5d761cdce94580d181aee108c0e2c01506c345ece5bbc21150f4cb1f"
+        }
+      ]
+    },
+    {
+      "session_key": 9858,
+      "season": 2025,
+      "split": "test",
+      "circuit_short_name": "Las Vegas",
+      "first_forecast_as_of_utc": "2025-11-23T04:05:55.114000+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Las Vegas:3ea33e5b40d5d173",
+        "circuit_short_name": "Las Vegas",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-11-22T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-11-23T06:00:00+00:00",
+        "available_as_of_utc": "2025-11-22T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_infringement_-_car_44_-_pit_lane_speeding.pdf",
+        "source_sha256": "3ea33e5b40d5d173f78a59aaf7ce00fe7ebd6af25cc8f77423252b8a6bed6248",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 2 - Event Notes - Circuit Map V2, Pit Lane Drawing, Emergency Map Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_event_notes_-_circuit_map_v2_pit_lane_drawing_emergency_map_exits_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "20.11.25 06:50 CET",
+          "archive_publication_date": "2025-11-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5725f5e2c9085a0d593ffea2c67c15f71f8943353b974fc379c58070df8ab9b4",
+          "available_as_of_utc": "2025-11-20T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "c9b192716468eede9462138e42ab150dda9bcb9fffe7f908d76e534a187825a0",
+          "quote": "Changes to the Circuit\n    - Turn 3: adjust right-hand side Inside painted kerb and white line (the wall is in the same\n       position)\n    - Turn 4: Exit Left-Hand side adjust left track edge. The painted kerb was removed.\n    - Two patches of Asphalt: one 50m before MP4.8 and the second one 20m after over whole\n       track width\n    - Patch of Asphalt 40m before Turn 5 over whole track width\n    - Turn 5 and Turn 6 left-hand side adjustment of painted kerb and white line (the wall is in the\n       same position)\n    - Turn 8: widening Run Off on the left-hand side for better access for vehicles and pedestrians\n       during track build\n    - Two patches of Asphalt: one at MP12.9 and the second one at 30 meters after the MP over\n       the whole track width\n    - MP 12.9 changed location.\n                                                     6\n\f      -   MP15.1 moved to opposite track site for better line sight and MP16.0 move closer to T15.\n      -   Distance boards updated to new size and 100 m boards printed in blue.\n      -   Reprofiling the manhole between Turn 16 and Turn 17 under the bridge.\n      -   Reprofiling of the concrete barrier before pit entry (after the speed limit board) at the right-\n          hand side.\n\n\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                    7"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "source_sha256": "cbd8049075b43254a1fadfdf114c265cac7a0fdf2690c88c23f7d2aadfb9f277",
+          "quote": "Changes to the Circuit\n    - Turn 3: adjust right-hand side Inside painted kerb and white line (the wall is in the same\n       position)\n    - Turn 4: Exit Left-Hand side adjust left track edge. The painted kerb was removed.\n    - Two patches of Asphalt: one 50m before MP4.8 and the second one 20m after over whole\n       track width\n    - Patch of Asphalt 40m before Turn 5 over whole track width\n    - Turn 5 and Turn 6 left-hand side adjustment of painted kerb and white line (the wall is in the\n       same position)\n    - Turn 8: widening Run Off on the left-hand side for better access for vehicles and pedestrians\n       during track build\n    - Two patches of Asphalt: one at MP12.9 and the second one at 30 meters after the MP over\n       the whole track width\n                                                     6\n\f      -   MP 12.9 changed location.\n      -   MP15.1 moved to opposite track site for better line of sight and MP16.0 move closer to T15.\n      -   Distance boards updated to new size and 100 m boards printed in blue.\n      -   Reprofiling the manhole between Turn 16 and Turn 17 under the bridge.\n      -   Reprofiling of the concrete barrier before pit entry (after the speed limit board) at the right-\n          hand side.\n      -   Remove paint from the apex Turn 16\n\n\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                    7"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Las%20Vegas%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "20.11.25 07:11 CET",
+          "archive_publication_date": "2025-11-20",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "c9b192716468eede9462138e42ab150dda9bcb9fffe7f908d76e534a187825a0"
+        },
+        {
+          "title": "Doc 20 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "archive_published_literal": "22.11.25 00:58 CET",
+          "archive_publication_date": "2025-11-22",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "cbd8049075b43254a1fadfdf114c265cac7a0fdf2690c88c23f7d2aadfb9f277"
+        },
+        {
+          "title": "Doc 2 - Event Notes - Circuit Map V2, Pit Lane Drawing, Emergency Map Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_event_notes_-_circuit_map_v2_pit_lane_drawing_emergency_map_exits_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "20.11.25 06:50 CET",
+          "archive_publication_date": "2025-11-20",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "5725f5e2c9085a0d593ffea2c67c15f71f8943353b974fc379c58070df8ab9b4"
+        },
+        {
+          "title": "Doc 21 - Infringement - Car 44 - Pit lane speeding",
+          "url": "https://www.fia.com/system/files/decision-document/2025_las_vegas_grand_prix_-_infringement_-_car_44_-_pit_lane_speeding.pdf",
+          "archive_published_literal": "22.11.25 01:56 CET",
+          "archive_publication_date": "2025-11-22",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "3ea33e5b40d5d173f78a59aaf7ce00fe7ebd6af25cc8f77423252b8a6bed6248"
+        }
+      ]
+    },
+    {
+      "session_key": 9963,
+      "season": 2025,
+      "split": "test",
+      "circuit_short_name": "Montreal",
+      "first_forecast_as_of_utc": "2025-06-15T19:28:39.716000+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Montreal:610e05222ef80f11",
+        "circuit_short_name": "Montreal",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-06-13T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-06-15T20:00:00+00:00",
+        "available_as_of_utc": "2025-06-13T23:59:59.999999+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_infringement_-_car_81_-_pit_lane_speeding.pdf",
+        "source_sha256": "610e05222ef80f1160fc6b9baa0fed4871beabbf3f543b94138779397b0baf13",
+        "source_quote": "pit lane speed limit which is set at 80 km/h",
+        "verification_status": "VERIFIED_OFFICIAL_SPEED_ONLY",
+        "mapping_confidence": "VERIFIED_SPEED_LAYOUT_NOT_INFERRED",
+        "notes": "Official event-specific speed directive; legal route anchors and lane length remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Emergency Exits Map, ERS Battery Containment Area, Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_map_ers_battery_containment_area_red_zones.pdf",
+          "archive_published_literal": "13.06.25 00:34 CET",
+          "archive_publication_date": "2025-06-13",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "573b99039d5f6557158b752a09603f7890b7ba87198000585588676433e18f68",
+          "available_as_of_utc": "2025-06-13T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "fd6ee83fa5d95fa3dcfb16f87ba410cb0075a8709578d15cf739b573b66caa5a",
+          "quote": "Changes to the Circuit\n      - Improvement to the drainage at turns 2, 8, 10 and 13 (by making small cuts in the kerbs).\n      - Track surface grinded to remove bump at T12 (area prior to DRS Line).\n      - Run-off behind Turn 8 and Turn 9 apex was regraded and a paved path was created.\n      - Realignment of the width of the white line at Turn 4 and Turn 8 with 1,8 meters to the wall.\n      - Concrete wall at Turn 10 RHS was extended.\n      - Realignment of the width of the white line at Turn 14 with 1,8 meters to the wall and add a blue\n         line.\nRui Marques\nThe FIA Formula One Race Director\n\n                                                      7"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "source_sha256": "43567ff84e35b5c0a25ca9cecada37fb06d059b61edfae21b4da2a575502cdbc",
+          "quote": "Changes to the Circuit\n      - Improvement to the drainage at turns 2, 8, 10 and 13 (by making small cuts in the kerbs).\n      - Track surface grinded to remove bump at T12 (area prior to DRS Line).\n      - Run-off behind Turn 8 and Turn 9 apex was regraded and a paved path was created.\n      - Realignment of the width of the white line at Turn 4 and Turn 8 with 1,8 meters to the wall.\n      - Concrete wall at Turn 10 RHS was extended.\n      - Realignment of the width of the white line at Turn 14 with 1,8 meters to the wall and add a blue\n        line.\n      - Black the end of the orange paint at the rejoin of the runoff area of Turn 13\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                      8"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Canadian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "13.06.25 00:15 CET",
+          "archive_publication_date": "2025-06-13",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "fd6ee83fa5d95fa3dcfb16f87ba410cb0075a8709578d15cf739b573b66caa5a"
+        },
+        {
+          "title": "Doc 19 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "archive_published_literal": "14.06.25 15:26 CET",
+          "archive_publication_date": "2025-06-14",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "43567ff84e35b5c0a25ca9cecada37fb06d059b61edfae21b4da2a575502cdbc"
+        },
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Emergency Exits Map, ERS Battery Containment Area, Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_map_ers_battery_containment_area_red_zones.pdf",
+          "archive_published_literal": "13.06.25 00:34 CET",
+          "archive_publication_date": "2025-06-13",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "573b99039d5f6557158b752a09603f7890b7ba87198000585588676433e18f68"
+        },
+        {
+          "title": "Doc 11 - Infringement - Car 81 - Pit Lane Speeding",
+          "url": "https://www.fia.com/system/files/decision-document/2025_canadian_grand_prix_-_infringement_-_car_81_-_pit_lane_speeding.pdf",
+          "archive_published_literal": "13.06.25 20:03 CET",
+          "archive_publication_date": "2025-06-13",
+          "kind": "PIT_SPEED_DECISION",
+          "source_sha256": "610e05222ef80f1160fc6b9baa0fed4871beabbf3f543b94138779397b0baf13"
+        }
+      ]
+    },
+    {
+      "session_key": 9947,
+      "season": 2025,
+      "split": "test",
+      "circuit_short_name": "Silverstone",
+      "first_forecast_as_of_utc": "2025-07-06T14:05:41.571000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 6 - Event Notes - Circuit Map V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_event_notes_-_circuit_map_v2.pdf",
+          "archive_published_literal": "03.07.25 20:18 CET",
+          "archive_publication_date": "2025-07-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "9a620d00e968818672154b8a8aa748c8020839edc9a956228424d1657cd0bfe6",
+          "available_as_of_utc": "2025-07-03T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane, Emergency Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones_.pdf",
+          "archive_published_literal": "03.07.25 19:24 CET",
+          "archive_publication_date": "2025-07-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "e243941bc873fe63ce89a03e79481475d8eb0bb8fd4761cd29930a9243bd642a",
+          "available_as_of_utc": "2025-07-03T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "6165df26a21c242cf2591f28e7a39e58460758f4ec9cd4be3dbc944882e5b337",
+          "quote": "Changes to the Circuit\n      - Removed the kerb at Turn 1 runoff on the left-hand side.\n      - The gravel in the gravel trap at the exit of T18 has been changed to a lighter material.\n      - 1 red kerb element in Turn 1 (apex) replaced by a flat kerb element.\n      - 2 red kerb elements in Turn 6 (apex) replaced by a flat kerb element.\n      - 1 red kerb element in Turn 7 (apex) replaced by a flat kerb element.\n      - 3 red kerbs elements in Turn 9 (apex) replaced by a flat kerb element.\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                     6"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "source_sha256": "43e329455fa9ab3020f9c1e8c4d0a5dcbf5b12639b92a5c93b87b86234ae29f9",
+          "quote": "Changes to the Circuit\n      - Removed the kerb at Turn 1 runoff on the left-hand side.\n      - The gravel in the gravel trap at the exit of T18 has been changed to a lighter material.\n      - 1 red kerb element in Turn 1 (apex) replaced by a flat kerb element.\n      - 2 red kerb elements in Turn 6 (apex) replaced by a flat kerb element.\n      - 1 red kerb element in Turn 7 (apex) replaced by a flat kerb element.\n      - 3 red kerbs elements in Turn 9 (apex) replaced by a flat kerb element.\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                     6"
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/British%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "03.07.25 20:06 CET",
+          "archive_publication_date": "2025-07-03",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "6165df26a21c242cf2591f28e7a39e58460758f4ec9cd4be3dbc944882e5b337"
+        },
+        {
+          "title": "Doc 18 - Race Director's Event Notes V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_race_directors_event_notes_v2.pdf",
+          "archive_published_literal": "05.07.25 09:13 CET",
+          "archive_publication_date": "2025-07-05",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "43e329455fa9ab3020f9c1e8c4d0a5dcbf5b12639b92a5c93b87b86234ae29f9"
+        },
+        {
+          "title": "Doc 6 - Event Notes - Circuit Map V2",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_event_notes_-_circuit_map_v2.pdf",
+          "archive_published_literal": "03.07.25 20:18 CET",
+          "archive_publication_date": "2025-07-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "9a620d00e968818672154b8a8aa748c8020839edc9a956228424d1657cd0bfe6"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane, Emergency Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_british_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones_.pdf",
+          "archive_published_literal": "03.07.25 19:24 CET",
+          "archive_publication_date": "2025-07-03",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "e243941bc873fe63ce89a03e79481475d8eb0bb8fd4761cd29930a9243bd642a"
+        }
+      ]
+    },
+    {
+      "session_key": 9904,
+      "season": 2025,
+      "split": "test",
+      "circuit_short_name": "Baku",
+      "first_forecast_as_of_utc": "2025-09-21T11:06:27.024000+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Baku:48b475a35de6b0f9:visual",
+        "circuit_short_name": "Baku",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-09-18T23:59:59.999999+00:00",
+        "available_as_of_utc": "2025-09-18T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-09-21T13:00:00+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zone.pdf",
+        "source_sha256": "48b475a35de6b0f9b42b0900764fe8a06e2f2278fba8ae48e6d127696ce47855",
+        "source_quote": "Visual observation, PDF page 2: the 2025 Azerbaijan pit lane drawing dated 17 September 2025 shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+        "verification_status": "VERIFIED_OFFICIAL_MAP_SPEED_SIGN",
+        "mapping_confidence": "VISUALLY_REVIEWED_OFFICIAL_PIT_MAP",
+        "notes": "Visual evidence on PDF page 2; route length and provider timing boundaries remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine Zone and Red Zone",
+          "url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zone.pdf",
+          "archive_published_literal": "18.09.25 17:40 CET",
+          "archive_publication_date": "2025-09-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "48b475a35de6b0f9b42b0900764fe8a06e2f2278fba8ae48e6d127696ce47855",
+          "available_as_of_utc": "2025-09-18T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "0599c62f0aeac92cbc7ac1228979345ae156d376552aac1916055a674957921a",
+          "quote": "Changes to the Circuit\n    A few resurfacing patches work:\n           - From Turn 2 to Turn 3 mainly on the LHS\n           - Before Turn 4 LHS\n           - Between Turn 7 and Turn 8 on the LHS\n           - Turn 12 RHS.\n           - Turn 14 LHS.\n           - Between Turn 14 and Turn 15 on the LHS\n                                                    6\n\f              - Turn 18 LHS.\n              - Realignment of the TecPro barrier at the exit of Turn 1 RHS\n\n  29."
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Azerbaijan%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 4 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "18.09.25 17:29 CET",
+          "archive_publication_date": "2025-09-18",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "0599c62f0aeac92cbc7ac1228979345ae156d376552aac1916055a674957921a"
+        },
+        {
+          "title": "Doc 38 - Race Director's Event Notes V4",
+          "url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_race_directors_event_notes_v4.pdf",
+          "archive_published_literal": "21.09.25 08:53 CET",
+          "archive_publication_date": "2025-09-21",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "c257aed103d44abfe06828524c4b7a95d79185f5052004e501276027b414731f"
+        },
+        {
+          "title": "Doc 5 - Event Notes - Circuit Map, Pit Lane, Quarantine Zone and Red Zone",
+          "url": "https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_event_notes_-_circuit_map_pit_lane_quarantine_zone_and_red_zone.pdf",
+          "archive_published_literal": "18.09.25 17:40 CET",
+          "archive_publication_date": "2025-09-18",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "48b475a35de6b0f9b42b0900764fe8a06e2f2278fba8ae48e6d127696ce47855"
+        }
+      ]
+    },
+    {
+      "session_key": 9850,
+      "season": 2025,
+      "split": "reviewed_diagnostic",
+      "circuit_short_name": "Lusail",
+      "first_forecast_as_of_utc": "2025-11-30T16:00:00+00:00",
+      "speed_reference": {
+        "reference_id": "2025:Lusail:97cf896ba89c89c7:visual",
+        "circuit_short_name": "Lusail",
+        "season": 2025,
+        "layout_version": null,
+        "pit_speed_limit_kph": 80.0,
+        "effective_from_utc": "2025-11-27T23:59:59.999999+00:00",
+        "available_as_of_utc": "2025-11-27T23:59:59.999999+00:00",
+        "effective_to_utc": "2025-11-30T18:00:00+00:00",
+        "source_url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_event_notes_-_circuit_map._pit_lane_drawing_emergency_exits_map_ers_battery_containment_area_red_zones_map.pdf",
+        "source_sha256": "97cf896ba89c89c707357c948ccfb4b77e02a2347d5d7483febd75bb3ae418d7",
+        "source_quote": "Visual observation, PDF page 3: the 2025 Qatar GP pit lane drawing dated 27 November 2025, V1, shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+        "verification_status": "VERIFIED_OFFICIAL_MAP_SPEED_SIGN",
+        "mapping_confidence": "VISUALLY_REVIEWED_OFFICIAL_PIT_MAP",
+        "notes": "Visual evidence on PDF page 3; route length and provider timing boundaries remain unverified"
+      },
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map. Pit Lane Drawing, Emergency Exits Map, ERS Battery Containment Area, Red Zones Map",
+          "url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_event_notes_-_circuit_map._pit_lane_drawing_emergency_exits_map_ers_battery_containment_area_red_zones_map.pdf",
+          "archive_published_literal": "27.11.25 14:29 CET",
+          "archive_publication_date": "2025-11-27",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "97cf896ba89c89c707357c948ccfb4b77e02a2347d5d7483febd75bb3ae418d7",
+          "available_as_of_utc": "2025-11-27T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "027f2fb067074bae7d888abab2a89ed6605eee739023a0e75773ad78a777d09a",
+          "quote": "Changes to the Circuit\n    - Additional gravel strip at the exit of Turn 6.\n    - Additional gravel strip at Turn 10 on the right-hand side.\n    - Gravel strip at the exit of Turn 14 starts earlier.\n    - Additional gravel strip at the exit of Turn 16.\n    - Gravel beds have been painted.\n\n\n\n                                                     6\n\f  29."
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Qatar%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "27.11.25 15:27 CET",
+          "archive_publication_date": "2025-11-27",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "027f2fb067074bae7d888abab2a89ed6605eee739023a0e75773ad78a777d09a"
+        },
+        {
+          "title": "Doc 56 - Race Director's Event Notes V3",
+          "url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_race_directors_event_notes_v3.pdf",
+          "archive_published_literal": "30.11.25 15:04 CET",
+          "archive_publication_date": "2025-11-30",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "aed0092de88f1d49b342d41468fa3b23725bbe1ae686d155f12f3e0e0e145596"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map. Pit Lane Drawing, Emergency Exits Map, ERS Battery Containment Area, Red Zones Map",
+          "url": "https://www.fia.com/system/files/decision-document/2025_qatar_grand_prix_-_event_notes_-_circuit_map._pit_lane_drawing_emergency_exits_map_ers_battery_containment_area_red_zones_map.pdf",
+          "archive_published_literal": "27.11.25 14:29 CET",
+          "archive_publication_date": "2025-11-27",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "97cf896ba89c89c707357c948ccfb4b77e02a2347d5d7483febd75bb3ae418d7"
+        }
+      ]
+    },
+    {
+      "session_key": 9939,
+      "season": 2025,
+      "split": "supplementary_test",
+      "circuit_short_name": "Spa-Francorchamps",
+      "first_forecast_as_of_utc": "2025-07-27T14:44:21.099000+00:00",
+      "speed_reference": null,
+      "layout_documents": [
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane, Emergency Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "24.07.25 19:13 CET",
+          "archive_publication_date": "2025-07-24",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "eeaf14a91e8e020fcfe6849d3ff21e189cce292fabf68ec3528d0928d2542c82",
+          "available_as_of_utc": "2025-07-24T23:59:59.999999+00:00",
+          "document_identity_only": true,
+          "physical_geometry_version_verified": false
+        }
+      ],
+      "circuit_change_evidence": [
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_race_directors_event_notes_.pdf",
+          "source_sha256": "edc7bdc872ef3a5b335a1d16805f83008830b3ca0ba0cbb0c2b5e590f15ff55e",
+          "quote": "Changes to the Circuit\n      - Resurface racing line from 50 m brake marker board before Turn 1 to the exit of Turn 1\n      - Replace the apex kerb at Turn 3\n      - Grinding asphalt halfway down from endurance pit lane to Turn 2.\n      - Resurfacing after T15 on the RHS (to correct a bump).\n\n\nRui Marques\nThe FIA Formula One Race Director\n\n\n\n\n                                                       7"
+        },
+        {
+          "source_url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_race_directors_event_notes_v3.pdf",
+          "source_sha256": "ce6503a1d1076f0aabc73e2283a72eb45337a3ead674b874ead613c0662eb6d3",
+          "quote": "Changes to the Circuit\n      - Resurface racing line from 50 m brake marker board before Turn 1 to the exit of Turn 1\n      - Replace the apex kerb at Turn 3\n      - Grinding asphalt halfway down from endurance pit lane to Turn 2.\n      - Resurfacing after T15 on the RHS (to correct a bump).\n\n  31."
+        }
+      ],
+      "pit_lane_length_m": null,
+      "provider_route_boundaries_verified": false,
+      "source_rejections": [],
+      "source_archive_url": "https://www.fia.com/documents/championships/fia-formula-one-world-championship-14/season/season-2025-2071/event/Belgian%20Grand%20Prix",
+      "all_downloaded_source_pdfs": [
+        {
+          "title": "Doc 5 - Race Director's Event Notes",
+          "url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_race_directors_event_notes_.pdf",
+          "archive_published_literal": "24.07.25 20:19 CET",
+          "archive_publication_date": "2025-07-24",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "edc7bdc872ef3a5b335a1d16805f83008830b3ca0ba0cbb0c2b5e590f15ff55e"
+        },
+        {
+          "title": "Doc 34 - Race Director's Event Notes V3",
+          "url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_race_directors_event_notes_v3.pdf",
+          "archive_published_literal": "26.07.25 10:43 CET",
+          "archive_publication_date": "2025-07-26",
+          "kind": "EVENT_NOTES",
+          "source_sha256": "ce6503a1d1076f0aabc73e2283a72eb45337a3ead674b874ead613c0662eb6d3"
+        },
+        {
+          "title": "Doc 4 - Event Notes - Circuit Map, Pit Lane, Emergency Exits, Quarantine Zone and Red Zones",
+          "url": "https://www.fia.com/system/files/decision-document/2025_belgian_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones.pdf",
+          "archive_published_literal": "24.07.25 19:13 CET",
+          "archive_publication_date": "2025-07-24",
+          "kind": "LAYOUT_DOCUMENT",
+          "source_sha256": "eeaf14a91e8e020fcfe6849d3ff21e189cce292fabf68ec3528d0928d2542c82"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+experiment:
+  name: stage4_1_stabilization
+  version: 1.1.0
+  random_seed: 42
+  n_samples: 1000
+  scope: Stage 4 only; no Stage 5 work
+  preregistered_plan_sha256: cb4050980a6ae346ec49f6aab340af3db4d5198811ac9118f366ea1b67bbadc8
+cohort:
+  train:
+  - year: 2023
+    session_key: 7953
+    label: 2023 Bahrain GP
+    inspected: true
+  - year: 2023
+    session_key: 7779
+    label: 2023 Saudi Arabian GP
+    inspected: true
+  - year: 2023
+    session_key: 9102
+    label: 2023 Spanish GP
+    inspected: true
+  - year: 2023
+    session_key: 9118
+    label: 2023 Austrian GP
+    inspected: true
+  - year: 2023
+    session_key: 9133
+    label: 2023 Hungarian GP
+    inspected: true
+  - year: 2023
+    session_key: 9157
+    label: 2023 Italian GP
+    inspected: true
+  - year: 2023
+    session_key: 9165
+    label: 2023 Singapore GP
+    inspected: true
+  - year: 2023
+    session_key: 9173
+    label: 2023 Japanese GP
+    inspected: true
+  - year: 2024
+    session_key: 9472
+    label: 2024 Bahrain GP
+    inspected: true
+  - year: 2024
+    session_key: 9496
+    label: 2024 Japanese GP
+    inspected: true
+  - year: 2024
+    session_key: 9515
+    label: 2024 Emilia Romagna GP
+    inspected: true
+  - year: 2024
+    session_key: 9539
+    label: 2024 Spanish GP
+    inspected: true
+  - year: 2024
+    session_key: 9566
+    label: 2024 Hungarian GP
+    inspected: true
+  - year: 2024
+    session_key: 9582
+    label: 2024 Dutch GP
+    inspected: true
+  - year: 2024
+    session_key: 9590
+    label: 2024 Italian GP
+    inspected: true
+  - year: 2024
+    session_key: 9606
+    label: 2024 Singapore GP
+    inspected: true
+  - year: 2024
+    session_key: 9617
+    label: 2024 United States GP
+    inspected: true
+  - year: 2023
+    session_key: 9189
+    label: 2023 Las Vegas GP
+    inspected: true
+  - year: 2024
+    session_key: 9625
+    label: 2024 Mexico GP
+    inspected: true
+  - year: 2024
+    session_key: 9636
+    label: 2024 Brazil GP
+    inspected: true
+  - year: 2024
+    session_key: 9644
+    label: 2024 Las Vegas GP
+    inspected: true
+  - year: 2024
+    session_key: 9655
+    label: 2024 Qatar GP
+    inspected: true
+  - year: 2024
+    session_key: 9662
+    label: 2024 Abu Dhabi GP
+    inspected: true
+  val:
+  - year: 2025
+    session_key: 10006
+    label: 2025 Japanese GP
+    inspected: true
+  - year: 2025
+    session_key: 10014
+    label: 2025 Bahrain GP
+    inspected: true
+  - year: 2025
+    session_key: 9987
+    label: 2025 Emilia Romagna GP
+    inspected: true
+  - year: 2025
+    session_key: 9971
+    label: 2025 Spanish GP
+    inspected: true
+  test:
+  - year: 2025
+    session_key: 9920
+    label: 2025 Zandvoort GP
+    inspected: false
+    population: familiar
+  - year: 2025
+    session_key: 9858
+    label: 2025 Las Vegas GP
+    inspected: false
+    population: familiar
+  - year: 2025
+    session_key: 9963
+    label: 2025 Montreal GP
+    inspected: false
+    population: unseen
+  - year: 2025
+    session_key: 9947
+    label: 2025 Silverstone GP
+    inspected: false
+    population: unseen
+  - year: 2025
+    session_key: 9904
+    label: 2025 Baku GP
+    inspected: false
+    population: unseen
+  transfer_2026:
+  - year: 2026
+    session_key: 11253
+    label: 2026 Japanese GP
+    inspected: true
+  - year: 2026
+    session_key: 11307
+    label: 2026 Spanish GP
+    inspected: true
+  - year: 2026
+    session_key: 11342
+    label: 2026 Hungarian GP
+    inspected: true
+  - year: 2026
+    session_key: 11361
+    label: 2026 Italian GP
+    inspected: true
+  - year: 2026
+    session_key: 11388
+    label: 2026 Singapore GP
+    inspected: true
+model:
+  circuit_shrinkage: 12.0
+  team_shrinkage: 20.0
+eligibility:
+  version: stage4.1-ordinary-v1
+  long_stay_threshold_s: 60.0
+  allow_screened_unverified: true
+  exclude_possible_double_stack: true
+validation:
+  experiments:
+  - P0
+  - P1
+  - P2
+  - P3
+  - P6
+  - P7
+  - P8
+  calibration_scales:
+  - 0.5
+  - 0.75
+  - 1.0
+  - 1.25
+  - 1.5
+  selection: race_weighted_crps
+  include_realized_used_scenarios: true
+  do_not_tune_on_previous_or_new_holdouts: true
+reference:
+  primary: past-race-centered-ridge-reference-v1
+  supporting: past-race-robust-reference-and-matched-time-controls-v2

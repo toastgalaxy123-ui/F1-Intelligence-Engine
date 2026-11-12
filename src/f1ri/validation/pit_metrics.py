@@ -25,6 +25,7 @@ def pit_metrics(frame: pd.DataFrame, target: str = "target_transition_loss_s",
             result[f"mean_width_{level}_s"] = float((data[f"p{q1:02d}_loss_s"]-data[f"p{q0:02d}_loss_s"]).mean())
         if "crps_s" in data:
             result["crps_s"] = float(data.crps_s.mean())
+            result["race_weighted_crps_s"] = float(data.groupby("session_key").crps_s.mean().mean())
         if "label_std_s" in data:
             result["median_label_std_s"] = float(data.label_std_s.median())
     return result
@@ -35,6 +36,8 @@ def evaluate_pit_predictions(frame: pd.DataFrame) -> dict:
     for (model, split), group in frame.groupby(["model_id", "split"]):
         eligible = group[group.eligible_primary_label.fillna(False)]
         stationary = group.dropna(subset=["target_stop_duration_s", "expected_stationary_duration_s"])
+        if "eligible_direct_stationary" in stationary:
+            stationary = stationary[stationary.eligible_direct_stationary.fillna(False)]
         tail = {}
         if not stationary.empty:
             labels = (stationary.target_stop_duration_s > 4.5).to_numpy(float)
@@ -44,7 +47,7 @@ def evaluate_pit_predictions(frame: pd.DataFrame) -> dict:
                     "predicted_slow_rate": float(np.mean(probs)),
                     "brier_score": float(np.mean((labels-probs)**2))}
         slices = {}
-        for column in ("circuit_short_name", "season", "team_id", "pit_event_type", "track_status_at_cutoff",
+        for column in ("circuit_short_name", "season", "team_id", "pit_event_type", "routine_status", "track_status_at_cutoff",
                        "timing_quality", "support_status", "pit_sequence", "service_category",
                        "pit_lap_bucket", "pit_speed_limit_kph", "historical_support_bucket"):
             if column in eligible:
@@ -55,6 +58,9 @@ def evaluate_pit_predictions(frame: pd.DataFrame) -> dict:
             "direct_stationary": pit_metrics(stationary, "target_stop_duration_s", "expected_stationary_duration_s"),
             "slow_stop_calibration": tail, "slices": slices,
             "unsupported_events": int((group.support_status == "UNSUPPORTED").sum()),
+            "excluded_lane_events": int((~group.eligible_direct_lane.fillna(False)).sum()),
+            "lane_crps_s": float(group.loc[group.eligible_direct_lane.fillna(False), "lane_crps_s"].mean()) if "lane_crps_s" in group else None,
+            "service_crps_s": float(stationary.service_crps_s.mean()) if "service_crps_s" in stationary and not stationary.empty else None,
         }
     return out
 

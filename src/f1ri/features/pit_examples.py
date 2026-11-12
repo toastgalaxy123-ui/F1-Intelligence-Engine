@@ -11,6 +11,7 @@ from f1ri.features.pit_events import integer, number, replace_session_frame, utc
 def build_pit_examples(
     *, events: pd.DataFrame, observations: pd.DataFrame, frames: dict[str, pd.DataFrame],
     split: str, reference: pd.DataFrame | None = None,
+    include_realized_used_scenarios: bool = False,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     contexts, examples = [], []
     if events.empty:
@@ -39,13 +40,23 @@ def build_pit_examples(
         label = obs.iloc[0].to_dict() if not obs.empty else {}
         # Include a fixed scenario grid even if the driver chose a different tire.
         # The actual compound is consulted ONLY below when attaching outcomes.
-        for compound in ("HARD", "MEDIUM", "SOFT"):
+        scenarios = [(c, 0) for c in ("HARD", "MEDIUM", "SOFT")]
+        actual_age = integer(event["new_tyre_initial_age"])
+        actual_compound = event.get("new_compound")
+        if (include_realized_used_scenarios and actual_age is not None and actual_age >= 0
+                and actual_compound in {"HARD", "MEDIUM", "SOFT", "INTERMEDIATE", "WET"}
+                and (actual_compound, actual_age) not in scenarios):
+            # Explicitly conditional on this tire scenario, not a forecast of
+            # what the team will choose. The hypothetical fixed grid is intact.
+            scenarios.append((actual_compound, actual_age))
+        for compound, initial_age in scenarios:
             try:
                 _request, context = build_pit_opportunity(
                     session=session, driver=drv.iloc[0].to_dict(), laps=laps,
                     stints=frames["stints"], race_control=frames["race_control"],
                     weather=frames["weather"], as_of_utc=cutoff,
                     intended_pit_lap=inlap, new_compound=compound,
+                    new_tyre_initial_age=initial_age,
                     completed_events=events, position=frames["position"],
                     intervals=frames["intervals"], reference=reference,
                 )
@@ -53,7 +64,7 @@ def build_pit_examples(
                 continue
             context["pit_event_id"] = event["pit_event_id"]
             contexts.append(context)
-            realized = compound == event["new_compound"] and integer(event["new_tyre_initial_age"]) == 0
+            realized = compound == event["new_compound"] and actual_age == initial_age
             examples.append({
                 **context, "split": split,
                 "is_realized_tire_scenario": realized,
@@ -62,7 +73,8 @@ def build_pit_examples(
                 "target_transition_loss_s": number(label.get("transition_loss_s")) if realized else None,
                 "label_std_s": number(label.get("label_std_s")) if realized else None,
                 "observation_available_utc": utc(event["transition_end_utc"]),
-                "eligible_primary_label": bool(label.get("eligible_primary_label", False)) and realized,
+                "eligible_primary_label": bool(label.get("eligible_primary_label", False)) and realized
+                and _request.track_status == "GREEN",
                 "pit_event_type": event["pit_event_type"],
                 "measurement_method": label.get("measurement_method"),
             })

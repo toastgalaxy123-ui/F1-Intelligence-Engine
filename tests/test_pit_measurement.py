@@ -44,6 +44,23 @@ def test_route_measurement_requires_verified_anchors():
     assert not result['includes_pit_out_warmup']
 
 
+def test_robust_control_check_uses_target_old_and_new_tire_reference(pit_frames):
+    f = pit_frames
+    event = reconstruct_pit_events(f['pit'], f['laps'], f['stints'], f['sessions'].iloc[0].to_dict(), f['track_intervals'])
+
+    class KnownReference:
+        def predict_pair(self, row, laps):
+            # Fresh target tires have a known 10 s benefit. Non-pitting control
+            # drivers remain on old tires for both laps. Equal estimands must
+            # preserve that tire benefit instead of comparing two old-tire laps.
+            return {'normal_in_reference_s': 90.,
+                    'normal_out_reference_s': 80. if row['driver_number'] == 1 else 90.}
+
+    value, controls = matched_control_estimate(event.iloc[0].to_dict(), f['laps'], KnownReference())
+    assert controls == 2
+    assert value == pytest.approx(204-170)
+
+
 def test_telemetry_stationary_phase_can_precede_report_timestamp():
     from datetime import UTC, datetime
 
