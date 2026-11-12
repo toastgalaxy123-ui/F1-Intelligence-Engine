@@ -135,6 +135,21 @@ different warehouse. Supply `--p1-artifact` to use the original locked P1
 pickle. The loader checks its digest against Stage 4.1's selection record.
 [Stage 5.2 validation report](artifacts/reports/stage5_s2_validation.md)
 
+### Stage 5.3 — Physical track proximity and following
+
+The Singapore pilot estimates circular physical order from bounded telemetry
+windows and checks it against timing. The synthetic engine enforces checkpoint
+headway across the start/finish line and supports neighborhoods at resolved S2
+rejoins. Traffic-loss model validation remains open.
+
+```bash
+f1ri stage5-s3 --warehouse /path/to/singapore/f1ri.duckdb
+```
+
+The default audit warehouse needs Zandvoort and Baku. Add `--ingest` to fetch
+missing telemetry for the configured windows.
+[Stage 5.3 validation report](artifacts/reports/stage5_s3_validation.md)
+
 ## Useful SQL
 
 ```python

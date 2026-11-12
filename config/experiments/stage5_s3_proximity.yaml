@@ -1,0 +1,40 @@
+session_key: 9896
+layout_version: singapore-2025-fia-v2-sampled-v1
+loop_length_m: 4927
+length_source: https://www.fia.com/system/files/decision-document/2025_singapore_grand_prix_-_event_notes_-_circuit_map_pit_lane_emergency_exits_map_and_quarantine_zone.pdf
+field_drivers: [1, 4, 5, 6, 10, 12, 14, 16, 18, 22, 23, 27, 30, 31, 43, 44, 55, 63, 81, 87]
+candidate_exposure:
+  maximum_gap_upper_m: 120
+  minimum_duration_s: 2
+geometry:
+  driver: 63
+  lap: 31
+  start: "2025-10-05T12:52:27+00:00"
+  end: "2025-10-05T12:54:08+00:00"
+check:
+  driver: 1
+  lap: 32
+  start: "2025-10-05T12:54:06+00:00"
+  end: "2025-10-05T12:55:47+00:00"
+encounters:
+  - name: stroll_lap_42
+    label: Stroll window
+    drivers: [63, 18, 1]
+    start: "2025-10-05T13:10:00+00:00"
+    end: "2025-10-05T13:10:40+00:00"
+  - name: ocon_colapinto_lap_47
+    label: Ocon and Colapinto window
+    drivers: [63, 31, 43]
+    start: "2025-10-05T13:18:05+00:00"
+    end: "2025-10-05T13:18:50+00:00"
+reconciliation:
+  - session_key: 9920
+    scheduled_laps: 72
+    label: Zandvoort
+    elapsed_additions_s: {12: 15}
+    source: https://www.fia.com/system/files/decision-document/2025_dutch_grand_prix_-_final_race_classification.pdf
+  - session_key: 9904
+    scheduled_laps: 51
+    label: Baku
+    elapsed_additions_s: {23: 10}
+    source: https://www.fia.com/system/files/decision-document/2025_azerbaijan_grand_prix_-_final_race_classification.pdf

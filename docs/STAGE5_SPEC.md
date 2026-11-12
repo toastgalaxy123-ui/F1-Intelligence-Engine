@@ -13,13 +13,14 @@ chronological cohorts before evaluating forecasting accuracy.
 | S0 | Observed replay and deterministic synthetic scenarios for engineering checks |
 | S1 | Pace V2 trajectories with no future pits or incidents |
 | S2 | Scripted synthetic pit costs or the provisional P1 green-flag fallback |
-| S3 | Traffic and overtaking models for conditional competition forecasts |
-| S4 | Experimental incident and race-control scenarios |
+| S3 | Physical proximity and deterministic following. Empirical traffic loss requires independent validation |
+| S4 | Passing and experimental incident and race-control scenarios |
 | S5 | Integrated forecasting with independent evidence of skill and calibration |
 
-The current release implements S0, conditional Pace V2, and synthetic S2 pit
-execution with replacement-tire forecasts. The locked P1 run remains
-dependent on the original artifact. [Stage 5.1 specification](STAGE5_S1_SPEC.md) · [Stage 5.2 specification](STAGE5_S2_SPEC.md)
+The current release includes conditional Pace V2, synthetic pit execution with
+replacement-tire forecasts, and the S3 proximity and following pilot. The
+locked P1 run remains dependent on the original artifact.
+[Stage 5.1 specification](STAGE5_S1_SPEC.md) · [Stage 5.2 specification](STAGE5_S2_SPEC.md) · [Stage 5.3 specification](STAGE5_S3_SPEC.md)
 
 An engineering release requires correct
 state transitions, reproducible traces, and explicit handling of missing data.

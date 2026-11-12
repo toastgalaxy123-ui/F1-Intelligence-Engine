@@ -13,6 +13,8 @@ from f1ri.simulator.pit_execution import (
     ResolvedPitRoute,
     simulate_pit_scenario,
 )
+from f1ri.simulator.pit_proximity import resolved_rejoin_snapshot
+from f1ri.simulator.proximity import physical_neighborhoods
 from f1ri.simulator.state import (
     CarState,
     RacePhase,
@@ -93,6 +95,21 @@ def test_coarse_loss_posts_once_without_physical_timestamps(net):
     assert not any(frame.event.checkpoint in (7, 8) for frame in pitter)
     fit = next(frame for frame in pitter if frame.event.kind is EventKind.COARSE_PIT_TRANSITION)
     assert fit.state.cars[0].route is Route.PIT_TRANSITION_COARSE
+    assert resolved_rejoin_snapshot(field, result, layout_version="synthetic", length_m=900.) is None
+
+
+def test_resolved_s2_merge_initializes_physical_neighbors():
+    scenario = simulate_pit_scenario(grid(), (
+        PitCarPlan(63, 0, (90.,) * 5, (stop(timing=route(timing_line_s=99)),)),
+        PitCarPlan(4, 0, (92.,) * 5),
+    ))
+    stop_result, = scenario.stops
+    physical = resolved_rejoin_snapshot(scenario, stop_result, layout_version="synthetic", length_m=900.)
+    assert physical is not None and physical.complete
+    assert physical.as_of_utc == START + timedelta(seconds=211)
+    order = physical_neighborhoods(physical)
+    assert order[4].ahead.driver_number == 63
+    assert order[4].ahead.gap_m == pytest.approx(35.869568, abs=1e-5)
 
 
 def test_shared_box_orders_arrivals_and_wait_is_charged_once():

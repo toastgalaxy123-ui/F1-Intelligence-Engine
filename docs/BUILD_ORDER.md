@@ -52,8 +52,10 @@ and uncertainty/residual diagnostics are acceptable.
   requires supported synthetic merges and exclusive box service before
   interpreting physical rejoin order. [Stage 5.2 specification](STAGE5_S2_SPEC.md)
 - Run the locked P1 artifact before interpreting provisional model-based pit
-  costs. Add physical proximity, traffic, incident hazards and behavioral pit
-  policies in later increments.
+  costs.
+- S3 adds bounded physical reconstruction, circular no-pass scenarios, and a
+  synthetic S2 rejoin adapter. Traffic-loss fitting requires independent
+  episode labels and held-out races. [Stage 5.3 specification](STAGE5_S3_SPEC.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

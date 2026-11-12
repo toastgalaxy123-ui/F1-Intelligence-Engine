@@ -1,0 +1,160 @@
+{
+  "config_sha256": "10eb0ee3560b94bf1449e3bb9e0fbfb46a7e61a980134df69382acd2d526a7d5",
+  "geometry_version": "singapore-2025-fia-v2-sampled-v1",
+  "geometry_sha256": "7ac05df0e983688320103bec464b14c5393963d91f03c6b9ca76b8a78e5e5292",
+  "geometry_reference_end_gap_m": 8.465091718857272,
+  "independent_lap": {
+    "driver": 1,
+    "lap": 32,
+    "checks": [
+      {
+        "marker": "line_start",
+        "progress_m": 0.0,
+        "timing_utc": "2025-10-05T12:54:08.780000+00:00",
+        "projection_utc": "2025-10-05T12:54:08.644899+00:00",
+        "delta_s": -0.135101
+      },
+      {
+        "marker": "sector_1",
+        "progress_m": 1632.5948307667038,
+        "timing_utc": "2025-10-05T12:54:37.222000+00:00",
+        "projection_utc": "2025-10-05T12:54:36.998989+00:00",
+        "delta_s": -0.223011
+      },
+      {
+        "marker": "sector_2",
+        "progress_m": 3440.8084517575935,
+        "timing_utc": "2025-10-05T12:55:17.596000+00:00",
+        "projection_utc": "2025-10-05T12:55:17.415095+00:00",
+        "delta_s": -0.180905
+      },
+      {
+        "marker": "line_end",
+        "progress_m": 0.0,
+        "timing_utc": "2025-10-05T12:55:44.375000+00:00",
+        "projection_utc": "2025-10-05T12:55:44.363479+00:00",
+        "delta_s": -0.011521
+      }
+    ],
+    "location_samples": 398,
+    "matched": 398,
+    "speed_pairs": 385,
+    "median_speed_abs_error_mps": 1.8901136475465634,
+    "all_markers_within_1s": true
+  },
+  "windows": [
+    {
+      "name": "stroll_lap_42",
+      "start_utc": "2025-10-05T13:10:00+00:00",
+      "end_utc": "2025-10-05T13:10:40+00:00",
+      "telemetry_rows": 3060,
+      "map_matched": 3059,
+      "field_drivers_requested": 20,
+      "snapshot_counts": {
+        "retrospective_snapshots": 77,
+        "retrospective_complete": 67,
+        "retrospective_focus_ahead_resolved": 63,
+        "retrospective_paired_neighbor": 62,
+        "retrospective_different_from_subset": 0,
+        "point_in_time_snapshots": 77,
+        "point_in_time_complete": 66,
+        "point_in_time_focus_ahead_resolved": 63,
+        "point_in_time_paired_neighbor": 63,
+        "point_in_time_different_from_subset": 1
+      },
+      "complete_resolved_in_both_modes": 48,
+      "same_neighbor_in_both_modes": 48,
+      "same_neighbor_median_gap_difference_m": 0.3069525390707213,
+      "median_retrospective_gap_m": 90.02729630587874,
+      "stage1_comparison": [
+        {
+          "leader_lap": 42,
+          "other_driver": 18,
+          "telemetry_control_line_gap_s": 1.475183,
+          "stage1_physical_gap_s": 1.846,
+          "stage1_classification_gap_raw": "0.0"
+        }
+      ],
+      "blue_flag_recipients": [
+        18
+      ],
+      "track_states": [
+        "GREEN"
+      ]
+    },
+    {
+      "name": "ocon_colapinto_lap_47",
+      "start_utc": "2025-10-05T13:18:05+00:00",
+      "end_utc": "2025-10-05T13:18:50+00:00",
+      "telemetry_rows": 3440,
+      "map_matched": 3440,
+      "field_drivers_requested": 20,
+      "snapshot_counts": {
+        "retrospective_snapshots": 87,
+        "retrospective_complete": 65,
+        "retrospective_focus_ahead_resolved": 74,
+        "retrospective_paired_neighbor": 74,
+        "retrospective_different_from_subset": 14,
+        "point_in_time_snapshots": 87,
+        "point_in_time_complete": 69,
+        "point_in_time_focus_ahead_resolved": 77,
+        "point_in_time_paired_neighbor": 76,
+        "point_in_time_different_from_subset": 17
+      },
+      "complete_resolved_in_both_modes": 49,
+      "same_neighbor_in_both_modes": 49,
+      "same_neighbor_median_gap_difference_m": 0.2183428004768757,
+      "median_retrospective_gap_m": 64.63884009639543,
+      "stage1_comparison": [
+        {
+          "leader_lap": 47,
+          "other_driver": 43,
+          "telemetry_control_line_gap_s": 1.483911,
+          "stage1_physical_gap_s": 1.507,
+          "stage1_classification_gap_raw": "0.0"
+        }
+      ],
+      "blue_flag_recipients": [
+        31,
+        43
+      ],
+      "track_states": [
+        "GREEN"
+      ]
+    }
+  ],
+  "candidate_exposures_by_mode": {
+    "POINT_IN_TIME": 59,
+    "RETROSPECTIVE": 73
+  },
+  "classification_audits": [
+    {
+      "label": "Zandvoort",
+      "baseline_position_matches": 6,
+      "audited_position_matches": 18,
+      "official_classified": 18,
+      "excluded_local_windows": 15
+    },
+    {
+      "label": "Baku",
+      "baseline_position_matches": 16,
+      "audited_position_matches": 19,
+      "official_classified": 19,
+      "excluded_local_windows": 1
+    }
+  ],
+  "synthetic_following": {
+    "physical_ahead": {
+      "63": 31,
+      "31": 4,
+      "4": 63
+    },
+    "traversals": 18,
+    "traffic_delay_s": {
+      "63": 38.2,
+      "31": 0.0,
+      "4": 34.377778
+    }
+  },
+  "traffic_model_status": "INSUFFICIENT_INDEPENDENT_LABELS_AND_RACES"
+}

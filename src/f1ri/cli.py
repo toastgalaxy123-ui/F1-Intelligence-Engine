@@ -114,6 +114,12 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s2_pits.yaml"))
     p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s2_pits"))
     p.add_argument("--p1-artifact", type=Path, help="Optional original locked Stage 4.1 P1 pickle")
+    p = sub.add_parser("stage5-s3", help="Audit timing and run the bounded physical proximity pilot")
+    p.add_argument("--warehouse", type=Path, required=True, help="Warehouse with Singapore lap context")
+    p.add_argument("--audit-warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
+    p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_proximity.yaml"))
+    p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_proximity"))
+    p.add_argument("--ingest", action="store_true", help="Fetch only missing configured telemetry windows")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
     p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
@@ -180,6 +186,15 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-s3":
+        from f1ri.validation.proximity_pilot import run_stage5_s3
+
+        result = run_stage5_s3(root, root / args.warehouse, root / args.audit_warehouse,
+                               root / args.config, root / args.output, ingest=args.ingest)
+        print(f"Stage 5.3 | {len(result['windows'])} proximity windows | "
+              f"{result['synthetic_following']['traversals']} synthetic traversals | "
+              f"{result['traffic_model_status']}")
+        print(root / args.output / "metrics.json")
     elif args.command == "stage5-s2":
         from f1ri.validation.pit_integration_backtest import run_stage5_s2
 
