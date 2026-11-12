@@ -15,8 +15,11 @@ dist/
 artifacts/models/*
 artifacts/runs/*
 artifacts/reports/*
+!artifacts/reports/*.md
 !artifacts/**/.gitkeep
 data/raw/*
+!data/raw/reference/
+!data/raw/reference/*.csv
 data/warehouse/*
 data/telemetry/*
 !data/**/.gitkeep

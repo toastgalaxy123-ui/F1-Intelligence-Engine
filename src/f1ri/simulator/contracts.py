@@ -14,6 +14,9 @@ class DriverState:
     tyre_age_laps: int
     gap_to_leader_seconds: float | None
     in_race: bool = True
+    stint_number: int = 1
+    tyre_age_at_stint_start: int = 0
+    compound_absolute: str | None = None
 
 
 @dataclass(frozen=True)
@@ -30,6 +33,19 @@ class StrategyCandidate:
     driver_number: int
     pit_on_laps: tuple[int, ...]
     planned_compounds: tuple[str, ...]
+    planned_initial_tyre_ages: tuple[int, ...] = ()
+
+
+@dataclass(frozen=True)
+class HypotheticalStintScenario:
+    """Counterfactual or continuation stint scenario for clean-air strategy comparison."""
+
+    label: str
+    scenario_type: str
+    compound_relative: str
+    tyre_age_at_start: int
+    horizon_laps: int
+    compound_absolute: str | None = None
 
 
 @dataclass(frozen=True)

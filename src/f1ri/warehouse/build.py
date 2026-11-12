@@ -8,6 +8,8 @@ import duckdb
 import pandas as pd
 
 from f1ri.features.lap_context import populate_session_lap_context
+from f1ri.features.stint_observations import populate_session_stint_observations
+from f1ri.ingestion.compound_allocations import populate_silver_compound_allocations
 from f1ri.ingestion.raw_cache import read_snapshot, snapshot_path
 from f1ri.warehouse.schema import SILVER_SCHEMAS
 
@@ -161,6 +163,8 @@ def build_warehouse(root: Path, year: int, session_key: int) -> Path:
                  AND l.lap_number BETWEEN s.lap_start AND s.lap_end
             """)
             populate_session_lap_context(db, session_key)
+            populate_silver_compound_allocations(db, root)
+            populate_session_stint_observations(db, session_key)
             db.execute("""
                 UPDATE gold.lap_observations AS obs
                 SET track_status = ctx.track_status,

@@ -38,6 +38,10 @@ date, lane_duration, stop_duration.
 `silver.intervals` keeps gap/interval raw as strings because lapped values
 cannot be interpreted as numeric seconds.
 
+`silver.compound_allocations` (Stage 3):
+- `meeting_key`, `season`, `circuit_short_name`, `relative_compound` (`HARD`, `MEDIUM`, `SOFT`), `absolute_compound` (`C1`–`C6`), `regulation_era` (`2023_2025`, `2026_PLUS`), `source_url`, `source_publication_date`, `mapping_confidence`, `available_as_of_utc`.
+- Point-in-time lookup blocks any allocation whose `available_as_of_utc` is later than the query cutoff.
+
 ## GOLD (explicit derived features)
 
 `gold.lap_observations` includes:
@@ -94,6 +98,17 @@ where `is_clean_green_pace_lap = TRUE`.
 - Tire & recent clean-pace predictors (strictly as of `forecast_as_of_utc`): `compound`, `tyre_age_at_lap_start`, `stint_number`, `current_stint_laps_completed`, `tyre_age_at_stint_start`, `actual_compound_code`, `compound_mapping_source`, `compound_mapping_confidence`, `last_clean_lap_time_s`, `median_last_3_clean_laps_s`, `median_last_5_clean_laps_s`, `median_stint_clean_laps_s`, `clean_laps_observed_current_stint`, `clean_laps_observed_race`, `last_clean_lap_age`.
 - Point-in-time weather: `last_known_track_temp_c`, `last_known_air_temp_c`, `last_known_rainfall`, `temperature_observation_age_s`.
 - Target fields (never used as predictors): `observed_target_lap_time_s`, `target_is_clean_green`, `target_exclusion_reason`.
+
+`gold.stint_observations` (Stage 3):
+- One row per observed driver stint `(session_key, driver_number, stint_number)` with `stint_id`, `compound_relative`, `compound_absolute`, `compound_mapping_confidence`, `tyre_age_at_stint_start`, `tyre_age_at_stint_end`, `used_tyre_set`, `observed_stint_laps`, `clean_laps_count`, `clean_lap_fraction`, `was_pit_terminated`, `ended_by_race_finish`, `ended_by_retirement`, and descriptive within-stint pace/slope summaries.
+
+`gold.stint_lap_observations` (Stage 3):
+- Longitudinal lap-by-lap stint table keyed by `(session_key, driver_number, lap_number)` with `stint_id`, `stint_number`, `stint_lap_index`, `compound_relative`, `compound_absolute`, `tyre_age_at_stint_start`, `tyre_age_at_lap_start`, `used_tyre_set`, `race_progress`, `is_clean_green_pace_lap`, `observed_lap_time_s`, and point-in-time weather/traffic context.
+
+`gold.stint_training_examples` (Stage 3):
+- Point-in-time multi-horizon stint forecast evaluation table keyed by `(session_key, driver_number, cutoff_lap_number, scenario_type, requested_horizon)` for $H \in \{1, 3, 5, 10, 15, 20\}$.
+- Strictly point-in-time predictors as of `forecast_as_of_utc`: `compound_relative`, `compound_absolute`, `tyre_age_at_forecast_start`, `qualifying_lap_time_s`, `grid_position`, `last_clean_lap_time_s`, `median_last_3_clean_laps_s`, `median_stint_clean_laps_s`, `clean_laps_observed_current_stint`, `clean_laps_observed_race`, `observed_stint_clean_ages_json`, `observed_stint_clean_times_json`, `prev_stint_compound_relative`, `prev_stint_end_tyre_age`, `last_known_track_temp_c`.
+- Target & censoring fields (never used as predictors): `observed_target_lap_time_s`, `target_is_clean_green`, `trajectory_is_complete_clean`, `trajectory_clean_laps_count`, `trajectory_contiguous_same_stint_laps`, `trajectory_censoring_reason` (`COMPLETE_CLEAN`, `FUTURE_PIT_TRANSITION`, `TRAFFIC_CONTAMINATION`, `NEUTRALIZATION_SC_VSC_RED`, `RETIREMENT_OR_INCOMPLETE`), `observed_cumulative_time_s`, `observed_pace_change_s`.
 
 ## Necessary future gold tables
 

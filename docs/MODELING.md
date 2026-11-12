@@ -46,3 +46,7 @@ on 2023-25 may transfer poorly, especially in passing behavior. ## Stage 2 Imple
 See `docs/STAGE2_SPEC.md` for the full Stage 2 specification, mathematical decomposition, controlled experiment matrix (`E0`–`E10`), and validation protocol.
 - Primary selection metric: **race-weighted next-lap MAE** on chronological validation races (`val`), with secondary evaluation on held-out test (`test`, reporting both pooled and untouched test races) and 2026 regulation transfer (`transfer_2026`).
 - All models consume `PaceRequest` and return `PaceDistribution` (`expected_seconds`, `std_seconds`, `median_seconds`, 50% PI `[p25_seconds, p75_seconds]`, and 90% PI `[p05_seconds, p95_seconds]`).
+
+## Stage 3 Implementation (`STAGE3_SPEC.md`)
+
+See `docs/STAGE3_SPEC.md` for the full Stage 3 specification, 3-component non-double-counted decomposition (`PaceModelV2`), hierarchical compound/circuit pooling (`HierarchicalTireDegradationModel`), online Bayesian stint-state filter (`BayesianStintStateEstimator`), correlated trajectory uncertainty sampler (`CorrelatedTrajectorySampler`), and open-loop evaluation across $H \in \{1, 3, 5, 10, 15, 20\}$.

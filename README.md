@@ -1,30 +1,35 @@
 # F1 Race Intelligence Engine
 
-A reproducible, point-in-time Formula 1 analytics project. This starter implements
-**historical data ingestion**, a small **typed DuckDB warehouse**, a **provisional
-observational lap mart**, basic **data checks**, and **model/simulator contracts**.
-It does NOT claim to implement validated tire degradation, strategy optimization,
-or real-time race forecasting. Those are successive research milestones.
+A reproducible, strictly point-in-time Formula 1 race analytics and stint-simulation engine built on **OpenF1**, **Jolpica F1**, **DuckDB**, and **Python 3.11+**.
 
-## Windows / PowerShell quick start
+## Implemented Milestones
+
+- **Stage 0 — Data Ingestion & Typed Warehouse**: Immutable raw JSON snapshots (`data/raw/`), normalized `silver.*` DuckDB tables (`sessions`, `drivers`, `laps`, `stints`, `pits`, `intervals`, `race_control`, `weather`, `starting_grid`, `session_result`), and automated data-quality checks.
+- **Stage 1 — Race Context & Verified Clean-Air Pace Labeling**: Event-driven track-status state machine (`GREEN`, `YELLOW`, `VSC`, `SC`, `RED`) and causal lap context table (`gold.lap_context`) separating true green-flag clean-air racing laps (`is_clean_pace_lap`) from pit in/out laps, neutralizations, and dirty-air traffic (`interval_to_car_ahead_s < 1.5s`).
+- **Stage 2 — Validated Single-Lap Race Pace Modeling (`PaceV1`)**: Point-in-time training examples (`gold.lap_CleanPaceFeatures`, `gold.pace_training_examples`), empirical-Bayes hierarchical baseline + online exponentially weighted pace state (`PaceModelV1`), and rolling-origin evaluation across 15 races (`E0`–`E10`, [Stage 2 Validation Report](artifacts/reports/stage2_validation.md)).
+- **Stage 3 — Tire Degradation & Open-Loop Future Stint Simulation (`PaceV2` / `DegradationV1`)**:
+  - Verified Pirelli `C1`–`C5` compound allocations (`silver.compound_allocations`, [`data/raw/reference/pirelli_allocations.csv`](data/raw/reference/pirelli_allocations.csv)) across **32 Grand Prix sessions (11 circuits, 2023–2026)**.
+  - Stint-level and open-loop horizon tables (`gold.stint_observations`, `gold.stint_lap_observations`, `gold.stint_training_examples` for $H \in \{1, 3, 5, 10, 15, 20\}$).
+  - Hierarchical empirical-Bayes tire degradation (`HierarchicalTireDegradationModel`), online Bayesian stint-state filtering (`OnlineStintStateEstimator`), correlated multi-lap trajectory uncertainty (`CorrelatedTrajectorySampler`), and counterfactual strategy comparison (`StintTrajectoryForecaster`, [Stage 3 Validation Report](artifacts/reports/stage3_validation.md)).
+
+## Windows / PowerShell Quick Start
 
 ```powershell
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -e ".[dev,modeling,dashboard]"
-f1ri discover --year 2025 --country Singapore
-# Replace 12345 with the actual numeric session_key from the command above.
-$session = 12345
-f1ri ingest --year 2025 --session-key $session
-f1ri build --year 2025 --session-key $session
-f1ri check --session-key $session
+
+# Run the Stage 2 and Stage 3 pipelines:
+f1ri stage2 --config config/experiments/stage2_pace_v1.yaml
+f1ri stage3 --config config/experiments/stage3_degradation_v1.yaml
+
+# Run unit tests and linter:
 pytest -q
+ruff check src tests
 ```
 
 On macOS/Linux: `python3 -m venv .venv`, `source .venv/bin/activate`.
-Use `python -m pip install -e ".[dev]"` to avoid optional plotting/dashboard packages.
-
 If PowerShell blocks activation: `Set-ExecutionPolicy -Scope Process Bypass`
 or call `.\.venv\Scripts\python.exe` and `.\.venv\Scripts\f1ri.exe` directly.
 

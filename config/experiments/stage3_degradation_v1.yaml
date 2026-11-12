@@ -1,0 +1,59 @@
+experiment:
+  name: stage3_degradation_v1
+  version: "1.0.0"
+  stage2_baseline_tag: "stage2-v1"
+  random_seed: 42
+  horizons: [1, 3, 5, 10, 15, 20]
+  individual_target_horizons: [1, 3, 5]
+  trajectory_horizons: [5, 10, 15, 20]
+  clean_air_gap_s: 2.0
+  n_trajectory_samples: 2000
+
+cohort:
+  train:
+    - {year: 2023, session_key: 7953, label: "2023 Bahrain GP", inspected: true}
+    - {year: 2023, session_key: 7779, label: "2023 Saudi Arabian GP", inspected: false}
+    - {year: 2023, session_key: 9102, label: "2023 Spanish GP", inspected: true}
+    - {year: 2023, session_key: 9118, label: "2023 Austrian GP", inspected: false}
+    - {year: 2023, session_key: 9133, label: "2023 Hungarian GP", inspected: false}
+    - {year: 2023, session_key: 9157, label: "2023 Italian GP", inspected: true}
+    - {year: 2023, session_key: 9165, label: "2023 Singapore GP", inspected: true}
+    - {year: 2023, session_key: 9173, label: "2023 Japanese GP", inspected: false}
+    - {year: 2024, session_key: 9472, label: "2024 Bahrain GP", inspected: true}
+    - {year: 2024, session_key: 9496, label: "2024 Japanese GP", inspected: false}
+    - {year: 2024, session_key: 9515, label: "2024 Emilia Romagna GP", inspected: true}
+    - {year: 2024, session_key: 9539, label: "2024 Spanish GP", inspected: false}
+    - {year: 2024, session_key: 9566, label: "2024 Hungarian GP", inspected: false}
+    - {year: 2024, session_key: 9582, label: "2024 Dutch GP", inspected: false}
+    - {year: 2024, session_key: 9590, label: "2024 Italian GP", inspected: true}
+    - {year: 2024, session_key: 9606, label: "2024 Singapore GP", inspected: true}
+    - {year: 2024, session_key: 9617, label: "2024 United States GP", inspected: false}
+  val:
+    - {year: 2025, session_key: 10006, label: "2025 Japanese GP", inspected: false}
+    - {year: 2025, session_key: 10014, label: "2025 Bahrain GP", inspected: true}
+    - {year: 2025, session_key: 9987, label: "2025 Emilia Romagna GP", inspected: true}
+    - {year: 2025, session_key: 9971, label: "2025 Spanish GP", inspected: false}
+  test:
+    - {year: 2025, session_key: 9955, label: "2025 Austrian GP", inspected: false}
+    - {year: 2025, session_key: 9928, label: "2025 Hungarian GP", inspected: false}
+    - {year: 2025, session_key: 9912, label: "2025 Italian GP", inspected: true}
+    - {year: 2025, session_key: 9896, label: "2025 Singapore GP", inspected: true}
+    - {year: 2025, session_key: 9888, label: "2025 United States GP", inspected: false}
+    - {year: 2025, session_key: 9839, label: "2025 Abu Dhabi GP", inspected: false}
+  transfer_2026:
+    - {year: 2026, session_key: 11253, label: "2026 Japanese GP", inspected: true}
+    - {year: 2026, session_key: 11307, label: "2026 Spanish GP", inspected: false}
+    - {year: 2026, session_key: 11342, label: "2026 Hungarian GP", inspected: false}
+    - {year: 2026, session_key: 11361, label: "2026 Italian GP", inspected: true}
+    - {year: 2026, session_key: 11388, label: "2026 Singapore GP", inspected: true}
+
+model:
+  ridge_alpha: 15.0
+  nonlinear_cliff_penalty: 40.0
+  hierarchical_circuit_shrinkage_k: 12.0
+  hierarchical_weekend_shrinkage_k: 8.0
+  stint_offset_obs_noise_s: 0.32
+  stint_slope_obs_noise_s: 0.045
+  min_std_seconds: 0.18
+  n_trajectory_samples: 2000
+  ar1_rho: 0.28

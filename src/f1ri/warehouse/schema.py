@@ -69,3 +69,13 @@ SILVER_SCHEMAS: dict[str, dict[str, str]] = {
         ("gap_to_leader_raw", "VARCHAR"), ("interval_raw", "VARCHAR"),
     ]),
 }
+
+REFERENCE_SCHEMAS: dict[str, dict[str, str]] = {
+    "compound_allocations": OrderedDict([
+        ("meeting_key", "BIGINT"), ("season", "INTEGER"),
+        ("circuit_short_name", "VARCHAR"), ("relative_compound", "VARCHAR"),
+        ("absolute_compound", "VARCHAR"), ("regulation_era", "VARCHAR"),
+        ("source_url", "VARCHAR"), ("source_publication_date", "VARCHAR"),
+        ("mapping_confidence", "VARCHAR"), ("available_as_of_utc", "TIMESTAMPTZ"),
+    ]),
+}

@@ -26,13 +26,13 @@ verified by manually inspecting several dry and disrupted races.
 **Done when:** at least one model beats simple baselines on held-out races
 and uncertainty/residual diagnostics are acceptable.
 
-## Stage 3 — Tire degradation curves
-- Fit partial-pooling degradation by compound, driver/team, track,
-  temperature; allow nonlinear wear and tire warmup.
-- Explicitly confront confounding with fuel/traffic/stint selection.
-- Predict pace on unseen stints; evaluate against observed green laps.
-**Done when:** prediction beats a constant-pace baseline on unseen stints;
-plot credible sensitivity to race and temperature.
+## Stage 3 — Tire degradation curves & future stint simulation (COMPLETED — see `docs/STAGE3_SPEC.md` and `artifacts/reports/stage3_validation.md`)
+- Expand warehouse cohort to 32 races across 11 circuits (`2023–2026`), including 4 brand-new untouched 2025 test races (`9955`, `9928`, `9888`, `9839`).
+- Populate `silver.compound_allocations` (Pirelli `C1`–`C6` by era), `gold.stint_observations`, `gold.stint_lap_observations`, and `gold.stint_training_examples` ($H \in \{1, 3, 5, 10, 15, 20\}$).
+- Fit partial-pooling degradation by compound (`C1`–`C6` and relative), circuit, and temperature with three-phase nonlinear wear (`NonlinearTireDegradationModel`, `HierarchicalTireDegradationModel`).
+- Separate fuel-burn progression from tire wear jointly; update latent stint state $(b_s, d_s)$ online via `BayesianStintStateEstimator` with pit-stop state reset.
+- Sample correlated multi-lap trajectories (`CorrelatedTrajectorySampler`) and evaluate open-loop cumulative stint forecasts (`D0`–`D10`) against `B0` (`E2`) and `B4`.
+**Done when:** `PaceModelV2` (`D8`) beats `D0` (frozen `PaceV1`) and `B0` (`E2`) on held-out multi-lap and cumulative stint forecasts with calibrated 50%/90% trajectory coverage.
 
 ## Stage 4 — Pit-loss and stop timing
 - Infer net pit-loss vs driving at normal racing speed. Separate

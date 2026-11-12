@@ -29,3 +29,4 @@ modeling:
   split_unit: session_key
   forward_test_only: true
   default_experiment_config: config/experiments/stage2_pace_v1.yaml
+  default_stage3_experiment_config: config/experiments/stage3_degradation_v1.yaml

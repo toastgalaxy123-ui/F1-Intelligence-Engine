@@ -87,6 +87,8 @@ def main() -> None:
     p.add_argument("--refresh", action="store_true")
     p = sub.add_parser("stage2", help="Run Stage 2 dataset audit, examples build, and E0-E10 backtest")
     p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
+    p = sub.add_parser("stage3", help="Run Stage 3 stint dataset audit, examples build, and D0-D10 open-loop backtest")
+    p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
     args = parser.parse_args()
     root = args.root.resolve()
     if args.command == "discover":
@@ -119,6 +121,22 @@ def main() -> None:
             t = m.get("test_h1", {}).get("race_weighted_mae_s")
             tr = m.get("transfer_2026_h1", {}).get("race_weighted_mae_s")
             print(f"{exp_id:32} | val_mae={v!s:<7} | test_mae={t!s:<7} | 2026_mae={tr!s:<7}")
+    elif args.command == "stage3":
+        from f1ri.validation.stint_backtest import run_stage3_pipeline
+        res = run_stage3_pipeline(root, args.config)
+        for exp_id, m in res["experiments"].items():
+            val_a = m.get("val", {}).get("dataset_a_individual_laps", {})
+            test_b = m.get("test_all", {}).get("dataset_b_complete_trajectories", {})
+            tr_b = m.get("transfer_2026", {}).get("dataset_b_complete_trajectories", {})
+            v1 = val_a.get("h1", {}).get("race_weighted_mae_s")
+            t5 = test_b.get("h5", {}).get("cum_race_weighted_mae_s")
+            t10 = test_b.get("h10", {}).get("cum_race_weighted_mae_s")
+            t15 = test_b.get("h15", {}).get("cum_race_weighted_mae_s")
+            tr5 = tr_b.get("h5", {}).get("cum_race_weighted_mae_s")
+            print(
+                f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
+                f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
+            )
 
 
 if __name__ == "__main__":

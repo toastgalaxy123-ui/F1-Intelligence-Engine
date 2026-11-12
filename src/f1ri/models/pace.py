@@ -1,11 +1,20 @@
-"""High-level race-pace model interface for simulation and backtesting."""
+"""High-level race-pace model interface for simulation and backtesting (Pace V1 & Pace V2)."""
 from __future__ import annotations
 
 from dataclasses import dataclass
 
 import pandas as pd
 
-from f1ri.models.contracts import PaceDistribution, PaceModel, PaceRequest
+from f1ri.models.contracts import (
+    PaceDistribution,
+    PaceModel,
+    PaceRequest,
+    ProjectedLapForecast,
+    StintForecastModel,
+    StintForecastRequest,
+    StintTrajectoryForecast,
+)
+from f1ri.models.degradation_linear import AdaptiveTireResetProgressBaseline
 from f1ri.models.pace_baselines import (
     CompoundRecentMedianBaseline,
     HistoricalCircuitPriorBaseline,
@@ -13,6 +22,12 @@ from f1ri.models.pace_baselines import (
     RecentCleanLapMedianBaseline,
 )
 from f1ri.models.pace_linear import AdditivePaceModel
+from f1ri.models.stint_forecast import (
+    OpenLoopPaceModelWrapper,
+    PaceModelV2,
+    build_stage3_experiment_models,
+    compare_stint_scenarios,
+)
 
 
 @dataclass
@@ -20,7 +35,7 @@ class MedianPaceBaseline:
     """A sanity-check baseline fitted on past observations only.
 
     Kept for Stage 0 test compatibility; use `HistoricalCircuitPriorBaseline`,
-    `CompoundRecentMedianBaseline`, or `PaceModelV1` for point-in-time forecasting.
+    `CompoundRecentMedianBaseline`, `PaceModelV1`, or `PaceModelV2` for point-in-time forecasting.
     """
 
     group_medians_: dict[tuple[int, str], float] | None = None
@@ -48,8 +63,12 @@ class MedianPaceBaseline:
         return self.group_medians_.get((driver_number, compound), self.global_median_)
 
 
+# Alias frozen Stage 2 model class explicitly
+PaceModelV1 = AdditivePaceModel
+
+
 def build_experiment_models(ridge_alpha: float = 15.0) -> dict[str, PaceModel]:
-    """Instantiate the controlled experiment suite E0 through E8."""
+    """Instantiate the controlled Stage 2 experiment suite E0 through E8."""
     return {
         "E0_historical_prior": HistoricalCircuitPriorBaseline(
             model_version="E0_historical_circuit_prior_v1"
@@ -107,14 +126,24 @@ def build_experiment_models(ridge_alpha: float = 15.0) -> dict[str, PaceModel]:
 
 
 __all__ = [
+    "AdaptiveTireResetProgressBaseline",
     "AdditivePaceModel",
     "CompoundRecentMedianBaseline",
     "HistoricalCircuitPriorBaseline",
     "MedianPaceBaseline",
+    "OpenLoopPaceModelWrapper",
     "PaceDistribution",
     "PaceModel",
+    "PaceModelV1",
+    "PaceModelV2",
     "PaceRequest",
+    "ProjectedLapForecast",
     "RaceProgressDriftBaseline",
     "RecentCleanLapMedianBaseline",
+    "StintForecastModel",
+    "StintForecastRequest",
+    "StintTrajectoryForecast",
     "build_experiment_models",
+    "build_stage3_experiment_models",
+    "compare_stint_scenarios",
 ]
