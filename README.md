@@ -64,7 +64,7 @@ evidence-based acceptance gates. The dashboard remains a placeholder.
 
 The [stabilization report](artifacts/reports/stage4_1_stabilization.md) documents
 exceptional-event filtering, expanded historical service evidence, independent
-label checks and separate familiar/unseen circuit tests. Stage 5 remains deferred.
+label checks and separate familiar/unseen circuit tests.
 
 ```bash
 f1ri stage4-stabilize --phase prepare --ingest
@@ -85,6 +85,25 @@ See [the stabilization protocol](docs/STAGE4_STABILIZATION.md) for eligibility,
 conditional tire scenarios, reference sourcing and remaining acceptance gaps.
 The [official FIA reference audit](artifacts/reports/stage4_1_fia_reference_audit.md)
 adds dated source evidence separately from the frozen evaluation inputs.
+
+## Stage 5 — Deterministic race simulation and replay
+
+The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,
+checkpoint clock, pit time accounting and forecasting acceptance gates.
+`simulate_deterministic` in `f1ri.simulator.engine` runs explicit multi-car
+scenarios with per-lap timing, optional pit delays and retirements.
+
+Replay completed races from a built warehouse:
+
+```bash
+f1ri stage5-replay --session-key 9896 --scheduled-laps 62
+f1ri stage5-replay --session-key 9987 --scheduled-laps 63
+```
+
+Use `--warehouse` for an existing DuckDB file or `--output` to save the JSON
+audit. To build a missing session, run `f1ri ingest --year 2025 --session-key
+<key> --full` and then `f1ri build --year 2025 --session-key <key>`. See the
+[replay report](artifacts/reports/stage5_replay.md) for the two race audits.
 
 ## Useful SQL
 
@@ -122,7 +141,7 @@ Read `docs/ARCHITECTURE.md`, `docs/DATA_SOURCES.md`, `docs/DATA_CONTRACTS.md`,
 
 - F1 TV/FastF1 authentication (not necessary for the first milestones)
 - Measured pit-route geometry, remaining historical speed coverage, and validated VSC/SC pit-loss references
-- Multi-car race simulation, rejoin positions, traffic, overtaking, and Safety Car queues
+- Predictive multi-car race simulation, precise pit rejoin positions, traffic, overtaking, and Safety Car queues
 - Unrestricted strategy-model approval, pit-timing optimization, and opponent responses
 - Full dashboard charts and live ingestion
 

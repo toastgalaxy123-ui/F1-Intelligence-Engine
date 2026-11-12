@@ -96,6 +96,11 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=None)
     p.add_argument("--phase", choices=("prepare", "validate", "evaluate", "report", "all"), default="all")
     p.add_argument("--ingest", action="store_true", help="Fetch missing snapshots; tests only after selection lock")
+    p = sub.add_parser("stage5-replay", help="Reconstruct and audit a completed historical race")
+    p.add_argument("--session-key", type=int, required=True)
+    p.add_argument("--scheduled-laps", type=int, required=True, help="Prescribed race distance")
+    p.add_argument("--warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
+    p.add_argument("--output", type=Path, help="Save the JSON audit at this path")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
     p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
@@ -162,6 +167,18 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-replay":
+        import json
+
+        from f1ri.simulator.replay import replay_session, replay_summary
+
+        result = replay_session(root / args.warehouse, args.session_key, args.scheduled_laps,
+                                annotations_root=root)
+        audit = json.dumps(replay_summary(result), indent=2) + "\n"
+        if args.output:
+            (root / args.output).write_text(audit, encoding="utf-8")
+        else:
+            print(audit, end="")
     elif args.command == "stage4":
         from f1ri.validation.pit_backtest import run_stage4_pipeline
         result = run_stage4_pipeline(root, args.config)

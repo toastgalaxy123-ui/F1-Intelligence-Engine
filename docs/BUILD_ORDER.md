@@ -41,14 +41,16 @@ and uncertainty/residual diagnostics are acceptable.
 - Fit stop hazard as distinct predictive component if desired.
 **Done when:** counterfactual stop costs are plausible on held-out events.
 
-## Stage 5 — Race-state reconstruction + simple simulator
-- Build second-by-second or lap-boundary state from position/interval/race
-  control; handle lapped cars and retirements explicitly.
-- Start with deterministic dry green-flag race simulations.
-- Add pit windows, traffic, passing and stochastic lap-time distributions.
-- Introduce SC/VSC and retirement hazards after base engine passes tests.
-**Done when:** replayed historical races have credible error/calibration,
-with non-physical outcomes caught by invariant tests.
+## Stage 5 — Multi-car race simulation and probabilistic forecasting
+- S0 implements race state, a deterministic checkpoint engine, and historical
+  replay. See [the specification](STAGE5_SPEC.md) and
+  [Singapore and Imola audits](../artifacts/reports/stage5_replay.md).
+- Integrate correlated Pace V2 trajectories and provisional P1 pit costs
+  before adding interaction models, incident hazards and behavioral pit policies.
+- Backtest complete race probabilities against simple baselines with frozen,
+  chronological cohorts and evaluate 2026 transfer separately.
+**Done when:** the mechanical invariants pass, and forecasting capability
+and calibration are established for a documented support domain.
 
 ## Stage 6 — Strategy engine + uncertainty
 - Compare a finite candidate set of one- or two-stop strategies.
