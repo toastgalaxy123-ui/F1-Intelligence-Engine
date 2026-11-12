@@ -120,6 +120,12 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_proximity.yaml"))
     p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_proximity"))
     p.add_argument("--ingest", action="store_true", help="Fetch only missing configured telemetry windows")
+    p = sub.add_parser("stage5-s3-continue", help="Run the frozen cross-circuit traffic research protocol")
+    p.add_argument("--warehouse", type=Path, required=True, help="Warehouse with the initial race cohort")
+    p.add_argument("--stage3-root", type=Path, help="Original project with the frozen Pace V2 artifact")
+    p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_c_protocol.yaml"))
+    p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_c"))
+    p.add_argument("--ingest", action="store_true", help="Fetch missing bounded OpenF1 windows")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
     p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
@@ -186,6 +192,14 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-s3-continue":
+        from f1ri.validation.traffic_continuation import run_traffic_continuation
+
+        result = run_traffic_continuation(root, root / args.warehouse, root / args.config,
+                                          root / args.output, ingest=args.ingest,
+                                          stage3_root=root / args.stage3_root if args.stage3_root else None)
+        print(f"Stage 5.3-C | {len(result['races'])} races | {result['traffic_model_status']}")
+        print(root / args.output / "metrics.json")
     elif args.command == "stage5-s3":
         from f1ri.validation.proximity_pilot import run_stage5_s3
 

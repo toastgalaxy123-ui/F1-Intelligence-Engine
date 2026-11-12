@@ -1,0 +1,85 @@
+version: s3-c-v1
+seed: 5213
+sampling:
+  window_seconds: 160
+  pad_before_lap_seconds: 8
+  windows_per_race: {close_seed: 2, clean_seed: 2, random_green: 4}
+  screen_close_gap_s: 1.4
+  screen_clean_gap_s: 3.0
+  sample_period_seconds: 0.5
+  endpoints: [location, car_data]
+reconstruction:
+  speed_fallback_max_age_s: 0.45
+  minimum_full_field_fraction_target: 0.90
+  maximum_timing_marker_mae_s: 1.0
+  independent_laps: 4
+  timing_passage_gap_limit_s: 5.0
+  dropout_stride: 19
+  maximum_timing_marker_match_s: 2.0
+exposure:
+  definition: s3-c-exposure-v1
+  entry_upper_m: 120
+  exit_upper_m: 155
+  clean_lower_m: 225
+  minimum_duration_s: 2.0
+  exit_confirmation_samples: 2
+reference:
+  artifact: PaceV2_D8_correlated
+  trajectory_samples: 128
+  minimum_prior_clean_stint_laps: 3
+  minimum_matched_controls: 5
+  control_max_tyre_age_delta: 5
+  control_max_progress_delta: 0.20
+  label_minimum_coverage: 0.90
+  minimum_clean_control_fraction: 0.90
+evaluation:
+  primary: one_lap_observed_elapsed_race_weighted_mae
+  gap_bins_m: [60, 120, 155]
+  minimum_train_races: 2
+  minimum_validation_races: 2
+  minimum_reserved_test_races: 3
+  minimum_control_laps_per_train_race: 5
+  minimum_following_laps_per_train_race: 5
+  minimum_improvement_s: 0.05
+  paired_bootstrap_resamples: 2000
+  bootstrap_confidence: 0.95
+  minimum_common_support_fraction: 0.70
+  minimum_checkpoint_headway_s: 0.20
+cohorts:
+  - {name: Imola, date: "2025-05-18", session_key: 9987, scheduled_laps: 63, split: reconstruction_only}
+  - {name: Austria, date: "2025-06-29", session_key: 9955, scheduled_laps: 70, split: development}
+  - {name: Hungary, date: "2025-08-03", session_key: 9928, scheduled_laps: 70, split: development}
+  - {name: Zandvoort, date: "2025-08-31", session_key: 9920, scheduled_laps: 72, split: audited}
+  - {name: Monza, date: "2025-09-07", session_key: 9912, scheduled_laps: 53, split: validation}
+  - {name: Baku, date: "2025-09-21", session_key: 9904, scheduled_laps: 51, split: audited}
+  - {name: Singapore, date: "2025-10-05", session_key: 9896, scheduled_laps: 62, split: frozen_pilot}
+  - {name: Austin, date: "2025-10-19", session_key: 9888, scheduled_laps: 56, split: validation}
+  - {name: Mexico City, date: "2025-10-26", split: reserved}
+  - {name: São Paulo, date: "2025-11-09", split: reserved}
+  - {name: Las Vegas, date: "2025-11-23", split: reserved}
+  - {name: Qatar, date: "2025-11-30", split: reserved}
+initial_acquisition:
+  - session_key: 9987
+    geometry_driver: 1
+    geometry_lap: 4
+    layout_version: imola-2025-fia-sampled-v1
+    loop_length_m: 4909
+    length_source: https://www.fia.com/system/files/decision-document/2025_emilia_romagna_grand_prix_-_race_director_event_notes_-_circuit_map_pit_lane_emergency_exits_quarantine_zone_and_red_zones.pdf
+  - session_key: 9928
+    geometry_driver: 16
+    geometry_lap: 4
+    layout_version: hungaroring-2025-fia-sampled-v1
+    loop_length_m: 4381
+    length_source: https://www.fia.com/system/files/decision-document/2025_budapest_event_-_circuit_map_-_budapest_2025_0.pdf
+  - session_key: 9912
+    geometry_driver: 1
+    geometry_lap: 5
+    fallback_geometry_laps: [6, 7, 8]
+    layout_version: monza-2025-fia-v2-sampled-v1
+    loop_length_m: 5793
+    length_source: https://www.fia.com/system/files/decision-document/2025_monza_event_-_circuit_map_-_monza_2025.pdf
+    known_off_track:
+      - driver_number: 27
+        available_by_utc: "2025-09-07T13:06:00+00:00"
+        reason: FORMATION_LAP_RETIREMENT
+        source: https://www.formula1.com/en/video/2025-italian-grand-prix-hulkenberg-forced-to-retire-on-the-formation-lap.1842611125141941376

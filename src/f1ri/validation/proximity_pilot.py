@@ -192,7 +192,7 @@ def _asof(lookup, driver, at):
     return rows[index] if index >= 0 else None
 
 
-def _physical_row(geometry, trace, at, driver, mode, laps, reported, pits):
+def _physical_row(geometry, trace, at, driver, mode, laps, reported, pits, *, fallback_speed_mps=None):
     lap, position = _asof(laps, driver, at), _asof(reported, driver, at)
     lap_count = int(lap.lap_number) - 1 if lap else None
     classification = int(position.position) if position and pd.notna(position.position) else None
@@ -206,12 +206,12 @@ def _physical_row(geometry, trace, at, driver, mode, laps, reported, pits):
         # The pilot archive uses fix timestamps as availability. With an actual
         # separate availability clock use estimate_location on the raw prefix.
         trace = tuple(point for point in trace if point.fix.availability <= at)
-    est = estimate_from_trace(geometry, trace, at, mode)
+    est = estimate_from_trace(geometry, trace, at, mode, fallback_speed_mps=fallback_speed_mps)
     aligned = est.progress_m is not None
     if aligned:
         elapsed = (at - lap.lap_start_utc).total_seconds()
         aligned = est.progress_m <= 105 * elapsed + 35
-    reason = est.reason or ("CONTROL_LINE_ALIGNMENT_UNCERTAIN" if not aligned else None)
+    reason = est.reason or ("CONTROL_LINE_ALIGNMENT_UNCERTAIN" if not aligned else est.velocity_source)
     return TrackPosition(driver, PhysicalRoute.RACING, lap_count, classification, est.progress_m,
                          est.uncertainty_m, est.speed_mps, est.quality,
                          est.latest_observation_utc, aligned, reason)

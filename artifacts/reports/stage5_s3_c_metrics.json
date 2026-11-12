@@ -1,0 +1,450 @@
+{
+  "protocol": "s3-c-v1",
+  "protocol_sha256": "e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda",
+  "races": [
+    {
+      "driver_count": 20,
+      "locations": 97420,
+      "mapped": 97408,
+      "point_in_time_complete": 1264,
+      "point_in_time_snapshots": 2552,
+      "retrospective_complete": 1036,
+      "retrospective_snapshots": 2552,
+      "point_in_time_complete_resolved_ahead": 21033,
+      "speed_fallback_samples": 3922,
+      "timing_markers": {
+        "requested": 16,
+        "n": 16,
+        "mae": 0.0746808125,
+        "bias": 0.0334175625
+      },
+      "control_order": {
+        "eligible": 225,
+        "resolved": 224,
+        "matched": 223,
+        "matched_gap_error_s": {
+          "n": 223,
+          "mae": 0.07936595964125558,
+          "bias": -0.0010431255605381337
+        },
+        "gap_bounds_checked": 223,
+        "gap_bounds_covered": 223,
+        "median_heuristic_gap_halfwidth_s": 0.4638170927109593
+      },
+      "heldout_fix_requested": 5040,
+      "heldout_fix_error_m": {
+        "n": 4776,
+        "mae": 4.423419197715382,
+        "p90": 11.078723374707579
+      },
+      "heldout_fix_inside_bound": 4459,
+      "heldout_fix_by_age": [
+        {
+          "maximum_age_s": 0.25,
+          "minimum_age_exclusive_s": 0.0,
+          "n": 2163,
+          "mae": 2.6181983281222427,
+          "p90": 7.574758963411932
+        },
+        {
+          "maximum_age_s": 0.5,
+          "minimum_age_exclusive_s": 0.25,
+          "n": 2513,
+          "mae": 5.718980422513608,
+          "p90": 12.688015469845144
+        },
+        {
+          "maximum_age_s": 0.9,
+          "minimum_age_exclusive_s": 0.5,
+          "n": 100,
+          "mae": 10.912893027835539,
+          "p90": 23.991456189778866
+        }
+      ],
+      "name": "Imola",
+      "session_key": 9987,
+      "split": "reconstruction_only",
+      "geometry_version": "imola-2025-fia-sampled-v1",
+      "reference_end_gap_m": 4.450805842856601,
+      "geometry_available_utc": "2025-05-18T13:09:02.102000+00:00",
+      "reference_lap": 4,
+      "rejected_reference_laps": [],
+      "windows_before_geometry_available": 0,
+      "field_window_seconds": 1280.0,
+      "window_counts": {
+        "clean_seed": 2,
+        "random_green": 4,
+        "close_seed": 2
+      },
+      "all_window_strata_acquired": true,
+      "speed_samples": 96140,
+      "timing_marker_gate": true,
+      "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+      "off_track_evidence": [],
+      "episodes": 429,
+      "episode_segments": 8553,
+      "episode_encounters": {
+        "SAME_LAP": 429
+      },
+      "episode_terminations": {
+        "LOCALIZATION_UNSUPPORTED": 290,
+        "WINDOW_ENDED": 27,
+        "GAP_OPENED": 109,
+        "LAP_RELATION_CHANGED": 3
+      },
+      "lap_opportunities": {
+        "FULL_LAPS_IN_WINDOW": 148,
+        "PHYSICAL_SUPPORT_BELOW_MINIMUM": 94,
+        "PARTIAL_WINDOW": 153,
+        "CLEAN_CONTROL": 11,
+        "INTERMEDIATE": 27,
+        "FOLLOWING": 3,
+        "PIT_OR_STINT_TRANSITION": 1,
+        "ARCHIVE_PASS_INDICATION_CENSORED": 12
+      },
+      "pace_reference_status": {
+        "PACE_REFERENCE_NOT_OUT_OF_SAMPLE": 41
+      },
+      "pace_reference_by_outcome": {
+        "FOLLOWING": {
+          "PACE_REFERENCE_NOT_OUT_OF_SAMPLE": 3
+        },
+        "CLEAN_CONTROL": {
+          "PACE_REFERENCE_NOT_OUT_OF_SAMPLE": 11
+        },
+        "INTERMEDIATE": {
+          "PACE_REFERENCE_NOT_OUT_OF_SAMPLE": 27
+        }
+      },
+      "signed_residual_diagnostics": {
+        "FOLLOWING": {
+          "laps": 0,
+          "t0_mae_s": null,
+          "t0_bias_s": null,
+          "bias_adjusted_proxies": 0
+        },
+        "CLEAN_CONTROL": {
+          "laps": 0,
+          "t0_mae_s": null,
+          "t0_bias_s": null,
+          "bias_adjusted_proxies": 0
+        },
+        "INTERMEDIATE": {
+          "laps": 0,
+          "t0_mae_s": null,
+          "t0_bias_s": null,
+          "bias_adjusted_proxies": 0
+        }
+      }
+    },
+    {
+      "driver_count": 20,
+      "locations": 97240,
+      "mapped": 97239,
+      "point_in_time_complete": 1878,
+      "point_in_time_snapshots": 2552,
+      "retrospective_complete": 1565,
+      "retrospective_snapshots": 2552,
+      "point_in_time_complete_resolved_ahead": 26925,
+      "speed_fallback_samples": 2000,
+      "timing_markers": {
+        "requested": 16,
+        "n": 16,
+        "mae": 0.0648448125,
+        "bias": 0.034868062500000005
+      },
+      "control_order": {
+        "eligible": 221,
+        "resolved": 219,
+        "matched": 218,
+        "matched_gap_error_s": {
+          "n": 218,
+          "mae": 0.08166016055045872,
+          "bias": 0.0007859311926605498
+        },
+        "gap_bounds_checked": 218,
+        "gap_bounds_covered": 218,
+        "median_heuristic_gap_halfwidth_s": 0.4881552172637466
+      },
+      "heldout_fix_requested": 5020,
+      "heldout_fix_error_m": {
+        "n": 4869,
+        "mae": 4.47925466863768,
+        "p90": 11.851977429696579
+      },
+      "heldout_fix_inside_bound": 4482,
+      "heldout_fix_by_age": [
+        {
+          "maximum_age_s": 0.25,
+          "minimum_age_exclusive_s": 0.0,
+          "n": 2397,
+          "mae": 2.3312930776843968,
+          "p90": 6.94373392148291
+        },
+        {
+          "maximum_age_s": 0.5,
+          "minimum_age_exclusive_s": 0.25,
+          "n": 2472,
+          "mae": 6.562047522001363,
+          "p90": 14.597785059745501
+        },
+        {
+          "maximum_age_s": 0.9,
+          "minimum_age_exclusive_s": 0.5,
+          "n": 0,
+          "mae": null,
+          "p90": null
+        }
+      ],
+      "name": "Hungary",
+      "session_key": 9928,
+      "split": "development",
+      "geometry_version": "hungaroring-2025-fia-sampled-v1",
+      "reference_end_gap_m": 1.7306935870397544,
+      "geometry_available_utc": "2025-08-03T13:08:43.541000+00:00",
+      "reference_lap": 4,
+      "rejected_reference_laps": [],
+      "windows_before_geometry_available": 0,
+      "field_window_seconds": 1280.0,
+      "window_counts": {
+        "random_green": 4,
+        "close_seed": 2,
+        "clean_seed": 2
+      },
+      "all_window_strata_acquired": true,
+      "speed_samples": 95980,
+      "timing_marker_gate": true,
+      "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+      "off_track_evidence": [],
+      "episodes": 817,
+      "episode_segments": 13187,
+      "episode_encounters": {
+        "SAME_LAP": 817
+      },
+      "episode_terminations": {
+        "LOCALIZATION_UNSUPPORTED": 676,
+        "GAP_OPENED": 106,
+        "WINDOW_ENDED": 30,
+        "LAP_RELATION_CHANGED": 5
+      },
+      "lap_opportunities": {
+        "FULL_LAPS_IN_WINDOW": 146,
+        "PHYSICAL_SUPPORT_BELOW_MINIMUM": 100,
+        "PARTIAL_WINDOW": 157,
+        "CLEAN_CONTROL": 8,
+        "PIT_OR_STINT_TRANSITION": 7,
+        "INTERMEDIATE": 22,
+        "ARCHIVE_PASS_INDICATION_CENSORED": 8,
+        "FOLLOWING": 1
+      },
+      "pace_reference_status": {
+        "SUPPORTED": 13,
+        "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 15,
+        "LIMITED_SUPPORT": 3
+      },
+      "pace_reference_by_outcome": {
+        "FOLLOWING": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 1
+        },
+        "CLEAN_CONTROL": {
+          "SUPPORTED": 5,
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 2,
+          "LIMITED_SUPPORT": 1
+        },
+        "INTERMEDIATE": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 12,
+          "SUPPORTED": 8,
+          "LIMITED_SUPPORT": 2
+        }
+      },
+      "signed_residual_diagnostics": {
+        "FOLLOWING": {
+          "laps": 0,
+          "t0_mae_s": null,
+          "t0_bias_s": null,
+          "bias_adjusted_proxies": 0
+        },
+        "CLEAN_CONTROL": {
+          "laps": 5,
+          "t0_mae_s": 0.38335709771589277,
+          "t0_bias_s": -0.05455645165547764,
+          "bias_adjusted_proxies": 0
+        },
+        "INTERMEDIATE": {
+          "laps": 8,
+          "t0_mae_s": 0.14729239533906302,
+          "t0_bias_s": 0.008143941202147786,
+          "bias_adjusted_proxies": 0
+        }
+      }
+    },
+    {
+      "driver_count": 20,
+      "locations": 98160,
+      "mapped": 98095,
+      "point_in_time_complete": 1238,
+      "point_in_time_snapshots": 2552,
+      "retrospective_complete": 860,
+      "retrospective_snapshots": 2552,
+      "point_in_time_complete_resolved_ahead": 18742,
+      "speed_fallback_samples": 6097,
+      "timing_markers": {
+        "requested": 16,
+        "n": 16,
+        "mae": 0.049399624999999996,
+        "bias": -0.021023624999999997
+      },
+      "control_order": {
+        "eligible": 183,
+        "resolved": 183,
+        "matched": 183,
+        "matched_gap_error_s": {
+          "n": 183,
+          "mae": 0.07792001092896174,
+          "bias": 0.004748568306010938
+        },
+        "gap_bounds_checked": 183,
+        "gap_bounds_covered": 182,
+        "median_heuristic_gap_halfwidth_s": 0.437943302245839
+      },
+      "heldout_fix_requested": 5100,
+      "heldout_fix_error_m": {
+        "n": 4587,
+        "mae": 4.387592976430662,
+        "p90": 12.181616033971032
+      },
+      "heldout_fix_inside_bound": 4141,
+      "heldout_fix_by_age": [
+        {
+          "maximum_age_s": 0.25,
+          "minimum_age_exclusive_s": 0.0,
+          "n": 2410,
+          "mae": 2.469712773424562,
+          "p90": 7.439550335247575
+        },
+        {
+          "maximum_age_s": 0.5,
+          "minimum_age_exclusive_s": 0.25,
+          "n": 2117,
+          "mae": 6.5577469944079905,
+          "p90": 14.983017159806971
+        },
+        {
+          "maximum_age_s": 0.9,
+          "minimum_age_exclusive_s": 0.5,
+          "n": 60,
+          "mae": 4.852180196208951,
+          "p90": 11.587523686976965
+        }
+      ],
+      "name": "Monza",
+      "session_key": 9912,
+      "split": "validation",
+      "geometry_version": "monza-2025-fia-v2-sampled-v1",
+      "reference_end_gap_m": 3.068284845869742,
+      "geometry_available_utc": "2025-09-07T13:12:03.164000+00:00",
+      "reference_lap": 6,
+      "rejected_reference_laps": [
+        {
+          "lap": 5,
+          "reason": "Reference lap fails closure or continuity check"
+        }
+      ],
+      "windows_before_geometry_available": 0,
+      "field_window_seconds": 1280.0,
+      "window_counts": {
+        "random_green": 4,
+        "close_seed": 2,
+        "clean_seed": 2
+      },
+      "all_window_strata_acquired": true,
+      "speed_samples": 95080,
+      "timing_marker_gate": true,
+      "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+      "off_track_evidence": [
+        {
+          "driver_number": 27,
+          "available_by_utc": "2025-09-07T13:06:00+00:00",
+          "reason": "FORMATION_LAP_RETIREMENT",
+          "source": "https://www.formula1.com/en/video/2025-italian-grand-prix-hulkenberg-forced-to-retire-on-the-formation-lap.1842611125141941376"
+        }
+      ],
+      "episodes": 494,
+      "episode_segments": 6979,
+      "episode_encounters": {
+        "SAME_LAP": 494
+      },
+      "episode_terminations": {
+        "LOCALIZATION_UNSUPPORTED": 422,
+        "WINDOW_ENDED": 16,
+        "GAP_OPENED": 49,
+        "LAP_RELATION_CHANGED": 7
+      },
+      "lap_opportunities": {
+        "FULL_LAPS_IN_WINDOW": 138,
+        "CLEAN_CONTROL": 9,
+        "PARTIAL_WINDOW": 148,
+        "INTERMEDIATE": 11,
+        "PHYSICAL_SUPPORT_BELOW_MINIMUM": 108,
+        "FOLLOWING": 2,
+        "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+        "PIT_OR_STINT_TRANSITION": 4
+      },
+      "pace_reference_status": {
+        "SUPPORTED": 8,
+        "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 10,
+        "LIMITED_SUPPORT": 4
+      },
+      "pace_reference_by_outcome": {
+        "FOLLOWING": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 2
+        },
+        "CLEAN_CONTROL": {
+          "SUPPORTED": 4,
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 2,
+          "LIMITED_SUPPORT": 3
+        },
+        "INTERMEDIATE": {
+          "SUPPORTED": 4,
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 6,
+          "LIMITED_SUPPORT": 1
+        }
+      },
+      "signed_residual_diagnostics": {
+        "FOLLOWING": {
+          "laps": 0,
+          "t0_mae_s": null,
+          "t0_bias_s": null,
+          "bias_adjusted_proxies": 0
+        },
+        "CLEAN_CONTROL": {
+          "laps": 4,
+          "t0_mae_s": 0.11877566513096838,
+          "t0_bias_s": -0.03520976358407779,
+          "bias_adjusted_proxies": 0
+        },
+        "INTERMEDIATE": {
+          "laps": 4,
+          "t0_mae_s": 0.15365228762896166,
+          "t0_bias_s": -0.05030044366343489,
+          "bias_adjusted_proxies": 0
+        }
+      }
+    }
+  ],
+  "pace_bundle_status": "VERIFIED",
+  "pace_bundle_sha256": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+  "research_readiness": {
+    "eligible_development_races": [],
+    "eligible_validation_races": [],
+    "reserved_races_evaluated": 0,
+    "blockers": [
+      "INSUFFICIENT_DEVELOPMENT_RACES_WITH_MATCHED_CONTROL_AND_FOLLOWING_TARGETS",
+      "INSUFFICIENT_CHRONOLOGICAL_VALIDATION_RACES"
+    ],
+    "empirical_fit_status": "GATED",
+    "comparison_status": "PENDING_COMMON_T0_T1_T2_T3_EVALUATION",
+    "operational_baseline": "T1_DETERMINISTIC_NO_PASS"
+  },
+  "traffic_model_status": "RESEARCH_ONLY"
+}

@@ -1,0 +1,1125 @@
+{
+  "protocol_sha256": "e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda",
+  "races": [
+    {
+      "session_key": 9987,
+      "geometry_sha256": "1329f6890e8ffdde3ad9f815353ef9588a8ad087a33c9ac6e229b3a45b31f10d",
+      "geometry_sources": [
+        {
+          "endpoint": "location",
+          "session_key": 9987,
+          "driver_number": 1,
+          "start_utc": "2025-05-18T13:07:36.800000+00:00",
+          "end_utc": "2025-05-18T13:09:02.102000+00:00",
+          "sha256": "a471440f87e10ce526a3ba9f6fb80bb4844776f6c721c8d41cd9637b909be131",
+          "cache_path": "data/telemetry/proximity/9987/1/84b321a6060a1c6e/location.json",
+          "usable_rows": 328,
+          "conflicting_rows": 0
+        },
+        {
+          "endpoint": "car_data",
+          "session_key": 9987,
+          "driver_number": 1,
+          "start_utc": "2025-05-18T13:07:36.800000+00:00",
+          "end_utc": "2025-05-18T13:09:02.102000+00:00",
+          "sha256": "ea7662350337ed3b82b33482b9b7bc12b3575f44d330e72c19cce8dd232612e7",
+          "cache_path": "data/telemetry/proximity/9987/1/84b321a6060a1c6e/car_data.json",
+          "usable_rows": 313,
+          "conflicting_rows": 0
+        }
+      ],
+      "windows": [
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:22:39+00:00",
+            "end_utc": "2025-05-18 13:25:19+00:00"
+          },
+          "seed_driver": 23,
+          "seed_lap": 15,
+          "name": "clean_seed_132239",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:22:39+00:00",
+              "end_utc": "2025-05-18T13:25:19+00:00",
+              "sha256": "57b489354b2c399f783ea7c31558e60381c59738e80f8d33bb7b2ad7506c9d9e",
+              "cache_path": "data/telemetry/proximity/9987/field/ba0de7ce6ddb7fd3/location.json",
+              "usable_rows": 11940,
+              "conflicting_rows": 0,
+              "received_rows": 11940,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:22:39+00:00",
+              "end_utc": "2025-05-18T13:25:19+00:00",
+              "sha256": "0f233c06a357aa8035d17bd4d3560d818c3a173681f7fcaef3ffaa1f7abfaeea",
+              "cache_path": "data/telemetry/proximity/9987/field/ba0de7ce6ddb7fd3/car_data.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:28:37+00:00",
+            "end_utc": "2025-05-18 13:31:17+00:00"
+          },
+          "seed_driver": 18,
+          "seed_lap": 19,
+          "name": "clean_seed_132837",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:28:37+00:00",
+              "end_utc": "2025-05-18T13:31:17+00:00",
+              "sha256": "78b0afc1432f444716e81ddecec4ccb669de5014dfae6c4c7365f411984f42e5",
+              "cache_path": "data/telemetry/proximity/9987/field/42c231a27e01649e/location.json",
+              "usable_rows": 12100,
+              "conflicting_rows": 0,
+              "received_rows": 12100,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:28:37+00:00",
+              "end_utc": "2025-05-18T13:31:17+00:00",
+              "sha256": "b0f1534364e7af02476d567494f1bbc138be9a0554dab68f9d29523a0c7eaa5a",
+              "cache_path": "data/telemetry/proximity/9987/field/42c231a27e01649e/car_data.json",
+              "usable_rows": 11760,
+              "conflicting_rows": 0,
+              "received_rows": 11760,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:32:50+00:00",
+            "end_utc": "2025-05-18 13:35:30+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_133250",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:32:50+00:00",
+              "end_utc": "2025-05-18T13:35:30+00:00",
+              "sha256": "470e85eaa3a0c7cb2667db36b44fe26ba48f1cd091b27af169042a4bf38e12c7",
+              "cache_path": "data/telemetry/proximity/9987/field/66b78b99b44be4f6/location.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:32:50+00:00",
+              "end_utc": "2025-05-18T13:35:30+00:00",
+              "sha256": "ecc308e76c3b1db3b8442447329ff6f70002715c0e37362d4210af9b6200bf4b",
+              "cache_path": "data/telemetry/proximity/9987/field/66b78b99b44be4f6/car_data.json",
+              "usable_rows": 11800,
+              "conflicting_rows": 0,
+              "received_rows": 11800,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:37:49+00:00",
+            "end_utc": "2025-05-18 13:40:29+00:00"
+          },
+          "seed_driver": 12,
+          "seed_lap": 26,
+          "name": "close_seed_133749",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:37:49+00:00",
+              "end_utc": "2025-05-18T13:40:29+00:00",
+              "sha256": "be61be804c9fb3e5928616222064f90240d9660f3eb782ce669b597858cf78a3",
+              "cache_path": "data/telemetry/proximity/9987/field/a240afdadd52c87d/location.json",
+              "usable_rows": 12280,
+              "conflicting_rows": 0,
+              "received_rows": 12280,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:37:49+00:00",
+              "end_utc": "2025-05-18T13:40:29+00:00",
+              "sha256": "7b857f70db2785e6d47707dce69c0df34e95ec838d1b511e2dd1f0730b713fdd",
+              "cache_path": "data/telemetry/proximity/9987/field/a240afdadd52c87d/car_data.json",
+              "usable_rows": 12020,
+              "conflicting_rows": 0,
+              "received_rows": 12020,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:54:04+00:00",
+            "end_utc": "2025-05-18 13:56:44+00:00"
+          },
+          "seed_driver": 6,
+          "seed_lap": 37,
+          "name": "close_seed_135404",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:54:04+00:00",
+              "end_utc": "2025-05-18T13:56:44+00:00",
+              "sha256": "9b4c4ef0cc0174b4ac1dfb6f175269e953d58056621ed9a9336484e06a96345f",
+              "cache_path": "data/telemetry/proximity/9987/field/1cda0380050c78f0/location.json",
+              "usable_rows": 12200,
+              "conflicting_rows": 0,
+              "received_rows": 12200,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:54:04+00:00",
+              "end_utc": "2025-05-18T13:56:44+00:00",
+              "sha256": "dd943de3347ef24b80dcaeadadcc218def9a74ab76144c17ba23c37071325f13",
+              "cache_path": "data/telemetry/proximity/9987/field/1cda0380050c78f0/car_data.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 13:58:53+00:00",
+            "end_utc": "2025-05-18 14:01:33+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_135853",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:58:53+00:00",
+              "end_utc": "2025-05-18T14:01:33+00:00",
+              "sha256": "16ff3031410fe2040bf1e870158fb61fd9de0c26aa6069794f94105a625b1122",
+              "cache_path": "data/telemetry/proximity/9987/field/8beee75c30c14a15/location.json",
+              "usable_rows": 12340,
+              "conflicting_rows": 0,
+              "received_rows": 12340,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T13:58:53+00:00",
+              "end_utc": "2025-05-18T14:01:33+00:00",
+              "sha256": "c0771fe17cc15d2a8d73fbb3f4f4e178c3cf3db033da19f127fa5b84500eefd6",
+              "cache_path": "data/telemetry/proximity/9987/field/8beee75c30c14a15/car_data.json",
+              "usable_rows": 11920,
+              "conflicting_rows": 0,
+              "received_rows": 11920,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 14:22:45+00:00",
+            "end_utc": "2025-05-18 14:25:25+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_142245",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T14:22:45+00:00",
+              "end_utc": "2025-05-18T14:25:25+00:00",
+              "sha256": "bf0accdd987abcec07c1d10ec3df8e1f5bc55137d1fcacf9065bc47e7ced87ed",
+              "cache_path": "data/telemetry/proximity/9987/field/ed4a29614e890c31/location.json",
+              "usable_rows": 12340,
+              "conflicting_rows": 0,
+              "received_rows": 12340,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T14:22:45+00:00",
+              "end_utc": "2025-05-18T14:25:25+00:00",
+              "sha256": "63a1ca7712bb6be5b64f569de6d05a13e69d0d99f26167c7acb2bfa88318453a",
+              "cache_path": "data/telemetry/proximity/9987/field/ed4a29614e890c31/car_data.json",
+              "usable_rows": 12080,
+              "conflicting_rows": 0,
+              "received_rows": 12080,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9987,
+            "driver_number": null,
+            "start_utc": "2025-05-18 14:31:59+00:00",
+            "end_utc": "2025-05-18 14:34:39+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_143159",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T14:31:59+00:00",
+              "end_utc": "2025-05-18T14:34:39+00:00",
+              "sha256": "c6598f35ff06f7e801ff9a619283b561b5b116b6e3ffbcbadeff6743c88d16f2",
+              "cache_path": "data/telemetry/proximity/9987/field/9b1c6b68cf3b6a0a/location.json",
+              "usable_rows": 12060,
+              "conflicting_rows": 0,
+              "received_rows": 12060,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9987,
+              "driver_number": null,
+              "start_utc": "2025-05-18T14:31:59+00:00",
+              "end_utc": "2025-05-18T14:34:39+00:00",
+              "sha256": "b1361aa73d660f846d3db6a36da1af9648e9342876c61c4502686ea2fa0a8570",
+              "cache_path": "data/telemetry/proximity/9987/field/9b1c6b68cf3b6a0a/car_data.json",
+              "usable_rows": 12240,
+              "conflicting_rows": 0,
+              "received_rows": 12240,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "session_key": 9928,
+      "geometry_sha256": "d1aa85e064a85d69916e4bdd0c2956de7ad6f4751715e48100c1c50ae756b1c3",
+      "geometry_sources": [
+        {
+          "endpoint": "location",
+          "session_key": 9928,
+          "driver_number": 16,
+          "start_utc": "2025-08-03T13:07:17.234000+00:00",
+          "end_utc": "2025-08-03T13:08:43.541000+00:00",
+          "sha256": "48941025b4963f5c44c578f10562752ce4b3a305c1d44486f65a01965a87919d",
+          "cache_path": "data/telemetry/proximity/9928/16/633eb3214995650c/location.json",
+          "usable_rows": 327,
+          "conflicting_rows": 0
+        },
+        {
+          "endpoint": "car_data",
+          "session_key": 9928,
+          "driver_number": 16,
+          "start_utc": "2025-08-03T13:07:17.234000+00:00",
+          "end_utc": "2025-08-03T13:08:43.541000+00:00",
+          "sha256": "1cc4631164e7f8a0195715acd313951efcda25149b3430b3bc403c8d92a10b71",
+          "cache_path": "data/telemetry/proximity/9928/16/633eb3214995650c/car_data.json",
+          "usable_rows": 323,
+          "conflicting_rows": 0
+        }
+      ],
+      "windows": [
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:10:12+00:00",
+            "end_utc": "2025-08-03 13:12:52+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_131012",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:10:12+00:00",
+              "end_utc": "2025-08-03T13:12:52+00:00",
+              "sha256": "2c2d2046bb26fae29886155d2cb634546b8fce70f2e81c9bb4a0130a577e219b",
+              "cache_path": "data/telemetry/proximity/9928/field/3f152b6b634a3aa9/location.json",
+              "usable_rows": 12240,
+              "conflicting_rows": 0,
+              "received_rows": 12240,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:10:12+00:00",
+              "end_utc": "2025-08-03T13:12:52+00:00",
+              "sha256": "68154924f16a51a8abbe0a652d78585a16ce48d361a36e0b82749cc0793e8af4",
+              "cache_path": "data/telemetry/proximity/9928/field/3f152b6b634a3aa9/car_data.json",
+              "usable_rows": 11960,
+              "conflicting_rows": 0,
+              "received_rows": 11960,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:12:55+00:00",
+            "end_utc": "2025-08-03 13:15:35+00:00"
+          },
+          "seed_driver": 87,
+          "seed_lap": 8,
+          "name": "close_seed_131255",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:12:55+00:00",
+              "end_utc": "2025-08-03T13:15:35+00:00",
+              "sha256": "488a1f0727b1bf9764f04d2d83613ed7fae772b824af0298542f9a0336bdbf0a",
+              "cache_path": "data/telemetry/proximity/9928/field/a5bdf3bcd0f7dc11/location.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:12:55+00:00",
+              "end_utc": "2025-08-03T13:15:35+00:00",
+              "sha256": "45c959231c986fdd4efb30c894d71d8c522eed8f30f09784cf55a0489c414703",
+              "cache_path": "data/telemetry/proximity/9928/field/a5bdf3bcd0f7dc11/car_data.json",
+              "usable_rows": 12140,
+              "conflicting_rows": 0,
+              "received_rows": 12140,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:22:36+00:00",
+            "end_utc": "2025-08-03 13:25:16+00:00"
+          },
+          "seed_driver": 18,
+          "seed_lap": 15,
+          "name": "close_seed_132236",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:22:36+00:00",
+              "end_utc": "2025-08-03T13:25:16+00:00",
+              "sha256": "16380a3a5c24e26de887be64d456e3eb252dd8dbed559afbeff5e6cf42408b79",
+              "cache_path": "data/telemetry/proximity/9928/field/43cd4e10c0c83e88/location.json",
+              "usable_rows": 12140,
+              "conflicting_rows": 0,
+              "received_rows": 12140,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:22:36+00:00",
+              "end_utc": "2025-08-03T13:25:16+00:00",
+              "sha256": "23eadb03d77561adc1b58c5604c79e19df659200c11a215fa27996d35915dda8",
+              "cache_path": "data/telemetry/proximity/9928/field/43cd4e10c0c83e88/car_data.json",
+              "usable_rows": 11900,
+              "conflicting_rows": 0,
+              "received_rows": 11900,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:29:41+00:00",
+            "end_utc": "2025-08-03 13:32:21+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_132941",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:29:41+00:00",
+              "end_utc": "2025-08-03T13:32:21+00:00",
+              "sha256": "52606c8f5aa6e779d1e602aed4e7b1e1fb2cfd8f9c14864a64fd81ef43e4387c",
+              "cache_path": "data/telemetry/proximity/9928/field/79093fa6309c21cf/location.json",
+              "usable_rows": 12300,
+              "conflicting_rows": 0,
+              "received_rows": 12300,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:29:41+00:00",
+              "end_utc": "2025-08-03T13:32:21+00:00",
+              "sha256": "a77f2e4c0a426687e28dd9d3db537c7feb42cfa33e8f87eed2e78776652e67b1",
+              "cache_path": "data/telemetry/proximity/9928/field/79093fa6309c21cf/car_data.json",
+              "usable_rows": 12020,
+              "conflicting_rows": 0,
+              "received_rows": 12020,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:33:50+00:00",
+            "end_utc": "2025-08-03 13:36:30+00:00"
+          },
+          "seed_driver": 87,
+          "seed_lap": 23,
+          "name": "clean_seed_133350",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:33:50+00:00",
+              "end_utc": "2025-08-03T13:36:30+00:00",
+              "sha256": "81bedc83280f76312a1257ff9ede1b711578310e67ee276e0f6fe86c19a9b53b",
+              "cache_path": "data/telemetry/proximity/9928/field/e00c019c552c00df/location.json",
+              "usable_rows": 12180,
+              "conflicting_rows": 0,
+              "received_rows": 12180,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:33:50+00:00",
+              "end_utc": "2025-08-03T13:36:30+00:00",
+              "sha256": "b9786301b9faa1dd87291191dabf40d45c26db34f288e4da3d29d90475840235",
+              "cache_path": "data/telemetry/proximity/9928/field/e00c019c552c00df/car_data.json",
+              "usable_rows": 11980,
+              "conflicting_rows": 0,
+              "received_rows": 11980,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 13:46:57+00:00",
+            "end_utc": "2025-08-03 13:49:37+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_134657",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:46:57+00:00",
+              "end_utc": "2025-08-03T13:49:37+00:00",
+              "sha256": "c514b39987587f5f3980e4dfbee0656b3669250df15fd721337018d21205a419",
+              "cache_path": "data/telemetry/proximity/9928/field/c5684cd9463d705e/location.json",
+              "usable_rows": 11960,
+              "conflicting_rows": 0,
+              "received_rows": 11960,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T13:46:57+00:00",
+              "end_utc": "2025-08-03T13:49:37+00:00",
+              "sha256": "82c339923f7cbc89378834f152e63fb4970e63c523426ffbe2b2397bb54710dc",
+              "cache_path": "data/telemetry/proximity/9928/field/c5684cd9463d705e/car_data.json",
+              "usable_rows": 12180,
+              "conflicting_rows": 0,
+              "received_rows": 12180,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 14:13:25+00:00",
+            "end_utc": "2025-08-03 14:16:05+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_141325",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T14:13:25+00:00",
+              "end_utc": "2025-08-03T14:16:05+00:00",
+              "sha256": "a4579ef3e8c5ed92f8030739001b78554c067a918357afe3819a3da1e7ff966c",
+              "cache_path": "data/telemetry/proximity/9928/field/60da8a46068a7c27/location.json",
+              "usable_rows": 12100,
+              "conflicting_rows": 0,
+              "received_rows": 12100,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T14:13:25+00:00",
+              "end_utc": "2025-08-03T14:16:05+00:00",
+              "sha256": "95e7b706665adc770f05491949fa8d9ee0276777647d57f8ba3670f07c89f81b",
+              "cache_path": "data/telemetry/proximity/9928/field/60da8a46068a7c27/car_data.json",
+              "usable_rows": 11900,
+              "conflicting_rows": 0,
+              "received_rows": 11900,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9928,
+            "driver_number": null,
+            "start_utc": "2025-08-03 14:19:44+00:00",
+            "end_utc": "2025-08-03 14:22:24+00:00"
+          },
+          "seed_driver": 31,
+          "seed_lap": 56,
+          "name": "clean_seed_141944",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T14:19:44+00:00",
+              "end_utc": "2025-08-03T14:22:24+00:00",
+              "sha256": "33f68f4b7c517cd40ba5e59586fdf311a65aa65db72884b07418193c99f63c16",
+              "cache_path": "data/telemetry/proximity/9928/field/bf08919f070aea7a/location.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9928,
+              "driver_number": null,
+              "start_utc": "2025-08-03T14:19:44+00:00",
+              "end_utc": "2025-08-03T14:22:24+00:00",
+              "sha256": "692c89f187cdf34fc05c54ad875fdd18726a3e99d55740a3e9149b75751f57a9",
+              "cache_path": "data/telemetry/proximity/9928/field/bf08919f070aea7a/car_data.json",
+              "usable_rows": 11900,
+              "conflicting_rows": 0,
+              "received_rows": 11900,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "session_key": 9912,
+      "geometry_sha256": "902c07776edea2c1f3db9373989675a70f6221df967dc22e6397eead85d0d1db",
+      "geometry_sources": [
+        {
+          "endpoint": "location",
+          "session_key": 9912,
+          "driver_number": 1,
+          "start_utc": "2025-09-07T13:09:11.857000+00:00",
+          "end_utc": "2025-09-07T13:10:39.529000+00:00",
+          "sha256": "df79da67e1d627f75e4837d171832a31e37c6f3bb9e71316f3e9f279cab12c9b",
+          "cache_path": "data/telemetry/proximity/9912/1/17a9d8cd141c8c0f/location.json",
+          "usable_rows": 321,
+          "conflicting_rows": 0
+        },
+        {
+          "endpoint": "car_data",
+          "session_key": 9912,
+          "driver_number": 1,
+          "start_utc": "2025-09-07T13:09:11.857000+00:00",
+          "end_utc": "2025-09-07T13:10:39.529000+00:00",
+          "sha256": "d421e30e09cc14a93b07f5db73d97411724204def49f93f82a768405098ea233",
+          "cache_path": "data/telemetry/proximity/9912/1/17a9d8cd141c8c0f/car_data.json",
+          "usable_rows": 323,
+          "conflicting_rows": 0
+        },
+        {
+          "endpoint": "location",
+          "session_key": 9912,
+          "driver_number": 1,
+          "start_utc": "2025-09-07T13:10:35.529000+00:00",
+          "end_utc": "2025-09-07T13:12:03.164000+00:00",
+          "sha256": "6469341ae91259af8412fe72000feaff4052991f597cb85f78970220757e112a",
+          "cache_path": "data/telemetry/proximity/9912/1/d227d6c8c745b369/location.json",
+          "usable_rows": 345,
+          "conflicting_rows": 0
+        },
+        {
+          "endpoint": "car_data",
+          "session_key": 9912,
+          "driver_number": 1,
+          "start_utc": "2025-09-07T13:10:35.529000+00:00",
+          "end_utc": "2025-09-07T13:12:03.164000+00:00",
+          "sha256": "d0e1482e2b908c23541efea587648777ed9a9da4c9671df01126326ac95a7503",
+          "cache_path": "data/telemetry/proximity/9912/1/d227d6c8c745b369/car_data.json",
+          "usable_rows": 332,
+          "conflicting_rows": 0
+        }
+      ],
+      "windows": [
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:17:06+00:00",
+            "end_utc": "2025-09-07 13:19:46+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_131706",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:17:06+00:00",
+              "end_utc": "2025-09-07T13:19:46+00:00",
+              "sha256": "eeffa861f81ab8b27b9796b5e9734b1234d35f8eb545d545e846f3d24147d9b5",
+              "cache_path": "data/telemetry/proximity/9912/field/3df18845937b34b5/location.json",
+              "usable_rows": 12560,
+              "conflicting_rows": 0,
+              "received_rows": 12560,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:17:06+00:00",
+              "end_utc": "2025-09-07T13:19:46+00:00",
+              "sha256": "4a91d3881e15d37b2f74b50b1ea61a82fd9d109e7da7d03abfe7ed3885efd912",
+              "cache_path": "data/telemetry/proximity/9912/field/3df18845937b34b5/car_data.json",
+              "usable_rows": 12420,
+              "conflicting_rows": 0,
+              "received_rows": 12420,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:19:55+00:00",
+            "end_utc": "2025-09-07 13:22:35+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_131955",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:19:55+00:00",
+              "end_utc": "2025-09-07T13:22:35+00:00",
+              "sha256": "86b6142bca57cb02477cf248322aea4a4e2784b81a8735d2c132e53fec39a30b",
+              "cache_path": "data/telemetry/proximity/9912/field/72689ccc1a8cc887/location.json",
+              "usable_rows": 12220,
+              "conflicting_rows": 0,
+              "received_rows": 12220,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:19:55+00:00",
+              "end_utc": "2025-09-07T13:22:35+00:00",
+              "sha256": "94d77a671be2a0f0ef9a26ac400925d48dc3394e36e2884b3cab19d48a22fda6",
+              "cache_path": "data/telemetry/proximity/9912/field/72689ccc1a8cc887/car_data.json",
+              "usable_rows": 11760,
+              "conflicting_rows": 0,
+              "received_rows": 11760,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:29:00+00:00",
+            "end_utc": "2025-09-07 13:31:40+00:00"
+          },
+          "seed_driver": 31,
+          "seed_lap": 19,
+          "name": "close_seed_132900",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:29:00+00:00",
+              "end_utc": "2025-09-07T13:31:40+00:00",
+              "sha256": "d3220083ec2da78ebe1b55ce66f9773060a56b9732ec3f39aa3825d125c6f65c",
+              "cache_path": "data/telemetry/proximity/9912/field/c37e7fbc88f6764b/location.json",
+              "usable_rows": 12160,
+              "conflicting_rows": 0,
+              "received_rows": 12160,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:29:00+00:00",
+              "end_utc": "2025-09-07T13:31:40+00:00",
+              "sha256": "f1c15b749fd93f1381f8fc190036ba753c0947d259021eaa6302278f69f9f4a8",
+              "cache_path": "data/telemetry/proximity/9912/field/c37e7fbc88f6764b/car_data.json",
+              "usable_rows": 11880,
+              "conflicting_rows": 0,
+              "received_rows": 11880,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:33:20+00:00",
+            "end_utc": "2025-09-07 13:36:00+00:00"
+          },
+          "seed_driver": 43,
+          "seed_lap": 22,
+          "name": "clean_seed_133320",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:33:20+00:00",
+              "end_utc": "2025-09-07T13:36:00+00:00",
+              "sha256": "a399ecb156110b064f7186923053c266ca7a2e98c24e344cbee148d446f49bcf",
+              "cache_path": "data/telemetry/proximity/9912/field/4593f6989bb5afd5/location.json",
+              "usable_rows": 12060,
+              "conflicting_rows": 0,
+              "received_rows": 12060,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:33:20+00:00",
+              "end_utc": "2025-09-07T13:36:00+00:00",
+              "sha256": "669be0346f1f0a6a3e1063c806e7a35d2a821e01d2ef6d665515bc6c46c58d84",
+              "cache_path": "data/telemetry/proximity/9912/field/4593f6989bb5afd5/car_data.json",
+              "usable_rows": 11620,
+              "conflicting_rows": 0,
+              "received_rows": 11620,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:42:56+00:00",
+            "end_utc": "2025-09-07 13:45:36+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_134256",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:42:56+00:00",
+              "end_utc": "2025-09-07T13:45:36+00:00",
+              "sha256": "0596f31a0aa657bda50702faed165a74016a7ba77496b9f886719f90940e5b84",
+              "cache_path": "data/telemetry/proximity/9912/field/b0979d484de1c0e3/location.json",
+              "usable_rows": 12560,
+              "conflicting_rows": 0,
+              "received_rows": 12560,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:42:56+00:00",
+              "end_utc": "2025-09-07T13:45:36+00:00",
+              "sha256": "f26191db0f9e1de882def965e4c0c4c5838e46cb2ede83515cf69e0bbdfc68f3",
+              "cache_path": "data/telemetry/proximity/9912/field/b0979d484de1c0e3/car_data.json",
+              "usable_rows": 12040,
+              "conflicting_rows": 0,
+              "received_rows": 12040,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "clean_seed",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:45:47+00:00",
+            "end_utc": "2025-09-07 13:48:27+00:00"
+          },
+          "seed_driver": 31,
+          "seed_lap": 31,
+          "name": "clean_seed_134547",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:45:47+00:00",
+              "end_utc": "2025-09-07T13:48:27+00:00",
+              "sha256": "34f8c090fa3777a0c6ea7f467a379937f7e23963f384e2911fcabad87702014c",
+              "cache_path": "data/telemetry/proximity/9912/field/e0323376627fa390/location.json",
+              "usable_rows": 12180,
+              "conflicting_rows": 0,
+              "received_rows": 12180,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:45:47+00:00",
+              "end_utc": "2025-09-07T13:48:27+00:00",
+              "sha256": "a28b59bf329e886078009beeda0c1b354217bbb0678f01c784027e56a14dce29",
+              "cache_path": "data/telemetry/proximity/9912/field/e0323376627fa390/car_data.json",
+              "usable_rows": 11920,
+              "conflicting_rows": 0,
+              "received_rows": 11920,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "close_seed",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 13:55:45+00:00",
+            "end_utc": "2025-09-07 13:58:25+00:00"
+          },
+          "seed_driver": 12,
+          "seed_lap": 38,
+          "name": "close_seed_135545",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:55:45+00:00",
+              "end_utc": "2025-09-07T13:58:25+00:00",
+              "sha256": "5ce4d2449491599e92b03597c9d4a6dd93523e2f2c9528dd80745c5812caa23f",
+              "cache_path": "data/telemetry/proximity/9912/field/fc4353b505e0002f/location.json",
+              "usable_rows": 12280,
+              "conflicting_rows": 0,
+              "received_rows": 12280,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T13:55:45+00:00",
+              "end_utc": "2025-09-07T13:58:25+00:00",
+              "sha256": "be411dc371eaaa3c3a80f62ce018a1375ecb879bec0285d3c6aa9bb22063e91f",
+              "cache_path": "data/telemetry/proximity/9912/field/fc4353b505e0002f/car_data.json",
+              "usable_rows": 11600,
+              "conflicting_rows": 0,
+              "received_rows": 11600,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        },
+        {
+          "kind": "random_green",
+          "telemetry": {
+            "session_key": 9912,
+            "driver_number": null,
+            "start_utc": "2025-09-07 14:09:06+00:00",
+            "end_utc": "2025-09-07 14:11:46+00:00"
+          },
+          "seed_driver": null,
+          "seed_lap": null,
+          "name": "random_green_140906",
+          "sources": [
+            {
+              "endpoint": "location",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T14:09:06+00:00",
+              "end_utc": "2025-09-07T14:11:46+00:00",
+              "sha256": "37fde56cef74e970254453ab49e0315e2c8a96e63922c4e8d2801a96f568422a",
+              "cache_path": "data/telemetry/proximity/9912/field/4ccd5dbcdfdd65b0/location.json",
+              "usable_rows": 12140,
+              "conflicting_rows": 0,
+              "received_rows": 12140,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            },
+            {
+              "endpoint": "car_data",
+              "session_key": 9912,
+              "driver_number": null,
+              "start_utc": "2025-09-07T14:09:06+00:00",
+              "end_utc": "2025-09-07T14:11:46+00:00",
+              "sha256": "c2cb305af3089020fec4186813b08abdbcfb958d4a91a09fa312a0eab8db817d",
+              "cache_path": "data/telemetry/proximity/9912/field/4ccd5dbcdfdd65b0/car_data.json",
+              "usable_rows": 11840,
+              "conflicting_rows": 0,
+              "received_rows": 11840,
+              "duplicates": 0,
+              "out_of_order_rows": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

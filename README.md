@@ -150,6 +150,20 @@ The default audit warehouse needs Zandvoort and Baku. Add `--ingest` to fetch
 missing telemetry for the configured windows.
 [Stage 5.3 validation report](artifacts/reports/stage5_s3_validation.md)
 
+### Stage 5.3-C — Cross-circuit traffic research
+
+Run the frozen Imola, Hungary, and Monza protocol from a warehouse with their
+archived timing. The optional Stage 3 root supplies the verified D8 bundle.
+Add `--ingest` to fetch missing bounded snapshots and install the
+`modeling` extra to render the diagnostic.
+
+```bash
+f1ri stage5-s3-continue --warehouse /path/to/f1ri.duckdb \
+  --stage3-root /path/to/original-stage3-project
+```
+
+[Continuation results](artifacts/reports/stage5_s3_c_validation.md)
+
 ## Useful SQL
 
 ```python

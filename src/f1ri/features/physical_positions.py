@@ -1,6 +1,7 @@
 """Retrospective interpolation and cutoff-safe physical position estimates."""
 from __future__ import annotations
 
+import math
 from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime
@@ -29,6 +30,7 @@ class PositionEstimate:
     latest_observation_utc: datetime | None
     quality: PositionQuality
     reason: str | None = None
+    velocity_source: str | None = None
 
 
 def _missing(reason: str, latest: datetime | None = None) -> PositionEstimate:
@@ -45,6 +47,7 @@ def _speed(left: MappedFix, right: MappedFix, length: float) -> float | None:
 
 def estimate_from_trace(
     geometry: TrackGeometry, trace: tuple[MappedFix, ...], as_of: datetime, mode: LocalizationMode,
+    *, fallback_speed_mps: float | None = None,
 ) -> PositionEstimate:
     """Read a prepared trace; point-in-time traces must be mapped from the visible prefix."""
     if as_of.utcoffset() is None:
@@ -66,9 +69,14 @@ def estimate_from_trace(
         return _missing("STALE_LOCATION", observed)
     length = geometry.length_m
     velocity = _speed(before[-2], last, length) if len(before) >= 2 else None
+    velocity_source = None
+    if (mode is LocalizationMode.POINT_IN_TIME and velocity is None and fallback_speed_mps is not None
+            and math.isfinite(fallback_speed_mps) and 0 <= fallback_speed_mps <= 105):
+        velocity = fallback_speed_mps
+        velocity_source = "CAR_SPEED_FALLBACK"
     if age == 0:
         return PositionEstimate(last.progress_m, last.uncertainty_m, velocity, observed,
-                                PositionQuality.OBSERVED_ESTIMATE)
+                                PositionQuality.OBSERVED_ESTIMATE, velocity_source=velocity_source)
     if mode is LocalizationMode.RETROSPECTIVE:
         next_fix = next((point for point in trace if point.fix.at_utc > as_of), None)
         if next_fix is not None and (velocity := _speed(last, next_fix, length)) is not None:
@@ -78,11 +86,13 @@ def estimate_from_trace(
         return _missing("MISSING_VALID_BRACKET", observed)
     if velocity is None:
         return _missing("NO_RECENT_VELOCITY", observed)
-    bound = last.uncertainty_m + 15 * age + 8 * age**2
+    velocity_error = 25 if velocity_source else 15
+    bound = last.uncertainty_m + velocity_error * age + 8 * age**2
     if bound >= length / 2:
         return _missing("POSITION_UNCERTAINTY_EXCEEDS_LOOP", observed)
     return PositionEstimate((last.progress_m + velocity * age) % length, bound,
-                            velocity, observed, PositionQuality.EXTRAPOLATED)
+                            velocity, observed, PositionQuality.EXTRAPOLATED,
+                            velocity_source=velocity_source)
 
 
 def estimate_location(

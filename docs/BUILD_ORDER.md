@@ -56,6 +56,11 @@ and uncertainty/residual diagnostics are acceptable.
 - S3 adds bounded physical reconstruction, circular no-pass scenarios, and a
   synthetic S2 rejoin adapter. Traffic-loss fitting requires independent
   episode labels and held-out races. [Stage 5.3 specification](STAGE5_S3_SPEC.md)
+- S3-C freezes the Singapore pilot, validates localization across circuits
+  and constructs out-of-sample clean-air references and following targets.
+  Compare T0–T3 on common whole-race splits when label support permits.
+  Validate traversal-level predictions and dynamic pit and queue transitions
+  before general simulation integration. [S3-C protocol](STAGE5_S3_C_PROTOCOL.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability
