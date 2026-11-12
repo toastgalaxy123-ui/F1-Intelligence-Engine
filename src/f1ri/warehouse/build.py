@@ -8,8 +8,10 @@ import duckdb
 import pandas as pd
 
 from f1ri.features.lap_context import populate_session_lap_context
+from f1ri.features.pit_events import load_pit_annotations, populate_session_pit_events
 from f1ri.features.stint_observations import populate_session_stint_observations
 from f1ri.ingestion.compound_allocations import populate_silver_compound_allocations
+from f1ri.ingestion.pit_lane_reference import populate_pit_lane_reference
 from f1ri.ingestion.raw_cache import read_snapshot, snapshot_path
 from f1ri.warehouse.schema import SILVER_SCHEMAS
 
@@ -67,6 +69,9 @@ def _load_silver_table(con: duckdb.DuckDBPyConnection, endpoint: str, rows: list
     fixed_rows = []
     for row in rows:
         fixed = {col: row.get(col) for col in schema}
+        if endpoint == "pit" and fixed.get("lane_duration") is None:
+            # Deprecated OpenF1 alias has the same boundaries, never add stop_duration.
+            fixed["lane_duration"] = row.get("pit_duration")
         if endpoint == "starting_grid":
             fixed["session_key"] = session_key
         if endpoint == "intervals":
@@ -164,7 +169,9 @@ def build_warehouse(root: Path, year: int, session_key: int) -> Path:
             """)
             populate_session_lap_context(db, session_key)
             populate_silver_compound_allocations(db, root)
+            populate_pit_lane_reference(db, root)
             populate_session_stint_observations(db, session_key)
+            populate_session_pit_events(db, session_key, load_pit_annotations(root))
             db.execute("""
                 UPDATE gold.lap_observations AS obs
                 SET track_status = ctx.track_status,

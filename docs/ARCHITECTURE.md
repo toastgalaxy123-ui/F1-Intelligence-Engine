@@ -70,3 +70,15 @@ Eventually each experiment must record:
   session, driver and bounded time windows; never store all car_data in one SQL
   table or one massive JSON blob.
 - Learned models/evaluation outputs: `artifacts/*` and Git-tracked scripts.
+
+## Stage 4 pit intelligence
+
+`features.pit_events` owns historical visit reconstruction. `pit_context` creates
+pre-cutoff hypothetical requests, and `pit_examples` attaches separate outcomes.
+`validation.pit_measurement` owns counterfactual labels and their provenance;
+these are distinct from authoritative measured lane and stationary durations.
+`models.pit_loss.PitLossModelV1` is the simulator-facing interface over transit,
+service, transition, neutralization and shared uncertainty components.
+`simulator.pit` combines equal-distance clean trajectories with net loss once;
+positions, queue formation and strategy selection remain future stages.
+See [the Stage 4 contract](STAGE4_SPEC.md) and its evidence gates.

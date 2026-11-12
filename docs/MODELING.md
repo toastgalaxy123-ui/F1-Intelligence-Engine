@@ -50,3 +50,17 @@ See `docs/STAGE2_SPEC.md` for the full Stage 2 specification, mathematical decom
 ## Stage 3 Implementation (`STAGE3_SPEC.md`)
 
 See `docs/STAGE3_SPEC.md` for the full Stage 3 specification, 3-component non-double-counted decomposition (`PaceModelV2`), hierarchical compound/circuit pooling (`HierarchicalTireDegradationModel`), online Bayesian stint-state filter (`BayesianStintStateEstimator`), correlated trajectory uncertainty sampler (`CorrelatedTrajectorySampler`), and open-loop evaluation across $H \in \{1, 3, 5, 10, 15, 20\}$.
+
+## Stage 4 pit-loss research
+
+See [STAGE4_SPEC.md](STAGE4_SPEC.md). P0–P8 compare median-location baselines,
+hierarchical circuit/team components, empirical delayed-service tails, residual
+transition effects and validation-only probabilistic calibration. P9/P10 compare
+frozen and progressive 2026 transfer. N0–N3 expose conditional neutralization
+infrastructure with unsupported fallbacks until route-equivalent evidence exists.
+
+Net-loss metrics use uncertain reconstructed labels; lane and stationary metrics
+use direct measurements. Evaluate the same events, bootstrap races, retain
+measurement disagreement and never tune using final-test outcomes. P8 is not
+promoted automatically. The existing Pace V2 implementation and Stage 3 report
+remain frozen, including the reviewed cold-start and long-horizon limitations.

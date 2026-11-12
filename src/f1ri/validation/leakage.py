@@ -25,6 +25,15 @@ def validate_forecast_timestamp(request: PaceRequest, forecast: PaceDistribution
         raise ValueError("Model uses training data later than the prediction cutoff")
 
 
+def validate_pit_forecast_timestamp(request, forecast) -> None:
+    if request.as_of_utc.tzinfo is None or forecast.trained_through_utc.tzinfo is None:
+        raise ValueError("Pit timestamps must be timezone-aware")
+    if forecast.trained_through_utc > request.as_of_utc:
+        raise ValueError("Pit training/calibration uses data after forecast cutoff")
+    if forecast.forecast_as_of_utc != request.as_of_utc:
+        raise ValueError("Pit response cutoff differs from request")
+
+
 def validate_stint_forecast_timestamp(
     request: StintForecastRequest,
     forecast: StintTrajectoryForecast,
