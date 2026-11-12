@@ -81,3 +81,22 @@ def assert_valid(results: dict[str, int]) -> None:
     if (results["laps"] == 0 or results["session_metadata_rows"] != 1
             or any(results[key] > 0 for key in critical)):
         raise RuntimeError(f"Data quality failed: {results}")
+
+
+def check_pit_events(events) -> dict[str, int]:
+    """Audit all retained visits; suspect timing excludes primary labels, not rows."""
+    import pandas as pd
+    if events.empty:
+        return {"events": 0, "primary_eligible": 0, "duplicate_event_ids": 0}
+    lane = pd.to_numeric(events.lane_duration_s, errors="coerce")
+    stop = pd.to_numeric(events.stop_duration_s, errors="coerce")
+    return {
+        "events": len(events), "primary_eligible": int(events.eligible_primary_label.sum()),
+        "duplicate_event_ids": int(events.pit_event_id.duplicated().sum()),
+        "missing_stationary": int(stop.isna().sum()),
+        "invalid_lane": int((lane.isna() | (lane <= 0)).sum()),
+        "stationary_exceeds_lane": int((stop > lane).sum()),
+        "ambiguous_timing": int((events.timing_quality == "C").sum()),
+        "mixed_state": int((events.transition_track_status == "MIXED").sum()),
+        "possible_double_stack": int(events.possible_double_stack.sum()),
+    }

@@ -12,6 +12,12 @@ A reproducible, strictly point-in-time Formula 1 race analytics and stint-simula
   - Stint-level and open-loop horizon tables (`gold.stint_observations`, `gold.stint_lap_observations`, `gold.stint_training_examples` for $H \in \{1, 3, 5, 10, 15, 20\}$).
   - Hierarchical empirical-Bayes tire degradation (`HierarchicalTireDegradationModel`), online Bayesian stint-state filtering (`OnlineStintStateEstimator`), correlated multi-lap trajectory uncertainty (`CorrelatedTrajectorySampler`), and counterfactual strategy comparison (`StintTrajectoryForecaster`, [Stage 3 Validation Report](artifacts/reports/stage3_validation.md)).
 
+- **Stage 4 — Pit-Loss Research**: Reconstructed pit visits, uncertain cross-fitted
+  net-loss labels, matched controls, pooled route/service models, P0–P10 and
+  conditional N-series evaluation, bounded telemetry checks, and explicit
+  no-double-counting simulation contracts. See the [Stage 4 report](artifacts/reports/stage4_validation.md)
+  for results and the outstanding model-approval gates.
+
 ## Windows / PowerShell Quick Start
 
 ```powershell
@@ -32,6 +38,27 @@ ruff check src tests
 On macOS/Linux: `python3 -m venv .venv`, `source .venv/bin/activate`.
 If PowerShell blocks activation: `Set-ExecutionPolicy -Scope Process Bypass`
 or call `.\.venv\Scripts\python.exe` and `.\.venv\Scripts\f1ri.exe` directly.
+
+## Stage 4 — Pit-loss research workflow
+
+```bash
+f1ri ingest-batch --config config/experiments/stage4_pit_loss_v1.yaml
+f1ri stage4 --config config/experiments/stage4_pit_loss_v1.yaml
+pytest -q
+ruff check src tests
+```
+
+Stage 4 reconstructs pit visits, estimates uncertain two-lap net-loss labels,
+cross-checks matched non-pitting controls, and compares circuit baselines with
+pooled route/service/transition models. It preserves Pace V2 and separates
+pre-stop requests from historical reconstruction. Stationary service is already
+inside lane duration; the simulator adds only the net transition penalty.
+
+See [Stage 4 contracts and limitations](docs/STAGE4_SPEC.md) and the
+[validation report](artifacts/reports/stage4_validation.md). The research model
+is not automatically approved for strategy optimization: superior held-out
+accuracy, sourced pit-lane references and supported VSC/SC estimates remain
+evidence-based acceptance gates. The dashboard remains a placeholder.
 
 ## Useful SQL
 
@@ -68,10 +95,10 @@ Read `docs/ARCHITECTURE.md`, `docs/DATA_SOURCES.md`, `docs/DATA_CONTRACTS.md`,
 ## What is deliberately deferred?
 
 - F1 TV/FastF1 authentication (not necessary for the first milestones)
-- Racing-status interval reconstruction and verified clean-lap labels
-- Green-flag pace, tire degradation, fuel and traffic models
-- Pit-loss calibration, race-state reconstruction, overtake model
-- Monte Carlo optimizer, dashboard charts, live ingestion
+- Verified pit-route geometry, historical speed limits, and validated VSC/SC pit-loss references
+- Multi-car race simulation, rejoin positions, traffic, overtaking, and Safety Car queues
+- Unrestricted strategy-model approval, pit-timing optimization, and opponent responses
+- Full dashboard charts and live ingestion
 
 ## Attribution and licenses
 

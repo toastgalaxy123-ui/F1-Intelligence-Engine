@@ -1,0 +1,36 @@
+{
+  "git_revision": "7b12014d341842f3ee4c7b34aaa3255deda79b2a",
+  "selected_on_validation": "P2",
+  "completion_status": "RESEARCH_IMPLEMENTATION_NOT_APPROVED_FOR_UNRESTRICTED_STRATEGY",
+  "random_seed": 42,
+  "reference_version": "past-race-centered-ridge-reference-v1",
+  "model_artifact_sha256": {
+    "N0.pkl": "d32a2dd2dd57488e58df5fa92f603b3631550f3c633aedfd4a1b911b3bbee81d",
+    "N1.pkl": "80a72a3c4c413c42aba50389a51c62397ef742f9ba971e9e67ba0fe50d00d364",
+    "N2.pkl": "8bf7cddb1fc43c9eed66eb06c5b427be8dfd9d3b7ccb4619a2913f1b8f5cb7b3",
+    "N3.pkl": "ea5876adabb0455727131c4bc5f9d5425c4a94161ed13f3e0920f700377fe0b4",
+    "P0.pkl": "96d71f3c95768df93788c679e4c17454d166dbf21b7129dda87f27c435adb30b",
+    "P1.pkl": "4628fbde871cccae263ca2f66011da7d08e49c829cc19f59a750da4cbfc53239",
+    "P10.pkl": "3a134d8133e9c4a1eab27b9fc4b0c559c01a071c848ba3228ec8ad5b63cfceee",
+    "P2.pkl": "407f0d207c66e8ffeecd0adc5ebc8809c4029e96e72f73180cf390c605070dd5",
+    "P3.pkl": "4676aa96a2c7bf2b591b0f530128341988a429821b09db567edcb60697328b57",
+    "P4.pkl": "3d8e7c8e956520835f7a322a862ef9b21472943c3c9d5bf9068182e7abd97866",
+    "P5.pkl": "6f692e8d80bcf962fd251675ed6644701556bb677a9d4be4856da5b85452a68e",
+    "P6.pkl": "5717d44de720fa14342ce3bd13a1e317fe57c0f19282b5511a75ab9ca59e30b4",
+    "P7.pkl": "93619b0a329f5560022e80619f4b43fe1c8a38106c7f92bbc3cea0cb1e2f4b72",
+    "P8.pkl": "905e7ea30425bdece464b35e3299cbacb9614e46e2b2d51774e5dd4895a3fcb0",
+    "P9.pkl": "4c2ecb2cfc6ecaf2284f273f10cf407d63e9d5e97723c78349f20d3ea2a5c94b"
+  },
+  "dependencies": {
+    "duckdb": "1.5.6",
+    "pandas": "2.3.3",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "PyYAML": "6.0.3",
+    "httpx": "0.28.1"
+  },
+  "data_manifest_sha256": "419380acc018afda5392787ff1ebc97b128a254b30e78261ade4e802d1ae6911",
+  "configuration_sha256": "8f64c158b1708ecff41cef56973d07da052b2c17a1f2a838a13bb3aa9a91dc3a",
+  "note": "Model artifacts remain local under artifacts/models/pit_loss_v1; reproduce with the hashed config/data and recorded package versions"
+}

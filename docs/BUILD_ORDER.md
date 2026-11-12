@@ -69,3 +69,17 @@ observations, and show calibrated predictive distributions.
 
 High-frequency telemetry warehouse, neural nets, F1 TV integration, large
 React front-end, microservices, automated scraping, or a live betting tool.
+
+## Stage 4 implementation and approval
+
+The Stage 4 research pipeline is implemented in the existing package boundaries:
+contract → event audit → reference provenance → cross-fitted measurements →
+chronological baselines → component models → calibration → time accounting.
+Run `f1ri stage4 --config config/experiments/stage4_pit_loss_v1.yaml` after its
+cohort ingestion. Bounded telemetry auditing is optional with
+`f1ri pit-telemetry-audit`; it is not a full-session telemetry warehouse.
+
+See `artifacts/reports/stage4_validation.md` for measured results and outstanding
+approval gates. Software readiness does not establish model superiority, verify
+unsourced historical pit speed limits, or make SC queue effects supported.
+Stage 5/6 implementation must preserve these limits and the frozen Stage 3 APIs.

@@ -163,3 +163,11 @@ def iter_rolling_origin_splits(
         yield list(history), int(target_sk)
         history.append(int(target_sk))
         seen.add(int(target_sk))
+
+
+def validate_stage4_holdout(manifest: TemporalSplitManifest, previously_inspected_keys: set[int]) -> None:
+    """Stage 3 test races are already inspected when designing Stage 4."""
+    manifest.validate()
+    repeated = set(manifest.test_keys) & previously_inspected_keys
+    if repeated or any(entry.inspected for entry in manifest.test):
+        raise ValueError(f"Stage 4 final test is not newly reserved: {sorted(repeated)}")

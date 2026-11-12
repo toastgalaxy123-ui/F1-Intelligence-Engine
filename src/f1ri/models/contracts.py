@@ -5,6 +5,15 @@ from dataclasses import dataclass
 from datetime import datetime
 from typing import Protocol
 
+# Pit contracts live separately to keep the frozen Stage 3 interfaces unchanged.
+from f1ri.models.pit_contracts import (  # noqa: F401
+    PitLossDistribution,
+    PitLossModel,
+    PitLossRequest,
+    PitSharedScenario,
+    PitStatusSegment,
+)
+
 Z_50 = 0.6744897501960817
 Z_90 = 1.6448536269514722
 

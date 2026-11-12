@@ -1,0 +1,27 @@
+{
+  "git_revision": "7b12014d341842f3ee4c7b34aaa3255deda79b2a",
+  "model": "PaceModelV2 / DegradationV1",
+  "files_sha256": {
+    "src/f1ri/models/pace.py": "3ce4554ba1faefc24f385d950a8088b51938cc397275c7298b145150feb83bf1",
+    "src/f1ri/models/stint_forecast.py": "ea4e1e1dafc2fa0db5ae05802135c06aa51b68c7674394ca93a2b40a91606041",
+    "src/f1ri/models/degradation.py": "0c7b7217cbd50cf751a97e3d94a48acdc8bc1ca6a0aeb16b0b63d0afc2874609",
+    "src/f1ri/models/degradation_hierarchical.py": "7415eb520abc810fc3eb8bf8054a8fe11891722d579d78516da3c90184d69269",
+    "src/f1ri/models/stint_state.py": "e4eebf883ecb76e40127145e1c75d0dfd0824dca51ec47b6d1bf3ef12a01752a",
+    "src/f1ri/models/trajectory_uncertainty.py": "4a0425bc167713f0386b245d2ff35ed09c0e326eeb5aa260326ec74414860533",
+    "config/experiments/stage3_degradation_v1.yaml": "d4752ddcf16993d1900340d8561d74e685a7ee266bc56989761010788a2b19df",
+    "artifacts/reports/stage3_validation.md": "f1c93855781937683ecb30d4072464ebdf4d024c03d8db9b6a3895dca484543f"
+  },
+  "artifacts_at_start": [
+    "artifacts/models/.gitkeep",
+    "artifacts/reports/.gitkeep",
+    "artifacts/reports/stage2_validation.md",
+    "artifacts/reports/stage3_validation.md",
+    "artifacts/runs/.gitkeep"
+  ],
+  "warehouse_at_start": "Not present in published checkout; reacquired from immutable OpenF1 snapshots",
+  "review_limitations": [
+    "0B new-stint mean bias about -0.727s in reviewed report",
+    "20-lap fixed-cohort diagnostics and long-horizon calibration remain Stage 3 stabilization tasks",
+    "Pace V2 superiority on untouched cumulative trajectories is not established"
+  ]
+}

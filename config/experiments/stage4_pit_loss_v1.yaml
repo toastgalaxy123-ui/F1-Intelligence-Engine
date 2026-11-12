@@ -1,0 +1,156 @@
+experiment:
+  name: stage4_pit_loss_v1
+  version: 1.0.0
+  random_seed: 42
+  n_samples: 1000
+  final_test_policy: Mexico, Brazil and Qatar 2025 reserved before fitting; all Stage
+    3 cohort races treated as inspected
+cohort:
+  train:
+  - year: 2023
+    session_key: 7953
+    label: 2023 Bahrain GP
+    inspected: true
+  - year: 2023
+    session_key: 7779
+    label: 2023 Saudi Arabian GP
+    inspected: true
+  - year: 2023
+    session_key: 9102
+    label: 2023 Spanish GP
+    inspected: true
+  - year: 2023
+    session_key: 9118
+    label: 2023 Austrian GP
+    inspected: true
+  - year: 2023
+    session_key: 9133
+    label: 2023 Hungarian GP
+    inspected: true
+  - year: 2023
+    session_key: 9157
+    label: 2023 Italian GP
+    inspected: true
+  - year: 2023
+    session_key: 9165
+    label: 2023 Singapore GP
+    inspected: true
+  - year: 2023
+    session_key: 9173
+    label: 2023 Japanese GP
+    inspected: true
+  - year: 2024
+    session_key: 9472
+    label: 2024 Bahrain GP
+    inspected: true
+  - year: 2024
+    session_key: 9496
+    label: 2024 Japanese GP
+    inspected: true
+  - year: 2024
+    session_key: 9515
+    label: 2024 Emilia Romagna GP
+    inspected: true
+  - year: 2024
+    session_key: 9539
+    label: 2024 Spanish GP
+    inspected: true
+  - year: 2024
+    session_key: 9566
+    label: 2024 Hungarian GP
+    inspected: true
+  - year: 2024
+    session_key: 9582
+    label: 2024 Dutch GP
+    inspected: true
+  - year: 2024
+    session_key: 9590
+    label: 2024 Italian GP
+    inspected: true
+  - year: 2024
+    session_key: 9606
+    label: 2024 Singapore GP
+    inspected: true
+  - year: 2024
+    session_key: 9617
+    label: 2024 United States GP
+    inspected: true
+  val:
+  - year: 2025
+    session_key: 10006
+    label: 2025 Japanese GP
+    inspected: true
+  - year: 2025
+    session_key: 10014
+    label: 2025 Bahrain GP
+    inspected: true
+  - year: 2025
+    session_key: 9987
+    label: 2025 Emilia Romagna GP
+    inspected: true
+  - year: 2025
+    session_key: 9971
+    label: 2025 Spanish GP
+    inspected: true
+  test:
+  - year: 2025
+    session_key: 9877
+    label: 2025 Mexico GP
+    inspected: false
+  - year: 2025
+    session_key: 9869
+    label: 2025 Brazil GP
+    inspected: false
+  - year: 2025
+    session_key: 9850
+    label: 2025 Qatar GP
+    inspected: false
+  transfer_2026:
+  - year: 2026
+    session_key: 11253
+    label: 2026 Japanese GP
+    inspected: true
+  - year: 2026
+    session_key: 11307
+    label: 2026 Spanish GP
+    inspected: true
+  - year: 2026
+    session_key: 11342
+    label: 2026 Hungarian GP
+    inspected: true
+  - year: 2026
+    session_key: 11361
+    label: 2026 Italian GP
+    inspected: true
+  - year: 2026
+    session_key: 11388
+    label: 2026 Singapore GP
+    inspected: true
+model:
+  circuit_shrinkage: 12.0
+  team_shrinkage: 20.0
+measurement:
+  method: TWO_LAP_CROSS_FIT
+  reference_version: past-race-centered-ridge-reference-v1
+  minimum_pre_stop_clean_laps: 3
+  maximum_telemetry_window_s: 180
+validation:
+  experiments:
+  - P0
+  - P1
+  - P2
+  - P3
+  - P4
+  - P5
+  - P6
+  - P7
+  - P8
+  - N0
+  - N1
+  - N2
+  - N3
+  - P9
+  - P10
+  bootstrap_unit: race
+  leave_one_circuit_out: true
+  acceptance: Evidence required; do not automatically promote P8 over P1

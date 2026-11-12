@@ -128,3 +128,19 @@ from trained model; `simulated_` is sampled within race simulator.
 - Counterfactual outcome of a strategy not driven in reality.
 
 Any model relying on these must make assumptions and quantify uncertainty.
+
+## Stage 4 pit-transition ownership
+
+Net pit loss is observed in/out lap elapsed time minus equivalent normal old/new
+tire lap references. Those references are uncertain counterfactual estimates,
+not directly observed alternatives. `gold.pit_events` retains measured facts;
+`gold.pit_transition_observations` retains method, reference cutoffs, input hashes,
+uncertainty and eligibility. Missing stationary duration stays NULL. The deprecated
+pit-duration alias maps to lane duration, which already contains stationary service.
+
+Pace V2 predicts normal clean-air laps. Stage 4 owns incremental pit-out effects.
+Add net transition loss once; do not also add lane duration or another warm-up
+penalty. Shared reference error enters the normal reference positively and the
+pit loss negatively. Pre-stop requests reject realized service time and actual
+future track-state timelines. See [STAGE4_SPEC.md](STAGE4_SPEC.md) for full modes,
+timing quality, event taxonomy and unsupported neutralization cases.

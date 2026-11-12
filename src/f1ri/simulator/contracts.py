@@ -4,6 +4,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 
+from f1ri.models.pit_contracts import PitLossDistribution, PitLossRequest  # noqa: F401
+
 
 @dataclass(frozen=True)
 class DriverState:

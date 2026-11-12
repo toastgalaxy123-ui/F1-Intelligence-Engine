@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 from pathlib import Path
 
 from f1ri.config import load_config
@@ -89,6 +90,16 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
     p = sub.add_parser("stage3", help="Run Stage 3 stint dataset audit, examples build, and D0-D10 open-loop backtest")
     p.add_argument("--config", type=Path, default=None, help="Experiment YAML path")
+    p = sub.add_parser("stage4", help="Reconstruct pit events and run chronological pit-loss backtests")
+    p.add_argument("--config", type=Path, default=None, help="Stage 4 experiment YAML path")
+    p = sub.add_parser("pit-telemetry", help="Fetch bounded optional traces for one historical pit event")
+    p.add_argument("--session-key", type=int, required=True)
+    p.add_argument("--driver-number", type=int, required=True)
+    p.add_argument("--pit-event-id", required=True)
+    p.add_argument("--start", type=datetime.fromisoformat, required=True)
+    p.add_argument("--end", type=datetime.fromisoformat, required=True)
+    p.add_argument("--refresh", action="store_true")
+    sub.add_parser("pit-telemetry-audit", help="Optional bounded trace audit at five representative circuits")
     args = parser.parse_args()
     root = args.root.resolve()
     if args.command == "discover":
@@ -109,7 +120,15 @@ def main() -> None:
     elif args.command == "ingest-batch":
         from f1ri.ingestion.batch import load_experiment_cohort, run_batch_ingestion
         cohort = load_experiment_cohort(root, args.config)
-        manifest = run_batch_ingestion(root, cohort, full=True, refresh=args.refresh)
+        manifest_out = None
+        if args.config is not None:
+            import yaml
+            experiment_path = args.config if args.config.is_absolute() else root/args.config
+            experiment = yaml.safe_load(experiment_path.read_text())
+            name = experiment.get("experiment", {}).get("name", "stage2_pace_v1")
+            manifest_out = root/"artifacts/runs"/name/"ingestion_manifest.json"
+        manifest = run_batch_ingestion(root, cohort, full=True, refresh=args.refresh,
+                                       manifest_out=manifest_out)
         print(
             f"Batch complete: {manifest['ready_sessions']}/{manifest['total_sessions']} ready."
         )
@@ -137,6 +156,27 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage4":
+        from f1ri.validation.pit_backtest import run_stage4_pipeline
+        result = run_stage4_pipeline(root, args.config)
+        print(f"Stage 4: {result['events']} events; {result['primary_labels']} primary labels; "
+              f"validation selection={result['selected_model']}; {result['completion_status']}")
+        print(f"Artifacts: {result['run_directory']}")
+    elif args.command == "pit-telemetry":
+        from f1ri.ingestion.pit_telemetry import ingest_pit_telemetry
+        if args.start.tzinfo is None or args.end.tzinfo is None:
+            raise ValueError("Telemetry boundaries must include UTC offsets")
+        with _client(load_config(root)) as client:
+            result = ingest_pit_telemetry(
+                root, client, session_key=args.session_key, driver_number=args.driver_number,
+                pit_event_id=args.pit_event_id, start_utc=args.start, end_utc=args.end,
+                refresh=args.refresh,
+            )
+        print(result)
+    elif args.command == "pit-telemetry-audit":
+        from f1ri.ingestion.pit_telemetry import audit_representative_pit_telemetry
+        cfg = load_config(root)
+        audit_representative_pit_telemetry(root, base_url=cfg["data"]["openf1_base_url"])
 
 
 if __name__ == "__main__":
