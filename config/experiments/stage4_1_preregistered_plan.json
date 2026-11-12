@@ -1,0 +1,76 @@
+{
+  "version": "stage4.1-preregistered-v1",
+  "created_at_utc": "2026-11-12T02:04:58.387056+00:00",
+  "scope": "Stage 4 only. No Stage 5 development.",
+  "previously_reviewed_test_sessions": [
+    9877,
+    9869,
+    9850
+  ],
+  "new_test_populations": {
+    "familiar": [
+      {
+        "year": 2025,
+        "session_key": 9920,
+        "circuit": "Zandvoort"
+      },
+      {
+        "year": 2025,
+        "session_key": 9858,
+        "circuit": "Las Vegas"
+      }
+    ],
+    "unseen": [
+      {
+        "year": 2025,
+        "session_key": 9963,
+        "circuit": "Montreal"
+      },
+      {
+        "year": 2025,
+        "session_key": 9947,
+        "circuit": "Silverstone"
+      },
+      {
+        "year": 2025,
+        "session_key": 9904,
+        "circuit": "Baku"
+      }
+    ]
+  },
+  "training_expansion": "Late-2024 Mexico, Brazil, Las Vegas, Qatar and Abu Dhabi; 2023 Las Vegas for prior circuit support. No held-out circuit data may enter fitting.",
+  "validation_sessions": [
+    10006,
+    10014,
+    9987,
+    9971
+  ],
+  "validation_policy": "Rolling leave-one-validation-race-out evaluation of candidate calibration/selection; final calibration on validation only. No holdout outcomes until selection artifact is written.",
+  "eligibility_policy": {
+    "long_stay_review_threshold_s": 60.0,
+    "any_positive_red_overlap_excludes_ordinary": true,
+    "unverified_routine_candidates": "Retain explicitly screened-unverified; require separate confirmed-only sensitivity.",
+    "unknown_cause": "Never infer repair or penalty from duration alone."
+  },
+  "selection_policy": {
+    "primary": "race-weighted CRPS with MAE and probabilistic eligibility constraints",
+    "candidate_families": [
+      "P0",
+      "P1",
+      "P2",
+      "P3",
+      "P6",
+      "P7",
+      "P8"
+    ],
+    "calibration_scales": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5
+    ],
+    "constraints": "Finite distributions; nonzero modeled slow-stop risk when validation contains slow stops; report coverage and widths. Use simple probabilistic fallback if complexity adds no validation benefit."
+  },
+  "holdout_policy": "Evaluate familiar/unseen separately once; no retuning to either new test population."
+}

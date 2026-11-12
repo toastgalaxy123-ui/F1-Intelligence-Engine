@@ -18,6 +18,7 @@ artifacts/reports/*
 !artifacts/reports/*.md
 !artifacts/reports/stage4_*.png
 !artifacts/reports/stage4_model_manifest.json
+!artifacts/reports/stage4_1_stabilization_manifest.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

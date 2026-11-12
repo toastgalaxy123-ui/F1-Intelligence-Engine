@@ -14,7 +14,7 @@ from datetime import UTC, datetime
 
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import HuberRegressor, Ridge
 
 from f1ri.features.pit_events import integer, number, utc
 
@@ -42,6 +42,7 @@ def clean_reference_laps(frame: pd.DataFrame) -> pd.DataFrame:
 @dataclass
 class NormalLapReference:
     version: str = "past-race-centered-ridge-reference-v1"
+    estimator_kind: str = "ridge"
     model: Ridge = field(default_factory=lambda: Ridge(alpha=20, fit_intercept=False))
     training_sessions: tuple[int, ...] = ()
     trained_through_utc: datetime = field(default_factory=lambda: datetime(1970, 1, 1, tzinfo=UTC))
@@ -49,7 +50,9 @@ class NormalLapReference:
     fitted: bool = False
 
     def fit(self, past_laps: pd.DataFrame, before_utc) -> NormalLapReference:
-        self.__dict__.update(NormalLapReference().__dict__)
+        kind = self.estimator_kind
+        version = "past-race-centered-huber-reference-v2" if kind == "huber" else self.version
+        self.__dict__.update(NormalLapReference(version=version, estimator_kind=kind).__dict__)
         clean = clean_reference_laps(past_laps)
         if clean.empty:
             return self
@@ -62,6 +65,8 @@ class NormalLapReference:
         keys = [clean.session_key, clean.driver_number]
         centered_x = x - pd.DataFrame(x, index=clean.index).groupby(keys).transform("mean").to_numpy()
         centered_y = y - clean.groupby(["session_key", "driver_number"]).observed_lap_time_s.transform("mean").to_numpy()
+        if kind == "huber" and np.std(centered_y) > 1e-8:
+            self.model = HuberRegressor(alpha=1.0, fit_intercept=False, max_iter=500)
         self.model.fit(centered_x, centered_y)
         residual = centered_y-self.model.predict(centered_x)
         # This residual includes unexplained tire/pace drift, not just standard
@@ -76,6 +81,8 @@ class NormalLapReference:
         cutoff = utc(event.get("transition_start_utc"))
         if cutoff is None or not self.fitted:
             raise ValueError("No earlier-race reference fit")
+        if event.get("old_compound") not in COMPOUNDS or event.get("new_compound") not in COMPOUNDS:
+            raise ValueError("Non-dry tire reference is unsupported")
         if int(event["session_key"]) in self.training_sessions or self.trained_through_utc >= cutoff:
             raise ValueError("Reference model contains the target race or future data")
         clean = clean_reference_laps(current_laps)
@@ -110,7 +117,9 @@ class NormalLapReference:
                 "reference_training_sessions_json": json.dumps(self.training_sessions)}
 
 
-def matched_control_estimate(event: dict, laps: pd.DataFrame) -> tuple[float | None, int]:
+def matched_control_estimate(
+    event: dict, laps: pd.DataFrame, control_reference: NormalLapReference | None = None,
+) -> tuple[float | None, int]:
     """Difference-in-differences using uninterrupted simultaneous control cars.
 
     This supporting measurement intentionally does not call the ridge reference.
@@ -126,11 +135,28 @@ def matched_control_estimate(event: dict, laps: pd.DataFrame) -> tuple[float | N
     if len(target_past) < 3:
         return None, 0
     references = []
+    target_normal = None
+    if control_reference is not None:
+        try:
+            target = control_reference.predict_pair(event, laps)
+            target_normal = target["normal_in_reference_s"]+target["normal_out_reference_s"]
+        except ValueError:
+            return None, 0
     for driver, group in clean.groupby("driver_number"):
         if int(driver) == event["driver_number"]:
             continue
         group = group.sort_values("lap_number")
-        pairs = group[group.lap_number.isin([event["resolved_in_lap"], event["resolved_out_lap"]])]
+        if control_reference is None:
+            pairs = group[group.lap_number.isin([event["resolved_in_lap"], event["resolved_out_lap"]])]
+        else:
+            offsets = (pd.to_datetime(group.lap_start_utc, utc=True)-start).dt.total_seconds().abs()
+            candidates = group[offsets <= 45].assign(_offset=offsets[offsets <= 45]).sort_values("_offset")
+            pairs = pd.DataFrame()
+            for _, candidate in candidates.iterrows():
+                pair = group[group.lap_number.isin([int(candidate.lap_number), int(candidate.lap_number)+1])]
+                if len(pair) == 2:
+                    pairs = pair
+                    break
         if len(pairs) != 2:
             continue
         pair_start = utc(pairs.iloc[0].lap_start_utc)
@@ -139,8 +165,25 @@ def matched_control_estimate(event: dict, laps: pd.DataFrame) -> tuple[float | N
         prior = group[pd.to_datetime(group.lap_end_estimate_utc, utc=True) <= start].tail(5)
         if len(prior) < 3:
             continue
-        adjustment = float(target_past.observed_lap_time_s.median()-prior.observed_lap_time_s.median())
-        references.append(float(pairs.observed_lap_time_s.sum())+2*adjustment)
+        if control_reference is None:
+            adjustment = float(target_past.observed_lap_time_s.median()-prior.observed_lap_time_s.median())
+            references.append(float(pairs.observed_lap_time_s.sum())+2*adjustment)
+        else:
+            before, after = pairs.iloc[0], pairs.iloc[1]
+            control_event = {**event, "driver_number": int(driver),
+                             "resolved_in_lap": int(before.lap_number), "resolved_out_lap": int(after.lap_number),
+                             "old_compound": before.compound, "new_compound": after.compound,
+                             "old_tyre_age": int(before.tyre_age_at_lap_start)+1,
+                             "new_tyre_initial_age": int(after.tyre_age_at_lap_start)}
+            try:
+                control = control_reference.predict_pair(control_event, laps)
+            except ValueError:
+                continue
+            normal_control = control["normal_in_reference_s"]+control["normal_out_reference_s"]
+            # Both target tire states enter the independent robust reference.
+            # The old legacy contrast against two old-tire laps is NOT silently
+            # treated as the same estimand as old-tire + new-tire normal laps.
+            references.append(float(target_normal+pairs.observed_lap_time_s.sum()-normal_control))
     if len(references) < 2:
         return None, len(references)
     observed = number(event.get("observed_in_lap_s")), number(event.get("observed_out_lap_s"))
@@ -151,6 +194,7 @@ def matched_control_estimate(event: dict, laps: pd.DataFrame) -> tuple[float | N
 
 def measure_pit_transitions(
     events: pd.DataFrame, current_laps: pd.DataFrame, reference: NormalLapReference,
+    control_reference: NormalLapReference | None = None,
 ) -> pd.DataFrame:
     rows = []
     for event in events.to_dict("records"):
@@ -181,7 +225,7 @@ def measure_pit_transitions(
                 std = float(np.hypot(pred["reference_error_std_s"], .5))
                 base.update(transition_loss_s=loss, label_std_s=std, label_weight=1/(std**2),
                             eligible_primary_label=bool(event["eligible_primary_label"]))
-                control, n = matched_control_estimate(event, current_laps)
+                control, n = matched_control_estimate(event, current_laps, control_reference)
                 base.update(matched_control_loss_s=control, n_matched_controls=n,
                             method_disagreement_s=loss-control if control is not None else None)
                 if control is not None and abs(loss-control) > 3*std:
@@ -203,7 +247,7 @@ def measure_pit_transitions(
         if base["matched_control_loss_s"] is not None:
             rows.append({**base, "measurement_method": "MATCHED_NON_PITTING_CONTROLS",
                          "transition_loss_s": base["matched_control_loss_s"],
-                         "reference_model_version": "pre-stop-pace-adjusted-controls-v1",
+                         "reference_model_version": control_reference.version if control_reference is not None else "pre-stop-pace-adjusted-controls-v1",
                          "eligible_primary_label": False})
     return pd.DataFrame(rows)
 

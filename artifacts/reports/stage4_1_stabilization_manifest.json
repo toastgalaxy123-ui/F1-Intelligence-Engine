@@ -1,0 +1,4275 @@
+{
+  "study": "stage4_1_stabilization",
+  "selected_model": "P1",
+  "selected_role": "SIMPLE_NET_LOSS_FALLBACK_NO_APPROVED_SERVICE_RISK",
+  "production_approved": false,
+  "stage5_started": false,
+  "preserved_references": {
+    "stage3_frozen_reference.json": "UNCHANGED",
+    "stage4_accounting_frozen_reference.json": "UNCHANGED",
+    "reviewed_stage4_artifacts": "UNCHANGED"
+  },
+  "verification": {
+    "automated_tests_passed": 95,
+    "test_log": "/tmp/f1ri-fia-tests-final.log",
+    "ruff": "PASSED",
+    "git_diff_check": "PASSED",
+    "point_in_time_checks": "PASSED_ALL_SAVED_PREDICTIONS",
+    "one_target_and_eligibility_per_model_comparison": "PASSED",
+    "original_reference_hashes": "UNCHANGED",
+    "model_and_selection_lock_hashes": "UNCHANGED",
+    "independent_service_training_weekends": 6,
+    "eligible_training_net_labels": 327,
+    "official_fia_source_dates_and_hashes": "PASSED",
+    "primary_test_metrics": "UNCHANGED"
+  },
+  "official_fia_reference_audit": {
+    "retrieved_at_utc": "2026-11-12T03:49:03.648953+00:00",
+    "network_access": "CONFIRMED_FIA_HTTP_200",
+    "events_catalogued": 34,
+    "events_with_verified_speed": 17,
+    "events_with_preforecast_layout_documents": 32,
+    "text_verified_speed_rows": 14,
+    "visual_map_sign_speed_rows": 3,
+    "selected_model_unchanged": "P1",
+    "models_refit": false,
+    "physical_route_lengths_verified": 0,
+    "relative_strategy_approval": false,
+    "test_characterization": [
+      {
+        "session_key": 9920,
+        "circuit": "Zandvoort",
+        "fixed_model": "P1",
+        "verified_speed_kph": null,
+        "layout_document_available": true,
+        "direct_lane_n": 39,
+        "mean_measured_lane_s": 18.975102564102567,
+        "fixed_model_lane_mae_s": 3.562578059758572,
+        "eligible_net_n": 2
+      },
+      {
+        "session_key": 9858,
+        "circuit": "Las Vegas",
+        "fixed_model": "P1",
+        "verified_speed_kph": 80.0,
+        "layout_document_available": true,
+        "direct_lane_n": 20,
+        "mean_measured_lane_s": 23.028549999999996,
+        "fixed_model_lane_mae_s": 1.920725845539485,
+        "eligible_net_n": 8
+      },
+      {
+        "session_key": 9963,
+        "circuit": "Montreal",
+        "fixed_model": "P1",
+        "verified_speed_kph": 80.0,
+        "layout_document_available": true,
+        "direct_lane_n": 13,
+        "mean_measured_lane_s": 18.207692307692305,
+        "fixed_model_lane_mae_s": 5.640999493455122,
+        "eligible_net_n": 0
+      },
+      {
+        "session_key": 9947,
+        "circuit": "Silverstone",
+        "fixed_model": "P1",
+        "verified_speed_kph": null,
+        "layout_document_available": true,
+        "direct_lane_n": 35,
+        "mean_measured_lane_s": 29.636514285714288,
+        "fixed_model_lane_mae_s": 5.787822484566858,
+        "eligible_net_n": 0
+      },
+      {
+        "session_key": 9904,
+        "circuit": "Baku",
+        "fixed_model": "P1",
+        "verified_speed_kph": 80.0,
+        "layout_document_available": true,
+        "direct_lane_n": 19,
+        "mean_measured_lane_s": 20.95142105263158,
+        "fixed_model_lane_mae_s": 3.09930319050033,
+        "eligible_net_n": 11
+      },
+      {
+        "session_key": 9850,
+        "circuit": "Lusail",
+        "fixed_model": "P8 reviewed net cohort",
+        "verified_speed_kph": 80.0,
+        "layout_document_available": true,
+        "direct_lane_n": 8,
+        "mean_measured_lane_s": 29.2545,
+        "fixed_model_lane_mae_s": 5.04740674268374,
+        "eligible_net_n": 8
+      }
+    ]
+  },
+  "completion_gates": {
+    "exceptional_visit_regressions": true,
+    "multiple_service_training_weekends": true,
+    "dated_official_reference_catalog": true,
+    "verified_circuit_features": false,
+    "independently_validated_physical_net_labels": false,
+    "separate_test_populations": true,
+    "multiple_usable_unseen_net_loss_races": false,
+    "locked_selection_and_simple_fallback": true,
+    "validated_neutralized_losses": false
+  },
+  "selection_lock": {
+    "locked_at_utc": "2026-11-12T02:48:42.667262+00:00",
+    "selected_model": "P1",
+    "selected_role": "SIMPLE_NET_LOSS_FALLBACK_NO_APPROVED_SERVICE_RISK",
+    "model_scores": {
+      "P0": {
+        "race_weighted_crps_s": 5.538476422386405,
+        "race_weighted_mae_s": 6.3698586783023154,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": false,
+        "service_brier_score": null,
+        "coverage_50": 0.8545454545454545,
+        "coverage_90": 0.9636363636363636,
+        "mean_width_90_s": 13.463381847179255
+      },
+      "P1": {
+        "race_weighted_crps_s": 4.789160984379887,
+        "race_weighted_mae_s": 5.3400933538416515,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": false,
+        "service_brier_score": null,
+        "coverage_50": 0.5636363636363636,
+        "coverage_90": 0.9454545454545454,
+        "mean_width_90_s": 7.939230112361988
+      },
+      "P2": {
+        "race_weighted_crps_s": 4.869519787856641,
+        "race_weighted_mae_s": 5.416711767835077,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": false,
+        "service_brier_score": 0.07333333333333333,
+        "coverage_50": 0.5818181818181818,
+        "coverage_90": 0.9090909090909091,
+        "mean_width_90_s": 6.960412167263328
+      },
+      "P3": {
+        "race_weighted_crps_s": 5.098002024743916,
+        "race_weighted_mae_s": 5.783311235111731,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": false,
+        "service_brier_score": null,
+        "coverage_50": 0.6363636363636364,
+        "coverage_90": 0.9454545454545454,
+        "mean_width_90_s": 9.093264534117035
+      },
+      "P6": {
+        "race_weighted_crps_s": 4.924696110036779,
+        "race_weighted_mae_s": 5.6215038534740245,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": true,
+        "service_brier_score": 0.0807548417271681,
+        "coverage_50": 0.7818181818181819,
+        "coverage_90": 0.9636363636363636,
+        "mean_width_90_s": 14.216877848658456
+      },
+      "P7": {
+        "race_weighted_crps_s": 4.918011075507397,
+        "race_weighted_mae_s": 5.588992381921362,
+        "final_scale": 1.0,
+        "calibrated_through_utc": null,
+        "models_service_tail": true,
+        "service_brier_score": 0.0807548417271681,
+        "coverage_50": 0.7818181818181819,
+        "coverage_90": 0.9636363636363636,
+        "mean_width_90_s": 14.196726425352308
+      },
+      "P8": {
+        "race_weighted_crps_s": 5.0512520680054145,
+        "race_weighted_mae_s": 5.588992381921363,
+        "final_scale": 0.75,
+        "calibrated_through_utc": "2025-06-01 14:22:58.723000+00:00",
+        "models_service_tail": true,
+        "service_brier_score": 0.0807548417271681,
+        "coverage_50": 0.7818181818181819,
+        "coverage_90": 0.9636363636363636,
+        "mean_width_90_s": 13.95876672872649
+      }
+    },
+    "model_artifact_sha256": {
+      "P0": "5287934b9fff9f74f6d28fc2bb512eb198dbd4b989e3f89b2f5f48acb9621759",
+      "P1": "ec89c7642ec89c0a9a72acd2af520b1604e3f9e9446e6b170b421b47f55dd185",
+      "P2": "2b0dbbe859db83809603765042b3413c862d465c28cd51e914c6fe5cd3d27ed5",
+      "P3": "53ad00af68ea5fa762fd43eceb043be7fd16750651cf04c1e7ee301777cdab8c",
+      "P6": "d2ade28937198179e49be542a493cdedecc697b8758de8f35188ff6cc5e68e68",
+      "P7": "1699726484906e052fc3996a825fceec65033a234dbb78f1eefedd155bbc154b",
+      "P8": "d5e7873ab50f5d4122a5c9b0e7bf0e9bb2c4680e96df2837fb0a36a9a103230e"
+    },
+    "config_sha256": "4bcf87911603a5cd8ad83a8d26d89e541fe347102bbb016ec1bb4f0994969e5f",
+    "model_and_policy_source_sha256": {
+      "src/f1ri/models/pit_calibration.py": "6c3d3024f51c8ff245b2f6534e112f6edd1697134883e91ca187e2002aab942f",
+      "src/f1ri/models/pit_contracts.py": "78ded7ca54b46e1c3bb00870795c4197dde842f529514f1f1870acf588a32e32",
+      "src/f1ri/models/pit_loss.py": "fe730e28e1319a94a2b7d859d80e0710480fd1b2bf1e2da86bf8843adb3e19e7",
+      "src/f1ri/models/pit_neutralization.py": "7103e52c05c2705b1f6a07db278680c4edfb713228a53b604c027d860c74bb3f",
+      "src/f1ri/models/pit_service.py": "2b8e0cc38318f9141c333cf57c1cad04c28902955e4be5f7dd97b1a35ea9445b",
+      "src/f1ri/models/pit_transit.py": "0dd4f7d13f5a25de0b6aeca9fc8a8b1739c6f30c95df402142a3704f0b3504b7",
+      "src/f1ri/models/pit_transition.py": "aca1a21d07c4d164641b3a9eefef30a3af9fe74291b0822275e62b6376ffb660",
+      "src/f1ri/models/pit_uncertainty.py": "7cfb68fcc81c6e9e487b7ad3714fa8b5ff70eab442f62cbf665f0f03f9354c14",
+      "src/f1ri/features/pit_policy.py": "14b5ee7eb949c1e4915293b354d37a0ae153ca6d0cef335445bcc3e37dc94a7c",
+      "src/f1ri/features/pit_events.py": "de7139c80b59a496d646a03bb9e6cd293c8444636e6a94f1352b8472e1a550dd",
+      "src/f1ri/features/pit_context.py": "131577efebd086cba1bfa18de9a3c0154de6e90a34e7e0c72aed57816263f7d1",
+      "src/f1ri/features/pit_examples.py": "3af7cb6f9b2a1dc08e14d0fa1e9507514da3180102b7d12b49c2e070bddf4ce2",
+      "src/f1ri/validation/pit_measurement.py": "6734f492320afc2455ed41509f3a85352f1df3c062e9e01150bb8ddf98d4361f",
+      "src/f1ri/validation/pit_metrics.py": "b631b4494abd628cf2460d058086e27509d25e5b02a34dc092f7f06ddae5f0f7",
+      "src/f1ri/validation/pit_backtest.py": "57be7b08fc8c7fcad57bcfb37dc0db0d6eb855bc557fda486fe0d61f0444e7ea",
+      "src/f1ri/warehouse/schema.py": "39115f23c061b2d26c06354a04da781cf7094cbf49a29f34adbebe500f322cd5",
+      "src/f1ri/ingestion/pit_lane_reference.py": "203348e16abcf99c7826e66520fbaa5afabf502a89c9b4b24215636b93b185b8",
+      "src/f1ri/validation/pit_stabilization.py": "859498ab66cbaec728e217ce273defe24545fdbf539765eaf84a1196b3f6a64b",
+      "data/raw/reference/pirelli_allocations.csv": "2aba39622b471b997ff57aff4ea1e2ba99de1f5692a92bf40a7116bcc601c85c",
+      "data/raw/reference/pit_event_annotations.csv": "4adf751b257b3664a5fa256ca7ea805d05f7a10b61fbc2b7e3857394bab873de",
+      "data/raw/reference/pit_lane_reference.csv": "c67d7d4cbf3392843103313549b1ed2d0dacbe506667e0f623d0f7148fcf27f3"
+    },
+    "development_data_manifest_sha256": "7a3fa4c963b144c49911832a9dc65add5f3efd043b2ffc784b681941464cda03",
+    "development_artifact_sha256": {
+      "labels.parquet": "5ab4eade06d4b8f8d4aaf4dde469b1058c87578a919b86845e3650a983183e5b",
+      "events.parquet": "e0a8c93bb95438fb606e0bc6e6397db2088f39f92165381bfb22fb1da91c2e6f",
+      "neutralization_audit.parquet": "85415c037502b65efaccd252a22400428ba19f6a56da20dfa35e8f34986f61fb",
+      "examples.parquet": "17b9b7401cc5cc8f767bc8da83adc446b62f9e9480a6662c9eaf10199c29eb5e"
+    },
+    "selection_rule": "Prequential race-weighted CRPS; tail-capable candidate must retain MAE within 10% of best simple benchmark; otherwise declare simple net-only fallback",
+    "calibration_rule": "P8 only; scale learned from strictly earlier validation races, minimum two prior races and ten cases; final refit uses validation only",
+    "holdouts_opened_during_selection": false
+  },
+  "test_access_log": {
+    "first_access_at_utc": "2026-11-12T02:49:00.219878+00:00",
+    "selection_lock_sha256": "8e324f7944fa032c1e26ca8d7156babd3bfa58e93df2c9a8807ea68b38dd025d",
+    "test_sessions": [
+      {
+        "year": 2025,
+        "session_key": 9920,
+        "label": "2025 Zandvoort GP",
+        "inspected": false,
+        "population": "familiar"
+      },
+      {
+        "year": 2025,
+        "session_key": 9858,
+        "label": "2025 Las Vegas GP",
+        "inspected": false,
+        "population": "familiar"
+      },
+      {
+        "year": 2025,
+        "session_key": 9963,
+        "label": "2025 Montreal GP",
+        "inspected": false,
+        "population": "unseen"
+      },
+      {
+        "year": 2025,
+        "session_key": 9947,
+        "label": "2025 Silverstone GP",
+        "inspected": false,
+        "population": "unseen"
+      },
+      {
+        "year": 2025,
+        "session_key": 9904,
+        "label": "2025 Baku GP",
+        "inspected": false,
+        "population": "unseen"
+      }
+    ],
+    "retuning_permitted": false
+  },
+  "service_evidence": {
+    "measured_service_events": 130,
+    "independent_races": 6,
+    "circuits": 6,
+    "teams": 10,
+    "missing_values_not_imputed_as_observations": true
+  },
+  "classification_flags": {
+    "ROUTINE_UNVERIFIED": 1003,
+    "UNKNOWN_EXCEPTION": 128,
+    "AMBIGUOUS_TIMING": 128,
+    "MULTIPLE_PIT_TRANSITIONS": 44,
+    "ON_TRACK_TRAFFIC_CONTAMINATION": 41,
+    "UNRESOLVED_LONG_STAY": 38,
+    "PIT_LANE_LONG_HOLD": 38,
+    "POSSIBLE_DOUBLE_STACK": 24,
+    "RED_FLAG_OVERLAP": 18
+  },
+  "confirmed_only_sensitivity": {
+    "confirmed_visits": 0,
+    "confirmed_only_metrics": "NO_EVALUABLE_EVENTS",
+    "screened_unverified_allowed": true,
+    "independent_confirmation_missing": true
+  },
+  "measurement_agreement": {
+    "eligible_comparisons": 382,
+    "median_absolute_disagreement_s": 0.308587168074979,
+    "p90_absolute_disagreement_s": 0.8211200674515184,
+    "max_absolute_disagreement_s": 1.512570788576383,
+    "independent_physical_truth_established": false,
+    "shared_bias_warning": "Both estimators share provider lap timing, pre-stop anchors and structural assumptions"
+  },
+  "neutralization": {
+    "candidate_windows": 315,
+    "matched_field_proxies": 48,
+    "verified_route_labels": 0,
+    "approved_for_strategy_comparison": false,
+    "reasons": {
+      "MIXED_TIMELINE_REQUIRES_PHASE_MATCHED_REFERENCE": 250,
+      "FIELD_PROXY_ONLY_UNVERIFIED_TARGET_ROUTE_AND_SC_QUEUE": 48,
+      "INSUFFICIENT_UNINTERRUPTED_SAME_STATE_CONTROLS": 13,
+      "EVENT_EXCLUDED_BY_ORDINARY_POLICY": 4
+    }
+  },
+  "lusail_diagnostic": {
+    "reviewed_run_diagnostic_only": true,
+    "n_events": 8,
+    "mean_measured_lane_s": 29.2545,
+    "mean_predicted_lane_s": 24.20709325731626,
+    "mean_net_label_s": 28.21420833255506,
+    "mean_net_prediction_s": 24.154451649106345,
+    "physical_cause_verified": false
+  },
+  "validation_metrics": {
+    "P0": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.418072626713401,
+          "rmse_s": 5.387603307348701,
+          "bias_s": 0.07524232604096168,
+          "race_weighted_mae_s": 6.3698586783023154,
+          "coverage_50": 0.8545454545454545,
+          "mean_width_50_s": 4.747597621256299,
+          "coverage_90": 0.9636363636363636,
+          "mean_width_90_s": 13.463381847179255,
+          "crps_s": 1.9214905338304835,
+          "race_weighted_crps_s": 5.538476422386405,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 2.8945034925896485,
+          "rmse_s": 4.601366552185943,
+          "bias_s": 1.4526429030971966,
+          "race_weighted_mae_s": 2.8185478193536846
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 2.223185957429481,
+        "service_crps_s": null
+      }
+    },
+    "P1": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.221729580648216,
+          "rmse_s": 4.883208842323581,
+          "bias_s": 0.9114999579847136,
+          "race_weighted_mae_s": 5.3400933538416515,
+          "coverage_50": 0.5636363636363636,
+          "mean_width_50_s": 2.6949872363511287,
+          "coverage_90": 0.9454545454545454,
+          "mean_width_90_s": 7.939230112361988,
+          "crps_s": 1.7803811273865764,
+          "race_weighted_crps_s": 4.789160984379887,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.1295152053250699,
+          "rmse_s": 2.922408207388369,
+          "bias_s": 0.22004405277076172,
+          "race_weighted_mae_s": 1.0832608858253447
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 0.8631974260574885,
+        "service_crps_s": null
+      }
+    },
+    "P2": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.241899527717194,
+          "rmse_s": 4.943142400848338,
+          "bias_s": 1.1934870794733772,
+          "race_weighted_mae_s": 5.416711767835077,
+          "coverage_50": 0.5818181818181818,
+          "mean_width_50_s": 2.603681763400333,
+          "coverage_90": 0.9090909090909091,
+          "mean_width_90_s": 6.960412167263328,
+          "crps_s": 1.7993081579872832,
+          "race_weighted_crps_s": 4.869519787856641,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.0066062301125556,
+          "rmse_s": 2.98289479705485,
+          "bias_s": 0.6366689019896199,
+          "race_weighted_mae_s": 0.9705074853446338
+        },
+        "direct_stationary": {
+          "n_events": 150,
+          "n_races": 4,
+          "mae_s": 0.9483733333333332,
+          "rmse_s": 2.891796793229658,
+          "bias_s": 0.4622666666666669,
+          "race_weighted_mae_s": 0.9030230922431864
+        },
+        "slow_stop_calibration": {
+          "n_events": 150,
+          "n_races": 4,
+          "observed_slow_rate": 0.07333333333333333,
+          "predicted_slow_rate": 0.0,
+          "brier_score": 0.07333333333333333
+        },
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 0.8672728582234291,
+        "service_crps_s": 0.7995638000000003
+      }
+    },
+    "P3": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.2396550713978183,
+          "rmse_s": 5.074843380319684,
+          "bias_s": 0.5287750828257732,
+          "race_weighted_mae_s": 5.783311235111731,
+          "coverage_50": 0.6363636363636364,
+          "mean_width_50_s": 3.0845776735200947,
+          "coverage_90": 0.9454545454545454,
+          "mean_width_90_s": 9.093264534117035,
+          "crps_s": 1.773412718134506,
+          "race_weighted_crps_s": 5.098002024743916,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.5095974262247565,
+          "rmse_s": 3.18970953671842,
+          "bias_s": 0.5810705044498312,
+          "race_weighted_mae_s": 1.465958248412397
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 1.1690342719728228,
+        "service_crps_s": null
+      }
+    },
+    "P6": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.225050102092089,
+          "rmse_s": 4.943828275790293,
+          "bias_s": 0.48572965743658303,
+          "race_weighted_mae_s": 5.6215038534740245,
+          "coverage_50": 0.7818181818181819,
+          "mean_width_50_s": 4.069817144605869,
+          "coverage_90": 0.9636363636363636,
+          "mean_width_90_s": 14.216877848658456,
+          "crps_s": 1.8677313779215607,
+          "race_weighted_crps_s": 4.924696110036779,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.512375217929657,
+          "rmse_s": 3.1569210587954193,
+          "bias_s": 0.622756263281784,
+          "race_weighted_mae_s": 1.4646086793443085
+        },
+        "direct_stationary": {
+          "n_events": 150,
+          "n_races": 4,
+          "mae_s": 2.112472666666666,
+          "rmse_s": 3.062512325689482,
+          "bias_s": -1.2496686666666665,
+          "race_weighted_mae_s": 2.060857702156334
+        },
+        "slow_stop_calibration": {
+          "n_events": 150,
+          "n_races": 4,
+          "observed_slow_rate": 0.07333333333333333,
+          "predicted_slow_rate": 0.19224913645027497,
+          "brier_score": 0.0807548417271681
+        },
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 1.5075036550623333,
+        "service_crps_s": 0.8812356299999999
+      }
+    },
+    "P7": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.194634006943767,
+          "rmse_s": 4.929625698815764,
+          "bias_s": 0.5328043060254248,
+          "race_weighted_mae_s": 5.588992381921362,
+          "coverage_50": 0.7818181818181819,
+          "mean_width_50_s": 4.073759936487192,
+          "coverage_90": 0.9636363636363636,
+          "mean_width_90_s": 14.196726425352308,
+          "crps_s": 1.8699234074891251,
+          "race_weighted_crps_s": 4.918011075507397,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.512375217929657,
+          "rmse_s": 3.1569210587954193,
+          "bias_s": 0.622756263281784,
+          "race_weighted_mae_s": 1.4646086793443085
+        },
+        "direct_stationary": {
+          "n_events": 150,
+          "n_races": 4,
+          "mae_s": 2.112472666666666,
+          "rmse_s": 3.062512325689482,
+          "bias_s": -1.2496686666666665,
+          "race_weighted_mae_s": 2.060857702156334
+        },
+        "slow_stop_calibration": {
+          "n_events": 150,
+          "n_races": 4,
+          "observed_slow_rate": 0.07333333333333333,
+          "predicted_slow_rate": 0.19224913645027497,
+          "brier_score": 0.0807548417271681
+        },
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 1.5075036550623333,
+        "service_crps_s": 0.8812356299999999
+      }
+    },
+    "P8": {
+      "val": {
+        "net_loss_proxy": {
+          "n_events": 55,
+          "n_races": 4,
+          "mae_s": 2.1946340069437675,
+          "rmse_s": 4.929625698815764,
+          "bias_s": 0.5328043060254248,
+          "race_weighted_mae_s": 5.588992381921363,
+          "coverage_50": 0.7818181818181819,
+          "mean_width_50_s": 4.008351656213246,
+          "coverage_90": 0.9636363636363636,
+          "mean_width_90_s": 13.95876672872649,
+          "crps_s": 1.889303915488837,
+          "race_weighted_crps_s": 5.0512520680054145,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 152,
+          "n_races": 4,
+          "mae_s": 1.512375217929657,
+          "rmse_s": 3.1569210587954193,
+          "bias_s": 0.622756263281784,
+          "race_weighted_mae_s": 1.4646086793443085
+        },
+        "direct_stationary": {
+          "n_events": 150,
+          "n_races": 4,
+          "mae_s": 2.112472666666666,
+          "rmse_s": 3.062512325689482,
+          "bias_s": -1.2496686666666665,
+          "race_weighted_mae_s": 2.060857702156334
+        },
+        "slow_stop_calibration": {
+          "n_events": 150,
+          "n_races": 4,
+          "observed_slow_rate": 0.07333333333333333,
+          "predicted_slow_rate": 0.19224913645027497,
+          "brier_score": 0.0807548417271681
+        },
+        "unsupported_events": 21,
+        "excluded_lane_events": 0,
+        "lane_crps_s": 1.5075036550623333,
+        "service_crps_s": 0.8812356299999999
+      }
+    }
+  },
+  "test_metrics": {
+    "P0": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 2.7998910381830897,
+          "rmse_s": 3.262680846432649,
+          "bias_s": -2.7998910381830897,
+          "race_weighted_mae_s": 3.714920645948446,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 4.6158701144557295,
+          "coverage_90": 0.9,
+          "mean_width_90_s": 13.012953035960923,
+          "crps_s": 1.611582878656688,
+          "race_weighted_crps_s": 2.1925079007549675,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 4.9183092694266675,
+          "rmse_s": 5.274663009943927,
+          "bias_s": -3.874095792195138,
+          "race_weighted_mae_s": 4.482331397078667
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 3.096643955020659,
+        "service_crps_s": null
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 2.334809136994357,
+          "rmse_s": 2.562021470737284,
+          "bias_s": -2.2175425152237045,
+          "race_weighted_mae_s": 2.334809136994357,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 8.163369956939805,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 21.791045612414287,
+          "crps_s": 1.7366176438503063,
+          "race_weighted_crps_s": 1.7366176438503063,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.9614581491679175,
+          "rmse_s": 5.418972499407767,
+          "bias_s": 0.6321839749694941,
+          "race_weighted_mae_s": 4.984425459683615
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.1172072182702615,
+        "service_crps_s": null
+      }
+    },
+    "P1": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 1.8576981133157353,
+          "rmse_s": 2.6918628429627636,
+          "bias_s": -1.6699933681819261,
+          "race_weighted_mae_s": 3.116322284949716,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 2.63147505273121,
+          "coverage_90": 0.8,
+          "mean_width_90_s": 7.75634814838781,
+          "crps_s": 1.3530362360497887,
+          "race_weighted_crps_s": 2.2598418265063045,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 3.006017987141933,
+          "rmse_s": 3.746444487711228,
+          "bias_s": -1.3843788826358983,
+          "race_weighted_mae_s": 2.7416519526490286
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.3054390608856714,
+        "service_crps_s": null
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 1.868282135125289,
+          "rmse_s": 2.0881086329163394,
+          "bias_s": -1.647342846272621,
+          "race_weighted_mae_s": 1.868282135125289,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 7.385601836723052,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 19.454224239142633,
+          "crps_s": 1.5970993151309614,
+          "race_weighted_crps_s": 1.5970993151309614,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.996918522302431,
+          "rmse_s": 5.494709908840385,
+          "bias_s": 1.1073529749719748,
+          "race_weighted_mae_s": 4.842708389507437
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.162104155744709,
+        "service_crps_s": null
+      }
+    },
+    "P2": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 1.8158949618797735,
+          "rmse_s": 2.6023141275238233,
+          "bias_s": -1.669662139240034,
+          "race_weighted_mae_s": 2.985894454801018,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 2.558566388344127,
+          "coverage_90": 0.8,
+          "mean_width_90_s": 6.816749648982132,
+          "crps_s": 1.3708025523671838,
+          "race_weighted_crps_s": 2.249220771900413,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 2.7689980750963965,
+          "rmse_s": 3.6040625326734497,
+          "bias_s": -0.9899368020689095,
+          "race_weighted_mae_s": 2.5468807491113763
+        },
+        "direct_stationary": {
+          "n_events": 57,
+          "n_races": 2,
+          "mae_s": 1.400315789473684,
+          "rmse_s": 3.056026093853878,
+          "bias_s": 1.1144771929824564,
+          "race_weighted_mae_s": 1.492221052631579
+        },
+        "slow_stop_calibration": {
+          "n_events": 57,
+          "n_races": 2,
+          "observed_slow_rate": 0.14035087719298245,
+          "predicted_slow_rate": 0.0,
+          "brier_score": 0.14035087719298245
+        },
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.400609884020654,
+        "service_crps_s": 1.2505510982456143
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 1.615985261810556,
+          "rmse_s": 1.8527874934774946,
+          "bias_s": -1.3402228390897732,
+          "race_weighted_mae_s": 1.615985261810556,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 7.116039133389562,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 18.47070867463107,
+          "crps_s": 1.4945843532618914,
+          "race_weighted_crps_s": 1.4945843532618914,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 5.035168568500248,
+          "rmse_s": 5.620474948348171,
+          "bias_s": 1.6199219820824176,
+          "race_weighted_mae_s": 4.6898355952773425
+        },
+        "direct_stationary": {
+          "n_events": 46,
+          "n_races": 2,
+          "mae_s": 0.8549565217391304,
+          "rmse_s": 2.0118414026869056,
+          "bias_s": 0.30273043478260875,
+          "race_weighted_mae_s": 0.8450555555555554
+        },
+        "slow_stop_calibration": {
+          "n_events": 46,
+          "n_races": 2,
+          "observed_slow_rate": 0.08695652173913043,
+          "predicted_slow_rate": 0.0,
+          "brier_score": 0.08695652173913043
+        },
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.2398707119327885,
+        "service_crps_s": 0.6841057130434782
+      }
+    },
+    "P3": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 2.1366215620913396,
+          "rmse_s": 2.900032489221472,
+          "bias_s": -2.1366215620913396,
+          "race_weighted_mae_s": 3.329059434165009,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 2.993862136154128,
+          "coverage_90": 0.9,
+          "mean_width_90_s": 8.896628206971437,
+          "crps_s": 1.4533301213432608,
+          "race_weighted_crps_s": 2.2924623422584722,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 3.5265239771463985,
+          "rmse_s": 4.161142707294304,
+          "bias_s": -2.1163928826770038,
+          "race_weighted_mae_s": 3.1737570053155566
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.6228563669249105,
+        "service_crps_s": null
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 2.125540769059601,
+          "rmse_s": 2.344141847177075,
+          "bias_s": -1.961770065525669,
+          "race_weighted_mae_s": 2.125540769059601,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 7.480958553881862,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 19.67630484107266,
+          "crps_s": 1.6624950727628536,
+          "race_weighted_crps_s": 1.6624950727628536,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.98209444730455,
+          "rmse_s": 5.458146288592461,
+          "bias_s": 0.9087103700003825,
+          "race_weighted_mae_s": 4.901952675200718
+        },
+        "direct_stationary": {
+          "n_events": 0,
+          "n_races": 0,
+          "status": "NO_EVALUABLE_EVENTS"
+        },
+        "slow_stop_calibration": {},
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.13929338400679,
+        "service_crps_s": null
+      }
+    },
+    "P6": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 3.3988060180328254,
+          "rmse_s": 3.7433409846195103,
+          "bias_s": -3.3988060180328254,
+          "race_weighted_mae_s": 4.21006084014472,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 4.185305979919553,
+          "coverage_90": 0.9,
+          "mean_width_90_s": 14.56835435500987,
+          "crps_s": 1.6551711240694913,
+          "race_weighted_crps_s": 2.236917088826048,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 3.7849395579919096,
+          "rmse_s": 4.174049669892578,
+          "bias_s": -2.5878632976935796,
+          "race_weighted_mae_s": 3.5434438985204286
+        },
+        "direct_stationary": {
+          "n_events": 57,
+          "n_races": 2,
+          "mae_s": 2.115789473684211,
+          "rmse_s": 2.873198424215125,
+          "bias_s": -0.6251754385964912,
+          "race_weighted_mae_s": 2.207832894736842
+        },
+        "slow_stop_calibration": {
+          "n_events": 57,
+          "n_races": 2,
+          "observed_slow_rate": 0.14035087719298245,
+          "predicted_slow_rate": 0.19650424091650498,
+          "brier_score": 0.12112170664981994
+        },
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.204708622057442,
+        "service_crps_s": 1.1283073649122808
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 2.5613391528455627,
+          "rmse_s": 2.773802201922413,
+          "bias_s": -2.507017869134328,
+          "race_weighted_mae_s": 2.5613391528455627,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 8.517809632097846,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 22.01746106821004,
+          "crps_s": 1.8601927159785447,
+          "race_weighted_crps_s": 1.8601927159785447,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.976113173831829,
+          "rmse_s": 5.436801984883163,
+          "bias_s": 0.6300533020205659,
+          "race_weighted_mae_s": 5.006385815911597
+        },
+        "direct_stationary": {
+          "n_events": 46,
+          "n_races": 2,
+          "mae_s": 2.0294499999999998,
+          "rmse_s": 2.4610016350276354,
+          "bias_s": -1.4081195652173912,
+          "race_weighted_mae_s": 2.019795238095238
+        },
+        "slow_stop_calibration": {
+          "n_events": 46,
+          "n_races": 2,
+          "observed_slow_rate": 0.08695652173913043,
+          "predicted_slow_rate": 0.19090778991364754,
+          "brier_score": 0.09058310043590571
+        },
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.1440146864020084,
+        "service_crps_s": 0.7907712673913043
+      }
+    },
+    "P7": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 3.3817254245570276,
+          "rmse_s": 3.7366668520268966,
+          "bias_s": -3.3817254245570276,
+          "race_weighted_mae_s": 4.206501702367064,
+          "coverage_50": 0.5,
+          "mean_width_50_s": 4.184684202526083,
+          "coverage_90": 0.9,
+          "mean_width_90_s": 14.537187704155553,
+          "crps_s": 1.6539001741424932,
+          "race_weighted_crps_s": 2.2419058040586806,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 3.7849395579919096,
+          "rmse_s": 4.174049669892578,
+          "bias_s": -2.5878632976935796,
+          "race_weighted_mae_s": 3.5434438985204286
+        },
+        "direct_stationary": {
+          "n_events": 57,
+          "n_races": 2,
+          "mae_s": 2.115789473684211,
+          "rmse_s": 2.873198424215125,
+          "bias_s": -0.6251754385964912,
+          "race_weighted_mae_s": 2.207832894736842
+        },
+        "slow_stop_calibration": {
+          "n_events": 57,
+          "n_races": 2,
+          "observed_slow_rate": 0.14035087719298245,
+          "predicted_slow_rate": 0.19650424091650498,
+          "brier_score": 0.12112170664981994
+        },
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.204708622057442,
+        "service_crps_s": 1.1283073649122808
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 2.5021578394002586,
+          "rmse_s": 2.723493504938728,
+          "bias_s": -2.4539790112327644,
+          "race_weighted_mae_s": 2.5021578394002586,
+          "coverage_50": 1.0,
+          "mean_width_50_s": 8.502044861931843,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 22.010772496921323,
+          "crps_s": 1.8453035892488352,
+          "race_weighted_crps_s": 1.8453035892488352,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.976113173831829,
+          "rmse_s": 5.436801984883163,
+          "bias_s": 0.6300533020205659,
+          "race_weighted_mae_s": 5.006385815911597
+        },
+        "direct_stationary": {
+          "n_events": 46,
+          "n_races": 2,
+          "mae_s": 2.0294499999999998,
+          "rmse_s": 2.4610016350276354,
+          "bias_s": -1.4081195652173912,
+          "race_weighted_mae_s": 2.019795238095238
+        },
+        "slow_stop_calibration": {
+          "n_events": 46,
+          "n_races": 2,
+          "observed_slow_rate": 0.08695652173913043,
+          "predicted_slow_rate": 0.19090778991364754,
+          "brier_score": 0.09058310043590571
+        },
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.1440146864020084,
+        "service_crps_s": 0.7907712673913043
+      }
+    },
+    "P8": {
+      "test_familiar": {
+        "net_loss_proxy": {
+          "n_events": 10,
+          "n_races": 2,
+          "mae_s": 3.381725424557028,
+          "rmse_s": 3.736666852026896,
+          "bias_s": -3.381725424557028,
+          "race_weighted_mae_s": 4.2065017023670634,
+          "coverage_50": 0.3,
+          "mean_width_50_s": 3.31841055077401,
+          "coverage_90": 0.6,
+          "mean_width_90_s": 11.188691180160285,
+          "crps_s": 1.8710477797868754,
+          "race_weighted_crps_s": 2.554195989715432,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 59,
+          "n_races": 2,
+          "mae_s": 3.7849395579919096,
+          "rmse_s": 4.174049669892578,
+          "bias_s": -2.5878632976935796,
+          "race_weighted_mae_s": 3.5434438985204286
+        },
+        "direct_stationary": {
+          "n_events": 57,
+          "n_races": 2,
+          "mae_s": 2.115789473684211,
+          "rmse_s": 2.873198424215125,
+          "bias_s": -0.6251754385964912,
+          "race_weighted_mae_s": 2.207832894736842
+        },
+        "slow_stop_calibration": {
+          "n_events": 57,
+          "n_races": 2,
+          "observed_slow_rate": 0.14035087719298245,
+          "predicted_slow_rate": 0.19650424091650498,
+          "brier_score": 0.12112170664981994
+        },
+        "unsupported_events": 5,
+        "excluded_lane_events": 1,
+        "lane_crps_s": 2.204708622057442,
+        "service_crps_s": 1.1283073649122808
+      },
+      "test_unseen": {
+        "net_loss_proxy": {
+          "n_events": 11,
+          "n_races": 1,
+          "mae_s": 2.5021578394002586,
+          "rmse_s": 2.723493504938728,
+          "bias_s": -2.4539790112327644,
+          "race_weighted_mae_s": 2.5021578394002586,
+          "coverage_50": 0.7272727272727273,
+          "mean_width_50_s": 6.392936906067265,
+          "coverage_90": 1.0,
+          "mean_width_90_s": 16.62482412511399,
+          "crps_s": 1.6314603957733134,
+          "race_weighted_crps_s": 1.6314603957733134,
+          "median_label_std_s": 1.0089598604503551
+        },
+        "direct_lane": {
+          "n_events": 67,
+          "n_races": 3,
+          "mae_s": 4.976113173831829,
+          "rmse_s": 5.436801984883163,
+          "bias_s": 0.6300533020205659,
+          "race_weighted_mae_s": 5.006385815911597
+        },
+        "direct_stationary": {
+          "n_events": 46,
+          "n_races": 2,
+          "mae_s": 2.0294499999999998,
+          "rmse_s": 2.4610016350276354,
+          "bias_s": -1.4081195652173912,
+          "race_weighted_mae_s": 2.019795238095238
+        },
+        "slow_stop_calibration": {
+          "n_events": 46,
+          "n_races": 2,
+          "observed_slow_rate": 0.08695652173913043,
+          "predicted_slow_rate": 0.19090778991364754,
+          "brier_score": 0.09058310043590571
+        },
+        "unsupported_events": 23,
+        "excluded_lane_events": 4,
+        "lane_crps_s": 3.1440146864020084,
+        "service_crps_s": 0.7907712673913043
+      }
+    }
+  },
+  "paired_comparisons": {
+    "test_familiar": {
+      "P1": {
+        "n_events": 10,
+        "n_races": 2,
+        "race_mean_mae_delta_s": 0.0,
+        "p05_delta_s": 0.0,
+        "p95_delta_s": 0.0,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      },
+      "P8": {
+        "n_events": 10,
+        "n_races": 2,
+        "race_mean_mae_delta_s": 1.0901794174173471,
+        "p05_delta_s": 0.36709959437743755,
+        "p95_delta_s": 1.8132592404572567,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      }
+    },
+    "test_unseen": {
+      "P1": {
+        "n_events": 11,
+        "n_races": 1,
+        "race_mean_mae_delta_s": 0.0,
+        "p05_delta_s": 0.0,
+        "p95_delta_s": 0.0,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      },
+      "P8": {
+        "n_events": 11,
+        "n_races": 1,
+        "race_mean_mae_delta_s": 0.6338757042749699,
+        "p05_delta_s": 0.6338757042749699,
+        "p95_delta_s": 0.6338757042749699,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      }
+    }
+  },
+  "test_population_attrition": [
+    {
+      "session_key": 9858,
+      "circuit": "Las Vegas",
+      "raw_visits": 23,
+      "ordinary_lane_visits": 22,
+      "eligible_net_forecasts": 8
+    },
+    {
+      "session_key": 9904,
+      "circuit": "Baku",
+      "raw_visits": 21,
+      "ordinary_lane_visits": 20,
+      "eligible_net_forecasts": 11
+    },
+    {
+      "session_key": 9920,
+      "circuit": "Zandvoort",
+      "raw_visits": 40,
+      "ordinary_lane_visits": 39,
+      "eligible_net_forecasts": 2
+    },
+    {
+      "session_key": 9947,
+      "circuit": "Silverstone",
+      "raw_visits": 35,
+      "ordinary_lane_visits": 35,
+      "eligible_net_forecasts": 0
+    },
+    {
+      "session_key": 9963,
+      "circuit": "Montreal",
+      "raw_visits": 82,
+      "ordinary_lane_visits": 13,
+      "eligible_net_forecasts": 0
+    }
+  ],
+  "supplementary_replication": {
+    "plan": {
+      "created_at_utc": "2026-11-12T02:55:43.752865+00:00",
+      "study": "stage4_1_fixed_model_replication",
+      "reason": "Primary unseen cohort has one usable dry net-loss race: Montreal stint/pit-out reconciliation fails for ordinary stops and Silverstone dry-reference labels are unsupported. Obtain one additional independent outcome without altering the original cohort or selected model.",
+      "primary_results_already_observed": true,
+      "role": "SUPPLEMENTARY_REPLICATION_NOT_ORIGINAL_PREREGISTRATION",
+      "no_weight_calibration_eligibility_or_selection_changes": true,
+      "selection_lock_sha256": "8e324f7944fa032c1e26ca8d7156babd3bfa58e93df2c9a8807ea68b38dd025d",
+      "sessions": [
+        {
+          "year": 2025,
+          "session_key": 9939,
+          "circuit": "Spa-Francorchamps",
+          "population": "unseen"
+        }
+      ],
+      "outcomes_absent_when_registered": true,
+      "evaluation": "Report supplementary unseen and combined descriptive results separately; no promotion or selection based on these outcomes."
+    },
+    "selected_model_unchanged": "P1",
+    "supplementary_metrics": {
+      "P0": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.9240664806899455,
+            "rmse_s": 1.1803044942269134,
+            "bias_s": -0.18941080114990907,
+            "race_weighted_mae_s": 0.9240664806899455
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.5050049071523763,
+          "service_crps_s": null
+        }
+      },
+      "P1": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.6851267204589713,
+            "rmse_s": 1.1995415773167122,
+            "bias_s": 0.2857581988525718,
+            "race_weighted_mae_s": 0.6851267204589713
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.3831047165173866,
+          "service_crps_s": null
+        }
+      },
+      "P2": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.8170748907419879,
+            "rmse_s": 1.4122908586898453,
+            "bias_s": 0.798328817903313,
+            "race_weighted_mae_s": 0.8170748907419879
+          },
+          "direct_stationary": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.5945599999999999,
+            "rmse_s": 0.9733925004847737,
+            "bias_s": 0.1536000000000002,
+            "race_weighted_mae_s": 0.5945599999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 20,
+            "n_races": 1,
+            "observed_slow_rate": 0.1,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.1
+          },
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.3236846181592188,
+          "service_crps_s": 0.4596017999999999
+        }
+      },
+      "P3": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.7664172030595102,
+            "rmse_s": 1.1682599771443152,
+            "bias_s": 0.08711559388097942,
+            "race_weighted_mae_s": 0.7664172030595102
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.384496188290116,
+          "service_crps_s": null
+        }
+      },
+      "P6": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.8863594848739454,
+            "rmse_s": 1.173431658929683,
+            "bias_s": -0.16318002568044304,
+            "race_weighted_mae_s": 0.8863594848739454
+          },
+          "direct_stationary": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 1.70478,
+            "rmse_s": 1.8234800103099564,
+            "bias_s": -1.5697799999999997,
+            "race_weighted_mae_s": 1.70478
+          },
+          "slow_stop_calibration": {
+            "n_events": 20,
+            "n_races": 1,
+            "observed_slow_rate": 0.1,
+            "predicted_slow_rate": 0.19182443349426276,
+            "brier_score": 0.0930551926003837
+          },
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.5074044443661176,
+          "service_crps_s": 0.60214718
+        }
+      },
+      "P7": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.8863594848739454,
+            "rmse_s": 1.173431658929683,
+            "bias_s": -0.16318002568044304,
+            "race_weighted_mae_s": 0.8863594848739454
+          },
+          "direct_stationary": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 1.70478,
+            "rmse_s": 1.8234800103099564,
+            "bias_s": -1.5697799999999997,
+            "race_weighted_mae_s": 1.70478
+          },
+          "slow_stop_calibration": {
+            "n_events": 20,
+            "n_races": 1,
+            "observed_slow_rate": 0.1,
+            "predicted_slow_rate": 0.19182443349426276,
+            "brier_score": 0.0930551926003837
+          },
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.5074044443661176,
+          "service_crps_s": 0.60214718
+        }
+      },
+      "P8": {
+        "supplementary_unseen": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 0.8863594848739454,
+            "rmse_s": 1.173431658929683,
+            "bias_s": -0.16318002568044304,
+            "race_weighted_mae_s": 0.8863594848739454
+          },
+          "direct_stationary": {
+            "n_events": 20,
+            "n_races": 1,
+            "mae_s": 1.70478,
+            "rmse_s": 1.8234800103099564,
+            "bias_s": -1.5697799999999997,
+            "race_weighted_mae_s": 1.70478
+          },
+          "slow_stop_calibration": {
+            "n_events": 20,
+            "n_races": 1,
+            "observed_slow_rate": 0.1,
+            "predicted_slow_rate": 0.19182443349426276,
+            "brier_score": 0.0930551926003837
+          },
+          "unsupported_events": 20,
+          "excluded_lane_events": 0,
+          "lane_crps_s": 1.5074044443661176,
+          "service_crps_s": 0.60214718
+        }
+      }
+    },
+    "combined_descriptive_metrics": {
+      "P0": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 2.7998910381830897,
+            "rmse_s": 3.262680846432649,
+            "bias_s": -2.7998910381830897,
+            "race_weighted_mae_s": 3.714920645948446,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 4.6158701144557295,
+            "coverage_90": 0.9,
+            "mean_width_90_s": 13.012953035960923,
+            "crps_s": 1.611582878656688,
+            "race_weighted_crps_s": 2.1925079007549675,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 4.9183092694266675,
+            "rmse_s": 5.274663009943927,
+            "bias_s": -3.874095792195138,
+            "race_weighted_mae_s": 4.482331397078667
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 3.096643955020659,
+          "service_crps_s": null
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 2.334809136994357,
+            "rmse_s": 2.562021470737284,
+            "bias_s": -2.2175425152237045,
+            "race_weighted_mae_s": 2.334809136994357,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 8.163369956939805,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 21.791045612414287,
+            "crps_s": 1.7366176438503063,
+            "race_weighted_crps_s": 1.7366176438503063,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.033322133425855,
+            "rmse_s": 4.789037999512584,
+            "bias_s": 0.44331161264319435,
+            "race_weighted_mae_s": 3.9693357149351973
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.746585997323621,
+          "service_crps_s": null
+        }
+      },
+      "P1": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 1.8576981133157353,
+            "rmse_s": 2.6918628429627636,
+            "bias_s": -1.6699933681819261,
+            "race_weighted_mae_s": 3.116322284949716,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 2.63147505273121,
+            "coverage_90": 0.8,
+            "mean_width_90_s": 7.75634814838781,
+            "crps_s": 1.3530362360497887,
+            "race_weighted_crps_s": 2.2598418265063045,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 3.006017987141933,
+            "rmse_s": 3.746444487711228,
+            "bias_s": -1.3843788826358983,
+            "race_weighted_mae_s": 2.7416519526490286
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.3054390608856714,
+          "service_crps_s": null
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 1.868282135125289,
+            "rmse_s": 2.0881086329163394,
+            "bias_s": -1.647342846272621,
+            "race_weighted_mae_s": 1.868282135125289,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 7.385601836723052,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 19.454224239142633,
+            "crps_s": 1.5970993151309614,
+            "race_weighted_crps_s": 1.5970993151309614,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.005702016131521,
+            "rmse_s": 4.856126688079417,
+            "bias_s": 0.918480612645675,
+            "race_weighted_mae_s": 3.8033129722453203
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.7531387674165892,
+          "service_crps_s": null
+        }
+      },
+      "P2": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 1.8158949618797735,
+            "rmse_s": 2.6023141275238233,
+            "bias_s": -1.669662139240034,
+            "race_weighted_mae_s": 2.985894454801018,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 2.558566388344127,
+            "coverage_90": 0.8,
+            "mean_width_90_s": 6.816749648982132,
+            "crps_s": 1.3708025523671838,
+            "race_weighted_crps_s": 2.249220771900413,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 2.7689980750963965,
+            "rmse_s": 3.6040625326734497,
+            "bias_s": -0.9899368020689095,
+            "race_weighted_mae_s": 2.5468807491113763
+          },
+          "direct_stationary": {
+            "n_events": 57,
+            "n_races": 2,
+            "mae_s": 1.400315789473684,
+            "rmse_s": 3.056026093853878,
+            "bias_s": 1.1144771929824564,
+            "race_weighted_mae_s": 1.492221052631579
+          },
+          "slow_stop_calibration": {
+            "n_events": 57,
+            "n_races": 2,
+            "observed_slow_rate": 0.14035087719298245,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.14035087719298245
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.400609884020654,
+          "service_crps_s": 1.2505510982456143
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 1.615985261810556,
+            "rmse_s": 1.8527874934774946,
+            "bias_s": -1.3402228390897732,
+            "race_weighted_mae_s": 1.615985261810556,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 7.116039133389562,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 18.47070867463107,
+            "crps_s": 1.4945843532618914,
+            "race_weighted_crps_s": 1.4945843532618914,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.065491860969613,
+            "rmse_s": 4.97857917067654,
+            "bias_s": 1.4310499903171061,
+            "race_weighted_mae_s": 3.7216454191435036
+          },
+          "direct_stationary": {
+            "n_events": 66,
+            "n_races": 3,
+            "mae_s": 0.7760484848484848,
+            "rmse_s": 1.762982697108236,
+            "bias_s": 0.25753939393939407,
+            "race_weighted_mae_s": 0.7615570370370369
+          },
+          "slow_stop_calibration": {
+            "n_events": 66,
+            "n_races": 3,
+            "observed_slow_rate": 0.09090909090909091,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.09090909090909091
+          },
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.7993681616400137,
+          "service_crps_s": 0.6160742242424243
+        }
+      },
+      "P3": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 2.1366215620913396,
+            "rmse_s": 2.900032489221472,
+            "bias_s": -2.1366215620913396,
+            "race_weighted_mae_s": 3.329059434165009,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 2.993862136154128,
+            "coverage_90": 0.9,
+            "mean_width_90_s": 8.896628206971437,
+            "crps_s": 1.4533301213432608,
+            "race_weighted_crps_s": 2.2924623422584722,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 3.5265239771463985,
+            "rmse_s": 4.161142707294304,
+            "bias_s": -2.1163928826770038,
+            "race_weighted_mae_s": 3.1737570053155566
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.6228563669249105,
+          "service_crps_s": null
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 2.125540769059601,
+            "rmse_s": 2.344141847177075,
+            "bias_s": -1.961770065525669,
+            "race_weighted_mae_s": 2.125540769059601,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 7.480958553881862,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 19.67630484107266,
+            "crps_s": 1.6624950727628536,
+            "race_weighted_crps_s": 1.6624950727628536,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.012973241730978,
+            "rmse_s": 4.822502102867699,
+            "bias_s": 0.719838007674083,
+            "race_weighted_mae_s": 3.8680688071654163
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.7358917298190484,
+          "service_crps_s": null
+        }
+      },
+      "P6": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 3.3988060180328254,
+            "rmse_s": 3.7433409846195103,
+            "bias_s": -3.3988060180328254,
+            "race_weighted_mae_s": 4.21006084014472,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 4.185305979919553,
+            "coverage_90": 0.9,
+            "mean_width_90_s": 14.56835435500987,
+            "crps_s": 1.6551711240694913,
+            "race_weighted_crps_s": 2.236917088826048,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 3.7849395579919096,
+            "rmse_s": 4.174049669892578,
+            "bias_s": -2.5878632976935796,
+            "race_weighted_mae_s": 3.5434438985204286
+          },
+          "direct_stationary": {
+            "n_events": 57,
+            "n_races": 2,
+            "mae_s": 2.115789473684211,
+            "rmse_s": 2.873198424215125,
+            "bias_s": -0.6251754385964912,
+            "race_weighted_mae_s": 2.207832894736842
+          },
+          "slow_stop_calibration": {
+            "n_events": 57,
+            "n_races": 2,
+            "observed_slow_rate": 0.14035087719298245,
+            "predicted_slow_rate": 0.19650424091650498,
+            "brier_score": 0.12112170664981994
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.204708622057442,
+          "service_crps_s": 1.1283073649122808
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 2.5613391528455627,
+            "rmse_s": 2.773802201922413,
+            "bias_s": -2.507017869134328,
+            "race_weighted_mae_s": 2.5613391528455627,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 8.517809632097846,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 22.01746106821004,
+            "crps_s": 1.8601927159785447,
+            "race_weighted_crps_s": 1.8601927159785447,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.035939912002431,
+            "rmse_s": 4.80418818395135,
+            "bias_s": 0.4477008128938972,
+            "race_weighted_mae_s": 3.9763792331521843
+          },
+          "direct_stationary": {
+            "n_events": 66,
+            "n_races": 3,
+            "mae_s": 1.9310651515151518,
+            "rmse_s": 2.2866606694969507,
+            "bias_s": -1.4571075757575758,
+            "race_weighted_mae_s": 1.9147901587301586
+          },
+          "slow_stop_calibration": {
+            "n_events": 66,
+            "n_races": 3,
+            "observed_slow_rate": 0.09090909090909091,
+            "predicted_slow_rate": 0.19118556069565212,
+            "brier_score": 0.09133221927362631
+          },
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.767782446853527,
+          "service_crps_s": 0.7336124530303029
+        }
+      },
+      "P7": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 3.3817254245570276,
+            "rmse_s": 3.7366668520268966,
+            "bias_s": -3.3817254245570276,
+            "race_weighted_mae_s": 4.206501702367064,
+            "coverage_50": 0.5,
+            "mean_width_50_s": 4.184684202526083,
+            "coverage_90": 0.9,
+            "mean_width_90_s": 14.537187704155553,
+            "crps_s": 1.6539001741424932,
+            "race_weighted_crps_s": 2.2419058040586806,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 3.7849395579919096,
+            "rmse_s": 4.174049669892578,
+            "bias_s": -2.5878632976935796,
+            "race_weighted_mae_s": 3.5434438985204286
+          },
+          "direct_stationary": {
+            "n_events": 57,
+            "n_races": 2,
+            "mae_s": 2.115789473684211,
+            "rmse_s": 2.873198424215125,
+            "bias_s": -0.6251754385964912,
+            "race_weighted_mae_s": 2.207832894736842
+          },
+          "slow_stop_calibration": {
+            "n_events": 57,
+            "n_races": 2,
+            "observed_slow_rate": 0.14035087719298245,
+            "predicted_slow_rate": 0.19650424091650498,
+            "brier_score": 0.12112170664981994
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.204708622057442,
+          "service_crps_s": 1.1283073649122808
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 2.5021578394002586,
+            "rmse_s": 2.723493504938728,
+            "bias_s": -2.4539790112327644,
+            "race_weighted_mae_s": 2.5021578394002586,
+            "coverage_50": 1.0,
+            "mean_width_50_s": 8.502044861931843,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 22.010772496921323,
+            "crps_s": 1.8453035892488352,
+            "race_weighted_crps_s": 1.8453035892488352,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.035939912002431,
+            "rmse_s": 4.80418818395135,
+            "bias_s": 0.4477008128938972,
+            "race_weighted_mae_s": 3.9763792331521843
+          },
+          "direct_stationary": {
+            "n_events": 66,
+            "n_races": 3,
+            "mae_s": 1.9310651515151518,
+            "rmse_s": 2.2866606694969507,
+            "bias_s": -1.4571075757575758,
+            "race_weighted_mae_s": 1.9147901587301586
+          },
+          "slow_stop_calibration": {
+            "n_events": 66,
+            "n_races": 3,
+            "observed_slow_rate": 0.09090909090909091,
+            "predicted_slow_rate": 0.19118556069565212,
+            "brier_score": 0.09133221927362631
+          },
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.767782446853527,
+          "service_crps_s": 0.7336124530303029
+        }
+      },
+      "P8": {
+        "test_familiar": {
+          "net_loss_proxy": {
+            "n_events": 10,
+            "n_races": 2,
+            "mae_s": 3.381725424557028,
+            "rmse_s": 3.736666852026896,
+            "bias_s": -3.381725424557028,
+            "race_weighted_mae_s": 4.2065017023670634,
+            "coverage_50": 0.3,
+            "mean_width_50_s": 3.31841055077401,
+            "coverage_90": 0.6,
+            "mean_width_90_s": 11.188691180160285,
+            "crps_s": 1.8710477797868754,
+            "race_weighted_crps_s": 2.554195989715432,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 59,
+            "n_races": 2,
+            "mae_s": 3.7849395579919096,
+            "rmse_s": 4.174049669892578,
+            "bias_s": -2.5878632976935796,
+            "race_weighted_mae_s": 3.5434438985204286
+          },
+          "direct_stationary": {
+            "n_events": 57,
+            "n_races": 2,
+            "mae_s": 2.115789473684211,
+            "rmse_s": 2.873198424215125,
+            "bias_s": -0.6251754385964912,
+            "race_weighted_mae_s": 2.207832894736842
+          },
+          "slow_stop_calibration": {
+            "n_events": 57,
+            "n_races": 2,
+            "observed_slow_rate": 0.14035087719298245,
+            "predicted_slow_rate": 0.19650424091650498,
+            "brier_score": 0.12112170664981994
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 1,
+          "lane_crps_s": 2.204708622057442,
+          "service_crps_s": 1.1283073649122808
+        },
+        "test_unseen": {
+          "net_loss_proxy": {
+            "n_events": 11,
+            "n_races": 1,
+            "mae_s": 2.5021578394002586,
+            "rmse_s": 2.723493504938728,
+            "bias_s": -2.4539790112327644,
+            "race_weighted_mae_s": 2.5021578394002586,
+            "coverage_50": 0.7272727272727273,
+            "mean_width_50_s": 6.392936906067265,
+            "coverage_90": 1.0,
+            "mean_width_90_s": 16.62482412511399,
+            "crps_s": 1.6314603957733134,
+            "race_weighted_crps_s": 1.6314603957733134,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 87,
+            "n_races": 4,
+            "mae_s": 4.035939912002431,
+            "rmse_s": 4.80418818395135,
+            "bias_s": 0.4477008128938972,
+            "race_weighted_mae_s": 3.9763792331521843
+          },
+          "direct_stationary": {
+            "n_events": 66,
+            "n_races": 3,
+            "mae_s": 1.9310651515151518,
+            "rmse_s": 2.2866606694969507,
+            "bias_s": -1.4571075757575758,
+            "race_weighted_mae_s": 1.9147901587301586
+          },
+          "slow_stop_calibration": {
+            "n_events": 66,
+            "n_races": 3,
+            "observed_slow_rate": 0.09090909090909091,
+            "predicted_slow_rate": 0.19118556069565212,
+            "brier_score": 0.09133221927362631
+          },
+          "unsupported_events": 43,
+          "excluded_lane_events": 4,
+          "lane_crps_s": 2.767782446853527,
+          "service_crps_s": 0.7336124530303029
+        }
+      }
+    },
+    "combined_descriptive_paired_comparisons": {
+      "test_familiar": {
+        "n_events": 10,
+        "n_races": 2,
+        "race_mean_mae_delta_s": 1.0901794174173471,
+        "p05_delta_s": 0.36709959437743755,
+        "p95_delta_s": 1.8132592404572567,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      },
+      "test_unseen": {
+        "n_events": 11,
+        "n_races": 1,
+        "race_mean_mae_delta_s": 0.6338757042749699,
+        "p05_delta_s": 0.6338757042749699,
+        "p95_delta_s": 0.6338757042749699,
+        "races_improved": 0,
+        "resampling_unit": "race"
+      }
+    }
+  },
+  "reviewed_run_reclassification": {
+    "policy": {
+      "version": "stage4.1-ordinary-v1",
+      "long_stay_threshold_s": 60.0,
+      "allow_screened_unverified": true,
+      "exclude_possible_double_stack": true
+    },
+    "events_retained": 979,
+    "red_overlap_events": 21,
+    "red_overlap_still_eligible": 0,
+    "direct_lane_eligible_before": 944,
+    "direct_lane_eligible_after": 912,
+    "raw_metrics": {
+      "N0": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 2,
+            "n_races": 2,
+            "mae_s": 5.246996367683739,
+            "rmse_s": 7.364726395629803,
+            "bias_s": 5.246996367683739,
+            "race_weighted_mae_s": 5.246996367683739
+          },
+          "direct_stationary": {
+            "n_events": 2,
+            "n_races": 2,
+            "mae_s": 2.8499999999999996,
+            "rmse_s": 3.5734496624410417,
+            "bias_s": 2.1556999999999995,
+            "race_weighted_mae_s": 2.8499999999999996
+          },
+          "slow_stop_calibration": {
+            "n_events": 2,
+            "n_races": 2,
+            "observed_slow_rate": 0.5,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.34669866102536795
+          },
+          "unsupported_events": 2,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 6,
+            "n_races": 2,
+            "mae_s": 1.6147555047537854,
+            "rmse_s": 1.7142528801729613,
+            "bias_s": 0.8084522950900007,
+            "race_weighted_mae_s": 1.5134303321892584
+          },
+          "direct_stationary": {
+            "n_events": 6,
+            "n_races": 2,
+            "mae_s": 0.8516166666666667,
+            "rmse_s": 0.9545660610979211,
+            "bias_s": -0.8516166666666667,
+            "race_weighted_mae_s": 0.9063999999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 6,
+            "n_races": 2,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.2194535143495446,
+            "brier_score": 0.04913727918479643
+          },
+          "unsupported_events": 6,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "N1": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 0.07899636768373952,
+            "rmse_s": 0.07899636768373952,
+            "bias_s": 0.07899636768373952,
+            "race_weighted_mae_s": 0.07899636768373952
+          },
+          "direct_stationary": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 0.6943000000000001,
+            "rmse_s": 0.6943000000000001,
+            "bias_s": -0.6943000000000001,
+            "race_weighted_mae_s": 0.6943000000000001
+          },
+          "slow_stop_calibration": {
+            "n_events": 1,
+            "n_races": 1,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.035734577849564575
+          },
+          "unsupported_events": 1,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 2,
+            "n_races": 1,
+            "mae_s": 2.06834809988284,
+            "rmse_s": 2.0683542270315316,
+            "bias_s": 2.06834809988284,
+            "race_weighted_mae_s": 2.06834809988284
+          },
+          "direct_stationary": {
+            "n_events": 2,
+            "n_races": 1,
+            "mae_s": 0.3973500000000001,
+            "rmse_s": 0.40999771340825797,
+            "bias_s": -0.3973500000000001,
+            "race_weighted_mae_s": 0.3973500000000001
+          },
+          "slow_stop_calibration": {
+            "n_events": 2,
+            "n_races": 1,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.19333218766111016,
+            "brier_score": 0.037395792728934826
+          },
+          "unsupported_events": 2,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "N3": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 10.414996367683738,
+            "rmse_s": 10.414996367683738,
+            "bias_s": 10.414996367683738,
+            "race_weighted_mae_s": 10.414996367683738
+          },
+          "direct_stationary": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 5.005699999999999,
+            "rmse_s": 5.005699999999999,
+            "bias_s": 5.005699999999999,
+            "race_weighted_mae_s": 5.005699999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 1,
+            "n_races": 1,
+            "observed_slow_rate": 1.0,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.6576627442011713
+          },
+          "unsupported_events": 1,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 4,
+            "n_races": 2,
+            "mae_s": 1.3879592071892581,
+            "rmse_s": 1.5063033564101016,
+            "bias_s": 0.17850439269358098,
+            "race_weighted_mae_s": 1.3879592071892581
+          },
+          "direct_stationary": {
+            "n_events": 4,
+            "n_races": 2,
+            "mae_s": 1.0787499999999999,
+            "rmse_s": 1.1325835443798395,
+            "bias_s": -1.0787499999999999,
+            "race_weighted_mae_s": 1.0787499999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 4,
+            "n_races": 2,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.23251417769376181,
+            "brier_score": 0.055008022412727224
+          },
+          "unsupported_events": 4,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P0": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.4652361219789003,
+            "rmse_s": 4.341868758399045,
+            "bias_s": 0.9958422526023588,
+            "race_weighted_mae_s": 3.450880757608281,
+            "coverage_50": 0.8076923076923077,
+            "mean_width_50_s": 8.385658138881784,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 21.515728973546363,
+            "crps_s": 2.61108904032366,
+            "race_weighted_crps_s": 2.6081961355527095,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.1959919456309205,
+            "rmse_s": 5.440022509061453,
+            "bias_s": 3.1332080366722397,
+            "race_weighted_mae_s": 3.8217416114022082
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.7307392837023414,
+            "rmse_s": 5.615552542701602,
+            "bias_s": -0.599705182836501,
+            "race_weighted_mae_s": 6.172121863104321,
+            "coverage_50": 0.8372093023255814,
+            "mean_width_50_s": 5.48415163043951,
+            "coverage_90": 0.9767441860465116,
+            "mean_width_90_s": 14.986065663920687,
+            "crps_s": 1.9927451962818146,
+            "race_weighted_crps_s": 5.244341095181006,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 2.8466010761779574,
+            "rmse_s": 4.563114002728132,
+            "bias_s": 1.3615283615388476,
+            "race_weighted_mae_s": 2.766404940603569
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P1": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.496323552745759,
+            "rmse_s": 4.4519729683299945,
+            "bias_s": 1.399978852571515,
+            "race_weighted_mae_s": 3.495784824271521,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.534294881229944,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 18.860762402661614,
+            "crps_s": 2.605485848424105,
+            "race_weighted_crps_s": 2.604043546694429,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.235524918608802,
+            "rmse_s": 5.525562560416693,
+            "bias_s": 3.2794800366904084,
+            "race_weighted_mae_s": 3.8204751871596265
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.3382298802357475,
+            "rmse_s": 4.871311556868385,
+            "bias_s": 0.12017946556349011,
+            "race_weighted_mae_s": 5.071426392449109,
+            "coverage_50": 0.5581395348837209,
+            "mean_width_50_s": 2.9814719179692335,
+            "coverage_90": 0.9534883720930233,
+            "mean_width_90_s": 8.478190900058538,
+            "crps_s": 1.7408261634749576,
+            "race_weighted_crps_s": 4.445838596599755,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.2031163524101252,
+            "rmse_s": 2.8048750610860114,
+            "bias_s": -0.21107700742913074,
+            "race_weighted_mae_s": 1.1753005692341443
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P10": {
+        "transfer_2026": {
+          "net_loss_proxy": {
+            "n_events": 64,
+            "n_races": 5,
+            "mae_s": 2.4569928007634614,
+            "rmse_s": 5.137625193978639,
+            "bias_s": 0.594321696463392,
+            "race_weighted_mae_s": 3.3220953746072106,
+            "coverage_50": 0.578125,
+            "mean_width_50_s": 3.1686447523108066,
+            "coverage_90": 0.921875,
+            "mean_width_90_s": 9.357377491166439,
+            "crps_s": 1.9674734347726002,
+            "race_weighted_crps_s": 2.6625739858388355,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 150,
+            "n_races": 5,
+            "mae_s": 260.6182556395167,
+            "rmse_s": 683.0193759896621,
+            "bias_s": 259.1621261105556,
+            "race_weighted_mae_s": 277.4467807302383
+          },
+          "direct_stationary": {
+            "n_events": 108,
+            "n_races": 5,
+            "mae_s": 0.8266324074074073,
+            "rmse_s": 1.1042857641010755,
+            "bias_s": -0.1367935185185185,
+            "race_weighted_mae_s": 0.9599059642857142
+          },
+          "slow_stop_calibration": {
+            "n_events": 108,
+            "n_races": 5,
+            "observed_slow_rate": 0.09259259259259259,
+            "predicted_slow_rate": 0.10017549626525166,
+            "brier_score": 0.0835932361885261
+          },
+          "unsupported_events": 23,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P2": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.5224685492741803,
+            "rmse_s": 4.580184009799999,
+            "bias_s": 1.771021632170214,
+            "race_weighted_mae_s": 3.534621384657759,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.497820675026853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.784502476929468,
+            "crps_s": 2.5895856485202198,
+            "race_weighted_crps_s": 2.5883640532611962,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.457003738905178,
+            "rmse_s": 5.978164324709134,
+            "bias_s": 3.9952375261799014,
+            "race_weighted_mae_s": 3.8457028086402505
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8941513513513515,
+            "rmse_s": 3.9936443830978057,
+            "bias_s": 1.6060351351351354,
+            "race_weighted_mae_s": 2.0908331738437003
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.257016861202625,
+            "rmse_s": 4.892603888199038,
+            "bias_s": 0.48425895353083015,
+            "race_weighted_mae_s": 5.0338832172091585,
+            "coverage_50": 0.627906976744186,
+            "mean_width_50_s": 3.1812538327362025,
+            "coverage_90": 0.9534883720930233,
+            "mean_width_90_s": 10.375779078350664,
+            "crps_s": 1.7495971153669618,
+            "race_weighted_crps_s": 4.471027250428984,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 0.8792893658049662,
+            "rmse_s": 2.841877676808212,
+            "bias_s": 0.50469175585621,
+            "race_weighted_mae_s": 0.8561665459165027
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8252469026548672,
+            "rmse_s": 2.815132668764185,
+            "bias_s": 0.43373185840707984,
+            "race_weighted_mae_s": 0.7925822752326737
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P3": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.4785959236904933,
+            "rmse_s": 4.38496280405683,
+            "bias_s": 1.1695196748530603,
+            "race_weighted_mae_s": 3.47017824896947,
+            "coverage_50": 0.7692307692307693,
+            "mean_width_50_s": 7.701966246717196,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.808924387056045,
+            "crps_s": 2.577990248328769,
+            "race_weighted_crps_s": 2.5742382963301704,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.208493921806641,
+            "rmse_s": 5.466795423324571,
+            "bias_s": 3.179465348522409,
+            "race_weighted_mae_s": 3.8213411151957133
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.4048770470315612,
+            "rmse_s": 5.125178751176054,
+            "bias_s": -0.17630144213602117,
+            "race_weighted_mae_s": 5.394007904340798,
+            "coverage_50": 0.627906976744186,
+            "mean_width_50_s": 3.4539303279926963,
+            "coverage_90": 0.9534883720930233,
+            "mean_width_90_s": 9.987139499565453,
+            "crps_s": 1.7470532203673799,
+            "race_weighted_crps_s": 4.681326769729282,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.4713174023414506,
+            "rmse_s": 3.0666275119177264,
+            "bias_s": 0.26343429888309233,
+            "race_weighted_mae_s": 1.4425742603411584
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P4": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.600511871120529,
+            "rmse_s": 4.834286179844705,
+            "bias_s": 2.351330458830652,
+            "race_weighted_mae_s": 3.6312671326083326,
+            "coverage_50": 0.6923076923076923,
+            "mean_width_50_s": 7.497820675026853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.78450247692948,
+            "crps_s": 2.7113580657327643,
+            "race_weighted_crps_s": 2.7169727605056218,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.386737027169688,
+            "rmse_s": 5.838663244379403,
+            "bias_s": 3.7833137166560875,
+            "race_weighted_mae_s": 3.832973094121734
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8941513513513515,
+            "rmse_s": 3.9936443830978057,
+            "bias_s": 1.6060351351351354,
+            "race_weighted_mae_s": 2.0908331738437003
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.177912180302955,
+            "rmse_s": 5.21919280206367,
+            "bias_s": 1.0031208928345585,
+            "race_weighted_mae_s": 5.509576471805808,
+            "coverage_50": 0.6976744186046512,
+            "mean_width_50_s": 3.4097155629698244,
+            "coverage_90": 0.9534883720930233,
+            "mean_width_90_s": 10.710276223008012,
+            "crps_s": 1.7818082694431892,
+            "race_weighted_crps_s": 4.8980251861713615,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3859973937143306,
+            "rmse_s": 3.175978750793469,
+            "bias_s": 0.8677064156866187,
+            "race_weighted_mae_s": 1.3475261737285282
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8252469026548672,
+            "rmse_s": 2.815132668764185,
+            "bias_s": 0.43373185840707984,
+            "race_weighted_mae_s": 0.7925822752326737
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P5": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.6086534960924865,
+            "rmse_s": 4.840422036867754,
+            "bias_s": 2.3429299438980893,
+            "race_weighted_mae_s": 3.639294540603864,
+            "coverage_50": 0.6923076923076923,
+            "mean_width_50_s": 7.356196983988853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.385574984748864,
+            "crps_s": 2.7084640111848324,
+            "race_weighted_crps_s": 2.7139442985298383,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.386468148791309,
+            "rmse_s": 5.838157279895663,
+            "bias_s": 3.7808944058452756,
+            "race_weighted_mae_s": 3.8338661821827955
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8939945945945948,
+            "rmse_s": 3.994576921209487,
+            "bias_s": 1.604537837837838,
+            "race_weighted_mae_s": 2.091908088402825
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.1711382829846233,
+            "rmse_s": 5.202744470857207,
+            "bias_s": 0.9773000226983505,
+            "race_weighted_mae_s": 5.492374887750772,
+            "coverage_50": 0.6976744186046512,
+            "mean_width_50_s": 3.366138390308731,
+            "coverage_90": 0.9534883720930233,
+            "mean_width_90_s": 10.774596113713521,
+            "crps_s": 1.771606026541895,
+            "race_weighted_crps_s": 4.871321176780545,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3786618291665504,
+            "rmse_s": 3.1728852727006,
+            "bias_s": 0.875451698394376,
+            "race_weighted_mae_s": 1.340262427184427
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8230053097345132,
+            "rmse_s": 2.8111336298016445,
+            "bias_s": 0.42990796460176983,
+            "race_weighted_mae_s": 0.7908697497063342
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P6": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.576302222802702,
+            "rmse_s": 4.707021773197465,
+            "bias_s": 1.9612868349755515,
+            "race_weighted_mae_s": 3.594465350359528,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.959595087299082,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.658601589810555,
+            "crps_s": 2.683879456504132,
+            "race_weighted_crps_s": 2.685241547930389,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.1696280555084404,
+            "rmse_s": 5.146935250354813,
+            "bias_s": 0.5560165674733195,
+            "race_weighted_mae_s": 5.369713813373214,
+            "coverage_50": 0.7674418604651163,
+            "mean_width_50_s": 4.262588775948393,
+            "coverage_90": 0.9767441860465116,
+            "mean_width_90_s": 12.327995956371144,
+            "crps_s": 1.815089628219279,
+            "race_weighted_crps_s": 4.797426163725196,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P7": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.578972981888045,
+            "rmse_s": 4.720466990063598,
+            "bias_s": 1.9902260144542974,
+            "race_weighted_mae_s": 3.596779785649551,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.9639387911633195,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.606486438886936,
+            "crps_s": 2.6883279033194913,
+            "race_weighted_crps_s": 2.689171703837888,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.1486760136514773,
+            "rmse_s": 5.134566592245478,
+            "bias_s": 0.5882994420820442,
+            "race_weighted_mae_s": 5.341118578248818,
+            "coverage_50": 0.7674418604651163,
+            "mean_width_50_s": 4.2295731273733965,
+            "coverage_90": 0.9767441860465116,
+            "mean_width_90_s": 12.230297641542263,
+            "crps_s": 1.8091856610729253,
+            "race_weighted_crps_s": 4.785689739251166,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P8": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.578972981888045,
+            "rmse_s": 4.720466990063598,
+            "bias_s": 1.9902260144542974,
+            "race_weighted_mae_s": 3.596779785649551,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.9639387911633195,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.606486438886936,
+            "crps_s": 2.6883279033194913,
+            "race_weighted_crps_s": 2.689171703837888,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 43,
+            "n_races": 4,
+            "mae_s": 2.1486760136514773,
+            "rmse_s": 5.134566592245478,
+            "bias_s": 0.5882994420820442,
+            "race_weighted_mae_s": 5.341118578248818,
+            "coverage_50": 0.7674418604651163,
+            "mean_width_50_s": 4.2295731273733965,
+            "coverage_90": 0.9767441860465116,
+            "mean_width_90_s": 12.230297641542263,
+            "crps_s": 1.8091856610729253,
+            "race_weighted_crps_s": 4.785689739251166,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P9": {
+        "transfer_2026": {
+          "net_loss_proxy": {
+            "n_events": 64,
+            "n_races": 5,
+            "mae_s": 2.399376988562519,
+            "rmse_s": 5.121032723647477,
+            "bias_s": 0.7395849283709834,
+            "race_weighted_mae_s": 3.2563775414824585,
+            "coverage_50": 0.5625,
+            "mean_width_50_s": 3.227186981778524,
+            "coverage_90": 0.921875,
+            "mean_width_90_s": 9.512677510329874,
+            "crps_s": 1.9431999616311169,
+            "race_weighted_crps_s": 2.636630363789687,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 150,
+            "n_races": 5,
+            "mae_s": 260.6363086724999,
+            "rmse_s": 683.0321806652902,
+            "bias_s": 259.1855687476496,
+            "race_weighted_mae_s": 277.4621372235221
+          },
+          "direct_stationary": {
+            "n_events": 108,
+            "n_races": 5,
+            "mae_s": 0.8329490740740739,
+            "rmse_s": 1.1529019367809792,
+            "bias_s": -0.12543425925925927,
+            "race_weighted_mae_s": 0.9882445357142856
+          },
+          "slow_stop_calibration": {
+            "n_events": 108,
+            "n_races": 5,
+            "observed_slow_rate": 0.09259259259259259,
+            "predicted_slow_rate": 0.10033429420318579,
+            "brier_score": 0.08450104974375554
+          },
+          "unsupported_events": 23,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      }
+    },
+    "ordinary_policy_metrics": {
+      "N0": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 2,
+            "n_races": 2,
+            "mae_s": 5.246996367683739,
+            "rmse_s": 7.364726395629803,
+            "bias_s": 5.246996367683739,
+            "race_weighted_mae_s": 5.246996367683739
+          },
+          "direct_stationary": {
+            "n_events": 2,
+            "n_races": 2,
+            "mae_s": 2.8499999999999996,
+            "rmse_s": 3.5734496624410417,
+            "bias_s": 2.1556999999999995,
+            "race_weighted_mae_s": 2.8499999999999996
+          },
+          "slow_stop_calibration": {
+            "n_events": 2,
+            "n_races": 2,
+            "observed_slow_rate": 0.5,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.34669866102536795
+          },
+          "unsupported_events": 2,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 6,
+            "n_races": 2,
+            "mae_s": 1.6147555047537854,
+            "rmse_s": 1.7142528801729613,
+            "bias_s": 0.8084522950900007,
+            "race_weighted_mae_s": 1.5134303321892584
+          },
+          "direct_stationary": {
+            "n_events": 6,
+            "n_races": 2,
+            "mae_s": 0.8516166666666667,
+            "rmse_s": 0.9545660610979211,
+            "bias_s": -0.8516166666666667,
+            "race_weighted_mae_s": 0.9063999999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 6,
+            "n_races": 2,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.2194535143495446,
+            "brier_score": 0.04913727918479643
+          },
+          "unsupported_events": 6,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "N1": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 0.07899636768373952,
+            "rmse_s": 0.07899636768373952,
+            "bias_s": 0.07899636768373952,
+            "race_weighted_mae_s": 0.07899636768373952
+          },
+          "direct_stationary": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 0.6943000000000001,
+            "rmse_s": 0.6943000000000001,
+            "bias_s": -0.6943000000000001,
+            "race_weighted_mae_s": 0.6943000000000001
+          },
+          "slow_stop_calibration": {
+            "n_events": 1,
+            "n_races": 1,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.035734577849564575
+          },
+          "unsupported_events": 1,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 2,
+            "n_races": 1,
+            "mae_s": 2.06834809988284,
+            "rmse_s": 2.0683542270315316,
+            "bias_s": 2.06834809988284,
+            "race_weighted_mae_s": 2.06834809988284
+          },
+          "direct_stationary": {
+            "n_events": 2,
+            "n_races": 1,
+            "mae_s": 0.3973500000000001,
+            "rmse_s": 0.40999771340825797,
+            "bias_s": -0.3973500000000001,
+            "race_weighted_mae_s": 0.3973500000000001
+          },
+          "slow_stop_calibration": {
+            "n_events": 2,
+            "n_races": 1,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.19333218766111016,
+            "brier_score": 0.037395792728934826
+          },
+          "unsupported_events": 2,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "N3": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 10.414996367683738,
+            "rmse_s": 10.414996367683738,
+            "bias_s": 10.414996367683738,
+            "race_weighted_mae_s": 10.414996367683738
+          },
+          "direct_stationary": {
+            "n_events": 1,
+            "n_races": 1,
+            "mae_s": 5.005699999999999,
+            "rmse_s": 5.005699999999999,
+            "bias_s": 5.005699999999999,
+            "race_weighted_mae_s": 5.005699999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 1,
+            "n_races": 1,
+            "observed_slow_rate": 1.0,
+            "predicted_slow_rate": 0.1890359168241966,
+            "brier_score": 0.6576627442011713
+          },
+          "unsupported_events": 1,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "direct_lane": {
+            "n_events": 4,
+            "n_races": 2,
+            "mae_s": 1.3879592071892581,
+            "rmse_s": 1.5063033564101016,
+            "bias_s": 0.17850439269358098,
+            "race_weighted_mae_s": 1.3879592071892581
+          },
+          "direct_stationary": {
+            "n_events": 4,
+            "n_races": 2,
+            "mae_s": 1.0787499999999999,
+            "rmse_s": 1.1325835443798395,
+            "bias_s": -1.0787499999999999,
+            "race_weighted_mae_s": 1.0787499999999999
+          },
+          "slow_stop_calibration": {
+            "n_events": 4,
+            "n_races": 2,
+            "observed_slow_rate": 0.0,
+            "predicted_slow_rate": 0.23251417769376181,
+            "brier_score": 0.055008022412727224
+          },
+          "unsupported_events": 4,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P0": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.4652361219789003,
+            "rmse_s": 4.341868758399045,
+            "bias_s": 0.9958422526023588,
+            "race_weighted_mae_s": 3.450880757608281,
+            "coverage_50": 0.8076923076923077,
+            "mean_width_50_s": 8.385658138881784,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 21.515728973546363,
+            "crps_s": 2.61108904032366,
+            "race_weighted_crps_s": 2.6081961355527095,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.1959919456309205,
+            "rmse_s": 5.440022509061453,
+            "bias_s": 3.1332080366722397,
+            "race_weighted_mae_s": 3.8217416114022082
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.7957115508993726,
+            "rmse_s": 5.682011091505775,
+            "bias_s": -0.6140292124618232,
+            "race_weighted_mae_s": 6.196739547061731,
+            "coverage_50": 0.8333333333333334,
+            "mean_width_50_s": 5.492185402711535,
+            "coverage_90": 0.9761904761904762,
+            "mean_width_90_s": 15.006536468191658,
+            "crps_s": 2.0153514730529967,
+            "race_weighted_crps_s": 5.2461158659805065,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 2.8466010761779574,
+            "rmse_s": 4.563114002728132,
+            "bias_s": 1.3615283615388476,
+            "race_weighted_mae_s": 2.766404940603569
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P1": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.496323552745759,
+            "rmse_s": 4.4519729683299945,
+            "bias_s": 1.399978852571515,
+            "race_weighted_mae_s": 3.495784824271521,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.534294881229944,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 18.860762402661614,
+            "crps_s": 2.605485848424105,
+            "race_weighted_crps_s": 2.604043546694429,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.235524918608802,
+            "rmse_s": 5.525562560416693,
+            "bias_s": 3.2794800366904084,
+            "race_weighted_mae_s": 3.8204751871596265
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.372878396336215,
+            "rmse_s": 4.927078736995093,
+            "bias_s": 0.10201725750509409,
+            "race_weighted_mae_s": 5.077085985699001,
+            "coverage_50": 0.5714285714285714,
+            "mean_width_50_s": 2.9838903572535878,
+            "coverage_90": 0.9523809523809523,
+            "mean_width_90_s": 8.486262032255553,
+            "crps_s": 1.7575502223110515,
+            "race_weighted_crps_s": 4.4432624519265635,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.2031163524101252,
+            "rmse_s": 2.8048750610860114,
+            "bias_s": -0.21107700742913074,
+            "race_weighted_mae_s": 1.1753005692341443
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P10": {
+        "transfer_2026": {
+          "net_loss_proxy": {
+            "n_events": 56,
+            "n_races": 5,
+            "mae_s": 1.7664644895471995,
+            "rmse_s": 2.5382377172308606,
+            "bias_s": -0.2721545421914387,
+            "race_weighted_mae_s": 2.1088498705359013,
+            "coverage_50": 0.6071428571428571,
+            "mean_width_50_s": 3.1476861943515906,
+            "coverage_90": 0.9464285714285714,
+            "mean_width_90_s": 9.104049959643735,
+            "crps_s": 1.314668125329608,
+            "race_weighted_crps_s": 1.5380779782881873,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 128,
+            "n_races": 5,
+            "mae_s": 1.256588895714593,
+            "rmse_s": 2.0344596223441522,
+            "bias_s": -0.44981289603654706,
+            "race_weighted_mae_s": 1.8004857122166846
+          },
+          "direct_stationary": {
+            "n_events": 108,
+            "n_races": 5,
+            "mae_s": 0.8266324074074073,
+            "rmse_s": 1.1042857641010755,
+            "bias_s": -0.1367935185185185,
+            "race_weighted_mae_s": 0.9599059642857142
+          },
+          "slow_stop_calibration": {
+            "n_events": 108,
+            "n_races": 5,
+            "observed_slow_rate": 0.09259259259259259,
+            "predicted_slow_rate": 0.10017549626525166,
+            "brier_score": 0.0835932361885261
+          },
+          "unsupported_events": 23,
+          "excluded_lane_events": 22,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P2": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.5224685492741803,
+            "rmse_s": 4.580184009799999,
+            "bias_s": 1.771021632170214,
+            "race_weighted_mae_s": 3.534621384657759,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.497820675026853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.784502476929468,
+            "crps_s": 2.5895856485202198,
+            "race_weighted_crps_s": 2.5883640532611962,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.457003738905178,
+            "rmse_s": 5.978164324709134,
+            "bias_s": 3.9952375261799014,
+            "race_weighted_mae_s": 3.8457028086402505
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8941513513513515,
+            "rmse_s": 3.9936443830978057,
+            "bias_s": 1.6060351351351354,
+            "race_weighted_mae_s": 2.0908331738437003
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.281383576370301,
+            "rmse_s": 4.946845616289442,
+            "bias_s": 0.46641714708727244,
+            "race_weighted_mae_s": 5.033297040857674,
+            "coverage_50": 0.6190476190476191,
+            "mean_width_50_s": 3.1845851255470787,
+            "coverage_90": 0.9523809523809523,
+            "mean_width_90_s": 10.381301107491478,
+            "crps_s": 1.7671226476214,
+            "race_weighted_crps_s": 4.4689499463538205,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 0.8792893658049662,
+            "rmse_s": 2.841877676808212,
+            "bias_s": 0.50469175585621,
+            "race_weighted_mae_s": 0.8561665459165027
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8252469026548672,
+            "rmse_s": 2.815132668764185,
+            "bias_s": 0.43373185840707984,
+            "race_weighted_mae_s": 0.7925822752326737
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P3": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.4785959236904933,
+            "rmse_s": 4.38496280405683,
+            "bias_s": 1.1695196748530603,
+            "race_weighted_mae_s": 3.47017824896947,
+            "coverage_50": 0.7692307692307693,
+            "mean_width_50_s": 7.701966246717196,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.808924387056045,
+            "crps_s": 2.577990248328769,
+            "race_weighted_crps_s": 2.5742382963301704,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.208493921806641,
+            "rmse_s": 5.466795423324571,
+            "bias_s": 3.179465348522409,
+            "race_weighted_mae_s": 3.8213411151957133
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.4484321985470556,
+            "rmse_s": 5.1850733356951055,
+            "bias_s": -0.19420292131499303,
+            "race_weighted_mae_s": 5.406069965534411,
+            "coverage_50": 0.6190476190476191,
+            "mean_width_50_s": 3.457967302527692,
+            "coverage_90": 0.9523809523809523,
+            "mean_width_90_s": 9.995345066739633,
+            "crps_s": 1.7668962326568314,
+            "race_weighted_crps_s": 4.681231466308706,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.4713174023414506,
+            "rmse_s": 3.0666275119177264,
+            "bias_s": 0.26343429888309233,
+            "race_weighted_mae_s": 1.4425742603411584
+          },
+          "direct_stationary": {
+            "n_events": 0,
+            "n_races": 0,
+            "status": "NO_EVALUABLE_EVENTS"
+          },
+          "slow_stop_calibration": {},
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P4": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.600511871120529,
+            "rmse_s": 4.834286179844705,
+            "bias_s": 2.351330458830652,
+            "race_weighted_mae_s": 3.6312671326083326,
+            "coverage_50": 0.6923076923076923,
+            "mean_width_50_s": 7.497820675026853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.78450247692948,
+            "crps_s": 2.7113580657327643,
+            "race_weighted_crps_s": 2.7169727605056218,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.386737027169688,
+            "rmse_s": 5.838663244379403,
+            "bias_s": 3.7833137166560875,
+            "race_weighted_mae_s": 3.832973094121734
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8941513513513515,
+            "rmse_s": 3.9936443830978057,
+            "bias_s": 1.6060351351351354,
+            "race_weighted_mae_s": 2.0908331738437003
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.188347458880426,
+            "rmse_s": 5.274133976558103,
+            "bias_s": 0.98558495028183,
+            "race_weighted_mae_s": 5.501846749203993,
+            "coverage_50": 0.7142857142857143,
+            "mean_width_50_s": 3.4151906965021306,
+            "coverage_90": 0.9523809523809523,
+            "mean_width_90_s": 10.720525201369304,
+            "crps_s": 1.7936582717729597,
+            "race_weighted_crps_s": 4.892585327255682,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3859973937143306,
+            "rmse_s": 3.175978750793469,
+            "bias_s": 0.8677064156866187,
+            "race_weighted_mae_s": 1.3475261737285282
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8252469026548672,
+            "rmse_s": 2.815132668764185,
+            "bias_s": 0.43373185840707984,
+            "race_weighted_mae_s": 0.7925822752326737
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P5": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.6086534960924865,
+            "rmse_s": 4.840422036867754,
+            "bias_s": 2.3429299438980893,
+            "race_weighted_mae_s": 3.639294540603864,
+            "coverage_50": 0.6923076923076923,
+            "mean_width_50_s": 7.356196983988853,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 19.385574984748864,
+            "crps_s": 2.7084640111848324,
+            "race_weighted_crps_s": 2.7139442985298383,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.386468148791309,
+            "rmse_s": 5.838157279895663,
+            "bias_s": 3.7808944058452756,
+            "race_weighted_mae_s": 3.8338661821827955
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 1.8939945945945948,
+            "rmse_s": 3.994576921209487,
+            "bias_s": 1.604537837837838,
+            "race_weighted_mae_s": 2.091908088402825
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.20270270270270271
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.181530274207244,
+            "rmse_s": 5.257508361294648,
+            "bias_s": 0.9592672934379645,
+            "race_weighted_mae_s": 5.484647145305039,
+            "coverage_50": 0.7142857142857143,
+            "mean_width_50_s": 3.372736002053761,
+            "coverage_90": 0.9523809523809523,
+            "mean_width_90_s": 10.788206829954454,
+            "crps_s": 1.7831105028305156,
+            "race_weighted_crps_s": 4.865775762090288,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3786618291665504,
+            "rmse_s": 3.1728852727006,
+            "bias_s": 0.875451698394376,
+            "race_weighted_mae_s": 1.340262427184427
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 0.8230053097345132,
+            "rmse_s": 2.8111336298016445,
+            "bias_s": 0.42990796460176983,
+            "race_weighted_mae_s": 0.7908697497063342
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.0,
+            "brier_score": 0.061946902654867256
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P6": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.576302222802702,
+            "rmse_s": 4.707021773197465,
+            "bias_s": 1.9612868349755515,
+            "race_weighted_mae_s": 3.594465350359528,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.959595087299082,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.658601589810555,
+            "crps_s": 2.683879456504132,
+            "race_weighted_crps_s": 2.685241547930389,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.188398360869091,
+            "rmse_s": 5.203484649745656,
+            "bias_s": 0.5363675516902766,
+            "race_weighted_mae_s": 5.36763397535049,
+            "coverage_50": 0.7619047619047619,
+            "mean_width_50_s": 4.271244345864689,
+            "coverage_90": 0.9761904761904762,
+            "mean_width_90_s": 12.339579700622354,
+            "crps_s": 1.8269290352460388,
+            "race_weighted_crps_s": 4.7931597218331445,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P7": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.578972981888045,
+            "rmse_s": 4.720466990063598,
+            "bias_s": 1.9902260144542974,
+            "race_weighted_mae_s": 3.596779785649551,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.9639387911633195,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.606486438886936,
+            "crps_s": 2.6883279033194913,
+            "race_weighted_crps_s": 2.689171703837888,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.1690314179479993,
+            "rmse_s": 5.191496021007735,
+            "bias_s": 0.5715030232459606,
+            "race_weighted_mae_s": 5.339961976273636,
+            "coverage_50": 0.7619047619047619,
+            "mean_width_50_s": 4.238298197803037,
+            "coverage_90": 0.9761904761904762,
+            "mean_width_90_s": 12.242026379469104,
+            "crps_s": 1.8219484057103152,
+            "race_weighted_crps_s": 4.7819800956915675,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P8": {
+        "test": {
+          "net_loss_proxy": {
+            "n_events": 26,
+            "n_races": 3,
+            "mae_s": 3.578972981888045,
+            "rmse_s": 4.720466990063598,
+            "bias_s": 1.9902260144542974,
+            "race_weighted_mae_s": 3.596779785649551,
+            "coverage_50": 0.7307692307692307,
+            "mean_width_50_s": 7.9639387911633195,
+            "coverage_90": 0.9615384615384616,
+            "mean_width_90_s": 20.606486438886936,
+            "crps_s": 2.6883279033194913,
+            "race_weighted_crps_s": 2.689171703837888,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 4.287697686816348,
+            "rmse_s": 5.644594979675909,
+            "bias_s": 3.4433832325486033,
+            "race_weighted_mae_s": 3.832600334889928
+          },
+          "direct_stationary": {
+            "n_events": 74,
+            "n_races": 3,
+            "mae_s": 2.171044594594595,
+            "rmse_s": 3.738230424820553,
+            "bias_s": 0.6113094594594592,
+            "race_weighted_mae_s": 2.4129288334472547
+          },
+          "slow_stop_calibration": {
+            "n_events": 74,
+            "n_races": 3,
+            "observed_slow_rate": 0.20270270270270271,
+            "predicted_slow_rate": 0.220603057086989,
+            "brier_score": 0.16468080328816512
+          },
+          "unsupported_events": 5,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        },
+        "val": {
+          "net_loss_proxy": {
+            "n_events": 42,
+            "n_races": 4,
+            "mae_s": 2.1690314179479993,
+            "rmse_s": 5.191496021007735,
+            "bias_s": 0.5715030232459606,
+            "race_weighted_mae_s": 5.339961976273636,
+            "coverage_50": 0.7619047619047619,
+            "mean_width_50_s": 4.238298197803037,
+            "coverage_90": 0.9761904761904762,
+            "mean_width_90_s": 12.242026379469104,
+            "crps_s": 1.8219484057103152,
+            "race_weighted_crps_s": 4.7819800956915675,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 115,
+            "n_races": 4,
+            "mae_s": 1.3770704839692194,
+            "rmse_s": 3.0822919784486036,
+            "bias_s": 0.5140064948350859,
+            "race_weighted_mae_s": 1.3509256176871216
+          },
+          "direct_stationary": {
+            "n_events": 113,
+            "n_races": 4,
+            "mae_s": 1.425399115044248,
+            "rmse_s": 2.8361879240038887,
+            "bias_s": -0.5604734513274336,
+            "race_weighted_mae_s": 1.3980961685642002
+          },
+          "slow_stop_calibration": {
+            "n_events": 113,
+            "n_races": 4,
+            "observed_slow_rate": 0.061946902654867256,
+            "predicted_slow_rate": 0.21797159964013438,
+            "brier_score": 0.08336467263434379
+          },
+          "unsupported_events": 15,
+          "excluded_lane_events": 0,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      },
+      "P9": {
+        "transfer_2026": {
+          "net_loss_proxy": {
+            "n_events": 56,
+            "n_races": 5,
+            "mae_s": 1.6846508418123307,
+            "rmse_s": 2.457969531122,
+            "bias_s": -0.12430905647136768,
+            "race_weighted_mae_s": 2.0362369914605885,
+            "coverage_50": 0.5892857142857143,
+            "mean_width_50_s": 3.2125514302868927,
+            "coverage_90": 0.9464285714285714,
+            "mean_width_90_s": 9.320460485531985,
+            "crps_s": 1.2730815301549046,
+            "race_weighted_crps_s": 1.506718843133081,
+            "median_label_std_s": 1.0089598604503551
+          },
+          "direct_lane": {
+            "n_events": 128,
+            "n_races": 5,
+            "mae_s": 1.2721792548741881,
+            "rmse_s": 2.059248390085605,
+            "bias_s": -0.4279065945598531,
+            "race_weighted_mae_s": 1.8317127454627067
+          },
+          "direct_stationary": {
+            "n_events": 108,
+            "n_races": 5,
+            "mae_s": 0.8329490740740739,
+            "rmse_s": 1.1529019367809792,
+            "bias_s": -0.12543425925925927,
+            "race_weighted_mae_s": 0.9882445357142856
+          },
+          "slow_stop_calibration": {
+            "n_events": 108,
+            "n_races": 5,
+            "observed_slow_rate": 0.09259259259259259,
+            "predicted_slow_rate": 0.10033429420318579,
+            "brier_score": 0.08450104974375554
+          },
+          "unsupported_events": 23,
+          "excluded_lane_events": 22,
+          "lane_crps_s": null,
+          "service_crps_s": null
+        }
+      }
+    }
+  },
+  "report_sha256": "4af99fc306df99c0f2207a27d681612ee8f19359877cb7ac365a186f176ebbd7"
+}

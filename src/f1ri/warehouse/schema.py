@@ -77,6 +77,7 @@ REFERENCE_SCHEMAS: dict[str, dict[str, str]] = {
         ("pit_speed_limit_kph", "DOUBLE"), ("effective_from_utc", "TIMESTAMPTZ"),
         ("effective_to_utc", "TIMESTAMPTZ"), ("available_as_of_utc", "TIMESTAMPTZ"),
         ("source_url", "VARCHAR"), ("mapping_confidence", "VARCHAR"), ("notes", "VARCHAR"),
+        ("source_sha256", "VARCHAR"), ("source_quote", "VARCHAR"), ("verification_status", "VARCHAR"),
     ]),
     "compound_allocations": OrderedDict([
         ("meeting_key", "BIGINT"), ("season", "INTEGER"),
@@ -89,6 +90,10 @@ REFERENCE_SCHEMAS: dict[str, dict[str, str]] = {
 
 
 PIT_EVENT_SCHEMA = {
+    **dict.fromkeys(("routine_status", "classification_flags_json", "eligibility_exclusion_reasons_json",
+                     "classification_policy_version", "eligibility_grade", "net_label_exclusion_reasons_json"), "VARCHAR"),
+    "long_stay_review_threshold_s": "DOUBLE", "eligible_direct_stationary": "BOOLEAN",
+    "blue_flag_overlap": "BOOLEAN", "multiple_pit_transitions": "BOOLEAN",
     **dict.fromkeys(("pit_event_id", "old_stint_id", "new_stint_id", "old_compound",
                      "new_compound", "circuit_short_name", "team_id", "track_state_at_pit",
                      "track_state_at_exit", "transition_track_status", "lane_track_status",

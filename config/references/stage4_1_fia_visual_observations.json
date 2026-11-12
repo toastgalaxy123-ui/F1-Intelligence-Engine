@@ -1,0 +1,26 @@
+[
+  {
+    "session_key": 9655,
+    "source_sha256": "d6988bb22d24480a4988b3b6a0aa30727fc093cdf520d6291b56001f36e651b7",
+    "pdf_page": 3,
+    "pit_speed_limit_kph": 80,
+    "observation": "Visual observation, PDF page 3: the 2024 Qatar GP pit lane drawing dated 28 November 2024, V1, shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+    "review_method": "Direct inspection of rendered official PDF page"
+  },
+  {
+    "session_key": 9850,
+    "source_sha256": "97cf896ba89c89c707357c948ccfb4b77e02a2347d5d7483febd75bb3ae418d7",
+    "pdf_page": 3,
+    "pit_speed_limit_kph": 80,
+    "observation": "Visual observation, PDF page 3: the 2025 Qatar GP pit lane drawing dated 27 November 2025, V1, shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+    "review_method": "Direct inspection of rendered official PDF page"
+  },
+  {
+    "session_key": 9904,
+    "source_sha256": "48b475a35de6b0f9b42b0900764fe8a06e2f2278fba8ae48e6d127696ce47855",
+    "pdf_page": 2,
+    "pit_speed_limit_kph": 80,
+    "observation": "Visual observation, PDF page 2: the 2025 Azerbaijan pit lane drawing dated 17 September 2025 shows an 80 sign in the photograph labelled Pit Lane Starts. This verifies the depicted sign, not a measured route length or provider timestamp boundary.",
+    "review_method": "Direct inspection of rendered official PDF page"
+  }
+]
