@@ -23,6 +23,9 @@ class Scheduler:
         self._generation[driver_number] += 1
         return self._generation[driver_number]
 
+    def generation(self, driver_number: int) -> int:
+        return self._generation[driver_number]
+
     def schedule(self, event: Event) -> None:
         driver = event.driver_number
         if driver is not None and driver not in self._grid:

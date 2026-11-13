@@ -216,6 +216,7 @@ def _run_timeline(
         elif after_event is None or applied.kind not in {
             EventKind.OVERTAKE_ATTEMPT, EventKind.ON_TRACK_PASS, EventKind.SCENARIO_WINDOW_END,
             EventKind.RACE_CONTROL, EventKind.SC_QUEUE_UPDATE,
+            EventKind.PIT_DECISION, EventKind.PIT_BOX_ARRIVAL,
         }:
             raise ValueError(f"Unsupported Stage 5 event {event.kind.name}")
         if all(car.status is not CarStatus.ACTIVE for car in state.cars):

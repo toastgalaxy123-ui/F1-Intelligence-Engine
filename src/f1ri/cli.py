@@ -136,6 +136,12 @@ def main() -> None:
     for name in ("warehouse", "stage3-root", "s4-a-replay", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
     p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s5_a_neutralization_mechanics.yaml"))
+    p = sub.add_parser("stage5-s5-a1", help="Validate progress-bound pit entry and per-driver SC release")
+    for name in ("baseline", "imola", "output"):
+        p.add_argument(f"--{name}", type=Path, required=True)
+    for name in ("warehouse", "stage3-root", "s4-replay"):
+        p.add_argument(f"--{name}", type=Path)
+    p.add_argument("--frozen-inputs", action="store_true", help="Use the hash-verified archived S5-A scenario inputs")
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -258,6 +264,16 @@ def main() -> None:
 
         print(run_study(root, root / args.warehouse, root / args.stage3_root, root / args.s4_a_replay,
                         root / args.output, root / args.plan))
+    elif args.command == "stage5-s5-a1":
+        import_paths = (args.warehouse, args.stage3_root, args.s4_replay)
+        if not args.frozen_inputs and not all(import_paths):
+            parser.error("stage5-s5-a1 requires --warehouse, --stage3-root and --s4-replay without --frozen-inputs")
+        from f1ri.validation.pit_restart_study import run_stabilization
+
+        warehouse, stage3_root, s4_replay = (root / path if path is not None else None for path in import_paths)
+        print(run_stabilization(root, warehouse, stage3_root, root / args.baseline,
+                                s4_replay, root / args.imola, root / args.output,
+                                frozen_inputs=args.frozen_inputs))
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

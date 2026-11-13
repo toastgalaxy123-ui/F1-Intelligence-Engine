@@ -49,16 +49,20 @@ class NeutralizationRun:
     controls: tuple[dict, ...] = ()
     progress: tuple[dict, ...] = ()
     rule_profile: RaceControlProfile | None = None
+    pit_ledger: tuple[dict, ...] = ()
+    restart_permissions: tuple[dict, ...] = ()
 
 
 def simulate_neutralization(
     initial, physical, clean_lap_s, controls, *, laps, attempts=(), environment=(),
     minimum_gap_s=.1, end_us=None, profile=_DEFAULT_PROFILE,
+    pit_decisions=(), individual_restart=False,
 ):
     """Execute only the supplied intervention script. No random stream is read."""
     controls, attempts = tuple(controls), tuple(attempts)
     environment = tuple(replace(event, generation=None) for event in environment)
-    if not controls:
+    pit_decisions = tuple(pit_decisions)
+    if not controls and not pit_decisions:
         return NeutralizationRun(simulate_scripted_overtaking(
             initial, physical, clean_lap_s, attempts, laps=laps, environment=environment,
             minimum_gap_s=minimum_gap_s, end_us=end_us,
@@ -80,8 +84,15 @@ def simulate_neutralization(
         rows = tuple({"event": asdict(e), "outcome": O.UNSUPPORTED, "reason": "PHYSICAL_PREFIX_UNSUPPORTED"}
                      for e in controls)
         return NeutralizationRun(baseline, rows, rule_profile=profile)
-    motion = _NeutralizedField(initial, physical, clean_lap_s, laps, minimum_gap_s, attempts,
-                               environment, end_us, controls=controls, profile=profile)
+    options = {}
+    field_type = _NeutralizedField
+    if pit_decisions or individual_restart:
+        from f1ri.simulator.pit_restart import StabilizedField
+
+        field_type = StabilizedField
+        options = {"pit_decisions": pit_decisions, "individual_restart": individual_restart}
+    motion = field_type(initial, physical, clean_lap_s, laps, minimum_gap_s, attempts,
+                        environment, end_us, controls=controls, profile=profile, **options)
     run = _run_timeline(initial, motion.events(), capability="S5-A", before_event=motion.before_event,
                         after_event=motion.on_event)
     for a in attempts:
@@ -95,7 +106,9 @@ def simulate_neutralization(
         motion.record(motion.release, O.CANCELLED, "RELEASE_CONDITION_UNMET_AT_END",
                       motion.phase, run.final_state.race_clock_us)
     execution = OvertakingRun(initial, run, tuple(motion.crossings), tuple(motion.results), tuple(motion.trace), {})
-    return NeutralizationRun(execution, tuple(motion.controls), tuple(motion.progress), profile)
+    return NeutralizationRun(execution, tuple(motion.controls), tuple(motion.progress), profile,
+                             tuple(getattr(motion, "pit_ledger", ())),
+                             tuple(getattr(motion, "restart_permissions", ())))
 
 
 class _NeutralizedField(_DynamicField):
@@ -322,7 +335,7 @@ class _NeutralizedField(_DynamicField):
             return reject(O.UNSUPPORTED, "RESTART_ORDER_OR_MODE_UNSUPPORTED")
         if state.phase is RacePhase.FINISHING and e.command not in (C.LOCAL, C.GREEN):
             return reject(O.UNSUPPORTED, "NEW_INTERVENTION_AFTER_CHEQUERED")
-        if e.command is C.GREEN and previous is P.SC_RESTART_PENDING and self.release_lines:
+        if e.command is C.GREEN and previous is P.SC_RESTART_PENDING and self._defer_team_release():
             if self.release:
                 return reject(O.REJECTED, "RELEASE_ALREADY_PENDING")
             self.release = e
@@ -351,6 +364,9 @@ class _NeutralizedField(_DynamicField):
         self.record(e, O.COMMITTED, None, previous, clock, phases)
         return Event(clock, EventKind.TRACK_STATE_CHANGE, track_state=coarse_track(self.phase, self.local),
                      source=e.source)
+
+    def _defer_team_release(self):
+        return bool(self.release_lines)
 
     def before_event(self, event, state):
         if event.kind is EventKind.RACE_CONTROL:

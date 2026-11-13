@@ -20,7 +20,7 @@ def _read(con, sql, key):
     return [dict(zip(columns, row, strict=True)) for row in rows.fetchall()]
 
 
-def historical_cases(root, warehouse, profile):
+def historical_cases(root, warehouse, profile, *, individual_restart=False):
     controls, runs, evidence = {}, {}, {}
     with duckdb.connect(str(warehouse), read_only=True) as con:
         con.execute("SET TimeZone='UTC'")
@@ -106,7 +106,7 @@ def historical_cases(root, warehouse, profile):
                 finish = interval["end_utc"] + timedelta(seconds=200)
                 pace = {c.driver_number: 94. for c in order}
                 runs[ident] = simulate_neutralization(declared, physical, pace, events, laps=18, end_us=end,
-                                                      profile=profile)
+                                                      profile=profile, individual_restart=individual_restart)
                 controls[ident] = {"initial": declared, "physical": physical, "declared_pace_s": pace, "commands": events}
                 observed_lines = [{"utc": retrospective.run.final_state.race_start_utc
                                    + timedelta(microseconds=f.event.at_us), "driver": f.event.driver_number,

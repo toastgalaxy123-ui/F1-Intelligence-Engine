@@ -1,0 +1,537 @@
+{
+  "version": "s5-a1-pit-restart-v1",
+  "baseline_revision": "4f785f493771ba0ed72735f240a04c4c2165dc69",
+  "synthetic_cases": 31,
+  "historical_cases": 6,
+  "new_openf1_requests": 0,
+  "pit_accounting": [
+    {
+      "scenario": "dynamic_green",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 160000000,
+      "entry_shift_us": 0,
+      "arrival_us": 182000000,
+      "service_start_us": 182000000,
+      "service_end_us": 185000000,
+      "merge_us": 217000000,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 31666667,
+      "strategic_loss_us": 25333333,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    },
+    {
+      "scenario": "p2_vsc",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 162133334,
+      "entry_shift_us": 2133334,
+      "arrival_us": 184133334,
+      "service_start_us": 184133334,
+      "service_end_us": 187133334,
+      "merge_us": 219133334,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 48555555,
+      "strategic_loss_us": 8444445,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    },
+    {
+      "scenario": "p3_vsc_ends",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 160695653,
+      "entry_shift_us": 695653,
+      "arrival_us": 182695653,
+      "service_start_us": 182695653,
+      "service_end_us": 185695653,
+      "merge_us": 217695653,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 31666666,
+      "strategic_loss_us": 25333334,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    },
+    {
+      "scenario": "p4_sc",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 163500000,
+      "entry_shift_us": 3500000,
+      "arrival_us": 185500000,
+      "service_start_us": 185500000,
+      "service_end_us": 188500000,
+      "merge_us": 220500000,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 59375001,
+      "strategic_loss_us": -2375001,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    },
+    {
+      "scenario": "p5_red",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 188000000,
+      "entry_shift_us": 28000000,
+      "arrival_us": 210000000,
+      "service_start_us": 210000000,
+      "service_end_us": 213000000,
+      "merge_us": 245000000,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 31666667,
+      "strategic_loss_us": 25333333,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    },
+    {
+      "scenario": "p14_rejoin",
+      "driver": 63,
+      "reference_entry_us": 160000000,
+      "entry_us": 160000000,
+      "entry_shift_us": 0,
+      "arrival_us": 182000000,
+      "service_start_us": 182000000,
+      "service_end_us": 185000000,
+      "merge_us": 217000000,
+      "elapsed_pit_us": 57000000,
+      "service_us": 3000000,
+      "wait_us": 0,
+      "lane_motion_us": 26000000,
+      "transition_us": 28000000,
+      "stay_out_from_entry_us": 31666667,
+      "strategic_loss_us": 25333333,
+      "pit_rank_at_merge": 2,
+      "stay_out_rank_at_marker": 1,
+      "merge_predecessor": 4
+    }
+  ],
+  "snapshot_coverage": {
+    "deployment": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "announcement": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "withdrawal_proxy": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "global_clear": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_1": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_4": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_5": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_6": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_10": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_14": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_16": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_18": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_22": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_23": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_27": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_30": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_43": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_44": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_55": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_63": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_81": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    },
+    "observed_next_line_87": {
+      "active": 18,
+      "supported": 0,
+      "completeness": 0.0
+    }
+  },
+  "imola_sc": {
+    "matched_line_count": 108,
+    "matched_median_abs_before_s": 283.58031900000003,
+    "matched_median_abs_after_s": 283.58031900000003,
+    "held_fixed": [
+      "declared initial physical spacing",
+      "archived lap counts",
+      "clean pace",
+      "SC/VSC pace limits",
+      "collection policy before clear",
+      "route and pit evidence policy"
+    ]
+  },
+  "imola_green": {
+    "command": "GREEN_RELEASE",
+    "requested_us": 920000000,
+    "effective_us": 920000000,
+    "difference_us": 0
+  },
+  "imola_frozen_green": {
+    "command": "GREEN_RELEASE",
+    "requested_us": 920000000,
+    "effective_us": 1052663121,
+    "difference_us": 132663121
+  },
+  "physical_support_tier": "DECLARED_FIELD_ONLY",
+  "scenario_invariants": {
+    "p1_frozen_green": true,
+    "dynamic_green": true,
+    "p2_vsc": true,
+    "p3_vsc_ends": true,
+    "p4_sc": true,
+    "p5_red": true,
+    "p6_exact": true,
+    "p7_before": true,
+    "p8_after": true,
+    "p9_missed": true,
+    "p10_cancelled": true,
+    "p14_rejoin": true,
+    "geometry_unsupported": true,
+    "expired_entry": true,
+    "p11_box_order": true,
+    "p12_box_reverse": true,
+    "p13_box_committed": true,
+    "r1_two": true,
+    "r2_train": true,
+    "r3_lapped": true,
+    "r6_finish": true,
+    "r7_interruption": true,
+    "x1_green": true,
+    "x2_vsc": true,
+    "x3_sc": true,
+    "x4_red": true,
+    "x5_committed_pass": true,
+    "r8_pit_exit": true,
+    "r9_same_tick": true,
+    "r10_incomplete": true,
+    "r4_r5_permission": true,
+    "singapore_double_yellow_0": true,
+    "singapore_yellow_2": true,
+    "imola_yellow_0": true,
+    "imola_vsc_1": true,
+    "imola_yellow_3": true,
+    "imola_sc_4": true
+  },
+  "scheduler_work": {
+    "p1_frozen_green": {
+      "committed_events": 20,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 0
+    },
+    "dynamic_green": {
+      "committed_events": 23,
+      "invalidated_crossings": 39,
+      "regenerated_crossings": 55
+    },
+    "p2_vsc": {
+      "committed_events": 24,
+      "invalidated_crossings": 43,
+      "regenerated_crossings": 59
+    },
+    "p3_vsc_ends": {
+      "committed_events": 26,
+      "invalidated_crossings": 93,
+      "regenerated_crossings": 109
+    },
+    "p4_sc": {
+      "committed_events": 25,
+      "invalidated_crossings": 44,
+      "regenerated_crossings": 60
+    },
+    "p5_red": {
+      "committed_events": 24,
+      "invalidated_crossings": 43,
+      "regenerated_crossings": 59
+    },
+    "p6_exact": {
+      "committed_events": 24,
+      "invalidated_crossings": 43,
+      "regenerated_crossings": 59
+    },
+    "p7_before": {
+      "committed_events": 24,
+      "invalidated_crossings": 43,
+      "regenerated_crossings": 59
+    },
+    "p8_after": {
+      "committed_events": 24,
+      "invalidated_crossings": 34,
+      "regenerated_crossings": 50
+    },
+    "p9_missed": {
+      "committed_events": 19,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 18
+    },
+    "p10_cancelled": {
+      "committed_events": 20,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 18
+    },
+    "p14_rejoin": {
+      "committed_events": 27,
+      "invalidated_crossings": 82,
+      "regenerated_crossings": 98
+    },
+    "geometry_unsupported": {
+      "committed_events": 19,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 18
+    },
+    "expired_entry": {
+      "committed_events": 5,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 18
+    },
+    "p11_box_order": {
+      "committed_events": 29,
+      "invalidated_crossings": 70,
+      "regenerated_crossings": 90
+    },
+    "p12_box_reverse": {
+      "committed_events": 32,
+      "invalidated_crossings": 70,
+      "regenerated_crossings": 90
+    },
+    "p13_box_committed": {
+      "committed_events": 28,
+      "invalidated_crossings": 46,
+      "regenerated_crossings": 66
+    },
+    "r1_two": {
+      "committed_events": 14,
+      "invalidated_crossings": 156,
+      "regenerated_crossings": 198
+    },
+    "r2_train": {
+      "committed_events": 18,
+      "invalidated_crossings": 234,
+      "regenerated_crossings": 297
+    },
+    "r3_lapped": {
+      "committed_events": 14,
+      "invalidated_crossings": 156,
+      "regenerated_crossings": 198
+    },
+    "r6_finish": {
+      "committed_events": 8,
+      "invalidated_crossings": 21,
+      "regenerated_crossings": 21
+    },
+    "r7_interruption": {
+      "committed_events": 19,
+      "invalidated_crossings": 194,
+      "regenerated_crossings": 236
+    },
+    "x1_green": {
+      "committed_events": 12,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 0
+    },
+    "x2_vsc": {
+      "committed_events": 13,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164
+    },
+    "x3_sc": {
+      "committed_events": 18,
+      "invalidated_crossings": 234,
+      "regenerated_crossings": 297
+    },
+    "x4_red": {
+      "committed_events": 18,
+      "invalidated_crossings": 162,
+      "regenerated_crossings": 204
+    },
+    "x5_committed_pass": {
+      "committed_events": 18,
+      "invalidated_crossings": 192,
+      "regenerated_crossings": 233
+    },
+    "r8_pit_exit": {
+      "committed_events": 27,
+      "invalidated_crossings": 82,
+      "regenerated_crossings": 98
+    },
+    "r9_same_tick": {
+      "committed_events": 16,
+      "invalidated_crossings": 64,
+      "regenerated_crossings": 82
+    },
+    "r10_incomplete": {
+      "committed_events": 13,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 36
+    },
+    "r4_r5_permission": {
+      "committed_events": 19,
+      "invalidated_crossings": 88,
+      "regenerated_crossings": 105
+    },
+    "singapore_double_yellow_0": {
+      "committed_events": 144,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 1080
+    },
+    "singapore_yellow_2": {
+      "committed_events": 143,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 1080
+    },
+    "imola_yellow_0": {
+      "committed_events": 134,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 972
+    },
+    "imola_vsc_1": {
+      "committed_events": 220,
+      "invalidated_crossings": 2890,
+      "regenerated_crossings": 3916
+    },
+    "imola_yellow_3": {
+      "committed_events": 131,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 972
+    },
+    "imola_sc_4": {
+      "committed_events": 384,
+      "invalidated_crossings": 3113,
+      "regenerated_crossings": 4085
+    }
+  },
+  "sc_release_counts": {
+    "p14_rejoin": 2,
+    "r1_two": 2,
+    "r2_train": 3,
+    "r3_lapped": 2,
+    "r6_finish": 3,
+    "x3_sc": 3,
+    "x4_red": 2,
+    "x5_committed_pass": 2,
+    "r8_pit_exit": 2,
+    "r9_same_tick": 2,
+    "r4_r5_permission": 2,
+    "imola_sc_4": 18
+  },
+  "sc_release_bounds_us": {
+    "imola_sc_4": [
+      999923610,
+      1003829904
+    ]
+  },
+  "pit_prediction_counts": {
+    "dynamic_green": 1,
+    "p2_vsc": 2,
+    "p3_vsc_ends": 4,
+    "p4_sc": 2,
+    "p5_red": 2,
+    "p6_exact": 2,
+    "p7_before": 2,
+    "p8_after": 1,
+    "p10_cancelled": 1,
+    "p14_rejoin": 2,
+    "expired_entry": 1,
+    "p11_box_order": 5,
+    "p12_box_reverse": 5,
+    "p13_box_committed": 3,
+    "r8_pit_exit": 2
+  },
+  "next_stage": "PATH_A_BOUNDED_MECHANICS"
+}

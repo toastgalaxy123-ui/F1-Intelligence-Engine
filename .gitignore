@@ -40,6 +40,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s5_a_neutralization_mechanics_ledgers.zip
 !artifacts/reports/stage5_s5_a_neutralization_mechanics_metrics.json
 !artifacts/reports/stage5_s5_a_neutralization_mechanics.png
+!artifacts/reports/stage5_s5_a1_pit_restart_stabilization_ledgers.zip
+!artifacts/reports/stage5_s5_a1_pit_restart_stabilization_metrics.json
+!artifacts/reports/stage5_s5_a1_pit_restart_stabilization.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

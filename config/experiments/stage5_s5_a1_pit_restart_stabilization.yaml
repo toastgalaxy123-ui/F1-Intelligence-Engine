@@ -1,0 +1,9 @@
+version: s5-a1-pit-restart-v1
+baseline_revision: 4f785f493771ba0ed72735f240a04c4c2165dc69
+baseline_config: config/experiments/stage5_s5_a_neutralization_mechanics.yaml
+frozen_s5_a_sha256: c345b7e78f96168c7b72f367362bece02534b675942ba44861d759a4b5cfe54e
+seed: null
+acquisition: CACHE_ONLY
+pit_entry: DECLARED_LAYOUT_PROGRESS_BOUNDARY
+restart: GLOBAL_SIGNAL_AND_INDIVIDUAL_RACING_LINE
+historical_withdrawal_proxy: ARCHIVED_TRACK_CLEAR
