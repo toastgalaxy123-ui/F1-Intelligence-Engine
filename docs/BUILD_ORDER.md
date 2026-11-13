@@ -74,6 +74,9 @@ and uncertainty/residual diagnostics are acceptable.
 - S4-B reconstructs historical pass brackets and prospective opportunity
   outcomes using approved caches and explicit censoring.
   [S4-B specification](STAGE5_S4_B_HISTORICAL_OVERTAKES.md)
+- S4-B.1 audits independent timing evidence and measures supported
+  follow-up before censoring.
+  [S4-B.1 specification](STAGE5_S4_B1_EVIDENCE_STABILIZATION.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

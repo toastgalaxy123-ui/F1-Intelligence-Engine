@@ -34,6 +34,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s4_b_historical_overtakes_ledgers.zip
 !artifacts/reports/stage5_s4_b_historical_overtakes_metrics.json
 !artifacts/reports/stage5_s4_b_historical_overtakes.png
+!artifacts/reports/stage5_s4_b1_evidence_stabilization_ledgers.zip
+!artifacts/reports/stage5_s4_b1_evidence_stabilization_metrics.json
+!artifacts/reports/stage5_s4_b1_evidence_stabilization*.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

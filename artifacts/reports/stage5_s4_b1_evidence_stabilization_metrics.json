@@ -1,0 +1,569 @@
+{
+  "version": "s4-b1-evidence-v1",
+  "frozen": {
+    "s4_b": "09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d",
+    "s4_a": "9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec",
+    "c4": "21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff",
+    "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c"
+  },
+  "reproduced_generated_files": 18,
+  "frozen_horizons": {
+    "5": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "NO_PASS_OBSERVED": 34167,
+        "CENSORED_LOCALIZATION": 35504,
+        "AMBIGUOUS_OUTCOME": 6300,
+        "HORIZON_INCOMPLETE": 1240,
+        "CENSORED_PIT": 387,
+        "PASS_OBSERVED": 31,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "NO_PASS_OBSERVED": 536,
+        "CENSORED_LOCALIZATION": 625,
+        "AMBIGUOUS_OUTCOME": 368,
+        "HORIZON_INCOMPLETE": 194,
+        "CENSORED_PIT": 158,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "10": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 50707,
+        "AMBIGUOUS_OUTCOME": 6361,
+        "HORIZON_INCOMPLETE": 1964,
+        "NO_PASS_OBSERVED": 18055,
+        "CENSORED_PIT": 498,
+        "PASS_OBSERVED": 44,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 659,
+        "AMBIGUOUS_OUTCOME": 367,
+        "HORIZON_INCOMPLETE": 203,
+        "NO_PASS_OBSERVED": 402,
+        "CENSORED_PIT": 161,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "20": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 63386,
+        "AMBIGUOUS_OUTCOME": 5007,
+        "HORIZON_INCOMPLETE": 2830,
+        "NO_PASS_OBSERVED": 5731,
+        "CENSORED_PIT": 611,
+        "PASS_OBSERVED": 64,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 680,
+        "AMBIGUOUS_OUTCOME": 366,
+        "HORIZON_INCOMPLETE": 210,
+        "NO_PASS_OBSERVED": 193,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "30": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 67250,
+        "AMBIGUOUS_OUTCOME": 4052,
+        "HORIZON_INCOMPLETE": 3117,
+        "NO_PASS_OBSERVED": 2498,
+        "CENSORED_PIT": 632,
+        "PASS_OBSERVED": 80,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 681,
+        "AMBIGUOUS_OUTCOME": 362,
+        "HORIZON_INCOMPLETE": 211,
+        "NO_PASS_OBSERVED": 69,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "checkpoint": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "NO_PASS_OBSERVED": 17341,
+        "CENSORED_LOCALIZATION": 52793,
+        "AMBIGUOUS_OUTCOME": 4187,
+        "HORIZON_INCOMPLETE": 2647,
+        "CENSORED_PIT": 615,
+        "PASS_OBSERVED": 46,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 14,
+      "encounters_by_outcome": {
+        "NO_PASS_OBSERVED": 411,
+        "CENSORED_LOCALIZATION": 654,
+        "AMBIGUOUS_OUTCOME": 362,
+        "HORIZON_INCOMPLETE": 272,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 14,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    }
+  },
+  "tier_counts": {
+    "TIER_C_AMBIGUOUS": 2,
+    "TIER_B_SUPPORTED": 3
+  },
+  "censoring_causes": {
+    "AMBIGUOUS_NEAREST_NEIGHBOR": 9999,
+    "GEOMETRY_PROJECTION_FAILURE": 60,
+    "INTERPOLATION_SUPPORT_FAILURE": 39581,
+    "LAP_BOUNDARY_ALIGNMENT": 1067
+  },
+  "localized_censored": 50707,
+  "localized_censored_reappeared_10s": 46854,
+  "localized_censored_alternate_supported": 0,
+  "median_localization_followup_s": 2.5,
+  "at_risk_positive_duration_cutoffs": 65512,
+  "at_risk_30s_support_cutoffs": 2498,
+  "groups": {
+    "all_cutoffs": 77630,
+    "all_frozen_encounters": 836,
+    "race_pairs": 312,
+    "competitive_cutoffs": 73238,
+    "competitive_frozen_encounters": 725,
+    "competitive_directed_stint_groups": 488,
+    "competitive_stint_linked_cutoffs": 73237,
+    "competitive_contiguous_sample_components": 12283,
+    "competitive_pair_groups": 258,
+    "race_count": 4,
+    "by_race": {
+      "9896": {
+        "role": "frozen_pilot",
+        "cutoffs": 808,
+        "encounters": 27,
+        "observed_non_pass_encounters_10s": 15,
+        "unresolved_encounters_10s": 25,
+        "encounters_both": 13,
+        "risk_pass_events": 0,
+        "at_risk_pair_union_s": 548.5,
+        "core_predictor_cutoffs": 765
+      },
+      "9928": {
+        "role": "development",
+        "cutoffs": 40434,
+        "encounters": 271,
+        "observed_non_pass_encounters_10s": 141,
+        "unresolved_encounters_10s": 263,
+        "encounters_both": 133,
+        "risk_pass_events": 0,
+        "at_risk_pair_union_s": 24763.0,
+        "core_predictor_cutoffs": 11788
+      },
+      "9955": {
+        "role": "development",
+        "cutoffs": 16525,
+        "encounters": 231,
+        "observed_non_pass_encounters_10s": 103,
+        "unresolved_encounters_10s": 226,
+        "encounters_both": 98,
+        "risk_pass_events": 1,
+        "at_risk_pair_union_s": 10644.5,
+        "core_predictor_cutoffs": 5008
+      },
+      "9987": {
+        "role": "reconstruction_only",
+        "cutoffs": 15471,
+        "encounters": 196,
+        "observed_non_pass_encounters_10s": 94,
+        "unresolved_encounters_10s": 194,
+        "encounters_both": 92,
+        "risk_pass_events": 1,
+        "at_risk_pair_union_s": 8768.5,
+        "core_predictor_cutoffs": 7472
+      }
+    },
+    "thresholds": {
+      "40": {
+        "cutoffs": 3137,
+        "outcomes_10s": {
+          "CENSORED_LOCALIZATION": 1321,
+          "AMBIGUOUS_OUTCOME": 1408,
+          "HORIZON_INCOMPLETE": 93,
+          "NO_PASS_OBSERVED": 311,
+          "CENSORED_PIT": 4
+        },
+        "encounters": 170
+      },
+      "80": {
+        "cutoffs": 43097,
+        "outcomes_10s": {
+          "CENSORED_LOCALIZATION": 27928,
+          "AMBIGUOUS_OUTCOME": 5604,
+          "HORIZON_INCOMPLETE": 1033,
+          "NO_PASS_OBSERVED": 8374,
+          "CENSORED_PIT": 154,
+          "PASS_OBSERVED": 4
+        },
+        "encounters": 379
+      },
+      "120": {
+        "cutoffs": 70408,
+        "outcomes_10s": {
+          "CENSORED_LOCALIZATION": 45873,
+          "AMBIGUOUS_OUTCOME": 6182,
+          "HORIZON_INCOMPLETE": 1766,
+          "NO_PASS_OBSERVED": 16170,
+          "CENSORED_PIT": 412,
+          "CENSORED_NEIGHBOR_CHANGE": 1,
+          "PASS_OBSERVED": 4
+        },
+        "encounters": 576
+      }
+    },
+    "positive_cutoffs_10s": 39,
+    "positive_events_10s": 14,
+    "unique_localization_censored_encounters": 659
+  },
+  "risk_histogram_s": {
+    "AMBIGUOUS_OUTCOME": {
+      "0": 3208,
+      "1": 2,
+      "2": 1,
+      "3": 1,
+      "29": 8
+    },
+    "CENSORED_LOCALIZATION": {
+      "0": 12093,
+      "1": 7248,
+      "2": 6109,
+      "3": 5212,
+      "4": 4473,
+      "5": 3743,
+      "6": 3222,
+      "7": 2759,
+      "8": 2422,
+      "9": 2111,
+      "10": 1826,
+      "11": 1551,
+      "12": 1338,
+      "13": 1134,
+      "14": 1018,
+      "15": 954,
+      "16": 893,
+      "17": 795,
+      "18": 731,
+      "19": 642,
+      "20": 519,
+      "21": 441,
+      "22": 368,
+      "23": 321,
+      "24": 279,
+      "25": 242,
+      "26": 205,
+      "27": 164,
+      "28": 152,
+      "29": 131
+    },
+    "CENSORED_NEIGHBOR_CHANGE": {
+      "0": 1
+    },
+    "CENSORED_PIT": {
+      "0": 360,
+      "1": 3,
+      "2": 2,
+      "3": 2,
+      "4": 2,
+      "5": 1,
+      "6": 1,
+      "8": 3,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 1,
+      "15": 2,
+      "16": 2,
+      "17": 2
+    },
+    "EARLIER_UNSUPPORTED_SAMPLE": {
+      "0": 911,
+      "1": 881,
+      "2": 725,
+      "3": 567,
+      "4": 438,
+      "5": 334,
+      "6": 283,
+      "7": 248,
+      "8": 191,
+      "9": 176,
+      "10": 151,
+      "11": 123,
+      "12": 91,
+      "13": 79,
+      "14": 69,
+      "15": 62,
+      "16": 56,
+      "17": 49,
+      "18": 37,
+      "19": 30,
+      "20": 31,
+      "21": 32,
+      "22": 28,
+      "23": 30,
+      "24": 27,
+      "25": 21,
+      "26": 19,
+      "27": 15,
+      "28": 16,
+      "29": 7
+    },
+    "HORIZON_INCOMPLETE": {
+      "0": 324,
+      "1": 272,
+      "2": 225,
+      "3": 195,
+      "4": 170,
+      "5": 146,
+      "6": 138,
+      "7": 128,
+      "8": 104,
+      "9": 90,
+      "10": 89,
+      "11": 92,
+      "12": 89,
+      "13": 80,
+      "14": 75,
+      "15": 58,
+      "16": 58,
+      "17": 52,
+      "18": 41,
+      "19": 31,
+      "20": 28,
+      "21": 23,
+      "22": 20,
+      "23": 15,
+      "24": 17,
+      "25": 12,
+      "26": 11,
+      "27": 15,
+      "28": 16,
+      "29": 12
+    },
+    "NO_PASS_OBSERVED": {
+      "30": 2498
+    },
+    "PASS_OBSERVED": {
+      "0": 19,
+      "1": 8,
+      "2": 4,
+      "3": 4,
+      "4": 3,
+      "5": 2,
+      "6": 2,
+      "7": 2,
+      "8": 2,
+      "9": 2,
+      "10": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2,
+      "14": 2,
+      "15": 2,
+      "16": 2,
+      "17": 1,
+      "18": 2,
+      "19": 2,
+      "20": 2,
+      "21": 2,
+      "22": 2,
+      "23": 2
+    }
+  },
+  "bounds": {
+    "unit": "development race and frozen same-lap encounter, any positive 10s cutoff",
+    "states": {
+      "unresolved": 488,
+      "all_observed_non_pass": 13,
+      "positive": 1
+    },
+    "lower_fraction": 0.00199203187250996,
+    "upper_fraction": 0.9741035856573705,
+    "resolved_only_fraction": 0.07142857142857142,
+    "leave_one_race_out_observed_fraction_range": [
+      0.0,
+      0.004329004329004329
+    ],
+    "by_race": {
+      "9928": {
+        "encounter_groups": 271,
+        "positive_groups": 0,
+        "apparent_fraction": 0.0
+      },
+      "9955": {
+        "encounter_groups": 231,
+        "positive_groups": 1,
+        "apparent_fraction": 0.004329004329004329
+      }
+    }
+  },
+  "comparison": {
+    "evaluation_a": {
+      "eligible_cutoffs": 77630,
+      "encounters": 836,
+      "brackets_changed": 0,
+      "cutoff_changes": [
+        {
+          "opportunity_id": "9928/1-4/2025-08-03T13:20:21+00:00",
+          "old": "PASS_OBSERVED",
+          "new": "AMBIGUOUS_OUTCOME",
+          "pass_event_id": "event/9928/1-4/2025-08-03T13:20:21+00:00"
+        },
+        {
+          "opportunity_id": "9928/14-4/2025-08-03T13:20:15+00:00",
+          "old": "PASS_OBSERVED",
+          "new": "AMBIGUOUS_OUTCOME",
+          "pass_event_id": "event/9928/14-4/2025-08-03T13:20:18.500000+00:00"
+        },
+        {
+          "opportunity_id": "9928/14-4/2025-08-03T13:20:17.500000+00:00",
+          "old": "PASS_OBSERVED",
+          "new": "AMBIGUOUS_OUTCOME",
+          "pass_event_id": "event/9928/14-4/2025-08-03T13:20:18.500000+00:00"
+        },
+        {
+          "opportunity_id": "9928/14-4/2025-08-03T13:20:18+00:00",
+          "old": "PASS_OBSERVED",
+          "new": "AMBIGUOUS_OUTCOME",
+          "pass_event_id": "event/9928/14-4/2025-08-03T13:20:18.500000+00:00"
+        },
+        {
+          "opportunity_id": "9928/14-4/2025-08-03T13:20:18.500000+00:00",
+          "old": "PASS_OBSERVED",
+          "new": "AMBIGUOUS_OUTCOME",
+          "pass_event_id": "event/9928/14-4/2025-08-03T13:20:18.500000+00:00"
+        }
+      ],
+      "reassessed_horizon_counts": {
+        "10": {
+          "CENSORED_LOCALIZATION": 50707,
+          "AMBIGUOUS_OUTCOME": 6366,
+          "HORIZON_INCOMPLETE": 1964,
+          "NO_PASS_OBSERVED": 18055,
+          "CENSORED_PIT": 498,
+          "PASS_OBSERVED": 39,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        },
+        "20": {
+          "CENSORED_LOCALIZATION": 63386,
+          "AMBIGUOUS_OUTCOME": 5012,
+          "HORIZON_INCOMPLETE": 2830,
+          "NO_PASS_OBSERVED": 5731,
+          "CENSORED_PIT": 611,
+          "PASS_OBSERVED": 59,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        },
+        "30": {
+          "CENSORED_LOCALIZATION": 67250,
+          "AMBIGUOUS_OUTCOME": 4057,
+          "HORIZON_INCOMPLETE": 3117,
+          "NO_PASS_OBSERVED": 2498,
+          "CENSORED_PIT": 632,
+          "PASS_OBSERVED": 75,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        },
+        "5": {
+          "NO_PASS_OBSERVED": 34167,
+          "CENSORED_LOCALIZATION": 35504,
+          "AMBIGUOUS_OUTCOME": 6305,
+          "HORIZON_INCOMPLETE": 1240,
+          "CENSORED_PIT": 387,
+          "PASS_OBSERVED": 26,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        },
+        "checkpoint": {
+          "NO_PASS_OBSERVED": 17341,
+          "CENSORED_LOCALIZATION": 52793,
+          "AMBIGUOUS_OUTCOME": 4192,
+          "HORIZON_INCOMPLETE": 2647,
+          "CENSORED_PIT": 615,
+          "PASS_OBSERVED": 41,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        }
+      },
+      "frozen_10s": {
+        "CENSORED_LOCALIZATION": 50707,
+        "AMBIGUOUS_OUTCOME": 6361,
+        "HORIZON_INCOMPLETE": 1964,
+        "NO_PASS_OBSERVED": 18055,
+        "CENSORED_PIT": 498,
+        "PASS_OBSERVED": 44,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "reassessed_10s": {
+        "CENSORED_LOCALIZATION": 50707,
+        "AMBIGUOUS_OUTCOME": 6366,
+        "HORIZON_INCOMPLETE": 1964,
+        "NO_PASS_OBSERVED": 18055,
+        "CENSORED_PIT": 498,
+        "PASS_OBSERVED": 39,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "evaluation_b": {
+      "recovered_cutoffs": 0,
+      "recovered_encounters": 0,
+      "new_canonical_events": 0,
+      "recovered_outcomes": {},
+      "new_openf1_requests": 0
+    }
+  },
+  "readiness": {
+    "decision": "PATH_C",
+    "development_races": [
+      9928,
+      9955
+    ],
+    "tier_a_development": 0,
+    "tier_b_development": 2,
+    "exhaustive_independent_reference": false,
+    "global_precision": null,
+    "global_recall": null,
+    "tier_a_structural_maximum_current_sources": 0,
+    "optimistic_independent_event_count_relative_se": 0.7071067811865475,
+    "max_development_races_left_for_fit_with_one_held_out": 1,
+    "development_passing_drivers": [
+      1,
+      30
+    ],
+    "development_opponent_pairs": [
+      [
+        9928,
+        1,
+        22
+      ],
+      [
+        9955,
+        30,
+        10
+      ]
+    ],
+    "calibration_in_the_large": "UNSUPPORTED",
+    "horizon_brier": "UNSUPPORTED",
+    "interval_censored_score": "UNSUPPORTED"
+  },
+  "new_openf1_requests": 0
+}

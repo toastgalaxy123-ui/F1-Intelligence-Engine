@@ -1,0 +1,33 @@
+version: s4-b1-evidence-v1
+baseline_commit: 90bf53dd15ddc63ebb287b5b3044a06dc29d2767
+frozen:
+  s4_b: 09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d
+  s4_a: 9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+fixed_horizons: ["5", "10", "20", "30", checkpoint]
+risk_maximum_s: 30
+audit_horizon: "10"
+opportunity_thresholds_m: [40, 80, 120]
+contact_max_step_multiplier: 1.51
+competitive_role: development
+api_request_budget: 0
+gaps:
+  - {session: 9955, start: "2025-06-29T13:41:30+00:00", end: "2025-06-29T13:47:30+00:00"}
+  - {session: 9928, start: "2025-08-03T14:00:06+00:00", end: "2025-08-03T14:13:25+00:00"}
+official_lap_charts:
+  9955: https://www.fia.com/sites/default/files/2025_11_aut_f1_r0_timing_racelapchart_v01.pdf
+  9928: https://www.fia.com/sites/default/files/2025_14_hun_f1_r0_timing_racelapchart_v01.pdf
+  9987: https://www.fia.com/sites/default/files/2025_07_ita_f1_r0_timing_racelapchart_v01.pdf
+official_pit_summaries:
+  9955: https://www.formula1.com/en/results/2025/races/1264/austria/pit-stop-summary
+  9928: https://www.formula1.com/en/results/2025/races/1266/hungary/pit-stop-summary
+  9987: https://www.formula1.com/en/results/2025/races/1260/emilia-romagna/pit-stop-summary
+# Pair-only rank observations manually verified against the official lap charts.
+# Format is [completed lap, attacker rank, target rank].
+official_pairs:
+  "9928/1-4": [[12, 7, 4], [13, 7, 4]]
+  "9928/14-4": [[12, 5, 4], [13, 5, 4]]
+  "9928/1-22": [[19, 16, 14], [20, 15, 16]]
+  "9955/30-10": [[37, 11, 10], [38, 10, 12]]
+  "9987/10-18": [[14, 17, 7], [15, 16, 17]]
