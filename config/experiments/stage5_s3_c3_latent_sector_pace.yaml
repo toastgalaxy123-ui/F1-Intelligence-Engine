@@ -1,0 +1,37 @@
+version: s3-c3-latent-sector-pace-v1
+development_sessions: [9955, 9928]
+archive_availability: OBSERVATION_TIMESTAMP_PROXY
+acquisition: CACHE_ONLY
+c2_sha256: f183d066d367df860baf665ac8c47562ff2f99ff3fe9f77fdf5c278683641461
+d8_sha256: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+seed: 530303
+folds: 4
+official_boundary_tolerance_s: 1.0
+model:
+  minimum_fit_rows: 8
+  minimum_fit_stints: 3
+  context_penalty: 4.0
+  driver_penalty: 8.0
+  adaptation_prior_count: 4.0
+  minimum_noise_s: 0.04
+  tier_b_weight: 0.25
+  maximum_age_extrapolation: 5
+  maximum_progress_extrapolation: 0.20
+  maximum_temperature_extrapolation_c: 5.0
+calibration:
+  minimum_independent_stints: 8
+  minimum_evaluation_stints: 10
+  acceptable_50_coverage: [0.30, 0.70]
+  acceptable_90_coverage: [0.75, 1.0]
+  maximum_median_90_half_width_s: 0.60
+feasibility:
+  minimum_operational_support: 0.60
+  minimum_independent_stints: 10
+  minimum_predictions: 20
+  maximum_mae_s: 0.30
+  maximum_absolute_bias_s: 0.15
+  maximum_p90_error_s: 0.60
+  planning_effect_s: 0.30
+  minimum_h1_groups: 10
+  minimum_h1_conversion: 0.20
+confirmatory_candidate: R4-B

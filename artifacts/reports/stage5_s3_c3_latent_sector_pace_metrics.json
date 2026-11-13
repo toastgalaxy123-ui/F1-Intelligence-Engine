@@ -1,0 +1,3853 @@
+{
+  "version": "s3-c3-latent-sector-pace-v1",
+  "inputs": {
+    "c2": "f183d066d367df860baf665ac8c47562ff2f99ff3fe9f77fdf5c278683641461",
+    "c2_ledgers": "8700df1950b932b29e17617b16879730a500c58f16c1d68ca0ba1aea9f26c3a3",
+    "c2_sources": {
+      "candidate_opportunities.parquet": "6f1fe118e8ddeb88de93d3e45437f9fdb07454035f3290042f4b6ba45ccfa1ca",
+      "physical_support.parquet": "457676e99690e4cf4df2e3532fdc3de85ff2a42cd980b9097f69f502901bee00",
+      "data_manifest.json": "55a094fe75559dba9c5ace432743613d5756fe2e9fefd03b3c851584edd7e146",
+      "geometry_manifest.json": "76702d153279ac65c4f0faf7b149e3eb147d2b3275c0a56b98f623af7cb1de9c"
+    },
+    "verified_raw_payloads": 82,
+    "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "d8_trained_through_utc": "2024-10-20 20:38:45.387000+00:00",
+    "d8_calibrated_through_utc": "2025-06-01 14:36:47.725000+00:00",
+    "warehouse": "9404346d9aef1ef44ee9cea7e36c3f66475dd1d9495a62aed3e0c0e35a0e53d0",
+    "config": "e3bd0977ff3110c0ee1e38d84ddb7319bfd4e7468afe0649bc6006b4360bcda1",
+    "r4_snapshot_artifact": "6f10cbd13986eaa812182e7142fabcedc8323f12f0bef5f7fce6b6d710b6ad50"
+  },
+  "races": {
+    "9955": {
+      "evidence": {
+        "1": {
+          "candidates": 1128,
+          "tiers": {
+            "EXCLUDED": 255,
+            "B": 285,
+            "C": 543,
+            "A": 45
+          },
+          "reasons": {
+            "NON_GREEN_OR_WET": 66,
+            "PIT_OR_STINT_TRANSITION": 64,
+            "STAGE1_CLEAN_TIMING_ONLY": 285,
+            "NO_TRUSTED_CLEAN_LABEL": 242,
+            "ARCHIVE_PASS": 111,
+            "CACHED_PHYSICAL_CONTRADICTION": 301,
+            "C2_PHYSICAL_CLEAN": 45,
+            "OFFICIAL_TIMING_UNRECONCILED": 14
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 8,
+              "stints": 10,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 15,
+              "stints": 36,
+              "race_weekends": 1
+            }
+          }
+        },
+        "2": {
+          "candidates": 1128,
+          "tiers": {
+            "EXCLUDED": 255,
+            "B": 299,
+            "C": 561,
+            "A": 13
+          },
+          "reasons": {
+            "NON_GREEN_OR_WET": 66,
+            "PIT_OR_STINT_TRANSITION": 64,
+            "STAGE1_CLEAN_TIMING_ONLY": 299,
+            "NO_TRUSTED_CLEAN_LABEL": 241,
+            "ARCHIVE_PASS": 111,
+            "CACHED_PHYSICAL_CONTRADICTION": 320,
+            "C2_PHYSICAL_CLEAN": 13,
+            "OFFICIAL_TIMING_UNRECONCILED": 14
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 4,
+              "stints": 4,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 15,
+              "stints": 35,
+              "race_weekends": 1
+            }
+          }
+        },
+        "3": {
+          "candidates": 1128,
+          "tiers": {
+            "EXCLUDED": 255,
+            "B": 266,
+            "C": 545,
+            "A": 62
+          },
+          "reasons": {
+            "NON_GREEN_OR_WET": 66,
+            "PIT_OR_STINT_TRANSITION": 64,
+            "STAGE1_CLEAN_TIMING_ONLY": 266,
+            "NO_TRUSTED_CLEAN_LABEL": 217,
+            "ARCHIVE_PASS": 111,
+            "CACHED_PHYSICAL_CONTRADICTION": 328,
+            "C2_PHYSICAL_CLEAN": 62,
+            "OFFICIAL_TIMING_UNRECONCILED": 14
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 11,
+              "stints": 15,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 15,
+              "stints": 36,
+              "race_weekends": 1
+            }
+          }
+        }
+      },
+      "totals": {
+        "candidates": 3384,
+        "tiers": {
+          "EXCLUDED": 765,
+          "B": 850,
+          "C": 1649,
+          "A": 120
+        },
+        "reasons": {
+          "NON_GREEN_OR_WET": 198,
+          "PIT_OR_STINT_TRANSITION": 192,
+          "STAGE1_CLEAN_TIMING_ONLY": 850,
+          "NO_TRUSTED_CLEAN_LABEL": 700,
+          "ARCHIVE_PASS": 333,
+          "CACHED_PHYSICAL_CONTRADICTION": 949,
+          "C2_PHYSICAL_CLEAN": 120,
+          "OFFICIAL_TIMING_UNRECONCILED": 42
+        },
+        "clean_by_tier": {
+          "A": {
+            "drivers": 11,
+            "stints": 15,
+            "race_weekends": 1
+          },
+          "B": {
+            "drivers": 15,
+            "stints": 36,
+            "race_weekends": 1
+          }
+        }
+      },
+      "folds": {
+        "27": 0,
+        "22": 1,
+        "6": 2,
+        "4": 3,
+        "5": 0,
+        "14": 1,
+        "87": 2,
+        "43": 3,
+        "10": 0,
+        "31": 1,
+        "30": 2,
+        "12": 3,
+        "23": 0,
+        "81": 1,
+        "44": 2,
+        "18": 3,
+        "1": 0,
+        "55": 1,
+        "16": 2,
+        "63": 3
+      },
+      "reference": {
+        "A": {
+          "R0": {
+            "n": 81,
+            "mae_s": 0.2242037037037036,
+            "rmse_s": 0.29483993879081694,
+            "bias_s": -0.01751234567901193,
+            "absolute_error_p90_s": 0.4969999999999999,
+            "clean_stints": 12,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.675,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.22006249999999916,
+              "rmse_s": 0.2688696826531388,
+              "bias_s": -0.03243750000000034,
+              "absolute_error_p90_s": 0.473599999999999,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.1670000000000016,
+            "residual_std_s": 0.2961531801208268,
+            "stint_weighted_mae_s": 0.24515160256410284,
+            "stint_bootstrap_mae_95": [
+              0.18408099702380978,
+              0.31783990327380957
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 20,
+                "mae_s": 0.25964999999999916,
+                "rmse_s": 0.33979968363728597,
+                "bias_s": -0.16824999999999973,
+                "absolute_error_p90_s": 0.5289000000000005,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 28,
+                "mae_s": 0.2273392857142856,
+                "rmse_s": 0.31581234538883957,
+                "bias_s": -0.13937499999999936,
+                "absolute_error_p90_s": 0.5893999999999995,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 33,
+                "mae_s": 0.20006060606060638,
+                "rmse_s": 0.24242793368401913,
+                "bias_s": 0.17724242424242456,
+                "absolute_error_p90_s": 0.333100000000001,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 29,
+                "mae_s": 0.24393103448275869,
+                "rmse_s": 0.3045523849396256,
+                "bias_s": 0.09310344827586228,
+                "absolute_error_p90_s": 0.475,
+                "clean_stints": 11,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 13,
+                "mae_s": 0.20165384615384624,
+                "rmse_s": 0.2924644948865254,
+                "bias_s": -0.12442307692307554,
+                "absolute_error_p90_s": 0.5504999999999989,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 11,
+                "mae_s": 0.20186363636363616,
+                "rmse_s": 0.28993279001739786,
+                "bias_s": -0.06786363636363646,
+                "absolute_error_p90_s": 0.4049999999999976,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 28,
+                "mae_s": 0.22301785714285685,
+                "rmse_s": 0.28753464077021545,
+                "bias_s": -0.06266071428571392,
+                "absolute_error_p90_s": 0.4864999999999995,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R1": {
+            "n": 49,
+            "mae_s": 0.10295850444702606,
+            "rmse_s": 0.12532455312233293,
+            "bias_s": -0.05872409780687617,
+            "absolute_error_p90_s": 0.20386593512993945,
+            "clean_stints": 11,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.4083333333333333,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.0881410149996964,
+              "rmse_s": 0.10018992750640314,
+              "bias_s": -0.07938738698190617,
+              "absolute_error_p90_s": 0.15440528243509774,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.09650591037267375,
+            "residual_std_s": 0.11186193812500557,
+            "stint_weighted_mae_s": 0.11385175559642396,
+            "stint_bootstrap_mae_95": [
+              0.09206554958482108,
+              0.1361950476709492
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 10,
+                "mae_s": 0.13451696486212122,
+                "rmse_s": 0.16208131067839357,
+                "bias_s": -0.0714452061239502,
+                "absolute_error_p90_s": 0.2369237397697894,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 20,
+                "mae_s": 0.12085265024684677,
+                "rmse_s": 0.13924549960644864,
+                "bias_s": -0.092109123154742,
+                "absolute_error_p90_s": 0.21863351459677605,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 19,
+                "mae_s": 0.06751284549190155,
+                "rmse_s": 0.07917875885583568,
+                "bias_s": -0.016886645694873175,
+                "absolute_error_p90_s": 0.11631155706249956,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 15,
+                "mae_s": 0.1030976528635217,
+                "rmse_s": 0.13538434400804186,
+                "bias_s": -0.03557075420358681,
+                "absolute_error_p90_s": 0.21685930976962664,
+                "clean_stints": 9,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 9,
+                "mae_s": 0.12835717213030248,
+                "rmse_s": 0.13519435460964166,
+                "bias_s": -0.10482705484486408,
+                "absolute_error_p90_s": 0.17652423988808652,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 5,
+                "mae_s": 0.12167101190992682,
+                "rmse_s": 0.1458497040947392,
+                "bias_s": -0.004846586589544444,
+                "absolute_error_p90_s": 0.2223598883349027,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 20,
+                "mae_s": 0.08674661581145475,
+                "rmse_s": 0.10578606371482017,
+                "bias_s": -0.06881215264658155,
+                "absolute_error_p90_s": 0.1651758346185059,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R2": {
+            "n": 16,
+            "mae_s": 0.07181249999999961,
+            "rmse_s": 0.079619210935552,
+            "bias_s": 0.004249999999999865,
+            "absolute_error_p90_s": 0.12399999999999878,
+            "clean_stints": 5,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.13333333333333333,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.06774999999999975,
+              "rmse_s": 0.0757599003431232,
+              "bias_s": -0.013875000000000082,
+              "absolute_error_p90_s": 0.10349999999999965,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.0625,
+            "residual_std_s": 0.08211313333850187,
+            "stint_weighted_mae_s": 0.0733666666666662,
+            "stint_bootstrap_mae_95": [
+              0.05989999999999966,
+              0.09049333333333279
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 7,
+                "mae_s": 0.08071428571428539,
+                "rmse_s": 0.08654065931275107,
+                "bias_s": -0.035857142857142525,
+                "absolute_error_p90_s": 0.11140000000000044,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 9,
+                "mae_s": 0.06488888888888845,
+                "rmse_s": 0.07378836102138425,
+                "bias_s": 0.035444444444443945,
+                "absolute_error_p90_s": 0.12039999999999865,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 16,
+                "mae_s": 0.07181249999999961,
+                "rmse_s": 0.079619210935552,
+                "bias_s": 0.004249999999999865,
+                "absolute_error_p90_s": 0.12399999999999878,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R3": {
+            "n": 81,
+            "mae_s": 0.20398361837614307,
+            "rmse_s": 0.2647496945481419,
+            "bias_s": 0.008126089896392463,
+            "absolute_error_p90_s": 0.495000000000001,
+            "clean_stints": 12,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.675,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.16320385551947858,
+              "rmse_s": 0.18973788763359742,
+              "bias_s": -0.0038779626623375307,
+              "absolute_error_p90_s": 0.2949781818181783,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.16642857142857181,
+            "residual_std_s": 0.266273725739434,
+            "stint_weighted_mae_s": 0.24180670224275513,
+            "stint_bootstrap_mae_95": [
+              0.17025169344919755,
+              0.3157073498403446
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 20,
+                "mae_s": 0.21422870687093204,
+                "rmse_s": 0.2977161013706906,
+                "bias_s": -0.12834986455763886,
+                "absolute_error_p90_s": 0.5191875000000001,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 28,
+                "mae_s": 0.21258499655106786,
+                "rmse_s": 0.2810194888074397,
+                "bias_s": -0.07377326185719012,
+                "absolute_error_p90_s": 0.5367416666666674,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 33,
+                "mae_s": 0.19047633477633474,
+                "rmse_s": 0.22653999814161993,
+                "bias_s": 0.16032914862914818,
+                "absolute_error_p90_s": 0.3610999999999983,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 29,
+                "mae_s": 0.22772854168438675,
+                "rmse_s": 0.29290477348939603,
+                "bias_s": 0.09563987173364773,
+                "absolute_error_p90_s": 0.4966000000000008,
+                "clean_stints": 11,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 13,
+                "mae_s": 0.18176051704705587,
+                "rmse_s": 0.26323913038612656,
+                "bias_s": -0.10038139616793355,
+                "absolute_error_p90_s": 0.5162666666666662,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 11,
+                "mae_s": 0.21384848484848426,
+                "rmse_s": 0.26568580624280347,
+                "bias_s": -0.0011893939393940204,
+                "absolute_error_p90_s": 0.26399999999999935,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 28,
+                "mae_s": 0.18583304730983283,
+                "rmse_s": 0.2323920745809596,
+                "bias_s": -0.028475054112554434,
+                "absolute_error_p90_s": 0.35316363636363524,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R4-A": {
+            "n": 62,
+            "mae_s": 0.18153019721608324,
+            "rmse_s": 0.23004357567558814,
+            "bias_s": 0.014973946080907125,
+            "absolute_error_p90_s": 0.3740189149560748,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.5166666666666667,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.1578559588023407,
+              "rmse_s": 0.17514851244912738,
+              "bias_s": -0.12093366415114781,
+              "absolute_error_p90_s": 0.24654286134340103,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.14422672556206173,
+            "residual_std_s": 0.23142967328196848,
+            "stint_weighted_mae_s": 0.21889215867904782,
+            "stint_bootstrap_mae_95": [
+              0.14336731523288065,
+              0.3000422308814532
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.16801109099737624,
+                "rmse_s": 0.2308783599590089,
+                "bias_s": 0.004330568033069244,
+                "absolute_error_p90_s": 0.3225895405160025,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 24,
+                "mae_s": 0.17548739295047966,
+                "rmse_s": 0.22917232397236773,
+                "bias_s": -0.06356420741904618,
+                "absolute_error_p90_s": 0.43063723026041445,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 25,
+                "mae_s": 0.19436122454479032,
+                "rmse_s": 0.23044317094959613,
+                "bias_s": 0.095905130025738,
+                "absolute_error_p90_s": 0.3655679285208074,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 18,
+                "mae_s": 0.19200590463144784,
+                "rmse_s": 0.2426564461010492,
+                "bias_s": 0.19200590463144784,
+                "absolute_error_p90_s": 0.3787229416017528,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 10,
+                "mae_s": 0.09785529869503726,
+                "rmse_s": 0.11691099145487005,
+                "bias_s": -0.006944630017757802,
+                "absolute_error_p90_s": 0.18235472190718766,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 10,
+                "mae_s": 0.24554763401290886,
+                "rmse_s": 0.28826729903309306,
+                "bias_s": 0.03220949813009781,
+                "absolute_error_p90_s": 0.37149637023087495,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 24,
+                "mae_s": 0.1818640257063183,
+                "rmse_s": 0.2285371983606483,
+                "bias_s": -0.11584876281138416,
+                "absolute_error_p90_s": 0.4157392969297752,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R4-B": {
+            "n": 62,
+            "mae_s": 0.16074248929569968,
+            "rmse_s": 0.19954215710560153,
+            "bias_s": 0.016111276550026036,
+            "absolute_error_p90_s": 0.34148522434708894,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.5166666666666667,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.1325457139375965,
+              "rmse_s": 0.14239450451843566,
+              "bias_s": -0.10522594702184485,
+              "absolute_error_p90_s": 0.1965286044644941,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.1256282292944526,
+            "residual_std_s": 0.20051429581010985,
+            "stint_weighted_mae_s": 0.19626848635123884,
+            "stint_bootstrap_mae_95": [
+              0.1308382409829137,
+              0.2694270812207717
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.15663224993370434,
+                "rmse_s": 0.2041328975691475,
+                "bias_s": 0.0051688619043205744,
+                "absolute_error_p90_s": 0.3225895405160025,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 24,
+                "mae_s": 0.15589155932510476,
+                "rmse_s": 0.1960654664076968,
+                "bias_s": -0.05828813024081869,
+                "absolute_error_p90_s": 0.3392361269963242,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 25,
+                "mae_s": 0.16753670653570837,
+                "rmse_s": 0.20043406532148111,
+                "bias_s": 0.0932247626850038,
+                "absolute_error_p90_s": 0.3389572076296965,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 18,
+                "mae_s": 0.19200590463144784,
+                "rmse_s": 0.2426564461010492,
+                "bias_s": 0.19200590463144784,
+                "absolute_error_p90_s": 0.3787229416017528,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 10,
+                "mae_s": 0.08757847798471481,
+                "rmse_s": 0.10533248766922103,
+                "bias_s": -0.032203416126298026,
+                "absolute_error_p90_s": 0.16051329706680126,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 10,
+                "mae_s": 0.2226530429868525,
+                "rmse_s": 0.24874917022297102,
+                "bias_s": -0.006733422111914677,
+                "absolute_error_p90_s": 0.35572812384055436,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 24,
+                "mae_s": 0.14198386846881852,
+                "rmse_s": 0.16820980837372784,
+                "bias_s": -0.08615994812009668,
+                "absolute_error_p90_s": 0.29478776926360084,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 62,
+              "mae_s": 0.16074248929569968,
+              "rmse_s": 0.19954215710560153,
+              "bias_s": 0.016111276550026036,
+              "absolute_error_p90_s": 0.34148522434708894,
+              "clean_stints": 10,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          },
+          "R4-B-TIER-B": {
+            "n": 115,
+            "mae_s": 0.19506657114793396,
+            "rmse_s": 0.24219583731920816,
+            "bias_s": -0.09841335715790225,
+            "absolute_error_p90_s": 0.4091614605166136,
+            "clean_stints": 13,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.9583333333333334,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 8,
+              "mae_s": 0.19475969603021293,
+              "rmse_s": 0.20731577310950733,
+              "bias_s": -0.1816553258579412,
+              "absolute_error_p90_s": 0.2692274952340238,
+              "clean_stints": 4,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.17114927144260506,
+            "residual_std_s": 0.22226836939817532,
+            "stint_weighted_mae_s": 0.19334648941274268,
+            "stint_bootstrap_mae_95": [
+              0.14266906403208424,
+              0.2428599594309183
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 32,
+                "mae_s": 0.24277046585505624,
+                "rmse_s": 0.3003371410730796,
+                "bias_s": -0.18635384152004564,
+                "absolute_error_p90_s": 0.5323845499115599,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 50,
+                "mae_s": 0.21498923194726047,
+                "rmse_s": 0.2508173377180918,
+                "bias_s": -0.12149344793721596,
+                "absolute_error_p90_s": 0.40861713255678256,
+                "clean_stints": 8,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 33,
+                "mae_s": 0.11862239931174495,
+                "rmse_s": 0.1470746177185111,
+                "bias_s": 0.021832098555863603,
+                "absolute_error_p90_s": 0.24538719935678444,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 45,
+                "mae_s": 0.22111127942647468,
+                "rmse_s": 0.272715875983315,
+                "bias_s": -0.04254977238718788,
+                "absolute_error_p90_s": 0.4316864707267215,
+                "clean_stints": 13,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 19,
+                "mae_s": 0.18581020656193803,
+                "rmse_s": 0.23488844616613774,
+                "bias_s": -0.15841082951766153,
+                "absolute_error_p90_s": 0.40477332157784784,
+                "clean_stints": 9,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 13,
+                "mae_s": 0.2279746184612324,
+                "rmse_s": 0.2809203582184482,
+                "bias_s": -0.12024061999509236,
+                "absolute_error_p90_s": 0.5122313085004394,
+                "clean_stints": 8,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 38,
+                "mae_s": 0.15759431955653164,
+                "rmse_s": 0.1867130312729337,
+                "bias_s": -0.12710164460430357,
+                "absolute_error_p90_s": 0.26922749523402395,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 62,
+              "mae_s": 0.1703590727224291,
+              "rmse_s": 0.2063672825301629,
+              "bias_s": -0.060992471564096415,
+              "absolute_error_p90_s": 0.3193083286110372,
+              "clean_stints": 10,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          }
+        },
+        "B": {
+          "R0": {
+            "n": 63,
+            "mae_s": 0.2239841269841266,
+            "rmse_s": 0.29716389577534597,
+            "bias_s": 0.03752380952380982,
+            "absolute_error_p90_s": 0.5261999999999973,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.525,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.21858333333333255,
+              "rmse_s": 0.26231350518034574,
+              "bias_s": 0.04125000000000038,
+              "absolute_error_p90_s": 0.37274999999999814,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.1670000000000016,
+            "residual_std_s": 0.29715304285094535,
+            "stint_weighted_mae_s": 0.22994119047619027,
+            "stint_bootstrap_mae_95": [
+              0.14150780952380912,
+              0.3459388124999993
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.2701538461538459,
+                "rmse_s": 0.3602137186128857,
+                "bias_s": -0.13584615384615345,
+                "absolute_error_p90_s": 0.696600000000001,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 19,
+                "mae_s": 0.2771052631578942,
+                "rmse_s": 0.350522692410543,
+                "bias_s": -0.05573684210526247,
+                "absolute_error_p90_s": 0.5751999999999994,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 31,
+                "mae_s": 0.1720645161290319,
+                "rmse_s": 0.2230321834146577,
+                "bias_s": 0.16738709677419356,
+                "absolute_error_p90_s": 0.3149999999999977,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.2719047619047616,
+                "rmse_s": 0.33747663058421706,
+                "bias_s": 0.11671428571428574,
+                "absolute_error_p90_s": 0.5030000000000001,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 7,
+                "mae_s": 0.13628571428571487,
+                "rmse_s": 0.16216019416437732,
+                "bias_s": -0.04071428571428472,
+                "absolute_error_p90_s": 0.2455999999999989,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 9,
+                "mae_s": 0.23799999999999955,
+                "rmse_s": 0.32129287435470905,
+                "bias_s": 0.03266666666666632,
+                "absolute_error_p90_s": 0.4299999999999984,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 26,
+                "mae_s": 0.20403846153846084,
+                "rmse_s": 0.2813749551481349,
+                "bias_s": -0.003692307692307149,
+                "absolute_error_p90_s": 0.5382499999999979,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R1": {
+            "n": 38,
+            "mae_s": 0.10499744459994241,
+            "rmse_s": 0.12573941533587255,
+            "bias_s": -0.0509560209485747,
+            "absolute_error_p90_s": 0.2019713006028646,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.31666666666666665,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.07664981922357228,
+              "rmse_s": 0.0866859364507429,
+              "bias_s": -0.07487788474416135,
+              "absolute_error_p90_s": 0.11948740106877054,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.0953998073561646,
+            "residual_std_s": 0.11649470593789882,
+            "stint_weighted_mae_s": 0.10952704493489762,
+            "stint_bootstrap_mae_95": [
+              0.08916588771267747,
+              0.12852690464586838
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 6,
+                "mae_s": 0.15516014199576134,
+                "rmse_s": 0.17140033275290054,
+                "bias_s": -0.0468389869763269,
+                "absolute_error_p90_s": 0.21652421280639444,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 14,
+                "mae_s": 0.12655880683166107,
+                "rmse_s": 0.14752195907849605,
+                "bias_s": -0.08494634751353278,
+                "absolute_error_p90_s": 0.21560763314292972,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 18,
+                "mae_s": 0.07150659706555491,
+                "rmse_s": 0.08159812752155587,
+                "bias_s": -0.02589144494435658,
+                "absolute_error_p90_s": 0.1163612845291219,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 11,
+                "mae_s": 0.09740532700374903,
+                "rmse_s": 0.12353251409880976,
+                "bias_s": -0.035605067560344074,
+                "absolute_error_p90_s": 0.1951601846324209,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 5,
+                "mae_s": 0.14434430899981976,
+                "rmse_s": 0.15042238484376572,
+                "bias_s": -0.09802798795774663,
+                "absolute_error_p90_s": 0.19596624010104408,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 4,
+                "mae_s": 0.15492775547135373,
+                "rmse_s": 0.17450294040944395,
+                "bias_s": 0.022016525113821572,
+                "absolute_error_p90_s": 0.24461336822383048,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 18,
+                "mae_s": 0.08761176282622547,
+                "rmse_s": 0.1048789103443617,
+                "bias_s": -0.06347773408603372,
+                "absolute_error_p90_s": 0.1733801990840327,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R2": {
+            "n": 16,
+            "mae_s": 0.07181249999999961,
+            "rmse_s": 0.079619210935552,
+            "bias_s": 0.004249999999999865,
+            "absolute_error_p90_s": 0.12399999999999878,
+            "clean_stints": 5,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.13333333333333333,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.05216666666666647,
+              "rmse_s": 0.05505073417615165,
+              "bias_s": 0.019666666666666426,
+              "absolute_error_p90_s": 0.06799999999999962,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.0625,
+            "residual_std_s": 0.08211313333850187,
+            "stint_weighted_mae_s": 0.0733666666666662,
+            "stint_bootstrap_mae_95": [
+              0.05989999999999966,
+              0.09049333333333279
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 7,
+                "mae_s": 0.08071428571428539,
+                "rmse_s": 0.08654065931275107,
+                "bias_s": -0.035857142857142525,
+                "absolute_error_p90_s": 0.11140000000000044,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 9,
+                "mae_s": 0.06488888888888845,
+                "rmse_s": 0.07378836102138425,
+                "bias_s": 0.035444444444443945,
+                "absolute_error_p90_s": 0.12039999999999865,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 16,
+                "mae_s": 0.07181249999999961,
+                "rmse_s": 0.079619210935552,
+                "bias_s": 0.004249999999999865,
+                "absolute_error_p90_s": 0.12399999999999878,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R3": {
+            "n": 63,
+            "mae_s": 0.22057529613243843,
+            "rmse_s": 0.2823890382187847,
+            "bias_s": 0.039729501450930155,
+            "absolute_error_p90_s": 0.48732500000000023,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.525,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.18050595238095113,
+              "rmse_s": 0.2117221570595894,
+              "bias_s": 0.044047619047618745,
+              "absolute_error_p90_s": 0.3114374999999985,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.17738461538461436,
+            "residual_std_s": 0.2818259456020174,
+            "stint_weighted_mae_s": 0.2317356921649773,
+            "stint_bootstrap_mae_95": [
+              0.14075500446428502,
+              0.359950662765805
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.28013324175824156,
+                "rmse_s": 0.3544701037381985,
+                "bias_s": -0.13860576923076862,
+                "absolute_error_p90_s": 0.647800000000001,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 19,
+                "mae_s": 0.265190404332509,
+                "rmse_s": 0.3281868607538162,
+                "bias_s": -0.025770087806929166,
+                "absolute_error_p90_s": 0.5772307692307684,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 31,
+                "mae_s": 0.1682546397151229,
+                "rmse_s": 0.2082168098830853,
+                "bias_s": 0.1546601696690402,
+                "absolute_error_p90_s": 0.36274999999999835,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.2668028519099941,
+                "rmse_s": 0.32817508020456904,
+                "bias_s": 0.10580965463108274,
+                "absolute_error_p90_s": 0.5665384615384603,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 7,
+                "mae_s": 0.14590909090909118,
+                "rmse_s": 0.1685317704310614,
+                "bias_s": -0.04401948051947865,
+                "absolute_error_p90_s": 0.2455999999999989,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 9,
+                "mae_s": 0.2530856060606056,
+                "rmse_s": 0.3173897644190274,
+                "bias_s": 0.05294671717171637,
+                "absolute_error_p90_s": 0.44021818181817957,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 26,
+                "mae_s": 0.19208652597402526,
+                "rmse_s": 0.2524283010114218,
+                "bias_s": 0.004329682817183284,
+                "absolute_error_p90_s": 0.41699999999999804,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R4-A": {
+            "n": 38,
+            "mae_s": 0.21299024519221313,
+            "rmse_s": 0.2632809259887372,
+            "bias_s": -0.024283023033568253,
+            "absolute_error_p90_s": 0.42847173899419183,
+            "clean_stints": 8,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.31666666666666665,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.1780655405962269,
+              "rmse_s": 0.19065419763645816,
+              "bias_s": -0.127938325554652,
+              "absolute_error_p90_s": 0.24238176452528926,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.16676285361386967,
+            "residual_std_s": 0.26567775999191245,
+            "stint_weighted_mae_s": 0.22286546689133668,
+            "stint_bootstrap_mae_95": [
+              0.15078557091986833,
+              0.306422422126408
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 5,
+                "mae_s": 0.18652412189901,
+                "rmse_s": 0.2907908597837909,
+                "bias_s": -0.14627624407967305,
+                "absolute_error_p90_s": 0.42054213567906235,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 10,
+                "mae_s": 0.27434235869583257,
+                "rmse_s": 0.32708974886216885,
+                "bias_s": -0.19452692118870624,
+                "absolute_error_p90_s": 0.563775972664532,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 23,
+                "mae_s": 0.19206891829785758,
+                "rmse_s": 0.22276586351792096,
+                "bias_s": 0.07625632856564495,
+                "absolute_error_p90_s": 0.3635156391995487,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 10,
+                "mae_s": 0.19231574933414244,
+                "rmse_s": 0.22644614507727032,
+                "bias_s": 0.15326668266154436,
+                "absolute_error_p90_s": 0.395602473482764,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 3,
+                "mae_s": 0.03783409233781635,
+                "rmse_s": 0.044238293724919046,
+                "bias_s": 0.0313520388950946,
+                "absolute_error_p90_s": 0.06028403327242273,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 6,
+                "mae_s": 0.30430642309020745,
+                "rmse_s": 0.3488292130407022,
+                "bias_s": 0.01761383946560417,
+                "absolute_error_p90_s": 0.5002443700396331,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 19,
+                "mae_s": 0.22269110570568323,
+                "rmse_s": 0.2700194517630839,
+                "bias_s": -0.13974530817736558,
+                "absolute_error_p90_s": 0.5102685203676294,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            }
+          },
+          "R4-B": {
+            "n": 38,
+            "mae_s": 0.1705153525744945,
+            "rmse_s": 0.20920644384840364,
+            "bias_s": -0.010308057465825521,
+            "absolute_error_p90_s": 0.35901877590233267,
+            "clean_stints": 8,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.31666666666666665,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.13634425795456906,
+              "rmse_s": 0.14498727478930698,
+              "bias_s": -0.0990477017807656,
+              "absolute_error_p90_s": 0.20059188196281674,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.12750059494532806,
+            "residual_std_s": 0.21175719418910127,
+            "stint_weighted_mae_s": 0.18448248897598285,
+            "stint_bootstrap_mae_95": [
+              0.12386255109760395,
+              0.2550781537268587
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 5,
+                "mae_s": 0.15749156785096333,
+                "rmse_s": 0.2292762554842381,
+                "bias_s": -0.11929194373178902,
+                "absolute_error_p90_s": 0.3346540629737497,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 10,
+                "mae_s": 0.2166750435451405,
+                "rmse_s": 0.2526778409718185,
+                "bias_s": -0.1368596060380142,
+                "absolute_error_p90_s": 0.3661554185373799,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 23,
+                "mae_s": 0.1532771792662856,
+                "rmse_s": 0.18200093809914183,
+                "bias_s": 0.06840650414511815,
+                "absolute_error_p90_s": 0.2619772782659638,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 10,
+                "mae_s": 0.19231574933414244,
+                "rmse_s": 0.22644614507727032,
+                "bias_s": 0.15326668266154436,
+                "absolute_error_p90_s": 0.395602473482764,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 3,
+                "mae_s": 0.023097241690411607,
+                "rmse_s": 0.026771394698951432,
+                "bias_s": 0.01454542034611587,
+                "absolute_error_p90_s": 0.036626431375135125,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 6,
+                "mae_s": 0.25298875447322783,
+                "rmse_s": 0.2842142478413251,
+                "bias_s": -0.020592924378680284,
+                "absolute_error_p90_s": 0.41037251827786214,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 19,
+                "mae_s": 0.15627377118835603,
+                "rmse_s": 0.1868807180262906,
+                "bias_s": -0.09707640658331995,
+                "absolute_error_p90_s": 0.3550990930395798,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 38,
+              "mae_s": 0.1705153525744945,
+              "rmse_s": 0.20920644384840364,
+              "bias_s": -0.010308057465825521,
+              "absolute_error_p90_s": 0.35901877590233267,
+              "clean_stints": 8,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          },
+          "R4-B-TIER-B": {
+            "n": 105,
+            "mae_s": 0.17552852069361022,
+            "rmse_s": 0.21777182004703957,
+            "bias_s": -0.08775141435464684,
+            "absolute_error_p90_s": 0.34829361651853646,
+            "clean_stints": 13,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.875,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 6,
+              "mae_s": 0.16633678500804847,
+              "rmse_s": 0.17830512682431418,
+              "bias_s": -0.15237506946797494,
+              "absolute_error_p90_s": 0.22497911507887913,
+              "clean_stints": 3,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.14289955695448953,
+            "residual_std_s": 0.20026537113200965,
+            "stint_weighted_mae_s": 0.18314734429874363,
+            "stint_bootstrap_mae_95": [
+              0.14794742765281427,
+              0.22487209402348424
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 31,
+                "mae_s": 0.2265833644719197,
+                "rmse_s": 0.28088833827505644,
+                "bias_s": -0.18031527408510398,
+                "absolute_error_p90_s": 0.49128198977794213,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 43,
+                "mae_s": 0.17081383779102863,
+                "rmse_s": 0.20570377397620287,
+                "bias_s": -0.10543476378009925,
+                "absolute_error_p90_s": 0.34855771684698883,
+                "clean_stints": 8,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 31,
+                "mae_s": 0.13101339836081716,
+                "rmse_s": 0.15178821618380978,
+                "bias_s": 0.02934096232079268,
+                "absolute_error_p90_s": 0.23112783615207988,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 43,
+                "mae_s": 0.20231521059736265,
+                "rmse_s": 0.24989424162851157,
+                "bias_s": -0.06402809584579539,
+                "absolute_error_p90_s": 0.4295104850399743,
+                "clean_stints": 13,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 49
+              },
+              "1": {
+                "n": 15,
+                "mae_s": 0.12395576699263865,
+                "rmse_s": 0.16503950934223743,
+                "bias_s": -0.10258535381172014,
+                "absolute_error_p90_s": 0.2080886008253607,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 20
+              },
+              "2": {
+                "n": 12,
+                "mae_s": 0.192780803098886,
+                "rmse_s": 0.23935614407513447,
+                "bias_s": -0.06788286118116933,
+                "absolute_error_p90_s": 0.3791173432125878,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 13
+              },
+              "3": {
+                "n": 35,
+                "mae_s": 0.15880669928760766,
+                "rmse_s": 0.1850317157057213,
+                "bias_s": -0.1173518784148252,
+                "absolute_error_p90_s": 0.2508073718604173,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 38
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 38,
+              "mae_s": 0.16817741837672445,
+              "rmse_s": 0.21112079497562466,
+              "bias_s": -0.07295969755748559,
+              "absolute_error_p90_s": 0.36227251894959894,
+              "clean_stints": 8,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          }
+        }
+      },
+      "r4_b_uncertainty_gate": "INSUFFICIENT_CALIBRATION_STINTS",
+      "reference_validated": false,
+      "frozen_h1_following": 70,
+      "frozen_h1_groups": 28,
+      "exploratory_following_predictions": 21,
+      "following_with_three_controls": 0,
+      "eligible_h1_proxies": 0,
+      "eligible_h1_groups": 0,
+      "timing_p90_s": 0.1563125,
+      "reference_and_timing_scale": {
+        "reference_p90_s": 0.35901877590233267,
+        "timing_p90_s": 0.1563125,
+        "sum_of_component_p90_scales_s": 0.5153312759023326,
+        "combined_quantile": null,
+        "reason": "DEPENDENCE_UNKNOWN_AND_OFFICIAL_TIMING_ALREADY_IN_RESIDUALS"
+      },
+      "development_gate": false
+    },
+    "9928": {
+      "evidence": {
+        "1": {
+          "candidates": 1369,
+          "tiers": {
+            "C": 756,
+            "B": 353,
+            "EXCLUDED": 210,
+            "A": 50
+          },
+          "reasons": {
+            "NO_TRUSTED_CLEAN_LABEL": 399,
+            "STAGE1_CLEAN_TIMING_ONLY": 353,
+            "ARCHIVE_PASS": 132,
+            "PIT_OR_STINT_TRANSITION": 58,
+            "C2_PHYSICAL_CLEAN": 50,
+            "CACHED_PHYSICAL_CONTRADICTION": 357,
+            "NON_GREEN_OR_WET": 1,
+            "OFFICIAL_TIMING_UNRECONCILED": 19
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 8,
+              "stints": 10,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 20,
+              "stints": 42,
+              "race_weekends": 1
+            }
+          }
+        },
+        "2": {
+          "candidates": 1369,
+          "tiers": {
+            "C": 730,
+            "B": 388,
+            "EXCLUDED": 210,
+            "A": 41
+          },
+          "reasons": {
+            "NO_TRUSTED_CLEAN_LABEL": 406,
+            "STAGE1_CLEAN_TIMING_ONLY": 388,
+            "ARCHIVE_PASS": 132,
+            "PIT_OR_STINT_TRANSITION": 58,
+            "C2_PHYSICAL_CLEAN": 41,
+            "CACHED_PHYSICAL_CONTRADICTION": 324,
+            "NON_GREEN_OR_WET": 1,
+            "OFFICIAL_TIMING_UNRECONCILED": 19
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 9,
+              "stints": 12,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 20,
+              "stints": 42,
+              "race_weekends": 1
+            }
+          }
+        },
+        "3": {
+          "candidates": 1369,
+          "tiers": {
+            "C": 755,
+            "B": 364,
+            "EXCLUDED": 210,
+            "A": 40
+          },
+          "reasons": {
+            "NO_TRUSTED_CLEAN_LABEL": 392,
+            "STAGE1_CLEAN_TIMING_ONLY": 364,
+            "ARCHIVE_PASS": 132,
+            "PIT_OR_STINT_TRANSITION": 58,
+            "C2_PHYSICAL_CLEAN": 40,
+            "CACHED_PHYSICAL_CONTRADICTION": 363,
+            "NON_GREEN_OR_WET": 1,
+            "OFFICIAL_TIMING_UNRECONCILED": 19
+          },
+          "clean_by_tier": {
+            "A": {
+              "drivers": 7,
+              "stints": 9,
+              "race_weekends": 1
+            },
+            "B": {
+              "drivers": 20,
+              "stints": 42,
+              "race_weekends": 1
+            }
+          }
+        }
+      },
+      "totals": {
+        "candidates": 4107,
+        "tiers": {
+          "C": 2241,
+          "B": 1105,
+          "EXCLUDED": 630,
+          "A": 131
+        },
+        "reasons": {
+          "NO_TRUSTED_CLEAN_LABEL": 1197,
+          "STAGE1_CLEAN_TIMING_ONLY": 1105,
+          "ARCHIVE_PASS": 396,
+          "PIT_OR_STINT_TRANSITION": 174,
+          "C2_PHYSICAL_CLEAN": 131,
+          "CACHED_PHYSICAL_CONTRADICTION": 1044,
+          "NON_GREEN_OR_WET": 3,
+          "OFFICIAL_TIMING_UNRECONCILED": 57
+        },
+        "clean_by_tier": {
+          "A": {
+            "drivers": 10,
+            "stints": 13,
+            "race_weekends": 1
+          },
+          "B": {
+            "drivers": 20,
+            "stints": 42,
+            "race_weekends": 1
+          }
+        }
+      },
+      "folds": {
+        "27": 0,
+        "22": 1,
+        "6": 2,
+        "4": 3,
+        "5": 0,
+        "14": 1,
+        "87": 2,
+        "43": 3,
+        "10": 0,
+        "31": 1,
+        "30": 2,
+        "12": 3,
+        "23": 0,
+        "81": 1,
+        "44": 2,
+        "18": 3,
+        "1": 0,
+        "55": 1,
+        "16": 2,
+        "63": 3
+      },
+      "reference": {
+        "A": {
+          "R0": {
+            "n": 85,
+            "mae_s": 0.22815882352941197,
+            "rmse_s": 0.2768290032832971,
+            "bias_s": 0.04371176470588259,
+            "absolute_error_p90_s": 0.46480000000000105,
+            "clean_stints": 11,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.648854961832061,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.03999999999999915,
+              "rmse_s": 0.051870029882389306,
+              "bias_s": 0.029500000000000526,
+              "absolute_error_p90_s": 0.07649999999999971,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.20250000000000057,
+            "residual_std_s": 0.27497844478802225,
+            "stint_weighted_mae_s": 0.2856992424242428,
+            "stint_bootstrap_mae_95": [
+              0.20824776515151516,
+              0.35802397727272717
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 15,
+                "mae_s": 0.3014000000000003,
+                "rmse_s": 0.3217867824093052,
+                "bias_s": -0.23966666666666683,
+                "absolute_error_p90_s": 0.4549999999999997,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 14,
+                "mae_s": 0.2594999999999997,
+                "rmse_s": 0.2947488640472476,
+                "bias_s": -0.25150000000000006,
+                "absolute_error_p90_s": 0.4129000000000012,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 56,
+                "mae_s": 0.20070535714285745,
+                "rmse_s": 0.2585825976770843,
+                "bias_s": 0.19341964285714328,
+                "absolute_error_p90_s": 0.47550000000000026,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 30,
+                "mae_s": 0.2372833333333337,
+                "rmse_s": 0.2789741176764139,
+                "bias_s": 0.02121666666666684,
+                "absolute_error_p90_s": 0.46560000000000096,
+                "clean_stints": 10,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 17,
+                "mae_s": 0.23682352941176468,
+                "rmse_s": 0.30591588617096194,
+                "bias_s": 0.16117647058823603,
+                "absolute_error_p90_s": 0.4794000000000011,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 13,
+                "mae_s": 0.2253076923076933,
+                "rmse_s": 0.2660446029695609,
+                "bias_s": 0.0745384615384619,
+                "absolute_error_p90_s": 0.4009000000000022,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 25,
+                "mae_s": 0.21279999999999974,
+                "rmse_s": 0.2583056329234807,
+                "bias_s": -0.0252000000000001,
+                "absolute_error_p90_s": 0.38960000000000083,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R1": {
+            "n": 32,
+            "mae_s": 0.10500981170292445,
+            "rmse_s": 0.12219061541172073,
+            "bias_s": -0.021371894964344773,
+            "absolute_error_p90_s": 0.18304614455092008,
+            "clean_stints": 5,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.24427480916030533,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.052679183990231415,
+              "rmse_s": 0.0568750027250252,
+              "bias_s": -0.04439852525865984,
+              "absolute_error_p90_s": 0.06966730683306288,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.08250268759070423,
+            "residual_std_s": 0.12223209483106412,
+            "stint_weighted_mae_s": 0.12200267230445436,
+            "stint_bootstrap_mae_95": [
+              0.09205476488425575,
+              0.15195057972465303
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 3,
+                "mae_s": 0.09513676918953824,
+                "rmse_s": 0.09719830377780901,
+                "bias_s": 0.03987996667197417,
+                "absolute_error_p90_s": 0.11515400513322405,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 11,
+                "mae_s": 0.1487841269479091,
+                "rmse_s": 0.1618181162965991,
+                "bias_s": -0.08755155792938493,
+                "absolute_error_p90_s": 0.23860819556588098,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 18,
+                "mae_s": 0.07990434836099819,
+                "rmse_s": 0.09469214055113763,
+                "bias_s": 0.00886258879712661,
+                "absolute_error_p90_s": 0.14720786207640235,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 4,
+                "mae_s": 0.11716525447441306,
+                "rmse_s": 0.11896293071277819,
+                "bias_s": 0.05006496868805144,
+                "absolute_error_p90_s": 0.1326761209351332,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 9,
+                "mae_s": 0.11525373659647581,
+                "rmse_s": 0.1325822504711728,
+                "bias_s": -0.00451665016274758,
+                "absolute_error_p90_s": 0.19464637146199523,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 6,
+                "mae_s": 0.12238342010168364,
+                "rmse_s": 0.14291038830588157,
+                "bias_s": -0.025672152656117813,
+                "absolute_error_p90_s": 0.2097237690081446,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 13,
+                "mae_s": 0.08615913897058046,
+                "rmse_s": 0.1039326777370495,
+                "bias_s": -0.053036749708446414,
+                "absolute_error_p90_s": 0.16575228356604157,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R2": {
+            "n": 27,
+            "mae_s": 0.07418518518518571,
+            "rmse_s": 0.11192217865139227,
+            "bias_s": 0.011592592592592418,
+            "absolute_error_p90_s": 0.1372000000000015,
+            "clean_stints": 4,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.20610687022900764,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.048499999999999766,
+              "rmse_s": 0.06396483408873953,
+              "bias_s": -0.04350000000000076,
+              "absolute_error_p90_s": 0.09199999999999946,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.06800000000000139,
+            "residual_std_s": 0.11344077046881561,
+            "stint_weighted_mae_s": 0.07105519480519519,
+            "stint_bootstrap_mae_95": [
+              0.05917857142857118,
+              0.08293181818181919
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 7,
+                "mae_s": 0.08171428571428763,
+                "rmse_s": 0.10091863766704198,
+                "bias_s": -0.060285714285715386,
+                "absolute_error_p90_s": 0.16140000000000115,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 11,
+                "mae_s": 0.08295454545454559,
+                "rmse_s": 0.14334327837239358,
+                "bias_s": 0.07568181818181846,
+                "absolute_error_p90_s": 0.12400000000000233,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 9,
+                "mae_s": 0.05761111111111106,
+                "rmse_s": 0.06741682117823239,
+                "bias_s": -0.01083333333333335,
+                "absolute_error_p90_s": 0.09739999999999896,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 27,
+                "mae_s": 0.07418518518518571,
+                "rmse_s": 0.11192217865139227,
+                "bias_s": 0.011592592592592418,
+                "absolute_error_p90_s": 0.1372000000000015,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R3": {
+            "n": 85,
+            "mae_s": 0.20288558226087663,
+            "rmse_s": 0.255936248862573,
+            "bias_s": 0.04838737928737879,
+            "absolute_error_p90_s": 0.4199846153846182,
+            "clean_stints": 11,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.648854961832061,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.05520535714285746,
+              "rmse_s": 0.06799007890186277,
+              "bias_s": -0.044205357142858226,
+              "absolute_error_p90_s": 0.09947499999999856,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.1567500000000024,
+            "residual_std_s": 0.2528120920301908,
+            "stint_weighted_mae_s": 0.26139878907708514,
+            "stint_bootstrap_mae_95": [
+              0.1745797055785129,
+              0.35342953521825493
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 15,
+                "mae_s": 0.22397586080586104,
+                "rmse_s": 0.2746642654663472,
+                "bias_s": -0.14010919413919468,
+                "absolute_error_p90_s": 0.40490769230769386,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 14,
+                "mae_s": 0.24625000000000036,
+                "rmse_s": 0.2827237220120351,
+                "bias_s": -0.23825000000000074,
+                "absolute_error_p90_s": 0.405599999999999,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 56,
+                "mae_s": 0.18639529607297486,
+                "rmse_s": 0.24338099076409708,
+                "bias_s": 0.17053687770562728,
+                "absolute_error_p90_s": 0.46799999999999997,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 30,
+                "mae_s": 0.18804220529470578,
+                "rmse_s": 0.24182579724280556,
+                "bias_s": 0.05386872544122513,
+                "absolute_error_p90_s": 0.4282769230769255,
+                "clean_stints": 10,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 17,
+                "mae_s": 0.23344901960784292,
+                "rmse_s": 0.3044188292382244,
+                "bias_s": 0.15350784313725457,
+                "absolute_error_p90_s": 0.4794000000000011,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 13,
+                "mae_s": 0.21223351648351768,
+                "rmse_s": 0.24890498670337863,
+                "bias_s": 0.07057967032967018,
+                "absolute_error_p90_s": 0.38730000000000264,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 25,
+                "mae_s": 0.19505357142857122,
+                "rmse_s": 0.2393819046800849,
+                "bias_s": -0.04121214285714388,
+                "absolute_error_p90_s": 0.3843714285714306,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R4-A": {
+            "n": 41,
+            "mae_s": 0.17536028971415463,
+            "rmse_s": 0.23048789315015622,
+            "bias_s": -0.03647352384845495,
+            "absolute_error_p90_s": 0.40345732407157087,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.31297709923664124,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.21836607900117144,
+              "rmse_s": 0.2219414173544475,
+              "bias_s": -0.21836607900117144,
+              "absolute_error_p90_s": 0.25176718482705984,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.14043664543931555,
+            "residual_std_s": 0.23041095833433328,
+            "stint_weighted_mae_s": 0.23783751346842483,
+            "stint_bootstrap_mae_95": [
+              0.13187521030916116,
+              0.37619406831596486
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.20152358316200528,
+                "rmse_s": 0.2861285367257407,
+                "bias_s": -0.06564035886238556,
+                "absolute_error_p90_s": 0.3921445090872084,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 3,
+                "mae_s": 0.21093958827481885,
+                "rmse_s": 0.2610545700525081,
+                "bias_s": -0.21093958827481885,
+                "absolute_error_p90_s": 0.36448700177137994,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 25,
+                "mae_s": 0.15748586129399256,
+                "rmse_s": 0.19072062761329575,
+                "bias_s": -0.00037084191004737476,
+                "absolute_error_p90_s": 0.2598607957564511,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.1895108251904342,
+                "rmse_s": 0.26821360974057623,
+                "bias_s": 0.011380536732797538,
+                "absolute_error_p90_s": 0.4363626160913583,
+                "clean_stints": 8,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 4,
+                "mae_s": 0.12568965553270228,
+                "rmse_s": 0.12687768307507155,
+                "bias_s": -0.00026028865722604877,
+                "absolute_error_p90_s": 0.14408762249539464,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 4,
+                "mae_s": 0.13141087553597774,
+                "rmse_s": 0.14038345237222954,
+                "bias_s": -0.0189427806156095,
+                "absolute_error_p90_s": 0.1699411441786097,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 12,
+                "mae_s": 0.18180353541720842,
+                "rmse_s": 0.20900164160827803,
+                "bias_s": -0.13813278934033826,
+                "absolute_error_p90_s": 0.2614835562850285,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R4-B": {
+            "n": 41,
+            "mae_s": 0.14504867272973027,
+            "rmse_s": 0.20790241117497593,
+            "bias_s": -0.011782349305631061,
+            "absolute_error_p90_s": 0.3468932491497583,
+            "clean_stints": 10,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.31297709923664124,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.14386569619516987,
+              "rmse_s": 0.14956235628999534,
+              "bias_s": -0.14386569619516987,
+              "absolute_error_p90_s": 0.18028192140876628,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.10795684944691075,
+            "residual_std_s": 0.21014686183152742,
+            "stint_weighted_mae_s": 0.21314578407918477,
+            "stint_bootstrap_mae_95": [
+              0.10607380321513678,
+              0.35320972173929627
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.19164229863926116,
+                "rmse_s": 0.2830195521232249,
+                "bias_s": -0.05575907433964143,
+                "absolute_error_p90_s": 0.3921445090872084,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 3,
+                "mae_s": 0.11031935966166628,
+                "rmse_s": 0.1338803158078745,
+                "bias_s": -0.05369473326616969,
+                "absolute_error_p90_s": 0.18760516753020726,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 25,
+                "mae_s": 0.12498750482494188,
+                "rmse_s": 0.16457062059702762,
+                "bias_s": 0.016115033787318964,
+                "absolute_error_p90_s": 0.18286057791944332,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.1895108251904342,
+                "rmse_s": 0.26821360974057623,
+                "bias_s": 0.011380536732797538,
+                "absolute_error_p90_s": 0.4363626160913583,
+                "clean_stints": 8,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 4,
+                "mae_s": 0.07343905056247912,
+                "rmse_s": 0.07674761382025556,
+                "bias_s": 0.013681877400269826,
+                "absolute_error_p90_s": 0.09773288154311999,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 4,
+                "mae_s": 0.07158162772855725,
+                "rmse_s": 0.08200766624340317,
+                "bias_s": 0.02213538097212364,
+                "absolute_error_p90_s": 0.11602555717018782,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 12,
+                "mae_s": 0.11559879497963976,
+                "rmse_s": 0.13259862738620776,
+                "bias_s": -0.07211138553409964,
+                "absolute_error_p90_s": 0.1869976223049136,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 41,
+              "mae_s": 0.14504867272973027,
+              "rmse_s": 0.20790241117497593,
+              "bias_s": -0.011782349305631061,
+              "absolute_error_p90_s": 0.3468932491497583,
+              "clean_stints": 10,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          },
+          "R4-B-TIER-B": {
+            "n": 113,
+            "mae_s": 0.1861880176655099,
+            "rmse_s": 0.23767475094116824,
+            "bias_s": -0.12914696965531178,
+            "absolute_error_p90_s": 0.39675401679943567,
+            "clean_stints": 12,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.8625954198473282,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 4,
+              "mae_s": 0.20028722994809556,
+              "rmse_s": 0.20463151339686173,
+              "bias_s": -0.20028722994809556,
+              "absolute_error_p90_s": 0.24689249901772925,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.15479121316679567,
+            "residual_std_s": 0.2004140638645978,
+            "stint_weighted_mae_s": 0.23231022505765064,
+            "stint_bootstrap_mae_95": [
+              0.15780291681981592,
+              0.32278461059827196
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 37,
+                "mae_s": 0.26885904935928,
+                "rmse_s": 0.32046702826956625,
+                "bias_s": -0.2125375663231021,
+                "absolute_error_p90_s": 0.4927048550559931,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 29,
+                "mae_s": 0.176598044044259,
+                "rmse_s": 0.22716029623465295,
+                "bias_s": -0.10186068478736145,
+                "absolute_error_p90_s": 0.3767918862973324,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 47,
+                "mae_s": 0.127023784949484,
+                "rmse_s": 0.15207570570443554,
+                "bias_s": -0.08033527145238237,
+                "absolute_error_p90_s": 0.24362471328845176,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 35,
+                "mae_s": 0.24373824351246134,
+                "rmse_s": 0.30432324333734906,
+                "bias_s": -0.1256889479474693,
+                "absolute_error_p90_s": 0.49052781582908905,
+                "clean_stints": 11,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 22,
+                "mae_s": 0.17861555502196405,
+                "rmse_s": 0.23115259598416063,
+                "bias_s": -0.15078642396962538,
+                "absolute_error_p90_s": 0.36020681621133455,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 15,
+                "mae_s": 0.17750384422380824,
+                "rmse_s": 0.22227460560724416,
+                "bias_s": -0.16679703191344,
+                "absolute_error_p90_s": 0.36794448328434154,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 41,
+                "mae_s": 0.1443001853518571,
+                "rmse_s": 0.17287128159263027,
+                "bias_s": -0.10671311187452312,
+                "absolute_error_p90_s": 0.27013433478441584,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 41,
+              "mae_s": 0.1677119970283834,
+              "rmse_s": 0.21352604765029395,
+              "bias_s": -0.08825011690725673,
+              "absolute_error_p90_s": 0.3498812235045605,
+              "clean_stints": 10,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          }
+        },
+        "B": {
+          "R0": {
+            "n": 63,
+            "mae_s": 0.2093253968253969,
+            "rmse_s": 0.2572534032662418,
+            "bias_s": 0.0582301587301587,
+            "absolute_error_p90_s": 0.4195999999999998,
+            "clean_stints": 9,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.48091603053435117,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.04299999999999926,
+              "rmse_s": 0.05715767664977269,
+              "bias_s": 0.029000000000001098,
+              "absolute_error_p90_s": 0.08099999999999952,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.18599999999999994,
+            "residual_std_s": 0.2525891542603809,
+            "stint_weighted_mae_s": 0.20530661375661394,
+            "stint_bootstrap_mae_95": [
+              0.11398834876543237,
+              0.2894876190476193
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.27284615384615446,
+                "rmse_s": 0.29636736558638826,
+                "bias_s": -0.21376923076923132,
+                "absolute_error_p90_s": 0.41920000000000074,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 6,
+                "mae_s": 0.17999999999999972,
+                "rmse_s": 0.219035004812778,
+                "bias_s": -0.151000000000001,
+                "absolute_error_p90_s": 0.31950000000000145,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 44,
+                "mae_s": 0.19455681818181814,
+                "rmse_s": 0.2495269046342771,
+                "bias_s": 0.16712500000000025,
+                "absolute_error_p90_s": 0.41890000000000005,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.22314285714285764,
+                "rmse_s": 0.27333879204769984,
+                "bias_s": -0.06790476190476216,
+                "absolute_error_p90_s": 0.4280000000000008,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 15,
+                "mae_s": 0.2405999999999994,
+                "rmse_s": 0.2920930217128322,
+                "bias_s": 0.17699999999999985,
+                "absolute_error_p90_s": 0.4846000000000003,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 12,
+                "mae_s": 0.21304166666666693,
+                "rmse_s": 0.24591728792421283,
+                "bias_s": 0.012125000000000163,
+                "absolute_error_p90_s": 0.35310000000000236,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 15,
+                "mae_s": 0.15573333333333322,
+                "rmse_s": 0.1991351299997065,
+                "bias_s": 0.15293333333333362,
+                "absolute_error_p90_s": 0.28120000000000045,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R1": {
+            "n": 23,
+            "mae_s": 0.10177837666939892,
+            "rmse_s": 0.12362213166081189,
+            "bias_s": -0.017286236971190853,
+            "absolute_error_p90_s": 0.18675585808214168,
+            "clean_stints": 4,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.17557251908396945,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.04895357289533445,
+              "rmse_s": 0.05434909627482724,
+              "bias_s": -0.03791269458657235,
+              "absolute_error_p90_s": 0.0693545959450745,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.0793038983198251,
+            "residual_std_s": 0.12515866317634874,
+            "stint_weighted_mae_s": 0.12003950569251355,
+            "stint_bootstrap_mae_95": [
+              0.07599029084732373,
+              0.16408872053770338
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 2,
+                "mae_s": 0.08767478330747736,
+                "rmse_s": 0.08807348831225893,
+                "bias_s": 0.08767478330747736,
+                "absolute_error_p90_s": 0.09437149129759917,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 5,
+                "mae_s": 0.17252269726089436,
+                "rmse_s": 0.1899911382400539,
+                "bias_s": -0.10368870872068711,
+                "absolute_error_p90_s": 0.24866375108056218,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 16,
+                "mae_s": 0.08143372565479678,
+                "rmse_s": 0.09858336614910496,
+                "bias_s": -0.0034055920843067966,
+                "absolute_error_p90_s": 0.16091037741841419,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 4,
+                "mae_s": 0.11271328127975178,
+                "rmse_s": 0.11598620119284424,
+                "bias_s": 0.04058200715383098,
+                "absolute_error_p90_s": 0.14107770744686868,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 7,
+                "mae_s": 0.12271685383157001,
+                "rmse_s": 0.142305671839083,
+                "bias_s": -0.02832573937949537,
+                "absolute_error_p90_s": 0.2037463440346514,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 6,
+                "mae_s": 0.12826429241089285,
+                "rmse_s": 0.15284328306342287,
+                "bias_s": -0.034010458546187415,
+                "absolute_error_p90_s": 0.22073791130896758,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 6,
+                "mae_s": 0.04357430116513683,
+                "rmse_s": 0.05125424021340508,
+                "bias_s": -0.026261425336520244,
+                "absolute_error_p90_s": 0.07568281889147421,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R2": {
+            "n": 27,
+            "mae_s": 0.07418518518518571,
+            "rmse_s": 0.11192217865139227,
+            "bias_s": 0.011592592592592418,
+            "absolute_error_p90_s": 0.1372000000000015,
+            "clean_stints": 4,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.20610687022900764,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.061333333333333684,
+              "rmse_s": 0.07363423117002024,
+              "bias_s": -0.061333333333333684,
+              "absolute_error_p90_s": 0.09299999999999926,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.06800000000000139,
+            "residual_std_s": 0.11344077046881561,
+            "stint_weighted_mae_s": 0.07105519480519519,
+            "stint_bootstrap_mae_95": [
+              0.05917857142857118,
+              0.08293181818181919
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 7,
+                "mae_s": 0.08171428571428763,
+                "rmse_s": 0.10091863766704198,
+                "bias_s": -0.060285714285715386,
+                "absolute_error_p90_s": 0.16140000000000115,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 11,
+                "mae_s": 0.08295454545454559,
+                "rmse_s": 0.14334327837239358,
+                "bias_s": 0.07568181818181846,
+                "absolute_error_p90_s": 0.12400000000000233,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 9,
+                "mae_s": 0.05761111111111106,
+                "rmse_s": 0.06741682117823239,
+                "bias_s": -0.01083333333333335,
+                "absolute_error_p90_s": 0.09739999999999896,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 27,
+                "mae_s": 0.07418518518518571,
+                "rmse_s": 0.11192217865139227,
+                "bias_s": 0.011592592592592418,
+                "absolute_error_p90_s": 0.1372000000000015,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R3": {
+            "n": 63,
+            "mae_s": 0.18910241768813182,
+            "rmse_s": 0.23903842415916537,
+            "bias_s": 0.06845838077266582,
+            "absolute_error_p90_s": 0.4137999999999993,
+            "clean_stints": 9,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.48091603053435117,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.06941666666666535,
+              "rmse_s": 0.07817195255759243,
+              "bias_s": -0.05474999999999971,
+              "absolute_error_p90_s": 0.10264999999999844,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.13540000000000063,
+            "residual_std_s": 0.2308653969855508,
+            "stint_weighted_mae_s": 0.1990013683802975,
+            "stint_bootstrap_mae_95": [
+              0.10433437950938192,
+              0.2993553775422111
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.19408780706473047,
+                "rmse_s": 0.24214160751818628,
+                "bias_s": -0.10896985834678191,
+                "absolute_error_p90_s": 0.4135500000000001,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 6,
+                "mae_s": 0.18233333333333354,
+                "rmse_s": 0.21915215414562325,
+                "bias_s": -0.1533333333333348,
+                "absolute_error_p90_s": 0.31950000000000145,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 44,
+                "mae_s": 0.18855251869342746,
+                "rmse_s": 0.24070875191598837,
+                "bias_s": 0.15112468516332092,
+                "absolute_error_p90_s": 0.41019999999999907,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 21,
+                "mae_s": 0.17395087293658765,
+                "rmse_s": 0.23443267800536746,
+                "bias_s": -0.013781175966891334,
+                "absolute_error_p90_s": 0.4227500000000006,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 15,
+                "mae_s": 0.2363422222222212,
+                "rmse_s": 0.29058655827799645,
+                "bias_s": 0.17274222222222163,
+                "absolute_error_p90_s": 0.4846000000000003,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 12,
+                "mae_s": 0.2003655303030308,
+                "rmse_s": 0.2322910597392656,
+                "bias_s": 0.006057088744588175,
+                "absolute_error_p90_s": 0.3474750000000011,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 15,
+                "mae_s": 0.15406428571428515,
+                "rmse_s": 0.18824276033815418,
+                "bias_s": 0.12923095238095214,
+                "absolute_error_p90_s": 0.28120000000000045,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R4-A": {
+            "n": 29,
+            "mae_s": 0.17238068511523436,
+            "rmse_s": 0.2312705176594083,
+            "bias_s": 2.9341157614016445e-05,
+            "absolute_error_p90_s": 0.38440084641495953,
+            "clean_stints": 8,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.22137404580152673,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.20561634710179652,
+              "rmse_s": 0.20910967755399631,
+              "bias_s": -0.20561634710179652,
+              "absolute_error_p90_s": 0.23711074930905623,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.1384399575735884,
+            "residual_std_s": 0.23536411706491128,
+            "stint_weighted_mae_s": 0.20373602886135317,
+            "stint_bootstrap_mae_95": [
+              0.10434426402930867,
+              0.34759528124180045
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.18403660417208037,
+                "rmse_s": 0.2597637499583664,
+                "bias_s": -0.06932305895602653,
+                "absolute_error_p90_s": 0.41812905934744227,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 16,
+                "mae_s": 0.16291025088154698,
+                "rmse_s": 0.20522728901656892,
+                "bias_s": 0.05637816624994696,
+                "absolute_error_p90_s": 0.2901137786174761,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 18,
+                "mae_s": 0.17946652824761955,
+                "rmse_s": 0.2563932208746438,
+                "bias_s": 0.0005288136857496776,
+                "absolute_error_p90_s": 0.45917284256921187,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 2,
+                "mae_s": 0.15733636887176417,
+                "rmse_s": 0.158467054398388,
+                "bias_s": 0.15733636887176417,
+                "absolute_error_p90_s": 0.1724534979103048,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 4,
+                "mae_s": 0.12096312646843277,
+                "rmse_s": 0.13303109481062902,
+                "bias_s": -0.008192134617096336,
+                "absolute_error_p90_s": 0.1757418691065354,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 5,
+                "mae_s": 0.19402342325347705,
+                "rmse_s": 0.22217475447092475,
+                "bias_s": -0.05811439040956614,
+                "absolute_error_p90_s": 0.30004553931593636,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            }
+          },
+          "R4-B": {
+            "n": 29,
+            "mae_s": 0.15130143539284288,
+            "rmse_s": 0.2157138097837782,
+            "bias_s": 0.00654512333985737,
+            "absolute_error_p90_s": 0.38440084641495953,
+            "clean_stints": 8,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.22137404580152673,
+            "point_gate_pass": false,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.1380228444394298,
+              "rmse_s": 0.1454045956070587,
+              "bias_s": -0.1380228444394298,
+              "absolute_error_p90_s": 0.18030372879697865,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.09496072664368427,
+            "residual_std_s": 0.2194309738249174,
+            "stint_weighted_mae_s": 0.1850490671400904,
+            "stint_bootstrap_mae_95": [
+              0.09185888025549116,
+              0.32624438589297194
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 13,
+                "mae_s": 0.17364540848753243,
+                "rmse_s": 0.2555637622353632,
+                "bias_s": -0.05893186327147859,
+                "absolute_error_p90_s": 0.41812905934744227,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 0,
+                "mae_s": null,
+                "rmse_s": null,
+                "bias_s": null,
+                "absolute_error_p90_s": null,
+                "clean_stints": 0,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 16,
+                "mae_s": 0.13314695725340764,
+                "rmse_s": 0.17684281665311516,
+                "bias_s": 0.05974517496156784,
+                "absolute_error_p90_s": 0.21082084878670493,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 18,
+                "mae_s": 0.17946652824761955,
+                "rmse_s": 0.2563932208746438,
+                "bias_s": 0.0005288136857496776,
+                "absolute_error_p90_s": 0.45917284256921187,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 2,
+                "mae_s": 0.11279790396254796,
+                "rmse_s": 0.11451014396631105,
+                "bias_s": 0.11279790396254796,
+                "absolute_error_p90_s": 0.1285805462324056,
+                "clean_stints": 1,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 4,
+                "mae_s": 0.06298534325001981,
+                "rmse_s": 0.07253712075940087,
+                "bias_s": 0.02575606305343392,
+                "absolute_error_p90_s": 0.10295023344574795,
+                "clean_stints": 3,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 5,
+                "mae_s": 0.13596138740202335,
+                "rmse_s": 0.1542041476279891,
+                "bias_s": -0.029666025925292418,
+                "absolute_error_p90_s": 0.21530969112403184,
+                "clean_stints": 2,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 29,
+              "mae_s": 0.15130143539284288,
+              "rmse_s": 0.2157138097837782,
+              "bias_s": 0.00654512333985737,
+              "absolute_error_p90_s": 0.38440084641495953,
+              "clean_stints": 8,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          },
+          "R4-B-TIER-B": {
+            "n": 109,
+            "mae_s": 0.19658293823322232,
+            "rmse_s": 0.25881164769610426,
+            "bias_s": -0.14294051215819098,
+            "absolute_error_p90_s": 0.4308143205523678,
+            "clean_stints": 11,
+            "coverage_50": null,
+            "coverage_90": null,
+            "interval_n": 0,
+            "support_fraction": 0.8320610687022901,
+            "point_gate_pass": true,
+            "race_count": 1,
+            "common": {
+              "n": 3,
+              "mae_s": 0.1880994438721769,
+              "rmse_s": 0.1928556037185555,
+              "bias_s": -0.1880994438721769,
+              "absolute_error_p90_s": 0.22788106834420888,
+              "clean_stints": 1,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            },
+            "interval_stints": 0,
+            "median_half_width_90_s": null,
+            "median_half_width_50_s": null,
+            "width_smaller_than_planning_effect_fraction": null,
+            "median_absolute_error_s": 0.16251472680809442,
+            "residual_std_s": 0.21675449517780485,
+            "stint_weighted_mae_s": 0.22749933921162938,
+            "stint_bootstrap_mae_95": [
+              0.1434211714629771,
+              0.32768244947852926
+            ],
+            "calibration_by_tyre_age": {
+              "0\u20139": {
+                "n": 34,
+                "mae_s": 0.31291012178908145,
+                "rmse_s": 0.3809957397367104,
+                "bias_s": -0.2733479361015869,
+                "absolute_error_p90_s": 0.5580035273233414,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "10\u201319": {
+                "n": 28,
+                "mae_s": 0.17735203114274103,
+                "rmse_s": 0.22407778699008304,
+                "bias_s": -0.1303112549645386,
+                "absolute_error_p90_s": 0.3621618429963164,
+                "clean_stints": 4,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              },
+              "20+": {
+                "n": 47,
+                "mae_s": 0.12388806924671732,
+                "rmse_s": 0.14291275154335498,
+                "bias_s": -0.05612703954854853,
+                "absolute_error_p90_s": 0.22795863303008088,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0
+              }
+            },
+            "history": {
+              "0": {
+                "n": 32,
+                "mae_s": 0.2627312906711279,
+                "rmse_s": 0.3389624942318551,
+                "bias_s": -0.17486351765429742,
+                "absolute_error_p90_s": 0.5075329154302627,
+                "clean_stints": 10,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 48
+              },
+              "1": {
+                "n": 21,
+                "mae_s": 0.18787237814139737,
+                "rmse_s": 0.24735469562606271,
+                "bias_s": -0.13006479138097862,
+                "absolute_error_p90_s": 0.4608772787152411,
+                "clean_stints": 6,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 23
+              },
+              "2": {
+                "n": 15,
+                "mae_s": 0.19049300410849573,
+                "rmse_s": 0.2451024517048009,
+                "bias_s": -0.17228762109820603,
+                "absolute_error_p90_s": 0.40789685714603074,
+                "clean_stints": 7,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 19
+              },
+              "3": {
+                "n": 41,
+                "mae_s": 0.1516444869109356,
+                "rmse_s": 0.1873135083879397,
+                "bias_s": -0.11388312987394288,
+                "absolute_error_p90_s": 0.27799390237148813,
+                "clean_stints": 5,
+                "coverage_50": null,
+                "coverage_90": null,
+                "interval_n": 0,
+                "eligible": 41
+              }
+            },
+            "tier_sensitivity_common": {
+              "n": 29,
+              "mae_s": 0.17968336804600854,
+              "rmse_s": 0.23342245461553296,
+              "bias_s": -0.08760355046903062,
+              "absolute_error_p90_s": 0.4049343695167721,
+              "clean_stints": 8,
+              "coverage_50": null,
+              "coverage_90": null,
+              "interval_n": 0
+            }
+          }
+        }
+      },
+      "r4_b_uncertainty_gate": "INSUFFICIENT_CALIBRATION_STINTS",
+      "reference_validated": false,
+      "frozen_h1_following": 58,
+      "frozen_h1_groups": 17,
+      "exploratory_following_predictions": 8,
+      "following_with_three_controls": 0,
+      "eligible_h1_proxies": 0,
+      "eligible_h1_groups": 0,
+      "timing_p90_s": 0.12351819999999994,
+      "reference_and_timing_scale": {
+        "reference_p90_s": 0.38440084641495953,
+        "timing_p90_s": 0.12351819999999994,
+        "sum_of_component_p90_scales_s": 0.5079190464149594,
+        "combined_quantile": null,
+        "reason": "DEPENDENCE_UNKNOWN_AND_OFFICIAL_TIMING_ALREADY_IN_RESIDUALS"
+      },
+      "development_gate": false
+    }
+  },
+  "h0_austria_proxy_s": 0.21097478858102647,
+  "cross_race_evaluation": "UNAVAILABLE_DISTINCT_LAYOUTS_AND_NO_APPROVED_TRANSFER_COHORT",
+  "r4_c_status": "DEFERRED_INSUFFICIENT_VALIDATION_SUPPORT",
+  "r4_d_status": "CHRONOLOGICAL_CALIBRATION_UNSUPPORTED",
+  "crps_status": "UNAVAILABLE_WITHOUT_CALIBRATED_PREDICTIVE_DISTRIBUTION",
+  "traffic_model_status": "RESEARCH_ONLY",
+  "empirical_fit_status": "GATED",
+  "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+  "new_requests": 0
+}
