@@ -77,6 +77,9 @@ and uncertainty/residual diagnostics are acceptable.
 - S4-B.1 audits independent timing evidence and measures supported
   follow-up before censoring.
   [S4-B.1 specification](STAGE5_S4_B1_EVIDENCE_STABILIZATION.md)
+- S5-A executes scripted VSC, Safety Car, and red suspension on the shared
+  checkpoint scheduler.
+  [S5-A specification](STAGE5_S5_A_NEUTRALIZATION.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

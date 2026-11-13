@@ -168,15 +168,15 @@ def _run_timeline(
             if state.phase is not RacePhase.PRESTART or event.at_us != 0:
                 raise ValueError("Start event requires the prestart grid at time zero")
             state = replace(state, phase=RacePhase.RUNNING)
-        elif event.kind is EventKind.TRACK_STATE_CHANGE:
-            assert event.track_state is not None
+        elif applied.kind is EventKind.TRACK_STATE_CHANGE:
+            assert applied.track_state is not None
             phase = state.phase
             if state.chequered_us is None:
                 phase = (
-                    RacePhase.SUSPENDED if event.track_state is TrackState.RED
+                    RacePhase.SUSPENDED if applied.track_state is TrackState.RED
                     else RacePhase.RUNNING
                 )
-            state = replace(state, track_state=event.track_state, phase=phase)
+            state = replace(state, track_state=applied.track_state, phase=phase)
         elif applied.kind in {
             EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED,
             EventKind.PIT_ENTRY, EventKind.PIT_EXIT, EventKind.RETIREMENT,
@@ -194,8 +194,8 @@ def _run_timeline(
                 state, car = _cross(state, car, applied)
             elif event.kind is EventKind.RETIREMENT:
                 car = replace(car, status=CarStatus.RETIRED, route=Route.OFF_TRACK, pit_box=None)
-            elif event.kind in _PIT_ROUTE_CHANGES:
-                car = _pit_route_change(state, car, event)
+            elif applied.kind in _PIT_ROUTE_CHANGES:
+                car = _pit_route_change(state, car, applied)
                 if diversions is not None and event in diversions:
                     generation = scheduler.invalidate(car.driver_number)
                     for replacement in diversions[event]:
@@ -213,8 +213,9 @@ def _run_timeline(
                     raise ValueError("A tyre change must advance the stint number")
                 car = replace(car, route=Route.ON_TRACK, tyres=event.tyres or car.tyres)
             state = replace(state, cars=state.cars[:index] + (car,) + state.cars[index + 1:])
-        elif after_event is None or event.kind not in {
+        elif after_event is None or applied.kind not in {
             EventKind.OVERTAKE_ATTEMPT, EventKind.ON_TRACK_PASS, EventKind.SCENARIO_WINDOW_END,
+            EventKind.RACE_CONTROL, EventKind.SC_QUEUE_UPDATE,
         }:
             raise ValueError(f"Unsupported Stage 5 event {event.kind.name}")
         if all(car.status is not CarStatus.ACTIVE for car in state.cars):

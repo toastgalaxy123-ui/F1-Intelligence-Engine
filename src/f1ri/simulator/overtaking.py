@@ -261,6 +261,17 @@ class _DynamicField:
     def _pass_predecessor(self, driver, checkpoint, leader):
         return checkpoint + self.offsets[driver, leader]
 
+    def _traversal_clean_us(self, driver, checkpoint, previous):
+        origin = self.origins[driver][0]
+        return max(1, round((checkpoint - origin) * self.pace[driver] / 3)
+                   - round((previous - origin) * self.pace[driver] / 3))
+
+    def _crossing_floor(self, state, key, start):
+        return max(state.race_clock_us + 1, self.motion_floor.get(key, start), self.pause_floor.get(key, start))
+
+    def _minimum_free_time(self, driver, checkpoint, start, clean):
+        return clean
+
     def _predict(self, state, bypass=None):
         """Resolve dependency constraints only for uncommitted crossings."""
         pending = {}
@@ -294,8 +305,7 @@ class _DynamicField:
             prev_cp, start = self._before(driver, checkpoint)
             if (driver, checkpoint - 1) in pending or (driver, checkpoint - 1) in self.fixed:
                 prev_cp, start = checkpoint - 1, passage(driver, checkpoint - 1)
-            clean = max(1, round((checkpoint - self.origins[driver][0]) * self.pace[driver] / 3)
-                        - round((prev_cp - self.origins[driver][0]) * self.pace[driver] / 3))
+            clean = self._traversal_clean_us(driver, checkpoint, prev_cp)
             leader = self.ahead[driver]
             other = self._pass_predecessor(driver, checkpoint, leader) if leader is not None else None
             if bypass and key == (bypass.attempt.driver_number, bypass.attempt.checkpoint):
@@ -310,9 +320,9 @@ class _DynamicField:
                 planned[key] = None
             else:
                 admissible = (leading + self.gap - start) if leading is not None else 0
-                minimum = max(admissible, state.race_clock_us + 1 - start, self.motion_floor.get(key, start) - start,
-                              self.pause_floor.get(key, start) - start, 0)
-                effective = effective_traversal_us(clean, 0, minimum)
+                minimum = max(admissible, self._crossing_floor(state, key, start) - start, 0)
+                movement = self._minimum_free_time(driver, checkpoint, start, clean)
+                effective = max(movement, effective_traversal_us(clean, 0, minimum))
                 planned[key] = FollowingTraversal(driver, checkpoint, clean, effective, effective-clean,
                                                  leader, other, start+effective)
             visiting.remove(key)
@@ -464,6 +474,8 @@ class _DynamicField:
             next_row = self.plan.get((d, cp))
             if next_row is None:
                 positions[d] = origin
+            elif next_row.crossing_us == before:
+                positions[d] = cp
             else:
                 fraction = min(1., max(0., (clock - before) / (next_row.crossing_us - before)))
                 positions[d] = origin + (cp-origin) * fraction

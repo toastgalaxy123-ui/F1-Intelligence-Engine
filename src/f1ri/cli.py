@@ -132,6 +132,10 @@ def main() -> None:
     for name in ("warehouse", "stage3-root", "frozen", "replay", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
     p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s4_b1_evidence_stabilization.yaml"))
+    p = sub.add_parser("stage5-s5-a", help="Validate scripted race control and approved archived status windows")
+    for name in ("warehouse", "stage3-root", "s4-a-replay", "output"):
+        p.add_argument(f"--{name}", type=Path, required=True)
+    p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s5_a_neutralization_mechanics.yaml"))
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -249,6 +253,11 @@ def main() -> None:
 
         print(run_stabilization(root, root / args.warehouse, root / args.stage3_root, root / args.frozen,
                                 root / args.replay, root / args.output, root / args.plan))
+    elif args.command == "stage5-s5-a":
+        from f1ri.validation.neutralization_study import run_study
+
+        print(run_study(root, root / args.warehouse, root / args.stage3_root, root / args.s4_a_replay,
+                        root / args.output, root / args.plan))
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

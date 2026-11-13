@@ -12,6 +12,7 @@ class EventKind(IntEnum):
     TRACK_STATE_CHANGE = 10
     RACE_SUSPENDED = 11
     RACE_RESUMED = 12
+    RACE_CONTROL = 13
     RETIREMENT = 20
     PIT_EXIT = 30
     PIT_SERVICE_END = 31

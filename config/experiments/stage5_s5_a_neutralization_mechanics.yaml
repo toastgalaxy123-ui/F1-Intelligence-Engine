@@ -1,0 +1,20 @@
+version: s5-a-checkpoint-neutralization-v1
+baseline_revision: 46be33a1fd80b9c5f1a7c9addb643d5ee064a232
+profile:
+  vsc_speed_mps: 36
+  sc_speed_mps: 25
+  catchup_speed_mps: 58
+  restart_speed_mps: 33
+  queue_gap_m: 12
+  train_gap_m: 18
+frozen:
+  # Verified from the committed S4-B.1 release and its repeat.
+  s4_b1: 438026418c126c0002999e4f2d038e4ef383da4f9cd230de6b5a8e9fb1690792
+  s4_b: 09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d
+  s4_a: 9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+historical:
+  9896: frozen_pilot
+  9987: reconstruction_only
+acquisition: CACHE_ONLY

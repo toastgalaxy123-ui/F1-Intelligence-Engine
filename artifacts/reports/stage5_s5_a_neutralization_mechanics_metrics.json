@@ -1,0 +1,3201 @@
+{
+  "version": "s5-a-checkpoint-neutralization-v1",
+  "synthetic_cases": 32,
+  "historical_cases": 6,
+  "scenario_pass": {
+    "green": true,
+    "checkpoint_minus": true,
+    "checkpoint": true,
+    "checkpoint_plus": true,
+    "vsc": true,
+    "sc_two": true,
+    "sc_train": true,
+    "sc_lapped": true,
+    "cancel_pass": true,
+    "completed_pass": true,
+    "red_hold": true,
+    "red_restart": true,
+    "escalation": true,
+    "exceptions": true,
+    "invalid": true,
+    "restart_interrupted": true,
+    "local_only": true,
+    "retirement": true,
+    "finish_sc": true,
+    "finish_restart": true,
+    "finish_vsc": true,
+    "finish_red": true,
+    "pit_green": true,
+    "stay_green": true,
+    "pit_vsc": true,
+    "stay_vsc": true,
+    "pit_sc": true,
+    "stay_sc": true,
+    "pit_coarse": true,
+    "pit_red_entry": true,
+    "pit_missed_entry": true,
+    "pit_shared_box": true,
+    "singapore_double_yellow_0": true,
+    "singapore_yellow_2": true,
+    "imola_yellow_0": true,
+    "imola_vsc_1": true,
+    "imola_yellow_3": true,
+    "imola_sc_4": true
+  },
+  "scenarios": {
+    "green": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 0,
+      "added_checkpoint_traversal_us": 77600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 77600000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "checkpoint_minus": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 9999999,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 9999999
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 44951484,
+        "VSC": 2648516
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "checkpoint": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 10000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 10000000
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 44951485,
+        "VSC": 2648515
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "checkpoint_plus": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 10000001,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 10000001
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 121,
+      "regenerated_crossings": 163,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 44951485,
+        "VSC": 2648515
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "vsc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 42525742,
+        "VSC": 5074258
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "sc_two": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "no_pass",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 71200001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        10000000
+      ],
+      "compression_at_train_m": 38.00000000000061,
+      "invalidated_crossings": 154,
+      "regenerated_crossings": 196,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 13900000,
+        "SC": 33700000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "sc_train": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "queue",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "queue",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "queue",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 72400001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 3
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        10000000
+      ],
+      "compression_at_train_m": 76.00000000000014,
+      "invalidated_crossings": 231,
+      "regenerated_crossings": 294,
+      "added_checkpoint_traversal_us": 98911111,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 28366667,
+        "SC": 70544444
+      },
+      "final_classification": [
+        1,
+        2,
+        3
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "sc_lapped": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "lapping",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "lapping",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "lapping",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 71200001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 154,
+      "regenerated_crossings": 196,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 13900000,
+        "SC": 33700000
+      },
+      "final_classification": [
+        2,
+        1
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "cancel_pass": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "authorized_pair",
+            "command": "VSC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "authorized_pair",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {
+        "CANCELLED": 1
+      },
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 42525742,
+        "VSC": 5074258
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "completed_pass": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "authorized_pair",
+            "command": "SC_DEPLOY",
+            "at_us": 9000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 9000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "authorized_pair",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "authorized_pair",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 82500001
+        }
+      ],
+      "pass_outcomes": {
+        "COMPLETED": 1
+      },
+      "laps_by_state": {
+        "SC": 3
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 189,
+      "regenerated_crossings": 230,
+      "added_checkpoint_traversal_us": 2600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 2600000,
+        "SC": 0
+      },
+      "final_classification": [
+        2,
+        1
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "red_hold": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-RED",
+            "simulation_id": "no_pass",
+            "command": "RED_SUSPEND",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 5000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {},
+      "suspension_us": 55000000,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 42,
+      "regenerated_crossings": 42,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {},
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "SUSPENDED",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "red_restart": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-RED",
+            "simulation_id": "no_pass",
+            "command": "RED_SUSPEND",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "005-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 55000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 55000000
+        },
+        {
+          "event": {
+            "event_id": "005-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 55000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 101200001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2
+      },
+      "suspension_us": 30000000,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 158,
+      "regenerated_crossings": 200,
+      "added_checkpoint_traversal_us": 122600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 28900000,
+        "SC": 93700000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "escalation": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "001-SC",
+            "simulation_id": "no_pass",
+            "command": "SC_DEPLOY",
+            "at_us": 20000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ACTIVE",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 20000000
+        },
+        {
+          "event": {
+            "event_id": "002-RED",
+            "simulation_id": "no_pass",
+            "command": "RED_SUSPEND",
+            "at_us": 25000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_COLLECTING_FIELD",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 25000000
+        },
+        {
+          "event": {
+            "event_id": "007-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 55000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 55000000
+        },
+        {
+          "event": {
+            "event_id": "007-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 55000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 81200001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2,
+        "GREEN": 2
+      },
+      "suspension_us": 10000000,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 236,
+      "regenerated_crossings": 278,
+      "added_checkpoint_traversal_us": 97600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 43900000,
+        "SC": 48625742,
+        "VSC": 5074258
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "exceptions": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "no_pass",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-RED",
+            "simulation_id": "no_pass",
+            "command": "RED_SUSPEND",
+            "at_us": 12000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_TRAIN_FORMED",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 12000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {},
+      "suspension_us": 108000000,
+      "queue_formed_us": [
+        10000000
+      ],
+      "compression_at_train_m": 38.00000000000061,
+      "invalidated_crossings": 82,
+      "regenerated_crossings": 84,
+      "added_checkpoint_traversal_us": 3700000,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 3700000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "SUSPENDED",
+      "finish_us": null,
+      "unsupported_controls": 3
+    },
+    "invalid": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 2000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "REJECTED",
+          "reason": "INVALID_TRANSITION",
+          "before": "GREEN_RUNNING",
+          "after": "GREEN_RUNNING",
+          "phases": [],
+          "clock_us": 2000000
+        },
+        {
+          "event": {
+            "event_id": "001-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "002-VSC",
+            "simulation_id": "no_pass",
+            "command": "VSC_DEPLOY",
+            "at_us": 10000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "REJECTED",
+          "reason": "INVALID_TRANSITION",
+          "before": "VSC_ACTIVE",
+          "after": "VSC_ACTIVE",
+          "phases": [],
+          "clock_us": 10000000
+        },
+        {
+          "event": {
+            "event_id": "004-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 31000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 31000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 122,
+      "regenerated_crossings": 164,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 42525742,
+        "VSC": 5074258
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "restart_interrupted": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "no_pass",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "no_pass",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "SUPERSEDED",
+          "reason": "NEUTRALIZATION_REDEPLOYED",
+          "before": "SC_RESTART_PENDING",
+          "after": "RED_SUSPENDED",
+          "phases": [],
+          "clock_us": 64000000
+        },
+        {
+          "event": {
+            "event_id": "004-RED",
+            "simulation_id": "no_pass",
+            "command": "RED_SUSPEND",
+            "at_us": 64000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 64000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2
+      },
+      "suspension_us": 26000000,
+      "queue_formed_us": [
+        10000000
+      ],
+      "compression_at_train_m": 38.00000000000061,
+      "invalidated_crossings": 156,
+      "regenerated_crossings": 198,
+      "added_checkpoint_traversal_us": 115700000,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 115700000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "local_only": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 42,
+      "added_checkpoint_traversal_us": 47600000,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 47600000
+      },
+      "final_classification": [
+        1,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "retirement": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "queue",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "queue",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 62000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "queue",
+            "command": "GREEN_RELEASE",
+            "at_us": 62000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 71200001
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 2
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        10000000
+      ],
+      "compression_at_train_m": 76.00000000000014,
+      "invalidated_crossings": 235,
+      "regenerated_crossings": 278,
+      "added_checkpoint_traversal_us": 54911111,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 15566667,
+        "SC": 39344444
+      },
+      "final_classification": [
+        1,
+        3,
+        2
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "finish_sc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "finish",
+            "command": "SC_DEPLOY",
+            "at_us": 1000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 1000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 3
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 12,
+      "regenerated_crossings": 12,
+      "added_checkpoint_traversal_us": 2,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 2
+      },
+      "final_classification": [
+        1,
+        3,
+        2
+      ],
+      "final_phase": "FINISHED",
+      "finish_us": 7333334,
+      "unsupported_controls": 0
+    },
+    "finish_restart": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "finish",
+            "command": "SC_DEPLOY",
+            "at_us": 1000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 1000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "finish",
+            "command": "GREEN_RELEASE",
+            "at_us": 4000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 4000000
+        },
+        {
+          "event": {
+            "event_id": "003-GREEN",
+            "simulation_id": "finish",
+            "command": "GREEN_RELEASE",
+            "at_us": 4000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "CANCELLED",
+          "reason": "RELEASE_CONDITION_UNMET_AT_END",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 13722223
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 3
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 18,
+      "added_checkpoint_traversal_us": 2,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 2
+      },
+      "final_classification": [
+        1,
+        3,
+        2
+      ],
+      "final_phase": "FINISHED",
+      "finish_us": 7333334,
+      "unsupported_controls": 0
+    },
+    "finish_vsc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "finish",
+            "command": "VSC_DEPLOY",
+            "at_us": 1000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 1000000
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "finish",
+            "command": "GREEN_RELEASE",
+            "at_us": 3000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 3000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 3
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 18,
+      "added_checkpoint_traversal_us": 428572,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 428572
+      },
+      "final_classification": [
+        1,
+        3,
+        2
+      ],
+      "final_phase": "FINISHED",
+      "finish_us": 7619048,
+      "unsupported_controls": 0
+    },
+    "finish_red": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-RED",
+            "simulation_id": "finish",
+            "command": "RED_SUSPEND",
+            "at_us": 1000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 1000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 3
+      },
+      "suspension_us": 21000000,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 12,
+      "regenerated_crossings": 12,
+      "added_checkpoint_traversal_us": 63000002,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 63000002
+      },
+      "final_classification": [
+        1,
+        3,
+        2
+      ],
+      "final_phase": "FINISHED",
+      "finish_us": 28333334,
+      "unsupported_controls": 0
+    },
+    "pit_green": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 0,
+      "added_checkpoint_traversal_us": 41928937,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 41928937
+      },
+      "final_classification": [
+        4,
+        63
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "stay_green": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 5
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 0,
+      "added_checkpoint_traversal_us": 5766666,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 5766666
+      },
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_vsc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "synthetic-s2",
+            "command": "VSC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "VSC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 39,
+      "regenerated_crossings": 55,
+      "added_checkpoint_traversal_us": 44222223,
+      "added_traversal_us_by_crossing_state": {
+        "VSC": 44222223
+      },
+      "final_classification": [
+        4,
+        63
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "stay_vsc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "synthetic-s2",
+            "command": "VSC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "VSC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 36,
+      "added_checkpoint_traversal_us": 59555557,
+      "added_traversal_us_by_crossing_state": {
+        "VSC": 59555557
+      },
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_sc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "synthetic-s2",
+            "command": "SC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        160000000
+      ],
+      "compression_at_train_m": 33.69565217391299,
+      "invalidated_crossings": 39,
+      "regenerated_crossings": 55,
+      "added_checkpoint_traversal_us": 44222223,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 44222223
+      },
+      "final_classification": [
+        4,
+        63
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "stay_sc": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "synthetic-s2",
+            "command": "SC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 5
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 18,
+      "regenerated_crossings": 36,
+      "added_checkpoint_traversal_us": 6893334,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 6893334
+      },
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_coarse": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "synthetic-s2",
+            "command": "VSC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "VSC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 36,
+      "regenerated_crossings": 54,
+      "added_checkpoint_traversal_us": 59555557,
+      "added_traversal_us_by_crossing_state": {
+        "VSC": 59555557
+      },
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_red_entry": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-RED",
+            "simulation_id": "synthetic-s2",
+            "command": "RED_SUSPEND",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "RED_SUSPENDED",
+          "phases": [
+            "RED_SUSPENDING",
+            "RED_SUSPENDED"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {},
+      "suspension_us": 190000000,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 16,
+      "regenerated_crossings": 16,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {},
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "SUSPENDED",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_missed_entry": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "synthetic-s2",
+            "command": "VSC_DEPLOY",
+            "at_us": 155100000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 155100000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "VSC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 32,
+      "regenerated_crossings": 50,
+      "added_checkpoint_traversal_us": 64302223,
+      "added_traversal_us_by_crossing_state": {
+        "VSC": 64302223
+      },
+      "final_classification": [
+        4,
+        63
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "pit_shared_box": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "synthetic-s2",
+            "command": "SC_DEPLOY",
+            "at_us": 160000000,
+            "provenance": "S5_SYNTHETIC",
+            "source": "DETERMINISTIC_SCRIPT",
+            "observation_utc": null,
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "",
+            "confidence": "DECLARED",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 160000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 4
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        160000000
+      ],
+      "compression_at_train_m": 0.0,
+      "invalidated_crossings": 42,
+      "regenerated_crossings": 56,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {
+        "SC": 0
+      },
+      "final_classification": [
+        63,
+        4
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "singapore_double_yellow_0": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 40
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 1080,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {
+        "DOUBLE_YELLOW": 0,
+        "GREEN": 0
+      },
+      "final_classification": [
+        63,
+        1,
+        4,
+        81,
+        16,
+        12,
+        44,
+        14,
+        6,
+        87,
+        27,
+        30,
+        43,
+        18,
+        5,
+        31,
+        22,
+        55,
+        10,
+        23
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "singapore_yellow_2": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 40
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 1080,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 0,
+        "YELLOW": 0
+      },
+      "final_classification": [
+        63,
+        1,
+        4,
+        81,
+        16,
+        12,
+        44,
+        30,
+        55,
+        87,
+        14,
+        6,
+        22,
+        43,
+        27,
+        5,
+        10,
+        31,
+        18,
+        23
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "imola_yellow_0": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 36
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 972,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 0,
+        "YELLOW": 0
+      },
+      "final_classification": [
+        1,
+        23,
+        81,
+        6,
+        12,
+        44,
+        16,
+        27,
+        87,
+        63,
+        22,
+        55,
+        14,
+        18,
+        10,
+        30,
+        5,
+        43
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "imola_vsc_1": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-VSC",
+            "simulation_id": "imola_vsc_1",
+            "command": "VSC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "VSC_DEPLOYED",
+            "source": "ARCHIVED_RACE_CONTROL_REPLAY",
+            "observation_utc": "2025-05-18 13:42:34+00:00",
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "VIRTUAL SAFETY CAR DEPLOYED",
+            "confidence": "HIGH",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "VSC_ACTIVE",
+          "phases": [
+            "VSC_DEPLOYING",
+            "VSC_ACTIVE"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "002-GREEN",
+            "simulation_id": "imola_vsc_1",
+            "command": "GREEN_RELEASE",
+            "at_us": 225000000,
+            "provenance": "TRACK_CLEAR",
+            "source": "ARCHIVED_RACE_CONTROL_REPLAY",
+            "observation_utc": "2025-05-18 13:46:14+00:00",
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "TRACK CLEAR",
+            "confidence": "HIGH",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "VSC_ENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 225000000
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "VSC": 19,
+        "GREEN": 44
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 2890,
+      "regenerated_crossings": 3916,
+      "added_checkpoint_traversal_us": 1298533308,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 133534198,
+        "VSC": 1164999110
+      },
+      "final_classification": [
+        1,
+        23,
+        81,
+        4,
+        6,
+        12,
+        44,
+        16,
+        27,
+        87,
+        63,
+        22,
+        55,
+        14,
+        18,
+        10,
+        30,
+        5,
+        43
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "imola_yellow_3": {
+      "deployed_and_released": [],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "GREEN": 36
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [],
+      "compression_at_train_m": null,
+      "invalidated_crossings": 0,
+      "regenerated_crossings": 972,
+      "added_checkpoint_traversal_us": 0,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 0,
+        "YELLOW": 0
+      },
+      "final_classification": [
+        1,
+        4,
+        81,
+        23,
+        44,
+        16,
+        6,
+        63,
+        55,
+        27,
+        22,
+        14,
+        18,
+        10,
+        43,
+        30,
+        5,
+        87
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 0
+    },
+    "imola_sc_4": {
+      "deployed_and_released": [
+        {
+          "event": {
+            "event_id": "000-SC",
+            "simulation_id": "imola_sc_4",
+            "command": "SC_DEPLOY",
+            "at_us": 5000000,
+            "provenance": "SC_DEPLOYED",
+            "source": "ARCHIVED_RACE_CONTROL_REPLAY",
+            "observation_utc": "2025-05-18 14:06:27+00:00",
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "SAFETY CAR DEPLOYED",
+            "confidence": "HIGH",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "GREEN_RUNNING",
+          "after": "SC_COLLECTING_FIELD",
+          "phases": [
+            "SC_DEPLOYING",
+            "SC_COLLECTING_FIELD"
+          ],
+          "clock_us": 5000000
+        },
+        {
+          "event": {
+            "event_id": "004-GREEN",
+            "simulation_id": "imola_sc_4",
+            "command": "GREEN_RELEASE",
+            "at_us": 920000000,
+            "provenance": "TRACK_CLEAR",
+            "source": "ARCHIVED_RACE_CONTROL_REPLAY",
+            "observation_utc": "2025-05-18 14:21:42+00:00",
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "TRACK CLEAR",
+            "confidence": "HIGH",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "DEFERRED",
+          "reason": "WAITING_FOR_ALL_ACTIVE_RACING_CARS_TO_CROSS_LINE",
+          "before": "SC_RESTART_PENDING",
+          "after": "SC_RESTART_PENDING",
+          "phases": [],
+          "clock_us": 920000000
+        },
+        {
+          "event": {
+            "event_id": "004-GREEN",
+            "simulation_id": "imola_sc_4",
+            "command": "GREEN_RELEASE",
+            "at_us": 920000000,
+            "provenance": "TRACK_CLEAR",
+            "source": "ARCHIVED_RACE_CONTROL_REPLAY",
+            "observation_utc": "2025-05-18 14:21:42+00:00",
+            "available_utc": null,
+            "previous": null,
+            "requested": null,
+            "scope": "TRACK",
+            "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+            "message": "TRACK CLEAR",
+            "confidence": "HIGH",
+            "affected_cars": [],
+            "restart": null,
+            "support": "SUPPORTED",
+            "local_flag": null
+          },
+          "outcome": "COMMITTED",
+          "reason": null,
+          "before": "SC_RESTART_PENDING",
+          "after": "GREEN_RUNNING",
+          "phases": [
+            "GREEN_RUNNING"
+          ],
+          "clock_us": 1052663121
+        }
+      ],
+      "pass_outcomes": {},
+      "laps_by_state": {
+        "SC": 108
+      },
+      "suspension_us": 0,
+      "queue_formed_us": [
+        69461985
+      ],
+      "compression_at_train_m": 901.0000000000123,
+      "invalidated_crossings": 3059,
+      "regenerated_crossings": 4031,
+      "added_checkpoint_traversal_us": 9052889920,
+      "added_traversal_us_by_crossing_state": {
+        "GREEN": 20479709,
+        "SC": 9032410211
+      },
+      "final_classification": [
+        1,
+        4,
+        81,
+        23,
+        44,
+        16,
+        6,
+        63,
+        55,
+        27,
+        22,
+        14,
+        18,
+        10,
+        43,
+        30,
+        5,
+        87
+      ],
+      "final_phase": "RUNNING",
+      "finish_us": null,
+      "unsupported_controls": 1
+    }
+  },
+  "next_stage": "PATH_B_PIT_ENTRY_RETIMING_AND_HISTORICAL_RESTART_SUPPORT",
+  "historical": {
+    "singapore_double_yellow_0": {
+      "median_absolute_line_error_s": 32.672484499999996,
+      "command_timing": []
+    },
+    "singapore_yellow_2": {
+      "median_absolute_line_error_s": 14.416301,
+      "command_timing": []
+    },
+    "imola_yellow_0": {
+      "median_absolute_line_error_s": 54.2413175,
+      "command_timing": []
+    },
+    "imola_vsc_1": {
+      "median_absolute_line_error_s": 28.379607,
+      "command_timing": [
+        {
+          "command": "VSC_DEPLOY",
+          "requested_us": 5000000,
+          "effective_us": 5000000,
+          "difference_us": 0
+        },
+        {
+          "command": "GREEN_RELEASE",
+          "requested_us": 225000000,
+          "effective_us": 225000000,
+          "difference_us": 0
+        }
+      ]
+    },
+    "imola_yellow_3": {
+      "median_absolute_line_error_s": 27.243276,
+      "command_timing": []
+    },
+    "imola_sc_4": {
+      "median_absolute_line_error_s": 283.58031900000003,
+      "command_timing": [
+        {
+          "command": "SC_DEPLOY",
+          "requested_us": 5000000,
+          "effective_us": 5000000,
+          "difference_us": 0
+        },
+        {
+          "command": "GREEN_RELEASE",
+          "requested_us": 920000000,
+          "effective_us": 1052663121,
+          "difference_us": 132663121
+        }
+      ]
+    }
+  },
+  "pit_comparisons": [
+    {
+      "scenario": "green",
+      "driver": 63,
+      "status": "RESOLVED",
+      "entry_us": 160000000,
+      "merge_us": 217000000,
+      "comparison_checkpoint": 7,
+      "lane_motion_us": 26000000,
+      "service_us": 3000000,
+      "queue_us": 0,
+      "route_transition_us": 28000000,
+      "elapsed_route_us": 57000000,
+      "stay_out_crossing_us": 191666667,
+      "stay_out_from_entry_us": 31666667,
+      "strategic_loss_us": 25333333,
+      "crossing_rank": 2,
+      "stay_out_crossing_rank": 1,
+      "crossing_rank_delta": 1
+    },
+    {
+      "scenario": "vsc",
+      "driver": 63,
+      "status": "RESOLVED",
+      "entry_us": 160000000,
+      "merge_us": 217000000,
+      "comparison_checkpoint": 7,
+      "lane_motion_us": 26000000,
+      "service_us": 3000000,
+      "queue_us": 0,
+      "route_transition_us": 28000000,
+      "elapsed_route_us": 57000000,
+      "stay_out_crossing_us": 208555556,
+      "stay_out_from_entry_us": 48555556,
+      "strategic_loss_us": 8444444,
+      "crossing_rank": 2,
+      "stay_out_crossing_rank": 1,
+      "crossing_rank_delta": 1
+    },
+    {
+      "scenario": "sc",
+      "driver": 63,
+      "status": "RESOLVED",
+      "entry_us": 160000000,
+      "merge_us": 217000000,
+      "comparison_checkpoint": 7,
+      "lane_motion_us": 26000000,
+      "service_us": 3000000,
+      "queue_us": 0,
+      "route_transition_us": 28000000,
+      "elapsed_route_us": 57000000,
+      "stay_out_crossing_us": 191666667,
+      "stay_out_from_entry_us": 31666667,
+      "strategic_loss_us": 25333333,
+      "crossing_rank": 2,
+      "stay_out_crossing_rank": 1,
+      "crossing_rank_delta": 1
+    },
+    {
+      "scenario": "shared_box",
+      "driver": 63,
+      "status": "RESOLVED",
+      "entry_us": 160000000,
+      "merge_us": 217000000,
+      "comparison_checkpoint": 7,
+      "lane_motion_us": 26000000,
+      "service_us": 3000000,
+      "queue_us": 0,
+      "route_transition_us": 28000000,
+      "elapsed_route_us": 57000000,
+      "stay_out_crossing_us": null,
+      "stay_out_from_entry_us": null,
+      "strategic_loss_us": null,
+      "crossing_rank": 1,
+      "stay_out_crossing_rank": null,
+      "crossing_rank_delta": null
+    },
+    {
+      "scenario": "shared_box",
+      "driver": 4,
+      "status": "RESOLVED",
+      "entry_us": 161000000,
+      "merge_us": 220000000,
+      "comparison_checkpoint": 7,
+      "lane_motion_us": 26000000,
+      "service_us": 3000000,
+      "queue_us": 2000000,
+      "route_transition_us": 28000000,
+      "elapsed_route_us": 59000000,
+      "stay_out_crossing_us": null,
+      "stay_out_from_entry_us": null,
+      "strategic_loss_us": null,
+      "crossing_rank": 2,
+      "stay_out_crossing_rank": null,
+      "crossing_rank_delta": null
+    }
+  ],
+  "frozen": {
+    "hashes": {
+      "s4_b1": "438026418c126c0002999e4f2d038e4ef383da4f9cd230de6b5a8e9fb1690792",
+      "s4_b": "09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d",
+      "s4_a": "9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec",
+      "c4": "21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff",
+      "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c"
+    },
+    "s4_a_reproduced_files": [
+      "checkpoint_traversals.json",
+      "config.yaml",
+      "diagnostics.png",
+      "event_traces.json",
+      "historical_replays.json",
+      "input_manifest.json",
+      "interaction_traces.json",
+      "metrics.json",
+      "order_transitions.json",
+      "pass_scripts.json",
+      "pit_interactions.json",
+      "scenario_definitions.json"
+    ],
+    "s1_s2_s3_and_t1": {
+      "s3_frozen_fixture": true,
+      "s1_replay_metrics": true,
+      "s2_replay_metrics": true,
+      "s3_replay_metrics": true,
+      "two_car_no_pass": true,
+      "s2_resolved_coarse_shared_box": true
+    }
+  },
+  "new_openf1_requests": 0,
+  "random_draws": 0,
+  "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+  "traffic_v1": "RESEARCH_ONLY"
+}
