@@ -1,0 +1,27 @@
+version: s4-b-historical-overtakes-v1
+acquisition: CACHE_ONLY
+seed: 540202
+gap_thresholds_m: [40, 80, 120]
+random_reference_max_m: 300
+random_reference_fraction: 0.05
+horizons_s: [5, 10, 20, 30]
+checkpoint_limit_s: 60
+event_max_bracket_s: 5
+event_max_gap_m: 120
+event_max_speed_mps: 120
+event_max_fix_age_s: 1
+encounter_link_s: 30
+audit_per_stratum: 4
+frozen:
+  s4_a: 9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+cohorts:
+  - {session: 9896, circuit: Singapore, role: frozen_pilot, source: singapore}
+  - {session: 9955, circuit: Austria, role: development, source: transition}
+  - {session: 9955, circuit: Austria, role: development, source: history}
+  - {session: 9928, circuit: Hungary, role: development, source: transition}
+  - {session: 9928, circuit: Hungary, role: development, source: history}
+  - {session: 9928, circuit: Hungary, role: development, source: baseline}
+  - {session: 9928, circuit: Hungary, role: development, source: coverage}
+  - {session: 9987, circuit: Imola, role: reconstruction_only, source: baseline}

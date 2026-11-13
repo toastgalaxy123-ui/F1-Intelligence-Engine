@@ -1,0 +1,1394 @@
+{
+  "version": "s4-b-historical-overtakes-v1",
+  "frozen_sha256": {
+    "s4_a": "9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec",
+    "c4": "21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff",
+    "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c"
+  },
+  "baseline_revision": "371d6c4ccc7557205848f4c55030907b184661b1",
+  "new_openf1_requests": 0,
+  "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+  "traffic_v1": "RESEARCH_ONLY",
+  "census_sources": 8,
+  "census_windows": 42,
+  "event_types": {
+    "LAPPING_PASS": 25,
+    "SAME_LAP_RACING_PASS": 5,
+    "UNCERTAIN_PHYSICAL_REVERSAL": 7,
+    "PIT_INDUCED_ORDER_CHANGE": 12
+  },
+  "supported_evidence_tiers": {
+    "B": 30
+  },
+  "pair_reversal_candidates": 37,
+  "route_neighbor_changes": 12,
+  "opportunity_funnel": {
+    "driver_snapshots": 404880,
+    "physically_supported": 288129,
+    "selected_cutoffs": 121444,
+    "unique_cutoffs": 77630,
+    "encounters": 836
+  },
+  "tier_by_circuit": {
+    "Singapore": {
+      "B": 2
+    },
+    "Austria": {
+      "C": 6,
+      "B": 19,
+      "EXCLUDED": 5
+    },
+    "Hungary": {
+      "B": 8,
+      "C": 1,
+      "EXCLUDED": 6
+    },
+    "Imola": {
+      "B": 1,
+      "EXCLUDED": 1
+    }
+  },
+  "independent_position_agreement": {
+    "INDEPENDENT_RANK_EVIDENCE_SPARSE": 30
+  },
+  "independent_marker_agreement": {
+    "UNAVAILABLE": 2,
+    "SUPPORTS_ATTACKER_FIRST": 3
+  },
+  "bracket_diagnostics": [
+    {
+      "pass_event_id": "event/9896/63-18/2025-10-05T13:10:33+00:00",
+      "circuit": "Singapore",
+      "pair": [
+        63,
+        18
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.026,
+        0.026,
+        0.066,
+        0.066
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9896/63-43/2025-10-05T13:18:37.500000+00:00",
+      "circuit": "Singapore",
+      "pair": [
+        63,
+        43
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 4.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.80823538960583
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.326,
+        0.326,
+        0.046,
+        0.046
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/1-4/2025-08-03T13:20:21+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        1,
+        4
+      ],
+      "event_type": "SAME_LAP_RACING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.671649191963564,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.092,
+        0.092,
+        0.152,
+        0.152
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/1-22/2025-08-03T13:30:56+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        1,
+        22
+      ],
+      "event_type": "SAME_LAP_RACING_PASS",
+      "width_s": 4.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.132,
+        0.132,
+        0.192,
+        0.192
+      ],
+      "sector": 3
+    },
+    {
+      "pass_event_id": "event/9928/4-31/2025-08-03T14:14:48+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        4,
+        31
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 3.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.618718067365002,
+        19.400288176726598
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.21,
+        0.21,
+        0.071,
+        0.071
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/4-43/2025-08-03T13:58:36+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        4,
+        43
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 4.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.431,
+        0.431,
+        0.071,
+        0.071
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/14-4/2025-08-03T13:20:18.500000+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        14,
+        4
+      ],
+      "event_type": "SAME_LAP_RACING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.172,
+        0.172,
+        0.071,
+        0.071
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/63-22/2025-08-03T14:15:04+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        63,
+        22
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.7297196918414,
+        18.090731918157385
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.091,
+        0.091,
+        0.131,
+        0.131
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9928/63-43/2025-08-03T13:56:25.500000+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        63,
+        43
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.031,
+        0.031,
+        0.011,
+        0.011
+      ],
+      "sector": 2
+    },
+    {
+      "pass_event_id": "event/9928/81-23/2025-08-03T14:15:50+00:00",
+      "circuit": "Hungary",
+      "pair": [
+        81,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.11,
+        0.11,
+        0.071,
+        0.071
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/4-27/2025-06-29T14:10:25+00:00",
+      "circuit": "Austria",
+      "pair": [
+        4,
+        27
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.824253791828838
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.116,
+        0.116,
+        0.276,
+        0.276
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/4-43/2025-06-29T14:06:38.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        4,
+        43
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 5.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.851909092172455,
+        39.89734264812762
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.056,
+        0.056,
+        0.276,
+        0.276
+      ],
+      "sector": 3
+    },
+    {
+      "pass_event_id": "event/9955/5-23/2025-06-29T13:38:50.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        5,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.184,
+        0.184,
+        0.025,
+        0.025
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/5-23/2025-06-29T13:40:02.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        5,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        35.094237803078556,
+        43.579243641549844
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.204,
+        0.204,
+        0.104,
+        0.104
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/10-23/2025-06-29T13:40:21.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        10,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.064,
+        0.064,
+        0.384,
+        0.384
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/16-22/2025-06-29T14:15:25.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        16,
+        22
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 4.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        18.705981047961863
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.115,
+        0.115,
+        0.236,
+        0.236
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/16-23/2025-06-29T13:38:37+00:00",
+      "circuit": "Austria",
+      "pair": [
+        16,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.264,
+        0.264,
+        0.125,
+        0.125
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/16-23/2025-06-29T13:39:49+00:00",
+      "circuit": "Austria",
+      "pair": [
+        16,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.184,
+        0.184,
+        0.065,
+        0.065
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/27-23/2025-06-29T13:39:14+00:00",
+      "circuit": "Austria",
+      "pair": [
+        27,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.284,
+        0.284,
+        0.024,
+        0.024
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/27-23/2025-06-29T13:40:25+00:00",
+      "circuit": "Austria",
+      "pair": [
+        27,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.285,
+        0.285,
+        0.084,
+        0.084
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/30-10/2025-06-29T14:05:16.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        30,
+        10
+      ],
+      "event_type": "SAME_LAP_RACING_PASS",
+      "width_s": 4.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        18.0,
+        26.988727694512065
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.216,
+        0.216,
+        0.116,
+        0.116
+      ],
+      "sector": 3
+    },
+    {
+      "pass_event_id": "event/9955/31-23/2025-06-29T13:38:56.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        31,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        35.414865205466825,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.144,
+        0.144,
+        0.285,
+        0.285
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/31-23/2025-06-29T13:40:08.500000+00:00",
+      "circuit": "Austria",
+      "pair": [
+        31,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.244,
+        0.244,
+        0.004,
+        0.004
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/43-23/2025-06-29T13:40:27+00:00",
+      "circuit": "Austria",
+      "pair": [
+        43,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.044,
+        0.044,
+        0.144,
+        0.144
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/44-23/2025-06-29T13:38:41+00:00",
+      "circuit": "Austria",
+      "pair": [
+        44,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 2.0,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        35.82836032076183,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.064,
+        0.064,
+        0.184,
+        0.184
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/44-23/2025-06-29T13:39:52+00:00",
+      "circuit": "Austria",
+      "pair": [
+        44,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.165,
+        0.165,
+        0.104,
+        0.104
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/63-23/2025-06-29T13:38:47+00:00",
+      "circuit": "Austria",
+      "pair": [
+        63,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.404,
+        0.404,
+        0.224,
+        0.224
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/63-23/2025-06-29T13:39:59+00:00",
+      "circuit": "Austria",
+      "pair": [
+        63,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.064,
+        0.064,
+        0.364,
+        0.364
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9955/87-23/2025-06-29T13:40:23+00:00",
+      "circuit": "Austria",
+      "pair": [
+        87,
+        23
+      ],
+      "event_type": "LAPPING_PASS",
+      "width_s": 1.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        34.96164999239959,
+        34.96164999239959
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.084,
+        0.084,
+        0.045,
+        0.045
+      ],
+      "sector": 1
+    },
+    {
+      "pass_event_id": "event/9987/10-18/2025-05-18T13:23:23.500000+00:00",
+      "circuit": "Imola",
+      "pair": [
+        10,
+        18
+      ],
+      "event_type": "SAME_LAP_RACING_PASS",
+      "width_s": 2.5,
+      "source_grid_period_s": 0.5,
+      "gap_uncertainty_m": [
+        26.5065044818816,
+        18.0
+      ],
+      "position_quality": [
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED",
+        "INTERPOLATED"
+      ],
+      "source_age_s": [
+        0.18,
+        0.18,
+        0.201,
+        0.201
+      ],
+      "sector": 1
+    }
+  ],
+  "sensitivity_10s": {
+    "40": {
+      "cutoffs": 3204,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 1349,
+        "AMBIGUOUS_OUTCOME": 1428,
+        "HORIZON_INCOMPLETE": 101,
+        "NO_PASS_OBSERVED": 318,
+        "PASS_OBSERVED": 4,
+        "CENSORED_PIT": 4
+      },
+      "encounters": 186,
+      "event_count": 4,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 161,
+        "AMBIGUOUS_OUTCOME": 163,
+        "HORIZON_INCOMPLETE": 39,
+        "NO_PASS_OBSERVED": 74,
+        "PASS_OBSERVED": 4,
+        "CENSORED_PIT": 3
+      },
+      "field_coverage": {
+        "COMPLETE": 2609,
+        "SUBSET": 595
+      }
+    },
+    "80": {
+      "cutoffs": 44589,
+      "outcomes": {
+        "AMBIGUOUS_OUTCOME": 5697,
+        "CENSORED_LOCALIZATION": 28802,
+        "HORIZON_INCOMPLETE": 1100,
+        "NO_PASS_OBSERVED": 8798,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 30
+      },
+      "encounters": 419,
+      "event_count": 9,
+      "encounters_by_outcome": {
+        "AMBIGUOUS_OUTCOME": 276,
+        "CENSORED_LOCALIZATION": 347,
+        "HORIZON_INCOMPLETE": 124,
+        "NO_PASS_OBSERVED": 231,
+        "CENSORED_PIT": 63,
+        "PASS_OBSERVED": 9
+      },
+      "field_coverage": {
+        "COMPLETE": 36999,
+        "SUBSET": 7590
+      }
+    },
+    "120": {
+      "cutoffs": 74380,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 48396,
+        "AMBIGUOUS_OUTCOME": 6315,
+        "HORIZON_INCOMPLETE": 1878,
+        "NO_PASS_OBSERVED": 17291,
+        "CENSORED_PIT": 457,
+        "PASS_OBSERVED": 42,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 653,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 495,
+        "AMBIGUOUS_OUTCOME": 345,
+        "HORIZON_INCOMPLETE": 175,
+        "NO_PASS_OBSERVED": 305,
+        "CENSORED_PIT": 156,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "field_coverage": {
+        "COMPLETE": 61769,
+        "SUBSET": 12611
+      }
+    }
+  },
+  "outcomes_by_horizon": {
+    "5": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "NO_PASS_OBSERVED": 34167,
+        "CENSORED_LOCALIZATION": 35504,
+        "AMBIGUOUS_OUTCOME": 6300,
+        "HORIZON_INCOMPLETE": 1240,
+        "CENSORED_PIT": 387,
+        "PASS_OBSERVED": 31,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "NO_PASS_OBSERVED": 536,
+        "CENSORED_LOCALIZATION": 625,
+        "AMBIGUOUS_OUTCOME": 368,
+        "HORIZON_INCOMPLETE": 194,
+        "CENSORED_PIT": 158,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "10": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 50707,
+        "AMBIGUOUS_OUTCOME": 6361,
+        "HORIZON_INCOMPLETE": 1964,
+        "NO_PASS_OBSERVED": 18055,
+        "CENSORED_PIT": 498,
+        "PASS_OBSERVED": 44,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 659,
+        "AMBIGUOUS_OUTCOME": 367,
+        "HORIZON_INCOMPLETE": 203,
+        "NO_PASS_OBSERVED": 402,
+        "CENSORED_PIT": 161,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "20": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 63386,
+        "AMBIGUOUS_OUTCOME": 5007,
+        "HORIZON_INCOMPLETE": 2830,
+        "NO_PASS_OBSERVED": 5731,
+        "CENSORED_PIT": 611,
+        "PASS_OBSERVED": 64,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 680,
+        "AMBIGUOUS_OUTCOME": 366,
+        "HORIZON_INCOMPLETE": 210,
+        "NO_PASS_OBSERVED": 193,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "30": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 67250,
+        "AMBIGUOUS_OUTCOME": 4052,
+        "HORIZON_INCOMPLETE": 3117,
+        "NO_PASS_OBSERVED": 2498,
+        "CENSORED_PIT": 632,
+        "PASS_OBSERVED": 80,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 16,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 681,
+        "AMBIGUOUS_OUTCOME": 362,
+        "HORIZON_INCOMPLETE": 211,
+        "NO_PASS_OBSERVED": 69,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 16,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    },
+    "checkpoint": {
+      "cutoffs": 77630,
+      "outcomes": {
+        "NO_PASS_OBSERVED": 17341,
+        "CENSORED_LOCALIZATION": 52793,
+        "AMBIGUOUS_OUTCOME": 4187,
+        "HORIZON_INCOMPLETE": 2647,
+        "CENSORED_PIT": 615,
+        "PASS_OBSERVED": 46,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 836,
+      "event_count": 14,
+      "encounters_by_outcome": {
+        "NO_PASS_OBSERVED": 411,
+        "CENSORED_LOCALIZATION": 654,
+        "AMBIGUOUS_OUTCOME": 362,
+        "HORIZON_INCOMPLETE": 272,
+        "CENSORED_PIT": 162,
+        "PASS_OBSERVED": 14,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      }
+    }
+  },
+  "arms_10s": {
+    "A_CLOSE_FOLLOWING": {
+      "cutoffs": 3137,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 1321,
+        "AMBIGUOUS_OUTCOME": 1408,
+        "HORIZON_INCOMPLETE": 93,
+        "NO_PASS_OBSERVED": 311,
+        "CENSORED_PIT": 4
+      },
+      "encounters": 170,
+      "event_count": 0,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 150,
+        "AMBIGUOUS_OUTCOME": 151,
+        "HORIZON_INCOMPLETE": 37,
+        "NO_PASS_OBSERVED": 70,
+        "CENSORED_PIT": 3
+      }
+    },
+    "B_APPROACHING": {
+      "cutoffs": 85,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 40,
+        "AMBIGUOUS_OUTCOME": 27,
+        "NO_PASS_OBSERVED": 18
+      },
+      "encounters": 59,
+      "event_count": 0,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 38,
+        "AMBIGUOUS_OUTCOME": 21,
+        "NO_PASS_OBSERVED": 16
+      }
+    },
+    "C_RANDOM_GREEN": {
+      "cutoffs": 6992,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 4763,
+        "AMBIGUOUS_OUTCOME": 357,
+        "HORIZON_INCOMPLETE": 182,
+        "NO_PASS_OBSERVED": 1619,
+        "CENSORED_PIT": 67,
+        "PASS_OBSERVED": 4
+      },
+      "encounters": 692,
+      "event_count": 3,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 593,
+        "AMBIGUOUS_OUTCOME": 164,
+        "HORIZON_INCOMPLETE": 108,
+        "NO_PASS_OBSERVED": 347,
+        "CENSORED_PIT": 52,
+        "PASS_OBSERVED": 3
+      }
+    },
+    "D_LAPPED": {
+      "cutoffs": 3972,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 2523,
+        "AMBIGUOUS_OUTCOME": 137,
+        "NO_PASS_OBSERVED": 1121,
+        "HORIZON_INCOMPLETE": 112,
+        "CENSORED_PIT": 45,
+        "PASS_OBSERVED": 34
+      },
+      "encounters": 108,
+      "event_count": 12,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 87,
+        "AMBIGUOUS_OUTCOME": 29,
+        "NO_PASS_OBSERVED": 27,
+        "HORIZON_INCOMPLETE": 11,
+        "CENSORED_PIT": 18,
+        "PASS_OBSERVED": 12
+      }
+    }
+  },
+  "gap_rates_10s": {
+    "40\u201380 m": {
+      "cutoffs": 41385,
+      "outcomes": {
+        "AMBIGUOUS_OUTCOME": 4269,
+        "CENSORED_LOCALIZATION": 27453,
+        "HORIZON_INCOMPLETE": 999,
+        "NO_PASS_OBSERVED": 8480,
+        "CENSORED_PIT": 158,
+        "PASS_OBSERVED": 26
+      },
+      "encounters": 418,
+      "event_count": 9,
+      "encounters_by_outcome": {
+        "AMBIGUOUS_OUTCOME": 264,
+        "CENSORED_LOCALIZATION": 346,
+        "HORIZON_INCOMPLETE": 121,
+        "NO_PASS_OBSERVED": 229,
+        "CENSORED_PIT": 63,
+        "PASS_OBSERVED": 9
+      },
+      "resolved_encounters": 232,
+      "pass_encounters": 9,
+      "pass_fraction": 0.03879310344827586
+    },
+    "80\u2013120 m": {
+      "cutoffs": 29791,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 19594,
+        "AMBIGUOUS_OUTCOME": 618,
+        "HORIZON_INCOMPLETE": 778,
+        "NO_PASS_OBSERVED": 8493,
+        "CENSORED_PIT": 295,
+        "PASS_OBSERVED": 12,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "encounters": 602,
+      "event_count": 9,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 449,
+        "AMBIGUOUS_OUTCOME": 201,
+        "HORIZON_INCOMPLETE": 118,
+        "NO_PASS_OBSERVED": 254,
+        "CENSORED_PIT": 144,
+        "PASS_OBSERVED": 9,
+        "CENSORED_NEIGHBOR_CHANGE": 1
+      },
+      "resolved_encounters": 262,
+      "pass_encounters": 9,
+      "pass_fraction": 0.03435114503816794
+    },
+    ">120 m": {
+      "cutoffs": 3250,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 2311,
+        "HORIZON_INCOMPLETE": 86,
+        "NO_PASS_OBSERVED": 764,
+        "AMBIGUOUS_OUTCOME": 46,
+        "CENSORED_PIT": 41,
+        "PASS_OBSERVED": 2
+      },
+      "encounters": 516,
+      "event_count": 2,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 438,
+        "HORIZON_INCOMPLETE": 61,
+        "NO_PASS_OBSERVED": 233,
+        "AMBIGUOUS_OUTCOME": 42,
+        "CENSORED_PIT": 31,
+        "PASS_OBSERVED": 2
+      },
+      "resolved_encounters": 235,
+      "pass_encounters": 2,
+      "pass_fraction": 0.00851063829787234
+    },
+    "\u226440 m": {
+      "cutoffs": 3204,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 1349,
+        "AMBIGUOUS_OUTCOME": 1428,
+        "HORIZON_INCOMPLETE": 101,
+        "NO_PASS_OBSERVED": 318,
+        "PASS_OBSERVED": 4,
+        "CENSORED_PIT": 4
+      },
+      "encounters": 186,
+      "event_count": 4,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 161,
+        "AMBIGUOUS_OUTCOME": 163,
+        "HORIZON_INCOMPLETE": 39,
+        "NO_PASS_OBSERVED": 74,
+        "PASS_OBSERVED": 4,
+        "CENSORED_PIT": 3
+      },
+      "resolved_encounters": 76,
+      "pass_encounters": 4,
+      "pass_fraction": 0.05263157894736842
+    }
+  },
+  "pace_rates_10s": {
+    "Attacker equal or slower": {
+      "cutoffs": 13303,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 7945,
+        "HORIZON_INCOMPLETE": 440,
+        "AMBIGUOUS_OUTCOME": 645,
+        "NO_PASS_OBSERVED": 4128,
+        "CENSORED_PIT": 145
+      },
+      "encounters": 324,
+      "event_count": 0,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 227,
+        "HORIZON_INCOMPLETE": 53,
+        "AMBIGUOUS_OUTCOME": 90,
+        "NO_PASS_OBSERVED": 151,
+        "CENSORED_PIT": 88
+      },
+      "resolved_encounters": 151,
+      "pass_encounters": 0,
+      "pass_fraction": 0.0
+    },
+    "Attacker faster": {
+      "cutoffs": 16801,
+      "outcomes": {
+        "CENSORED_LOCALIZATION": 10521,
+        "AMBIGUOUS_OUTCOME": 1157,
+        "HORIZON_INCOMPLETE": 534,
+        "NO_PASS_OBSERVED": 4386,
+        "CENSORED_PIT": 175,
+        "PASS_OBSERVED": 28
+      },
+      "encounters": 303,
+      "event_count": 6,
+      "encounters_by_outcome": {
+        "CENSORED_LOCALIZATION": 214,
+        "AMBIGUOUS_OUTCOME": 107,
+        "HORIZON_INCOMPLETE": 69,
+        "NO_PASS_OBSERVED": 141,
+        "CENSORED_PIT": 82,
+        "PASS_OBSERVED": 6
+      },
+      "resolved_encounters": 142,
+      "pass_encounters": 6,
+      "pass_fraction": 0.04225352112676056
+    }
+  },
+  "s4_a_reference_brackets": 3,
+  "s4_a_reference_completed": 1,
+  "scripted_direction_matches": 9,
+  "scripted_replay_statuses": {
+    "COMPLETED": 9,
+    "REJECTED": 2,
+    "CUTOFF_PAIR_UNSUPPORTED": 17,
+    "CUTOFF_ORDER_UNCERTAIN": 2
+  },
+  "readiness": {
+    "decision": "PATH_C",
+    "model_fit": false,
+    "support": {
+      "observed_races": [
+        9896,
+        9928,
+        9955,
+        9987
+      ],
+      "supported_pass_races": [
+        9896,
+        9928,
+        9955,
+        9987
+      ],
+      "development_supported_passes": 27,
+      "development_same_lap_tier_a": 0,
+      "development_same_lap_tier_a_races": [],
+      "drivers": 20,
+      "layouts": 4,
+      "race_pairs": 312,
+      "encounters": 836,
+      "cutoffs_with_pace_context": 30104,
+      "cutoffs_with_supported_closing": 113,
+      "cutoffs_with_complete_core_predictors": 29250,
+      "development_10s": {
+        "cutoffs": 61033,
+        "outcomes": {
+          "NO_PASS_OBSERVED": 15515,
+          "CENSORED_LOCALIZATION": 38555,
+          "AMBIGUOUS_OUTCOME": 5144,
+          "HORIZON_INCOMPLETE": 1332,
+          "CENSORED_PIT": 443,
+          "PASS_OBSERVED": 43,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        },
+        "encounters": 598,
+        "event_count": 15,
+        "encounters_by_outcome": {
+          "NO_PASS_OBSERVED": 285,
+          "CENSORED_LOCALIZATION": 453,
+          "AMBIGUOUS_OUTCOME": 245,
+          "HORIZON_INCOMPLETE": 114,
+          "CENSORED_PIT": 145,
+          "PASS_OBSERVED": 15,
+          "CENSORED_NEIGHBOR_CHANGE": 1
+        }
+      }
+    },
+    "reason": "High-confidence competitive events and independent development race coverage are insufficient to support a race-held-out completion hazard study.",
+    "reference_population": "NO_EXHAUSTIVE_INDEPENDENT_ANNOTATIONS",
+    "precision_recall": null,
+    "next_evaluation": {
+      "split": "Chronological whole races with pair and encounter clusters",
+      "metrics": [
+        "calibration-in-the-large",
+        "Brier score by horizon",
+        "interval-censored log score"
+      ],
+      "precision": "Predefine race-cluster confidence interval widths and minimum useful calibration resolution before opening validation cohorts"
+    }
+  }
+}

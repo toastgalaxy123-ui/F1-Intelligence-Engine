@@ -31,6 +31,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s4_a_overtaking_mechanics_ledgers.zip
 !artifacts/reports/stage5_s4_a_overtaking_mechanics_metrics.json
 !artifacts/reports/stage5_s4_a_overtaking_mechanics.png
+!artifacts/reports/stage5_s4_b_historical_overtakes_ledgers.zip
+!artifacts/reports/stage5_s4_b_historical_overtakes_metrics.json
+!artifacts/reports/stage5_s4_b_historical_overtakes.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

@@ -71,6 +71,9 @@ and uncertainty/residual diagnostics are acceptable.
 - S4-A executes scripted GREEN-only exchanges at common checkpoints
   using the shared scheduler, route transitions and timing classification.
   [S4-A specification](STAGE5_S4_A_OVERTAKING.md)
+- S4-B reconstructs historical pass brackets and prospective opportunity
+  outcomes using approved caches and explicit censoring.
+  [S4-B specification](STAGE5_S4_B_HISTORICAL_OVERTAKES.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

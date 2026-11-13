@@ -124,6 +124,10 @@ def main() -> None:
     for name in ("warehouse", "stage3-root", "s1", "s2", "singapore", "transition", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
     p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s4_a_overtaking_mechanics.yaml"))
+    p = sub.add_parser("stage5-s4-b", help="Reconstruct cached pass brackets and at-risk opportunity outcomes")
+    for name in ("warehouse", "stage3-root", "singapore", "transition", "history", "baseline", "s4-a-replay", "output"):
+        p.add_argument(f"--{name}", type=Path, required=True)
+    p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s4_b_historical_overtakes.yaml"))
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -229,6 +233,13 @@ def main() -> None:
         run_s4(root, root / args.warehouse, root / args.stage3_root, root / args.s1, root / args.s2,
                root / args.singapore, root / args.transition, root / args.output, root / args.plan)
         print(root / args.output / "metrics.json")
+    elif args.command == "stage5-s4-b":
+        from f1ri.validation.overtake_historical_study import run_historical_overtakes
+
+        folders = {name: root / getattr(args, name) for name in ("singapore", "transition", "history", "baseline")}
+        folders["coverage"] = folders["baseline"] / "coverage_pilot"
+        print(run_historical_overtakes(root, root / args.warehouse, root / args.stage3_root, folders,
+                                       root / args.s4_a_replay, root / args.output, root / args.plan))
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 
