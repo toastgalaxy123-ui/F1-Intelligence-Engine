@@ -31,7 +31,8 @@ class Scheduler:
         distance_crossing = (
             event.kind is EventKind.LAP_COMPLETED and event.checkpoint == self._finish_checkpoint
         )
-        order = event.at_us, event.kind, not distance_crossing, grid is None, grid or 0, driver or 0
+        order = (event.at_us, event.kind, not distance_crossing, grid is None, grid or 0, driver or 0,
+                 getattr(event, "attempt_id", ""))
         key = (*order, event.generation if event.generation is not None else -1)
         if self._last_key is not None and order <= self._last_key:
             raise ValueError("Event cannot precede or repeat a committed event")

@@ -1,0 +1,330 @@
+{
+  "version": "s4-a-scripted-checkpoint-v1",
+  "rules": "GREEN_ONLY_NO_EXCEPTIONS",
+  "frozen_sha256": {
+    "c4": "21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff",
+    "c3": "8db99cd71b51b93c3165e4fbe5892166f0f9b746f44b917ecc8c993d40e16d97",
+    "singapore": "fe12e3777cc6af694c1fe84d8081587da80883c0cabcaa44550395dd4c1f3fa5",
+    "transition": "3553231894979528f28db4173a03b2c9fbfbd3c26ef67fbc3c721d88f0649db9",
+    "s1": "1c35871d2b2f10f0a14a8b3baa3d91eb33e393d87fb257c7d3ab742d47904e7f",
+    "s2": "f1667154b9539a2bad45673903cfa2f54b48eeed12053b0e14cd7a62c7dc341e",
+    "r4": "6f10cbd13986eaa812182e7142fabcedc8323f12f0bef5f7fce6b6d710b6ad50",
+    "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c"
+  },
+  "h0_austria_proxy_s": 0.21097478858102647,
+  "synthetic_cases": 20,
+  "synthetic_outcomes": {
+    "COMPLETED": 10,
+    "REJECTED": 8,
+    "SUPERSEDED_BY_ROUTE_CHANGE": 1,
+    "EXPIRED": 1,
+    "UNSUPPORTED": 1
+  },
+  "parity": {
+    "s3_frozen_fixture": true,
+    "s1_replay_metrics": true,
+    "s2_replay_metrics": true,
+    "s3_replay_metrics": true,
+    "two_car_no_pass": true,
+    "s2_resolved_coarse_shared_box": true
+  },
+  "invariants": {
+    "authorized_pair": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "no_pass": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "queue": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "successive_passes": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "insufficient_pace": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "pit_cancel": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "lapping": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "unlapping": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "conflict": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "prior_delay": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "expired": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_unknown": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_yellow": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_double_yellow": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_vsc": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_sc": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "flag_red": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "unsupported": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "pass_after_rejoin": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "dynamic_rejoin": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "9896/stroll_lap_42/63-18": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "9928/random_green_132738/1-22": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    },
+    "9928/transition_135442/63-43": {
+      "ordered_clock": true,
+      "increasing_checkpoint_and_time": true,
+      "field_identity_preserved": true,
+      "no_duplicate_crossing": true,
+      "single_pass_commit": true,
+      "headway": true,
+      "pass_uses_authoritative_crossing": true,
+      "traversal_accounting": true
+    }
+  },
+  "historical_cases": [
+    {
+      "session": 9896,
+      "window": "stroll_lap_42",
+      "archived_brackets": 1,
+      "replay": {
+        "status": "REJECTED",
+        "reason": "INSUFFICIENT_CLEAN_PACE_ADVANTAGE",
+        "at_utc": "2025-10-05 13:10:33+00:00",
+        "archived_reversal_bracket_s": 2.0,
+        "simulated_boundary_commit_s": null,
+        "scope": "TWO_CAR_SCENARIO_FROM_CUTOFF_LOCAL_SPEED_AND_ESTIMATED_POSITION",
+        "checkpoint": 124,
+        "observed_completed_laps": [
+          40,
+          41
+        ]
+      }
+    },
+    {
+      "session": 9955,
+      "window": "random_green_133711",
+      "archived_brackets": 0,
+      "replay": {
+        "status": "NO_SUPPORTED_ARCHIVED_EXCHANGE"
+      }
+    },
+    {
+      "session": 9928,
+      "window": "random_green_132738",
+      "archived_brackets": 1,
+      "replay": {
+        "status": "REJECTED",
+        "reason": "INSUFFICIENT_CLEAN_PACE_ADVANTAGE",
+        "at_utc": "2025-08-03 13:30:56+00:00",
+        "archived_reversal_bracket_s": 4.0,
+        "simulated_boundary_commit_s": null,
+        "scope": "TWO_CAR_SCENARIO_FROM_CUTOFF_LOCAL_SPEED_AND_ESTIMATED_POSITION",
+        "checkpoint": 60,
+        "observed_completed_laps": [
+          19,
+          19
+        ]
+      }
+    },
+    {
+      "session": 9928,
+      "window": "transition_135442",
+      "archived_brackets": 1,
+      "replay": {
+        "status": "COMPLETED",
+        "reason": null,
+        "at_utc": "2025-08-03 13:56:25.500000+00:00",
+        "archived_reversal_bracket_s": 2.0,
+        "simulated_boundary_commit_s": 15.278155,
+        "scope": "TWO_CAR_SCENARIO_FROM_CUTOFF_LOCAL_SPEED_AND_ESTIMATED_POSITION",
+        "checkpoint": 117,
+        "observed_completed_laps": [
+          37,
+          38
+        ]
+      }
+    }
+  ],
+  "new_requests": 0,
+  "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+  "traffic_v1": "RESEARCH_ONLY"
+}

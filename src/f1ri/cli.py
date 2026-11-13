@@ -120,6 +120,10 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_proximity.yaml"))
     p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_proximity"))
     p.add_argument("--ingest", action="store_true", help="Fetch only missing configured telemetry windows")
+    p = sub.add_parser("stage5-s4-a", help="Validate scripted overtaking and approved cached replays")
+    for name in ("warehouse", "stage3-root", "s1", "s2", "singapore", "transition", "output"):
+        p.add_argument(f"--{name}", type=Path, required=True)
+    p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s4_a_overtaking_mechanics.yaml"))
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -219,6 +223,12 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-s4-a":
+        from f1ri.validation.overtake_study import run_s4
+
+        run_s4(root, root / args.warehouse, root / args.stage3_root, root / args.s1, root / args.s2,
+               root / args.singapore, root / args.transition, root / args.output, root / args.plan)
+        print(root / args.output / "metrics.json")
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

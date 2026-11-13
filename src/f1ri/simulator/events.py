@@ -29,6 +29,7 @@ class EventKind(IntEnum):
     SC_QUEUE_UPDATE = 62
     CHEQUERED_FLAG = 70
     CAR_FINISHED = 71
+    SCENARIO_WINDOW_END = 80
 
 
 @dataclass(frozen=True, slots=True)

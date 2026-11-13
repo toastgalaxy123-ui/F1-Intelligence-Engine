@@ -28,6 +28,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s3_c2_short_horizon_ledgers.zip
 !artifacts/reports/stage5_s3_c3_latent_sector_pace_ledgers.zip
 !artifacts/reports/stage5_s3_c4_clean_reference_validation_ledgers.zip
+!artifacts/reports/stage5_s4_a_overtaking_mechanics_ledgers.zip
+!artifacts/reports/stage5_s4_a_overtaking_mechanics_metrics.json
+!artifacts/reports/stage5_s4_a_overtaking_mechanics.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

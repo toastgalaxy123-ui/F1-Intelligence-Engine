@@ -68,6 +68,9 @@ and uncertainty/residual diagnostics are acceptable.
   clean-stint history and physical following. Require independent encounters
   and earlier controls before opening later evaluation cohorts.
   [S3-C history study](../artifacts/reports/stage5_s3_c_history_report.md)
+- S4-A executes scripted GREEN-only exchanges at common checkpoints
+  using the shared scheduler, route transitions and timing classification.
+  [S4-A specification](STAGE5_S4_A_OVERTAKING.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

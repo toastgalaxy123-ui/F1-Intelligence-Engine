@@ -1,0 +1,18 @@
+version: s4-a-scripted-checkpoint-v1
+rules: GREEN_ONLY_NO_EXCEPTIONS
+minimum_headway_s: 0.1
+acquisition: CACHE_ONLY
+historical:
+  - {session: 9896, window: stroll_lap_42, attacker: 63, target: 18}
+  - {session: 9955, window: random_green_133711, attacker: 4, target: 23}
+  - {session: 9928, window: random_green_132738, attacker: 1, target: 22}
+  - {session: 9928, window: transition_135442, attacker: 63, target: 43}
+archive_max_bracket_s: 5
+archive_max_endpoint_gap_m: 120
+frozen:
+  s1: 1c35871d2b2f10f0a14a8b3baa3d91eb33e393d87fb257c7d3ab742d47904e7f
+  s2: f1667154b9539a2bad45673903cfa2f54b48eeed12053b0e14cd7a62c7dc341e
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  c3: 8db99cd71b51b93c3165e4fbe5892166f0f9b746f44b917ecc8c993d40e16d97
+  r4: 6f10cbd13986eaa812182e7142fabcedc8323f12f0bef5f7fce6b6d710b6ad50
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c

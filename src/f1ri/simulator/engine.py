@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import math
-from collections.abc import Iterable, Mapping
+from collections.abc import Callable, Iterable, Mapping
 from dataclasses import dataclass, replace
 from enum import StrEnum
 
@@ -139,6 +139,8 @@ def _pit_route_change(state: RaceState, car: CarState, event: Event) -> CarState
 def _run_timeline(
     initial: RaceState, events: Iterable[Event], *, capability: str,
     diversions: Mapping[Event, tuple[Event, ...]] | None = None,
+    before_event: Callable[[Event, RaceState], Event | None] | None = None,
+    after_event: Callable[[Event, RaceState, Scheduler], Event | None] | None = None,
 ) -> RaceRun:
     scheduler = Scheduler(
         {car.driver_number: car.grid_position for car in initial.cars},
@@ -153,6 +155,12 @@ def _run_timeline(
             raise ValueError("Race clock cannot move backwards")
         if state.phase is RacePhase.FINISHED:
             break
+        if before_event is not None:
+            applied = before_event(event, state)
+            if applied is None:
+                continue
+        else:
+            applied = event
         if state.phase is RacePhase.PRESTART and event.kind is not EventKind.RACE_START:
             raise ValueError("The timeline must start with RACE_START")
         state = replace(state, race_clock_us=event.at_us)
@@ -169,7 +177,7 @@ def _run_timeline(
                     else RacePhase.RUNNING
                 )
             state = replace(state, track_state=event.track_state, phase=phase)
-        elif event.kind in {
+        elif applied.kind in {
             EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED,
             EventKind.PIT_ENTRY, EventKind.PIT_EXIT, EventKind.RETIREMENT,
             *_PIT_ROUTE_CHANGES,
@@ -182,8 +190,8 @@ def _run_timeline(
                 if state.mode is SimulationMode.CONDITIONAL_SIMULATION:
                     continue
                 raise ValueError(f"Observed event after driver {car.driver_number} stopped")
-            if event.kind in {EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED}:
-                state, car = _cross(state, car, event)
+            if applied.kind in {EventKind.CHECKPOINT_CROSSING, EventKind.LAP_COMPLETED}:
+                state, car = _cross(state, car, applied)
             elif event.kind is EventKind.RETIREMENT:
                 car = replace(car, status=CarStatus.RETIRED, route=Route.OFF_TRACK, pit_box=None)
             elif event.kind in _PIT_ROUTE_CHANGES:
@@ -205,11 +213,15 @@ def _run_timeline(
                     raise ValueError("A tyre change must advance the stint number")
                 car = replace(car, route=Route.ON_TRACK, tyres=event.tyres or car.tyres)
             state = replace(state, cars=state.cars[:index] + (car,) + state.cars[index + 1:])
-        else:
+        elif after_event is None or event.kind not in {
+            EventKind.OVERTAKE_ATTEMPT, EventKind.ON_TRACK_PASS, EventKind.SCENARIO_WINDOW_END,
+        }:
             raise ValueError(f"Unsupported Stage 5 event {event.kind.name}")
         if all(car.status is not CarStatus.ACTIVE for car in state.cars):
             state = replace(state, phase=RacePhase.FINISHED)
-        trace.append(TraceFrame(event, state))
+        recorded = after_event(event, state, scheduler) if after_event is not None else event
+        if recorded is not None:
+            trace.append(TraceFrame(recorded, state))
     if not trace:
         raise ValueError("The timeline requires a race start")
     return RaceRun(trace[-1].state, tuple(trace), capability)
