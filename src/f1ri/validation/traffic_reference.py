@@ -60,7 +60,27 @@ def clean_pace_references(
     return rows
 
 
-def residual_research(references: list[dict], outcomes: list[dict], config: dict) -> list[dict]:
+def control_pool(row, controls, config):
+    """Count each ordered eligibility filter before matching residuals."""
+    candidates = [control for control in controls if control["split"] == "development"]
+    counts = {"supported_clean_controls": len(controls), "development": len(candidates)}
+    filters = (
+        ("distinct_lap", lambda c: c["opportunity_id"] != row["opportunity_id"]),
+        ("completed_before", lambda c: c["completed_utc"] < row["as_of_utc"]),
+        ("evidence_before", lambda c: c.get("outcome_available_by_utc", c["completed_utc"]) < row["as_of_utc"]),
+        ("compound", lambda c: c["compound"] == row["compound"]),
+        ("tire_age", lambda c: abs(c["tyre_age"] - row["tyre_age"]) <= config["control_max_tyre_age_delta"]),
+        ("race_progress", lambda c: abs(c["race_progress"] - row["race_progress"])
+         <= config["control_max_progress_delta"]),
+    )
+    for name, eligible in filters:
+        candidates = [control for control in candidates if eligible(control)]
+        counts[name] = len(candidates)
+    return candidates, counts
+
+
+def residual_research(references: list[dict], outcomes: list[dict], config: dict, *,
+                      audit_controls: bool = False) -> list[dict]:
     """Join elapsed outcomes after forecasting and match only completed development controls."""
     by_id = {row["opportunity_id"]: row for row in outcomes}
     if len(by_id) != len(outcomes) or len({row["opportunity_id"] for row in references}) != len(references):
@@ -73,15 +93,11 @@ def residual_research(references: list[dict], outcomes: list[dict], config: dict
         if outcome["completed_utc"] <= ref["as_of_utc"]:
             raise ValueError("Reference must precede its elapsed-time outcome")
         rows.append(outcome | ref | {"signed_residual_s": outcome["observed_lap_s"] - ref["expected_clean_s"]})
-    controls = [row for row in rows if row["outcome_group"] == "CLEAN_CONTROL" and row["split"] == "development"]
+    controls = [row for row in rows if row["outcome_group"] == "CLEAN_CONTROL"]
     for row in rows:
-        matched = [control for control in controls
-                   if control["opportunity_id"] != row["opportunity_id"]
-                   and control["completed_utc"] < row["as_of_utc"]
-                   and control.get("outcome_available_by_utc", control["completed_utc"]) < row["as_of_utc"]
-                   and control["compound"] == row["compound"]
-                   and abs(control["tyre_age"] - row["tyre_age"]) <= config["control_max_tyre_age_delta"]
-                   and abs(control["race_progress"] - row["race_progress"]) <= config["control_max_progress_delta"]]
+        matched, attrition = control_pool(row, controls, config)
+        if audit_controls:
+            row["control_pool_attrition"] = attrition
         bias = (median(control["signed_residual_s"] for control in matched)
                 if len(matched) >= config["minimum_matched_controls"] else None)
         row["matched_control_count"] = len(matched)
@@ -104,19 +120,43 @@ def residual_summary(rows: list[dict]) -> dict:
     return summary
 
 
-def traffic_readiness(races: list[dict], research_rows: list[dict], evaluation: dict) -> dict:
+INDEPENDENCE_RULE = "driver-leader-stint-v1"
+
+
+def encounter_units(rows):
+    following = [row for row in rows if row.get("outcome_group", row.get("screen")) == "FOLLOWING"]
+    groups = {(row["session_key"], row["driver_number"], row["cutoff_opponent"], row["stint_number"])
+              for row in following if row.get("cutoff_episode_id") and row.get("cutoff_opponent") is not None
+              and row.get("stint_number") is not None}
+    return {"unique_laps": len({row["opportunity_id"] for row in following}),
+            "cutoff_encounters": len({row["cutoff_episode_id"] for row in following if row.get("cutoff_episode_id")}),
+            "fragments": len({episode for row in following for episode in row.get("episode_ids", ())}),
+            "driver_leader_stints": len(groups), "independent_encounters": len(groups)}
+
+
+def traffic_readiness(races: list[dict], research_rows: list[dict], evaluation: dict, *,
+                      independence_rule: str | None = None) -> dict:
     counts = Counter((row["session_key"], row["outcome_group"]) for row in research_rows
                      if row["signed_proxy_s"] is not None)
     train_episodes = {}
     for row in research_rows:
         if row["split"] == "development" and row["outcome_group"] == "FOLLOWING" and row["signed_proxy_s"] is not None:
             train_episodes.setdefault(row["session_key"], set()).update(row["episode_ids"])
+    independent = None
+    if independence_rule is not None:
+        if independence_rule != INDEPENDENCE_RULE:
+            raise ValueError("Unknown traffic independence rule")
+        independent = {race["session_key"]: encounter_units([
+            row for row in research_rows if row["session_key"] == race["session_key"]
+            and row["signed_proxy_s"] is not None
+        ]) for race in races}
     eligible_train = [
         race["session_key"] for race in races if race["split"] == "development"
         and race["timing_marker_gate"]
         and counts[race["session_key"], "CLEAN_CONTROL"] >= evaluation["minimum_control_laps_per_train_race"]
         and counts[race["session_key"], "FOLLOWING"] >= evaluation["minimum_following_laps_per_train_race"]
-        and len(train_episodes.get(race["session_key"], ())) >= evaluation["minimum_following_laps_per_train_race"]
+        and (independent[race["session_key"]]["independent_encounters"] if independent is not None
+             else len(train_episodes.get(race["session_key"], ()))) >= evaluation["minimum_following_laps_per_train_race"]
     ]
     validation = [race["session_key"] for race in races if race["split"] == "validation"
                   and race["timing_marker_gate"]
@@ -127,8 +167,12 @@ def traffic_readiness(races: list[dict], research_rows: list[dict], evaluation: 
         blockers.append("INSUFFICIENT_DEVELOPMENT_RACES_WITH_MATCHED_CONTROL_AND_FOLLOWING_TARGETS")
     if len(validation) < evaluation["minimum_validation_races"]:
         blockers.append("INSUFFICIENT_CHRONOLOGICAL_VALIDATION_RACES")
-    return {"eligible_development_races": eligible_train, "eligible_validation_races": validation,
+    result = {"eligible_development_races": eligible_train, "eligible_validation_races": validation,
             "reserved_races_evaluated": 0, "blockers": blockers,
             "empirical_fit_status": "GATED" if blockers else "BASELINE_COMPARISON_READY",
             "comparison_status": "PENDING_COMMON_T0_T1_T2_T3_EVALUATION",
             "operational_baseline": "T1_DETERMINISTIC_NO_PASS"}
+    if independent is not None:
+        result |= {"independence_rule": independence_rule, "qualifying_encounters_by_race": independent,
+                   "minimum_reserved_test_races": evaluation["minimum_reserved_test_races"]}
+    return result

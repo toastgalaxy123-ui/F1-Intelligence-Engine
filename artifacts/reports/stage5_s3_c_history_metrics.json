@@ -1,0 +1,5120 @@
+{
+  "plan_version": "s3-c-history-v1",
+  "plan_sha256": "8fbb9fd511961a08a775cff6399bdee28a6a476b51d49dc5f67ec7f7d9580c5d",
+  "protocol_sha256": "e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda",
+  "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+  "input_sha256": {
+    "warehouse": "9404346d9aef1ef44ee9cea7e36c3f66475dd1d9495a62aed3e0c0e35a0e53d0",
+    "frozen_metrics": "2940a852ba36a48ea1b47860a28da6f897e328c9ed9e107691cff6c12748cff0",
+    "frozen_coverage_diagnostics": "9916bb99c9a903c980f1af85f46ef9ea8b11c740cd4158f98bc35807549bb5fd"
+  },
+  "traffic_model_status": "RESEARCH_ONLY",
+  "readiness": {
+    "eligible_development_races": [],
+    "eligible_validation_races": [],
+    "reserved_races_evaluated": 0,
+    "blockers": [
+      "INSUFFICIENT_DEVELOPMENT_RACES_WITH_MATCHED_CONTROL_AND_FOLLOWING_TARGETS",
+      "INSUFFICIENT_CHRONOLOGICAL_VALIDATION_RACES"
+    ],
+    "empirical_fit_status": "GATED",
+    "comparison_status": "PENDING_COMMON_T0_T1_T2_T3_EVALUATION",
+    "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+    "independence_rule": "driver-leader-stint-v1",
+    "qualifying_encounters_by_race": {
+      "9955": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      },
+      "9928": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      },
+      "9912": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      }
+    },
+    "minimum_reserved_test_races": 3
+  },
+  "races": [
+    {
+      "driver_count": 20,
+      "locations": 123100,
+      "mapped": 122990,
+      "point_in_time_complete": 3077,
+      "point_in_time_snapshots": 3195,
+      "retrospective_complete": 2432,
+      "retrospective_snapshots": 3195,
+      "point_in_time_complete_resolved_ahead": 37988,
+      "speed_fallback_samples": 4240,
+      "timing_markers": {
+        "requested": 16,
+        "n": 16,
+        "mae": 0.12855606249999998,
+        "bias": 0.12855606249999998
+      },
+      "control_order": {
+        "eligible": 284,
+        "resolved": 283,
+        "matched": 283,
+        "matched_gap_error_s": {
+          "n": 283,
+          "mae": 0.09332528268551236,
+          "bias": -0.004123240282685509
+        },
+        "gap_bounds_checked": 283,
+        "gap_bounds_covered": 281,
+        "median_heuristic_gap_halfwidth_s": 0.4590307745837144
+      },
+      "heldout_fix_requested": 6460,
+      "heldout_fix_error_m": {
+        "n": 6156,
+        "mae": 3.780337144510003,
+        "p90": 11.330365772923642
+      },
+      "heldout_fix_inside_bound": 5617,
+      "heldout_fix_by_age": [
+        {
+          "maximum_age_s": 0.25,
+          "minimum_age_exclusive_s": 0.0,
+          "n": 3513,
+          "mae": 2.1827410144925126,
+          "p90": 7.560704852151594
+        },
+        {
+          "maximum_age_s": 0.5,
+          "minimum_age_exclusive_s": 0.25,
+          "n": 2536,
+          "mae": 5.847879790691294,
+          "p90": 14.67183232832599
+        },
+        {
+          "maximum_age_s": 0.9,
+          "minimum_age_exclusive_s": 0.5,
+          "n": 107,
+          "mae": 7.229561948581866,
+          "p90": 16.422389849217883
+        }
+      ],
+      "name": "Austria",
+      "session_key": 9955,
+      "split": "development",
+      "geometry_version": "spielberg-2025-fia-v2-sampled-v1",
+      "reference_end_gap_m": 13.921481903672108,
+      "geometry_available_utc": "2025-06-29T13:25:40.001000+00:00",
+      "reference_lap": 5,
+      "rejected_reference_laps": [],
+      "windows_before_geometry_available": 0,
+      "field_window_seconds": 1600.0,
+      "window_counts": {
+        "early_control": 2,
+        "history_close": 2,
+        "random_green": 1
+      },
+      "all_window_strata_acquired": true,
+      "speed_samples": 119600,
+      "timing_marker_gate": true,
+      "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+      "off_track_evidence": [
+        {
+          "driver_number": 55,
+          "available_by_utc": "2025-06-29T13:24:00+00:00",
+          "reason": "FORMATION_LAP_WITHDRAWAL",
+          "source": "https://www.formula1.com/en/video/2025-austrian-grand-prix-race-start-aborted-after-sainzs-brakes-catch-fire.1836271745554555069"
+        },
+        {
+          "driver_number": 1,
+          "available_by_utc": "2025-06-29T13:24:00+00:00",
+          "reason": "LAP_ONE_COLLISION_AND_SC_CLEARANCE",
+          "source": "https://www.formula1.com/en/video/2025-austrian-grand-prix-antonelli-knocks-verstappen-out-of-the-race-on-lap-1.1836272513371164277"
+        },
+        {
+          "driver_number": 12,
+          "available_by_utc": "2025-06-29T13:24:00+00:00",
+          "reason": "LAP_ONE_COLLISION_AND_SC_CLEARANCE",
+          "source": "https://www.formula1.com/en/video/2025-austrian-grand-prix-antonelli-knocks-verstappen-out-of-the-race-on-lap-1.1836272513371164277"
+        },
+        {
+          "driver_number": 23,
+          "available_by_utc": "2025-06-29T13:41:00+00:00",
+          "reason": "LAP_17_GARAGE_WITHDRAWAL",
+          "source": "https://www.formula1.com/en/video/2025-austrian-grand-prix-albon-forced-to-retire-as-williams-suffer-a-double-dnf.1836282858831801208"
+        }
+      ],
+      "episodes": 806,
+      "episode_segments": 12672,
+      "episode_encounters": {
+        "SAME_LAP": 732,
+        "LAPPING": 45,
+        "BEING_LAPPED": 29
+      },
+      "episode_terminations": {
+        "LOCALIZATION_UNSUPPORTED": 606,
+        "WINDOW_ENDED": 18,
+        "GAP_OPENED": 182
+      },
+      "lap_opportunities": {
+        "FULL_LAPS_IN_WINDOW": 296,
+        "PHYSICAL_SUPPORT_BELOW_MINIMUM": 152,
+        "PARTIAL_WINDOW": 81,
+        "ARCHIVE_PASS_INDICATION_CENSORED": 32,
+        "PIT_OR_STINT_TRANSITION": 14,
+        "INTERMEDIATE": 81,
+        "CLEAN_CONTROL": 16,
+        "FOLLOWING": 1
+      },
+      "pace_reference_status": {
+        "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 26,
+        "SUPPORTED": 71,
+        "LIMITED_SUPPORT": 1
+      },
+      "pace_reference_by_outcome": {
+        "FOLLOWING": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 1
+        },
+        "CLEAN_CONTROL": {
+          "SUPPORTED": 13,
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 3
+        },
+        "INTERMEDIATE": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 22,
+          "SUPPORTED": 58,
+          "LIMITED_SUPPORT": 1
+        }
+      },
+      "selection": {
+        "session_key": 9955,
+        "eligible_cutoffs": {
+          "cutoffs": 633,
+          "drivers": [
+            4,
+            5,
+            6,
+            10,
+            14,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [],
+          "by_compound": {
+            "UNKNOWN": 633
+          },
+          "by_phase": {
+            "early": 281,
+            "middle": 352
+          }
+        },
+        "fresh_close_signal": {
+          "cutoffs": 185,
+          "drivers": [
+            5,
+            6,
+            10,
+            14,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [],
+          "by_compound": {
+            "UNKNOWN": 185
+          },
+          "by_phase": {
+            "early": 118,
+            "middle": 67
+          }
+        },
+        "history_checked": {
+          "cutoffs": 72,
+          "drivers": [
+            5,
+            6,
+            10,
+            14,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              14,
+              1
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              18,
+              1
+            ],
+            [
+              18,
+              2
+            ],
+            [
+              22,
+              1
+            ],
+            [
+              23,
+              1
+            ],
+            [
+              27,
+              2
+            ],
+            [
+              30,
+              1
+            ],
+            [
+              30,
+              2
+            ],
+            [
+              31,
+              1
+            ],
+            [
+              31,
+              2
+            ],
+            [
+              43,
+              1
+            ],
+            [
+              43,
+              2
+            ],
+            [
+              44,
+              2
+            ],
+            [
+              63,
+              2
+            ],
+            [
+              81,
+              1
+            ],
+            [
+              87,
+              1
+            ],
+            [
+              87,
+              2
+            ]
+          ],
+          "by_compound": {
+            "MEDIUM": 50,
+            "SOFT": 3,
+            "HARD": 19
+          },
+          "by_phase": {
+            "early": 36,
+            "middle": 36
+          }
+        },
+        "history_qualified": {
+          "cutoffs": 16,
+          "drivers": [
+            5,
+            6,
+            10,
+            18,
+            30,
+            31,
+            43,
+            87
+          ],
+          "driver_stints": [
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              18,
+              2
+            ],
+            [
+              30,
+              1
+            ],
+            [
+              30,
+              2
+            ],
+            [
+              31,
+              2
+            ],
+            [
+              43,
+              2
+            ],
+            [
+              87,
+              2
+            ]
+          ],
+          "by_compound": {
+            "HARD": 12,
+            "MEDIUM": 4
+          },
+          "by_phase": {
+            "middle": 16
+          }
+        },
+        "history_rejected": {
+          "cutoffs": 56,
+          "drivers": [
+            5,
+            6,
+            14,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              14,
+              1
+            ],
+            [
+              14,
+              2
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              18,
+              1
+            ],
+            [
+              22,
+              1
+            ],
+            [
+              23,
+              1
+            ],
+            [
+              27,
+              2
+            ],
+            [
+              30,
+              1
+            ],
+            [
+              31,
+              1
+            ],
+            [
+              43,
+              1
+            ],
+            [
+              44,
+              2
+            ],
+            [
+              63,
+              2
+            ],
+            [
+              81,
+              1
+            ],
+            [
+              87,
+              1
+            ],
+            [
+              87,
+              2
+            ]
+          ],
+          "by_compound": {
+            "MEDIUM": 46,
+            "SOFT": 3,
+            "HARD": 7
+          },
+          "by_phase": {
+            "early": 36,
+            "middle": 20
+          }
+        },
+        "history_reasons": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 56,
+          "QUALIFIED": 16
+        },
+        "drivers_lost_after_history": [
+          14,
+          16,
+          22,
+          23,
+          27,
+          44,
+          63,
+          81
+        ],
+        "driver_stints_lost_after_history": [
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            14,
+            1
+          ],
+          [
+            14,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            23,
+            1
+          ],
+          [
+            27,
+            2
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            43,
+            1
+          ],
+          [
+            44,
+            2
+          ],
+          [
+            63,
+            2
+          ],
+          [
+            81,
+            1
+          ],
+          [
+            87,
+            1
+          ]
+        ],
+        "anchors": [
+          {
+            "driver_number": 16,
+            "lap_number": 9,
+            "cutoff_utc": "2025-06-29 13:29:10.322000+00:00",
+            "block_start_utc": "2025-06-29 13:28:50+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-06-29 13:29:10.116000+00:00",
+            "interval_age_s": 0.206,
+            "interval_source_raw": "3.25",
+            "selection_gap_s": 3.25,
+            "arm": "early_control",
+            "window": "early_control_132850",
+            "block_end_utc": "2025-06-29 13:34:10+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 16,
+            "lap_number": 14,
+            "cutoff_utc": "2025-06-29 13:35:02.233000+00:00",
+            "block_start_utc": "2025-06-29 13:34:42+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-06-29 13:35:02.085000+00:00",
+            "interval_age_s": 0.148,
+            "interval_source_raw": "4.671",
+            "selection_gap_s": 4.671,
+            "arm": "early_control",
+            "window": "early_control_133442",
+            "block_end_utc": "2025-06-29 13:40:02+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 31,
+            "lap_number": 26,
+            "cutoff_utc": "2025-06-29 13:49:55.771000+00:00",
+            "block_start_utc": "2025-06-29 13:49:35+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 13:49:55.567000+00:00",
+            "interval_age_s": 0.204,
+            "interval_source_raw": "1.046",
+            "selection_gap_s": 1.046,
+            "stint_number": 2,
+            "compound": "HARD",
+            "completed_same_stint": 5,
+            "clean_same_stint": 3,
+            "qualified": true,
+            "history_reason": "QUALIFIED",
+            "arm": "history_close",
+            "window": "history_close_134935",
+            "block_end_utc": "2025-06-29 13:54:55+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 6,
+            "lap_number": 36,
+            "cutoff_utc": "2025-06-29 14:01:59.443000+00:00",
+            "block_start_utc": "2025-06-29 14:01:39+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 14:01:59.232000+00:00",
+            "interval_age_s": 0.211,
+            "interval_source_raw": "0.699",
+            "selection_gap_s": 0.699,
+            "stint_number": 3,
+            "compound": "HARD",
+            "completed_same_stint": 6,
+            "clean_same_stint": 3,
+            "qualified": true,
+            "history_reason": "QUALIFIED",
+            "arm": "history_close",
+            "window": "history_close_140139",
+            "block_end_utc": "2025-06-29 14:06:59+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 16,
+            "lap_number": 44,
+            "cutoff_utc": "2025-06-29 14:10:35.590000+00:00",
+            "block_start_utc": "2025-06-29 14:10:15+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 14:10:35.371000+00:00",
+            "interval_age_s": 0.219,
+            "interval_source_raw": "13.684",
+            "selection_gap_s": 13.684,
+            "arm": "random_green",
+            "window": "random_green_141015",
+            "block_end_utc": "2025-06-29 14:15:35+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          }
+        ],
+        "budget": {
+          "field_request_seconds": 1610.0,
+          "field_requests": 20
+        },
+        "planned_arm_counts": {
+          "early_control": 2,
+          "history_close": 2,
+          "random_green": 1
+        }
+      },
+      "sources": {
+        "session_key": 9955,
+        "geometry_sha256": "28a38503fab10485ca43b72b6815c71db0830b3e481835e2a268087dcbe8ff1b",
+        "geometry_sources": [
+          {
+            "endpoint": "location",
+            "session_key": 9955,
+            "driver_number": 4,
+            "start_utc": "2025-06-29T13:24:26.294000+00:00",
+            "end_utc": "2025-06-29T13:25:40.001000+00:00",
+            "sha256": "f8795570b89f25d43da0e15bc13bdb3fc2a6b31d05017e850255f8615edb04e7",
+            "cache_path": "data/telemetry/proximity/9955/4/18f0d61cf754f077/location.json",
+            "usable_rows": 294,
+            "conflicting_rows": 0
+          },
+          {
+            "endpoint": "car_data",
+            "session_key": 9955,
+            "driver_number": 4,
+            "start_utc": "2025-06-29T13:24:26.294000+00:00",
+            "end_utc": "2025-06-29T13:25:40.001000+00:00",
+            "sha256": "5a10a59af80ef09bd9e2ebc4ed4f2b7dfc42e03cce854e5732462e8deb9e705a",
+            "cache_path": "data/telemetry/proximity/9955/4/18f0d61cf754f077/car_data.json",
+            "usable_rows": 280,
+            "conflicting_rows": 0
+          }
+        ],
+        "windows": [
+          {
+            "kind": "early_control",
+            "telemetry": {
+              "session_key": 9955,
+              "start_utc": "2025-06-29 13:28:50+00:00",
+              "end_utc": "2025-06-29 13:34:10+00:00"
+            },
+            "seed_driver": 16,
+            "seed_lap": 9,
+            "name": "early_control_132850",
+            "anchor": "9955/16/9",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:28:50+00:00",
+                "end_utc": "2025-06-29T13:31:49+00:00",
+                "sha256": "6e6913ba3a34c73713d55f6c024142c8c49ddf9bd3cd66ca4110f9cd8cd0d506",
+                "cache_path": "data/telemetry/proximity/9955/field/b98cf476c44c7342/location.json",
+                "usable_rows": 14180,
+                "conflicting_rows": 0,
+                "received_rows": 14180,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:28:50+00:00",
+                "end_utc": "2025-06-29T13:31:49+00:00",
+                "sha256": "18bf547eb45ee4ea3e0546a45d3e0c9fda234a7413de72b308be3da7e415435a",
+                "cache_path": "data/telemetry/proximity/9955/field/b98cf476c44c7342/car_data.json",
+                "usable_rows": 13240,
+                "conflicting_rows": 0,
+                "received_rows": 13240,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:31:47+00:00",
+                "end_utc": "2025-06-29T13:34:10+00:00",
+                "sha256": "0c2eba222a635e7ea67a9e9b5bc17f28b2e02b6882bffc9447991797ba6b54ad",
+                "cache_path": "data/telemetry/proximity/9955/field/225fc38fe6e14378/location.json",
+                "usable_rows": 11140,
+                "conflicting_rows": 0,
+                "received_rows": 11140,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:31:47+00:00",
+                "end_utc": "2025-06-29T13:34:10+00:00",
+                "sha256": "e03bdac6a7de60d09ed6e6c56053cdef045cf986a3869b6151b06ca391327a87",
+                "cache_path": "data/telemetry/proximity/9955/field/225fc38fe6e14378/car_data.json",
+                "usable_rows": 10620,
+                "conflicting_rows": 0,
+                "received_rows": 10620,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 25320,
+                "duplicate_rows_removed": 140,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 25180
+              },
+              "car_data": {
+                "rows_in_span": 23860,
+                "duplicate_rows_removed": 140,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23720
+              }
+            }
+          },
+          {
+            "kind": "early_control",
+            "telemetry": {
+              "session_key": 9955,
+              "start_utc": "2025-06-29 13:34:42+00:00",
+              "end_utc": "2025-06-29 13:40:02+00:00"
+            },
+            "seed_driver": 16,
+            "seed_lap": 14,
+            "name": "early_control_133442",
+            "anchor": "9955/16/14",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:34:42+00:00",
+                "end_utc": "2025-06-29T13:37:41+00:00",
+                "sha256": "343733d4c2dad3494ff5e10d90607dd05c3a08e6b58f72ec13562e1010741ad8",
+                "cache_path": "data/telemetry/proximity/9955/field/9ca94ec18cc4af10/location.json",
+                "usable_rows": 13580,
+                "conflicting_rows": 0,
+                "received_rows": 13580,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:34:42+00:00",
+                "end_utc": "2025-06-29T13:37:41+00:00",
+                "sha256": "f92d3f26b2bb7da23eed943ecdfe282c929f473110e4c7ee6fa2faad06bf54a1",
+                "cache_path": "data/telemetry/proximity/9955/field/9ca94ec18cc4af10/car_data.json",
+                "usable_rows": 13540,
+                "conflicting_rows": 0,
+                "received_rows": 13540,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:37:39+00:00",
+                "end_utc": "2025-06-29T13:40:02+00:00",
+                "sha256": "c73829a43b16d1011c0310a0b7da149b48f3fb4059e9385d88fcb901305c82e9",
+                "cache_path": "data/telemetry/proximity/9955/field/7913e53135189b0f/location.json",
+                "usable_rows": 10940,
+                "conflicting_rows": 0,
+                "received_rows": 10940,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:37:39+00:00",
+                "end_utc": "2025-06-29T13:40:02+00:00",
+                "sha256": "bbee3b48c8bce259843f365593d7ed343faad1b0507f75a7d71782eb09e1f9eb",
+                "cache_path": "data/telemetry/proximity/9955/field/7913e53135189b0f/car_data.json",
+                "usable_rows": 10360,
+                "conflicting_rows": 0,
+                "received_rows": 10360,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24520,
+                "duplicate_rows_removed": 160,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24360
+              },
+              "car_data": {
+                "rows_in_span": 23900,
+                "duplicate_rows_removed": 180,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23720
+              }
+            }
+          },
+          {
+            "kind": "history_close",
+            "telemetry": {
+              "session_key": 9955,
+              "start_utc": "2025-06-29 13:49:35+00:00",
+              "end_utc": "2025-06-29 13:54:55+00:00"
+            },
+            "seed_driver": 31,
+            "seed_lap": 26,
+            "name": "history_close_134935",
+            "anchor": "9955/31/26",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:49:35+00:00",
+                "end_utc": "2025-06-29T13:52:34+00:00",
+                "sha256": "40fb2dec607df10cad55a9116c8ad03050f55144f2fc06e852f3bd056c43a7ba",
+                "cache_path": "data/telemetry/proximity/9955/field/f2b5ea5e4687105b/location.json",
+                "usable_rows": 13680,
+                "conflicting_rows": 0,
+                "received_rows": 13680,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:49:35+00:00",
+                "end_utc": "2025-06-29T13:52:34+00:00",
+                "sha256": "f09ecc17667a5a07055ac8e2bda77042d92205395dcf64305bcb7678668a5e65",
+                "cache_path": "data/telemetry/proximity/9955/field/f2b5ea5e4687105b/car_data.json",
+                "usable_rows": 13500,
+                "conflicting_rows": 0,
+                "received_rows": 13500,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:52:32+00:00",
+                "end_utc": "2025-06-29T13:54:55+00:00",
+                "sha256": "f1095581e6d745c2fd2d6459e8bdd9433414598c6844d5bba8e70b2f93519fb4",
+                "cache_path": "data/telemetry/proximity/9955/field/64bf9dc09f54c008/location.json",
+                "usable_rows": 10880,
+                "conflicting_rows": 0,
+                "received_rows": 10880,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T13:52:32+00:00",
+                "end_utc": "2025-06-29T13:54:55+00:00",
+                "sha256": "1471979beebbb003b5cd9df4f291b254e85b70cdf8def5e96d68262e5a8f57d9",
+                "cache_path": "data/telemetry/proximity/9955/field/64bf9dc09f54c008/car_data.json",
+                "usable_rows": 10440,
+                "conflicting_rows": 0,
+                "received_rows": 10440,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24560,
+                "duplicate_rows_removed": 120,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24440
+              },
+              "car_data": {
+                "rows_in_span": 23940,
+                "duplicate_rows_removed": 200,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23740
+              }
+            }
+          },
+          {
+            "kind": "history_close",
+            "telemetry": {
+              "session_key": 9955,
+              "start_utc": "2025-06-29 14:01:39+00:00",
+              "end_utc": "2025-06-29 14:06:59+00:00"
+            },
+            "seed_driver": 6,
+            "seed_lap": 36,
+            "name": "history_close_140139",
+            "anchor": "9955/6/36",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:01:39+00:00",
+                "end_utc": "2025-06-29T14:04:38+00:00",
+                "sha256": "d8a36da8674ae945d0fd256f1acf288a0a394953fc448b946a73251dd90569df",
+                "cache_path": "data/telemetry/proximity/9955/field/65550339af426d6c/location.json",
+                "usable_rows": 13560,
+                "conflicting_rows": 0,
+                "received_rows": 13560,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:01:39+00:00",
+                "end_utc": "2025-06-29T14:04:38+00:00",
+                "sha256": "aa82724864082108e29053769046ad040df38d656812c033ed6be66fbdd73211",
+                "cache_path": "data/telemetry/proximity/9955/field/65550339af426d6c/car_data.json",
+                "usable_rows": 13680,
+                "conflicting_rows": 0,
+                "received_rows": 13680,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:04:36+00:00",
+                "end_utc": "2025-06-29T14:06:59+00:00",
+                "sha256": "b0bc95571fb57d057354af14d7de93c096421e7ca864c78d758958d4722f65a2",
+                "cache_path": "data/telemetry/proximity/9955/field/3fc3933ad127684d/location.json",
+                "usable_rows": 10940,
+                "conflicting_rows": 0,
+                "received_rows": 10940,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:04:36+00:00",
+                "end_utc": "2025-06-29T14:06:59+00:00",
+                "sha256": "06adf14cfe0032b88c7ded440913823dab05a63f3f8640c704a28f076bb5d0fe",
+                "cache_path": "data/telemetry/proximity/9955/field/3fc3933ad127684d/car_data.json",
+                "usable_rows": 10800,
+                "conflicting_rows": 0,
+                "received_rows": 10800,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24500,
+                "duplicate_rows_removed": 140,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24360
+              },
+              "car_data": {
+                "rows_in_span": 24480,
+                "duplicate_rows_removed": 160,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24320
+              }
+            }
+          },
+          {
+            "kind": "random_green",
+            "telemetry": {
+              "session_key": 9955,
+              "start_utc": "2025-06-29 14:10:15+00:00",
+              "end_utc": "2025-06-29 14:15:35+00:00"
+            },
+            "seed_driver": 16,
+            "seed_lap": 44,
+            "name": "random_green_141015",
+            "anchor": "9955/16/44",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:10:15+00:00",
+                "end_utc": "2025-06-29T14:13:14+00:00",
+                "sha256": "79f24d6b17c6bb7faf59fbbbeca83f5faaac229842a012f1855b128dafd746ec",
+                "cache_path": "data/telemetry/proximity/9955/field/36ab7f20b0a0e3e7/location.json",
+                "usable_rows": 13760,
+                "conflicting_rows": 0,
+                "received_rows": 13760,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:10:15+00:00",
+                "end_utc": "2025-06-29T14:13:14+00:00",
+                "sha256": "cc070b022b68a74d0eae506fa837d3c798522d6fb8c5b6bd92c6c3cad2e1f873",
+                "cache_path": "data/telemetry/proximity/9955/field/36ab7f20b0a0e3e7/car_data.json",
+                "usable_rows": 13580,
+                "conflicting_rows": 0,
+                "received_rows": 13580,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:13:12+00:00",
+                "end_utc": "2025-06-29T14:15:35+00:00",
+                "sha256": "af277bc55d9f6fa9c64248f82d2c26d60dc9767cfdb3aed92740f6208e921fd6",
+                "cache_path": "data/telemetry/proximity/9955/field/a124958c933ad4fd/location.json",
+                "usable_rows": 11180,
+                "conflicting_rows": 0,
+                "received_rows": 11180,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9955,
+                "driver_number": null,
+                "start_utc": "2025-06-29T14:13:12+00:00",
+                "end_utc": "2025-06-29T14:15:35+00:00",
+                "sha256": "3366d321eb1423e9cdd0479e450dbff5ec9b45d083bd785e2444268a8fa35b2d",
+                "cache_path": "data/telemetry/proximity/9955/field/a124958c933ad4fd/car_data.json",
+                "usable_rows": 10680,
+                "conflicting_rows": 0,
+                "received_rows": 10680,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24940,
+                "duplicate_rows_removed": 180,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24760
+              },
+              "car_data": {
+                "rows_in_span": 24260,
+                "duplicate_rows_removed": 160,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24100
+              }
+            }
+          }
+        ]
+      },
+      "targets": {
+        "cutoff_cohort": 378,
+        "full_laps": 296,
+        "screens": {
+          "LEFT_TRUNCATED_WINDOW": 82,
+          "PHYSICAL_SUPPORT_BELOW_MINIMUM": 152,
+          "PARTIAL_WINDOW": 81,
+          "ARCHIVE_PASS_INDICATION_CENSORED": 32,
+          "PIT_OR_STINT_TRANSITION": 14,
+          "INTERMEDIATE": 81,
+          "MISSING_OBSERVED_ELAPSED": 1,
+          "CLEAN_CONTROL": 16,
+          "FOLLOWING": 1
+        },
+        "physically_screened": {
+          "unique_laps": 98,
+          "drivers": 17,
+          "driver_stints": 25,
+          "driver_leader_stints": 36,
+          "races": 1
+        },
+        "following": {
+          "unique_laps": 1,
+          "drivers": 1,
+          "driver_stints": 1,
+          "driver_leader_stints": 1,
+          "races": 1
+        },
+        "supported_following": {
+          "unique_laps": 0,
+          "drivers": 0,
+          "driver_stints": 0,
+          "driver_leader_stints": 0,
+          "races": 0
+        },
+        "following_with_proxy": {
+          "unique_laps": 0,
+          "drivers": 0,
+          "driver_stints": 0,
+          "driver_leader_stints": 0,
+          "races": 0
+        },
+        "supported_d8_all": {
+          "unique_laps": 71,
+          "drivers": 14,
+          "driver_stints": 19,
+          "driver_leader_stints": 28,
+          "races": 1
+        },
+        "all_bias_adjusted_proxies": 0,
+        "episodes": 806,
+        "segments": 12672,
+        "episode_terminations": {
+          "LOCALIZATION_UNSUPPORTED": 606,
+          "WINDOW_ENDED": 18,
+          "GAP_OPENED": 182
+        },
+        "fragment_driver_leader_pairs": 76,
+        "largest_same_pair_fragment_count": 94,
+        "cutoff_encounter_continued": 4,
+        "later_or_different_episode": 63,
+        "by_stratum": {
+          "early_control": {
+            "cutoff_cohort": 156,
+            "full_laps": 122,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 34,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 87,
+              "PARTIAL_WINDOW": 33,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 10,
+              "PIT_OR_STINT_TRANSITION": 4,
+              "INTERMEDIATE": 19,
+              "MISSING_OBSERVED_ELAPSED": 1,
+              "CLEAN_CONTROL": 1,
+              "FOLLOWING": 1
+            },
+            "physically_screened": {
+              "unique_laps": 21,
+              "drivers": 6,
+              "driver_stints": 6,
+              "driver_leader_stints": 8,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 1,
+              "drivers": 1,
+              "driver_stints": 1,
+              "driver_leader_stints": 1,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 5,
+              "drivers": 2,
+              "driver_stints": 2,
+              "driver_leader_stints": 4,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 435,
+            "segments": 6288,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 367,
+              "WINDOW_ENDED": 10,
+              "GAP_OPENED": 58
+            },
+            "fragment_driver_leader_pairs": 33,
+            "largest_same_pair_fragment_count": 46,
+            "cutoff_encounter_continued": 1,
+            "later_or_different_episode": 14,
+            "planned_blocks": 2,
+            "acquired_blocks": 2,
+            "coverage": {
+              "snapshots": 1278,
+              "complete": 1232,
+              "one_missing": 39,
+              "multiple_missing": 7
+            },
+            "acquired_seconds": 640.0,
+            "source_rows": {
+              "location": 49540,
+              "car_data": 47440
+            },
+            "following_independence": {
+              "unique_laps": 1,
+              "cutoff_encounters": 1,
+              "fragments": 3,
+              "driver_leader_stints": 1,
+              "independent_encounters": 1
+            },
+            "supported_control_laps": 1,
+            "control_proxies": 0,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9955/16/9",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              },
+              {
+                "opportunity_id": "9955/16/14",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              }
+            ],
+            "timing_markers": {
+              "requested": 8,
+              "resolved": 8
+            }
+          },
+          "history_close": {
+            "cutoff_cohort": 149,
+            "full_laps": 117,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 32,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 45,
+              "CLEAN_CONTROL": 14,
+              "PARTIAL_WINDOW": 32,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 18,
+              "PIT_OR_STINT_TRANSITION": 8,
+              "INTERMEDIATE": 32
+            },
+            "physically_screened": {
+              "unique_laps": 46,
+              "drivers": 16,
+              "driver_stints": 16,
+              "driver_leader_stints": 17,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 39,
+              "drivers": 14,
+              "driver_stints": 14,
+              "driver_leader_stints": 14,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 259,
+            "segments": 4049,
+            "episode_terminations": {
+              "GAP_OPENED": 76,
+              "LOCALIZATION_UNSUPPORTED": 178,
+              "WINDOW_ENDED": 5
+            },
+            "fragment_driver_leader_pairs": 45,
+            "largest_same_pair_fragment_count": 26,
+            "cutoff_encounter_continued": 1,
+            "later_or_different_episode": 24,
+            "planned_blocks": 2,
+            "acquired_blocks": 2,
+            "coverage": {
+              "snapshots": 1278,
+              "complete": 1222,
+              "one_missing": 53,
+              "multiple_missing": 3
+            },
+            "acquired_seconds": 640.0,
+            "source_rows": {
+              "location": 48800,
+              "car_data": 48060
+            },
+            "following_independence": {
+              "unique_laps": 0,
+              "cutoff_encounters": 0,
+              "fragments": 0,
+              "driver_leader_stints": 0,
+              "independent_encounters": 0
+            },
+            "supported_control_laps": 11,
+            "control_proxies": 0,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9955/31/26",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              },
+              {
+                "opportunity_id": "9955/6/36",
+                "screen": "ARCHIVE_PASS_INDICATION_CENSORED",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              }
+            ],
+            "timing_markers": {
+              "requested": 8,
+              "resolved": 8
+            }
+          },
+          "random_green": {
+            "cutoff_cohort": 73,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 16,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 20,
+              "INTERMEDIATE": 30,
+              "PARTIAL_WINDOW": 16,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+              "CLEAN_CONTROL": 1,
+              "PIT_OR_STINT_TRANSITION": 2
+            },
+            "physically_screened": {
+              "unique_laps": 31,
+              "drivers": 12,
+              "driver_stints": 12,
+              "driver_leader_stints": 13,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 27,
+              "drivers": 11,
+              "driver_stints": 11,
+              "driver_leader_stints": 12,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 112,
+            "segments": 2335,
+            "episode_terminations": {
+              "GAP_OPENED": 48,
+              "LOCALIZATION_UNSUPPORTED": 61,
+              "WINDOW_ENDED": 3
+            },
+            "fragment_driver_leader_pairs": 15,
+            "largest_same_pair_fragment_count": 22,
+            "cutoff_encounter_continued": 2,
+            "later_or_different_episode": 25,
+            "planned_blocks": 1,
+            "acquired_blocks": 1,
+            "coverage": {
+              "snapshots": 639,
+              "complete": 623,
+              "one_missing": 15,
+              "multiple_missing": 1
+            },
+            "acquired_seconds": 320.0,
+            "source_rows": {
+              "location": 24760,
+              "car_data": 24100
+            },
+            "following_independence": {
+              "unique_laps": 0,
+              "cutoff_encounters": 0,
+              "fragments": 0,
+              "driver_leader_stints": 0,
+              "independent_encounters": 0
+            },
+            "supported_control_laps": 1,
+            "control_proxies": 0,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9955/16/44",
+                "screen": "INTERMEDIATE",
+                "pace_status": "SUPPORTED",
+                "matched_control_count": 1
+              }
+            ],
+            "timing_markers": {
+              "requested": 0,
+              "resolved": 0
+            }
+          }
+        },
+        "by_window": {
+          "early_control_132850": {
+            "cutoff_cohort": 83,
+            "full_laps": 66,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 17,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 50,
+              "PARTIAL_WINDOW": 17,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+              "PIT_OR_STINT_TRANSITION": 2,
+              "INTERMEDIATE": 10
+            },
+            "physically_screened": {
+              "unique_laps": 10,
+              "drivers": 3,
+              "driver_stints": 3,
+              "driver_leader_stints": 3,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 292,
+            "segments": 3568,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 254,
+              "WINDOW_ENDED": 5,
+              "GAP_OPENED": 33
+            },
+            "fragment_driver_leader_pairs": 21,
+            "largest_same_pair_fragment_count": 32,
+            "cutoff_encounter_continued": 0,
+            "later_or_different_episode": 8
+          },
+          "early_control_133442": {
+            "cutoff_cohort": 73,
+            "full_laps": 56,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 17,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 37,
+              "PARTIAL_WINDOW": 16,
+              "INTERMEDIATE": 9,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 6,
+              "PIT_OR_STINT_TRANSITION": 2,
+              "MISSING_OBSERVED_ELAPSED": 1,
+              "CLEAN_CONTROL": 1,
+              "FOLLOWING": 1
+            },
+            "physically_screened": {
+              "unique_laps": 11,
+              "drivers": 5,
+              "driver_stints": 5,
+              "driver_leader_stints": 7,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 1,
+              "drivers": 1,
+              "driver_stints": 1,
+              "driver_leader_stints": 1,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 5,
+              "drivers": 2,
+              "driver_stints": 2,
+              "driver_leader_stints": 4,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 143,
+            "segments": 2720,
+            "episode_terminations": {
+              "GAP_OPENED": 25,
+              "LOCALIZATION_UNSUPPORTED": 113,
+              "WINDOW_ENDED": 5
+            },
+            "fragment_driver_leader_pairs": 19,
+            "largest_same_pair_fragment_count": 23,
+            "cutoff_encounter_continued": 1,
+            "later_or_different_episode": 6
+          },
+          "history_close_134935": {
+            "cutoff_cohort": 73,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 16,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 31,
+              "CLEAN_CONTROL": 6,
+              "PARTIAL_WINDOW": 16,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 16,
+              "PIT_OR_STINT_TRANSITION": 4
+            },
+            "physically_screened": {
+              "unique_laps": 6,
+              "drivers": 4,
+              "driver_stints": 4,
+              "driver_leader_stints": 4,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 3,
+              "drivers": 2,
+              "driver_stints": 2,
+              "driver_leader_stints": 2,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 167,
+            "segments": 2574,
+            "episode_terminations": {
+              "GAP_OPENED": 21,
+              "LOCALIZATION_UNSUPPORTED": 141,
+              "WINDOW_ENDED": 5
+            },
+            "fragment_driver_leader_pairs": 31,
+            "largest_same_pair_fragment_count": 14,
+            "cutoff_encounter_continued": 0,
+            "later_or_different_episode": 0
+          },
+          "history_close_140139": {
+            "cutoff_cohort": 76,
+            "full_laps": 60,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 16,
+              "INTERMEDIATE": 32,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 14,
+              "PARTIAL_WINDOW": 16,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 2,
+              "PIT_OR_STINT_TRANSITION": 4,
+              "CLEAN_CONTROL": 8
+            },
+            "physically_screened": {
+              "unique_laps": 40,
+              "drivers": 16,
+              "driver_stints": 16,
+              "driver_leader_stints": 16,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 36,
+              "drivers": 14,
+              "driver_stints": 14,
+              "driver_leader_stints": 14,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 92,
+            "segments": 1475,
+            "episode_terminations": {
+              "GAP_OPENED": 55,
+              "LOCALIZATION_UNSUPPORTED": 37
+            },
+            "fragment_driver_leader_pairs": 17,
+            "largest_same_pair_fragment_count": 15,
+            "cutoff_encounter_continued": 1,
+            "later_or_different_episode": 24
+          },
+          "random_green_141015": {
+            "cutoff_cohort": 73,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 16,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 20,
+              "INTERMEDIATE": 30,
+              "PARTIAL_WINDOW": 16,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+              "CLEAN_CONTROL": 1,
+              "PIT_OR_STINT_TRANSITION": 2
+            },
+            "physically_screened": {
+              "unique_laps": 31,
+              "drivers": 12,
+              "driver_stints": 12,
+              "driver_leader_stints": 13,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 27,
+              "drivers": 11,
+              "driver_stints": 11,
+              "driver_leader_stints": 12,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 112,
+            "segments": 2335,
+            "episode_terminations": {
+              "GAP_OPENED": 48,
+              "LOCALIZATION_UNSUPPORTED": 61,
+              "WINDOW_ENDED": 3
+            },
+            "fragment_driver_leader_pairs": 15,
+            "largest_same_pair_fragment_count": 22,
+            "cutoff_encounter_continued": 2,
+            "later_or_different_episode": 25
+          }
+        },
+        "following_evidence": [
+          {
+            "opportunity_id": "9955/87/16",
+            "window": "early_control_133442",
+            "window_kind": "early_control",
+            "stint_number": 2,
+            "cutoff_opponent": 10,
+            "cutoff_episode_id": "s3-c-exposure-v1/9955/87/10/2025-06-29T13:37:57.500000+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [
+              13,
+              14
+            ],
+            "prior_clean_available_by_utc": [
+              "2025-06-29 13:35:35.643000+00:00",
+              "2025-06-29 13:36:46.527000+00:00"
+            ],
+            "outcome_available_by_utc": "2025-06-29 13:40:19.760000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-06-29 13:37:58.584000+00:00"
+          }
+        ]
+      },
+      "arms": {
+        "early_control": {
+          "cutoff_cohort": 156,
+          "full_laps": 122,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 34,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 87,
+            "PARTIAL_WINDOW": 33,
+            "ARCHIVE_PASS_INDICATION_CENSORED": 10,
+            "PIT_OR_STINT_TRANSITION": 4,
+            "INTERMEDIATE": 19,
+            "MISSING_OBSERVED_ELAPSED": 1,
+            "CLEAN_CONTROL": 1,
+            "FOLLOWING": 1
+          },
+          "physically_screened": {
+            "unique_laps": 21,
+            "drivers": 6,
+            "driver_stints": 6,
+            "driver_leader_stints": 8,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 1,
+            "drivers": 1,
+            "driver_stints": 1,
+            "driver_leader_stints": 1,
+            "races": 1
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 5,
+            "drivers": 2,
+            "driver_stints": 2,
+            "driver_leader_stints": 4,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 0,
+          "episodes": 435,
+          "segments": 6288,
+          "episode_terminations": {
+            "LOCALIZATION_UNSUPPORTED": 367,
+            "WINDOW_ENDED": 10,
+            "GAP_OPENED": 58
+          },
+          "fragment_driver_leader_pairs": 33,
+          "largest_same_pair_fragment_count": 46,
+          "cutoff_encounter_continued": 1,
+          "later_or_different_episode": 14,
+          "planned_blocks": 2,
+          "acquired_blocks": 2,
+          "coverage": {
+            "snapshots": 1278,
+            "complete": 1232,
+            "one_missing": 39,
+            "multiple_missing": 7
+          },
+          "acquired_seconds": 640.0,
+          "source_rows": {
+            "location": 49540,
+            "car_data": 47440
+          },
+          "following_independence": {
+            "unique_laps": 1,
+            "cutoff_encounters": 1,
+            "fragments": 3,
+            "driver_leader_stints": 1,
+            "independent_encounters": 1
+          },
+          "supported_control_laps": 1,
+          "control_proxies": 0,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9955/16/9",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            },
+            {
+              "opportunity_id": "9955/16/14",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            }
+          ],
+          "timing_markers": {
+            "requested": 8,
+            "resolved": 8
+          }
+        },
+        "history_close": {
+          "cutoff_cohort": 149,
+          "full_laps": 117,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 32,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 45,
+            "CLEAN_CONTROL": 14,
+            "PARTIAL_WINDOW": 32,
+            "ARCHIVE_PASS_INDICATION_CENSORED": 18,
+            "PIT_OR_STINT_TRANSITION": 8,
+            "INTERMEDIATE": 32
+          },
+          "physically_screened": {
+            "unique_laps": 46,
+            "drivers": 16,
+            "driver_stints": 16,
+            "driver_leader_stints": 17,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 39,
+            "drivers": 14,
+            "driver_stints": 14,
+            "driver_leader_stints": 14,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 0,
+          "episodes": 259,
+          "segments": 4049,
+          "episode_terminations": {
+            "GAP_OPENED": 76,
+            "LOCALIZATION_UNSUPPORTED": 178,
+            "WINDOW_ENDED": 5
+          },
+          "fragment_driver_leader_pairs": 45,
+          "largest_same_pair_fragment_count": 26,
+          "cutoff_encounter_continued": 1,
+          "later_or_different_episode": 24,
+          "planned_blocks": 2,
+          "acquired_blocks": 2,
+          "coverage": {
+            "snapshots": 1278,
+            "complete": 1222,
+            "one_missing": 53,
+            "multiple_missing": 3
+          },
+          "acquired_seconds": 640.0,
+          "source_rows": {
+            "location": 48800,
+            "car_data": 48060
+          },
+          "following_independence": {
+            "unique_laps": 0,
+            "cutoff_encounters": 0,
+            "fragments": 0,
+            "driver_leader_stints": 0,
+            "independent_encounters": 0
+          },
+          "supported_control_laps": 11,
+          "control_proxies": 0,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9955/31/26",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            },
+            {
+              "opportunity_id": "9955/6/36",
+              "screen": "ARCHIVE_PASS_INDICATION_CENSORED",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            }
+          ],
+          "timing_markers": {
+            "requested": 8,
+            "resolved": 8
+          }
+        },
+        "random_green": {
+          "cutoff_cohort": 73,
+          "full_laps": 57,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 16,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 20,
+            "INTERMEDIATE": 30,
+            "PARTIAL_WINDOW": 16,
+            "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+            "CLEAN_CONTROL": 1,
+            "PIT_OR_STINT_TRANSITION": 2
+          },
+          "physically_screened": {
+            "unique_laps": 31,
+            "drivers": 12,
+            "driver_stints": 12,
+            "driver_leader_stints": 13,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 27,
+            "drivers": 11,
+            "driver_stints": 11,
+            "driver_leader_stints": 12,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 0,
+          "episodes": 112,
+          "segments": 2335,
+          "episode_terminations": {
+            "GAP_OPENED": 48,
+            "LOCALIZATION_UNSUPPORTED": 61,
+            "WINDOW_ENDED": 3
+          },
+          "fragment_driver_leader_pairs": 15,
+          "largest_same_pair_fragment_count": 22,
+          "cutoff_encounter_continued": 2,
+          "later_or_different_episode": 25,
+          "planned_blocks": 1,
+          "acquired_blocks": 1,
+          "coverage": {
+            "snapshots": 639,
+            "complete": 623,
+            "one_missing": 15,
+            "multiple_missing": 1
+          },
+          "acquired_seconds": 320.0,
+          "source_rows": {
+            "location": 24760,
+            "car_data": 24100
+          },
+          "following_independence": {
+            "unique_laps": 0,
+            "cutoff_encounters": 0,
+            "fragments": 0,
+            "driver_leader_stints": 0,
+            "independent_encounters": 0
+          },
+          "supported_control_laps": 1,
+          "control_proxies": 0,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9955/16/44",
+              "screen": "INTERMEDIATE",
+              "pace_status": "SUPPORTED",
+              "matched_control_count": 1
+            }
+          ],
+          "timing_markers": {
+            "requested": 0,
+            "resolved": 0
+          }
+        }
+      }
+    },
+    {
+      "driver_count": 20,
+      "locations": 122500,
+      "mapped": 122489,
+      "point_in_time_complete": 3121,
+      "point_in_time_snapshots": 3195,
+      "retrospective_complete": 2585,
+      "retrospective_snapshots": 3195,
+      "point_in_time_complete_resolved_ahead": 47679,
+      "speed_fallback_samples": 2663,
+      "timing_markers": {
+        "requested": 16,
+        "n": 16,
+        "mae": 0.068891125,
+        "bias": 0.04169425
+      },
+      "control_order": {
+        "eligible": 277,
+        "resolved": 275,
+        "matched": 274,
+        "matched_gap_error_s": {
+          "n": 274,
+          "mae": 0.08149047080291971,
+          "bias": -0.0038059525547445234
+        },
+        "gap_bounds_checked": 274,
+        "gap_bounds_covered": 274,
+        "median_heuristic_gap_halfwidth_s": 0.47380372262680837
+      },
+      "heldout_fix_requested": 6400,
+      "heldout_fix_error_m": {
+        "n": 6169,
+        "mae": 4.4206604238620555,
+        "p90": 11.544647615779557
+      },
+      "heldout_fix_inside_bound": 5662,
+      "heldout_fix_by_age": [
+        {
+          "maximum_age_s": 0.25,
+          "minimum_age_exclusive_s": 0.0,
+          "n": 3092,
+          "mae": 2.4419539946105258,
+          "p90": 7.469553717607734
+        },
+        {
+          "maximum_age_s": 0.5,
+          "minimum_age_exclusive_s": 0.25,
+          "n": 3037,
+          "mae": 6.408483496004187,
+          "p90": 14.844405715633641
+        },
+        {
+          "maximum_age_s": 0.9,
+          "minimum_age_exclusive_s": 0.5,
+          "n": 40,
+          "mae": 6.449200652613911,
+          "p90": 13.350565778472127
+        }
+      ],
+      "name": "Hungary",
+      "session_key": 9928,
+      "split": "development",
+      "geometry_version": "hungaroring-2025-fia-sampled-v1",
+      "reference_end_gap_m": 1.7306935870397544,
+      "geometry_available_utc": "2025-08-03T13:08:43.541000+00:00",
+      "reference_lap": 4,
+      "rejected_reference_laps": [],
+      "windows_before_geometry_available": 0,
+      "field_window_seconds": 1600.0,
+      "window_counts": {
+        "early_control": 2,
+        "history_close": 2,
+        "random_green": 1
+      },
+      "all_window_strata_acquired": true,
+      "speed_samples": 118640,
+      "timing_marker_gate": true,
+      "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+      "off_track_evidence": [],
+      "episodes": 1344,
+      "episode_segments": 21421,
+      "episode_encounters": {
+        "SAME_LAP": 1289,
+        "LAPPING": 36,
+        "BEING_LAPPED": 19
+      },
+      "episode_terminations": {
+        "LOCALIZATION_UNSUPPORTED": 1046,
+        "WINDOW_ENDED": 28,
+        "LAP_RELATION_CHANGED": 12,
+        "GAP_OPENED": 258
+      },
+      "lap_opportunities": {
+        "FULL_LAPS_IN_WINDOW": 290,
+        "PHYSICAL_SUPPORT_BELOW_MINIMUM": 161,
+        "PARTIAL_WINDOW": 100,
+        "FOLLOWING": 9,
+        "CLEAN_CONTROL": 25,
+        "INTERMEDIATE": 65,
+        "PIT_OR_STINT_TRANSITION": 18,
+        "ARCHIVE_PASS_INDICATION_CENSORED": 12
+      },
+      "pace_reference_status": {
+        "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 46,
+        "SUPPORTED": 42,
+        "LIMITED_SUPPORT": 11
+      },
+      "pace_reference_by_outcome": {
+        "FOLLOWING": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 9
+        },
+        "CLEAN_CONTROL": {
+          "SUPPORTED": 13,
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 6,
+          "LIMITED_SUPPORT": 6
+        },
+        "INTERMEDIATE": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 31,
+          "SUPPORTED": 29,
+          "LIMITED_SUPPORT": 5
+        }
+      },
+      "selection": {
+        "session_key": 9928,
+        "eligible_cutoffs": {
+          "cutoffs": 780,
+          "drivers": [
+            1,
+            4,
+            5,
+            6,
+            10,
+            12,
+            14,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            55,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [],
+          "by_compound": {
+            "UNKNOWN": 780
+          },
+          "by_phase": {
+            "early": 340,
+            "middle": 440
+          }
+        },
+        "fresh_close_signal": {
+          "cutoffs": 259,
+          "drivers": [
+            1,
+            4,
+            5,
+            6,
+            10,
+            12,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            55,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [],
+          "by_compound": {
+            "UNKNOWN": 259
+          },
+          "by_phase": {
+            "early": 159,
+            "middle": 100
+          }
+        },
+        "history_checked": {
+          "cutoffs": 72,
+          "drivers": [
+            1,
+            4,
+            5,
+            6,
+            10,
+            12,
+            16,
+            18,
+            22,
+            23,
+            27,
+            30,
+            31,
+            43,
+            44,
+            55,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              10,
+              1
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              18,
+              1
+            ],
+            [
+              22,
+              1
+            ],
+            [
+              22,
+              2
+            ],
+            [
+              23,
+              2
+            ],
+            [
+              27,
+              2
+            ],
+            [
+              30,
+              1
+            ],
+            [
+              31,
+              1
+            ],
+            [
+              31,
+              2
+            ],
+            [
+              43,
+              1
+            ],
+            [
+              44,
+              1
+            ],
+            [
+              55,
+              1
+            ],
+            [
+              55,
+              2
+            ],
+            [
+              63,
+              2
+            ],
+            [
+              81,
+              2
+            ],
+            [
+              87,
+              1
+            ],
+            [
+              87,
+              2
+            ]
+          ],
+          "by_compound": {
+            "MEDIUM": 37,
+            "SOFT": 2,
+            "HARD": 33
+          },
+          "by_phase": {
+            "early": 36,
+            "middle": 36
+          }
+        },
+        "history_qualified": {
+          "cutoffs": 15,
+          "drivers": [
+            10,
+            22,
+            23,
+            27,
+            55,
+            87
+          ],
+          "driver_stints": [
+            [
+              10,
+              1
+            ],
+            [
+              22,
+              2
+            ],
+            [
+              23,
+              2
+            ],
+            [
+              27,
+              2
+            ],
+            [
+              55,
+              2
+            ],
+            [
+              87,
+              2
+            ]
+          ],
+          "by_compound": {
+            "HARD": 7,
+            "MEDIUM": 7,
+            "SOFT": 1
+          },
+          "by_phase": {
+            "early": 2,
+            "middle": 13
+          }
+        },
+        "history_rejected": {
+          "cutoffs": 57,
+          "drivers": [
+            1,
+            4,
+            5,
+            6,
+            12,
+            16,
+            18,
+            22,
+            30,
+            31,
+            43,
+            44,
+            55,
+            63,
+            81,
+            87
+          ],
+          "driver_stints": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              12,
+              1
+            ],
+            [
+              12,
+              2
+            ],
+            [
+              16,
+              2
+            ],
+            [
+              18,
+              1
+            ],
+            [
+              22,
+              1
+            ],
+            [
+              30,
+              1
+            ],
+            [
+              31,
+              1
+            ],
+            [
+              31,
+              2
+            ],
+            [
+              43,
+              1
+            ],
+            [
+              44,
+              1
+            ],
+            [
+              55,
+              1
+            ],
+            [
+              63,
+              2
+            ],
+            [
+              81,
+              2
+            ],
+            [
+              87,
+              1
+            ]
+          ],
+          "by_compound": {
+            "MEDIUM": 30,
+            "SOFT": 1,
+            "HARD": 26
+          },
+          "by_phase": {
+            "early": 34,
+            "middle": 23
+          }
+        },
+        "history_reasons": {
+          "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS": 57,
+          "QUALIFIED": 15
+        },
+        "drivers_lost_after_history": [
+          1,
+          4,
+          5,
+          6,
+          12,
+          16,
+          18,
+          30,
+          31,
+          43,
+          44,
+          63,
+          81
+        ],
+        "driver_stints_lost_after_history": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            12,
+            1
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            16,
+            2
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            22,
+            1
+          ],
+          [
+            30,
+            1
+          ],
+          [
+            31,
+            1
+          ],
+          [
+            31,
+            2
+          ],
+          [
+            43,
+            1
+          ],
+          [
+            44,
+            1
+          ],
+          [
+            55,
+            1
+          ],
+          [
+            63,
+            2
+          ],
+          [
+            81,
+            2
+          ],
+          [
+            87,
+            1
+          ]
+        ],
+        "anchors": [
+          {
+            "driver_number": 14,
+            "lap_number": 8,
+            "cutoff_utc": "2025-08-03 13:12:59.161000+00:00",
+            "block_start_utc": "2025-08-03 13:12:39+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:12:58.895000+00:00",
+            "interval_age_s": 0.266,
+            "interval_source_raw": "5.382",
+            "selection_gap_s": 5.382,
+            "arm": "early_control",
+            "window": "early_control_131239",
+            "block_end_utc": "2025-08-03 13:17:59+00:00",
+            "source_slices_reused": 3,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 14,
+            "lap_number": 12,
+            "cutoff_utc": "2025-08-03 13:18:31.788000+00:00",
+            "block_start_utc": "2025-08-03 13:18:11+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:18:31.525000+00:00",
+            "interval_age_s": 0.263,
+            "interval_source_raw": "10.125",
+            "selection_gap_s": 10.125,
+            "arm": "early_control",
+            "window": "early_control_131811",
+            "block_end_utc": "2025-08-03 13:23:31+00:00",
+            "source_slices_reused": 3,
+            "source_slices_to_request": 0
+          },
+          {
+            "driver_number": 22,
+            "lap_number": 34,
+            "cutoff_utc": "2025-08-03 13:49:31.449000+00:00",
+            "block_start_utc": "2025-08-03 13:49:11+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-08-03 13:49:31.280000+00:00",
+            "interval_age_s": 0.169,
+            "interval_source_raw": "1.367",
+            "selection_gap_s": 1.367,
+            "stint_number": 2,
+            "compound": "SOFT",
+            "completed_same_stint": 13,
+            "clean_same_stint": 9,
+            "qualified": true,
+            "history_reason": "QUALIFIED",
+            "arm": "history_close",
+            "window": "history_close_134911",
+            "block_end_utc": "2025-08-03 13:54:31+00:00",
+            "source_slices_reused": 2,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 87,
+            "lap_number": 38,
+            "cutoff_utc": "2025-08-03 13:55:07.142000+00:00",
+            "block_start_utc": "2025-08-03 13:54:47+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-08-03 13:55:06.986000+00:00",
+            "interval_age_s": 0.156,
+            "interval_source_raw": "0.581",
+            "selection_gap_s": 0.581,
+            "stint_number": 2,
+            "compound": "HARD",
+            "completed_same_stint": 7,
+            "clean_same_stint": 5,
+            "qualified": true,
+            "history_reason": "QUALIFIED",
+            "arm": "history_close",
+            "window": "history_close_135447",
+            "block_end_utc": "2025-08-03 14:00:07+00:00",
+            "source_slices_reused": 0,
+            "source_slices_to_request": 2
+          },
+          {
+            "driver_number": 12,
+            "lap_number": 22,
+            "cutoff_utc": "2025-08-03 13:32:38.261000+00:00",
+            "block_start_utc": "2025-08-03 13:32:18+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:32:28.276000+00:00",
+            "interval_age_s": 9.985,
+            "interval_source_raw": "0.974",
+            "selection_gap_s": null,
+            "arm": "random_green",
+            "window": "random_green_133218",
+            "block_end_utc": "2025-08-03 13:37:38+00:00",
+            "source_slices_reused": 4,
+            "source_slices_to_request": 1
+          }
+        ],
+        "budget": {
+          "field_request_seconds": 776.0,
+          "field_requests": 14
+        },
+        "planned_arm_counts": {
+          "early_control": 2,
+          "history_close": 2,
+          "random_green": 1
+        }
+      },
+      "sources": {
+        "session_key": 9928,
+        "geometry_sha256": "d1aa85e064a85d69916e4bdd0c2956de7ad6f4751715e48100c1c50ae756b1c3",
+        "geometry_sources": [
+          {
+            "endpoint": "location",
+            "session_key": 9928,
+            "driver_number": 16,
+            "start_utc": "2025-08-03T13:07:17.234000+00:00",
+            "end_utc": "2025-08-03T13:08:43.541000+00:00",
+            "sha256": "48941025b4963f5c44c578f10562752ce4b3a305c1d44486f65a01965a87919d",
+            "cache_path": "data/telemetry/proximity/9928/16/633eb3214995650c/location.json",
+            "usable_rows": 327,
+            "conflicting_rows": 0
+          },
+          {
+            "endpoint": "car_data",
+            "session_key": 9928,
+            "driver_number": 16,
+            "start_utc": "2025-08-03T13:07:17.234000+00:00",
+            "end_utc": "2025-08-03T13:08:43.541000+00:00",
+            "sha256": "1cc4631164e7f8a0195715acd313951efcda25149b3430b3bc403c8d92a10b71",
+            "cache_path": "data/telemetry/proximity/9928/16/633eb3214995650c/car_data.json",
+            "usable_rows": 323,
+            "conflicting_rows": 0
+          }
+        ],
+        "windows": [
+          {
+            "kind": "early_control",
+            "telemetry": {
+              "session_key": 9928,
+              "start_utc": "2025-08-03 13:12:39+00:00",
+              "end_utc": "2025-08-03 13:17:59+00:00"
+            },
+            "seed_driver": 14,
+            "seed_lap": 8,
+            "name": "early_control_131239",
+            "anchor": "9928/14/8",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:10:12+00:00",
+                "end_utc": "2025-08-03T13:12:52+00:00",
+                "sha256": "2c2d2046bb26fae29886155d2cb634546b8fce70f2e81c9bb4a0130a577e219b",
+                "cache_path": "data/telemetry/proximity/9928/field/3f152b6b634a3aa9/location.json",
+                "usable_rows": 12240,
+                "conflicting_rows": 0,
+                "received_rows": 12240,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:10:12+00:00",
+                "end_utc": "2025-08-03T13:12:52+00:00",
+                "sha256": "68154924f16a51a8abbe0a652d78585a16ce48d361a36e0b82749cc0793e8af4",
+                "cache_path": "data/telemetry/proximity/9928/field/3f152b6b634a3aa9/car_data.json",
+                "usable_rows": 11960,
+                "conflicting_rows": 0,
+                "received_rows": 11960,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:12:55+00:00",
+                "end_utc": "2025-08-03T13:15:35+00:00",
+                "sha256": "488a1f0727b1bf9764f04d2d83613ed7fae772b824af0298542f9a0336bdbf0a",
+                "cache_path": "data/telemetry/proximity/9928/field/a5bdf3bcd0f7dc11/location.json",
+                "usable_rows": 12160,
+                "conflicting_rows": 0,
+                "received_rows": 12160,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:12:55+00:00",
+                "end_utc": "2025-08-03T13:15:35+00:00",
+                "sha256": "45c959231c986fdd4efb30c894d71d8c522eed8f30f09784cf55a0489c414703",
+                "cache_path": "data/telemetry/proximity/9928/field/a5bdf3bcd0f7dc11/car_data.json",
+                "usable_rows": 12140,
+                "conflicting_rows": 0,
+                "received_rows": 12140,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:17:36+00:00",
+                "end_utc": "2025-08-03T13:20:35+00:00",
+                "sha256": "322476a70d61a4d28799c8ab8fa72b42f4fe32a84a541ffc7ded891b07163992",
+                "cache_path": "data/telemetry/proximity/9928/field/ab1f1759e9998e57/location.json",
+                "usable_rows": 13740,
+                "conflicting_rows": 0,
+                "received_rows": 13740,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:17:36+00:00",
+                "end_utc": "2025-08-03T13:20:35+00:00",
+                "sha256": "f7dd463ade84ba5d9433b66e4e6917dc6e169dd0ceaa1b120e9789ed0b2c1365",
+                "cache_path": "data/telemetry/proximity/9928/field/ab1f1759e9998e57/car_data.json",
+                "usable_rows": 13320,
+                "conflicting_rows": 0,
+                "received_rows": 13320,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:12:51+00:00",
+                "end_utc": "2025-08-03T13:12:56+00:00",
+                "sha256": "6b889390530e37800f55e7608e4dbd9436ce4f5794669562135d51a4d6906208",
+                "cache_path": "data/telemetry/proximity/9928/field/ce8eb769c0cc3ef9/location.json",
+                "usable_rows": 400,
+                "conflicting_rows": 0,
+                "received_rows": 400,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:12:51+00:00",
+                "end_utc": "2025-08-03T13:12:56+00:00",
+                "sha256": "ed3a569523007e1cae5273542d8f8a15ece65c7218193db3174448cb93ea68a4",
+                "cache_path": "data/telemetry/proximity/9928/field/ce8eb769c0cc3ef9/car_data.json",
+                "usable_rows": 400,
+                "conflicting_rows": 0,
+                "received_rows": 400,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:15:34+00:00",
+                "end_utc": "2025-08-03T13:17:37+00:00",
+                "sha256": "d5017dfec5d30e71f7c9e0ff8c5fe77af85da35230437285c5ca54424decaaee",
+                "cache_path": "data/telemetry/proximity/9928/field/76dbc61004100403/location.json",
+                "usable_rows": 9540,
+                "conflicting_rows": 0,
+                "received_rows": 9540,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:15:34+00:00",
+                "end_utc": "2025-08-03T13:17:37+00:00",
+                "sha256": "bbb5a4f9e32caeeada1a0a9c4e88bfedf6aeb31a80b526c3887de65309a01b8c",
+                "cache_path": "data/telemetry/proximity/9928/field/76dbc61004100403/car_data.json",
+                "usable_rows": 9060,
+                "conflicting_rows": 0,
+                "received_rows": 9060,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24880,
+                "duplicate_rows_removed": 320,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24560
+              },
+              "car_data": {
+                "rows_in_span": 24240,
+                "duplicate_rows_removed": 300,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23940
+              }
+            }
+          },
+          {
+            "kind": "early_control",
+            "telemetry": {
+              "session_key": 9928,
+              "start_utc": "2025-08-03 13:18:11+00:00",
+              "end_utc": "2025-08-03 13:23:31+00:00"
+            },
+            "seed_driver": 14,
+            "seed_lap": 12,
+            "name": "early_control_131811",
+            "anchor": "9928/14/12",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:22:36+00:00",
+                "end_utc": "2025-08-03T13:25:16+00:00",
+                "sha256": "16380a3a5c24e26de887be64d456e3eb252dd8dbed559afbeff5e6cf42408b79",
+                "cache_path": "data/telemetry/proximity/9928/field/43cd4e10c0c83e88/location.json",
+                "usable_rows": 12140,
+                "conflicting_rows": 0,
+                "received_rows": 12140,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:22:36+00:00",
+                "end_utc": "2025-08-03T13:25:16+00:00",
+                "sha256": "23eadb03d77561adc1b58c5604c79e19df659200c11a215fa27996d35915dda8",
+                "cache_path": "data/telemetry/proximity/9928/field/43cd4e10c0c83e88/car_data.json",
+                "usable_rows": 11900,
+                "conflicting_rows": 0,
+                "received_rows": 11900,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:17:36+00:00",
+                "end_utc": "2025-08-03T13:20:35+00:00",
+                "sha256": "322476a70d61a4d28799c8ab8fa72b42f4fe32a84a541ffc7ded891b07163992",
+                "cache_path": "data/telemetry/proximity/9928/field/ab1f1759e9998e57/location.json",
+                "usable_rows": 13740,
+                "conflicting_rows": 0,
+                "received_rows": 13740,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:17:36+00:00",
+                "end_utc": "2025-08-03T13:20:35+00:00",
+                "sha256": "f7dd463ade84ba5d9433b66e4e6917dc6e169dd0ceaa1b120e9789ed0b2c1365",
+                "cache_path": "data/telemetry/proximity/9928/field/ab1f1759e9998e57/car_data.json",
+                "usable_rows": 13320,
+                "conflicting_rows": 0,
+                "received_rows": 13320,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:20:33+00:00",
+                "end_utc": "2025-08-03T13:22:37+00:00",
+                "sha256": "6f49350a0d9b0a49af807af76d3eec20a75b286678d44c2619ed2c122d1f7276",
+                "cache_path": "data/telemetry/proximity/9928/field/ecd8870f34112671/location.json",
+                "usable_rows": 9580,
+                "conflicting_rows": 0,
+                "received_rows": 9580,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:20:33+00:00",
+                "end_utc": "2025-08-03T13:22:37+00:00",
+                "sha256": "ec0df4a14e84c3e5edf1db895b5e56d95b6d11d06c8c32144ff3696b92fb99e6",
+                "cache_path": "data/telemetry/proximity/9928/field/ecd8870f34112671/car_data.json",
+                "usable_rows": 9340,
+                "conflicting_rows": 0,
+                "received_rows": 9340,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 25020,
+                "duplicate_rows_removed": 180,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24840
+              },
+              "car_data": {
+                "rows_in_span": 24140,
+                "duplicate_rows_removed": 240,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23900
+              }
+            }
+          },
+          {
+            "kind": "history_close",
+            "telemetry": {
+              "session_key": 9928,
+              "start_utc": "2025-08-03 13:49:11+00:00",
+              "end_utc": "2025-08-03 13:54:31+00:00"
+            },
+            "seed_driver": 22,
+            "seed_lap": 34,
+            "name": "history_close_134911",
+            "anchor": "9928/22/34",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:46:57+00:00",
+                "end_utc": "2025-08-03T13:49:37+00:00",
+                "sha256": "c514b39987587f5f3980e4dfbee0656b3669250df15fd721337018d21205a419",
+                "cache_path": "data/telemetry/proximity/9928/field/c5684cd9463d705e/location.json",
+                "usable_rows": 11960,
+                "conflicting_rows": 0,
+                "received_rows": 11960,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:46:57+00:00",
+                "end_utc": "2025-08-03T13:49:37+00:00",
+                "sha256": "82c339923f7cbc89378834f152e63fb4970e63c523426ffbe2b2397bb54710dc",
+                "cache_path": "data/telemetry/proximity/9928/field/c5684cd9463d705e/car_data.json",
+                "usable_rows": 12180,
+                "conflicting_rows": 0,
+                "received_rows": 12180,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:49:36+00:00",
+                "end_utc": "2025-08-03T13:49:57+00:00",
+                "sha256": "30faa74fa5bc4f54dc7f5536f83189ef5f9f1c8c96213668b5649af126862ff2",
+                "cache_path": "data/telemetry/proximity/9928/field/f7dc93332fa9bec4/location.json",
+                "usable_rows": 1700,
+                "conflicting_rows": 0,
+                "received_rows": 1700,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:49:36+00:00",
+                "end_utc": "2025-08-03T13:49:57+00:00",
+                "sha256": "d44b7ace877bd5f4a36fa66c941bb5fb5cc099cfe0a87565bf3996930adf9788",
+                "cache_path": "data/telemetry/proximity/9928/field/f7dc93332fa9bec4/car_data.json",
+                "usable_rows": 1640,
+                "conflicting_rows": 0,
+                "received_rows": 1640,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:49:56+00:00",
+                "end_utc": "2025-08-03T13:52:56+00:00",
+                "sha256": "e6528f7f3ba1f64efe9331a6d388e167bc37dd79f5f0883bb7cc249f9b552eef",
+                "cache_path": "data/telemetry/proximity/9928/field/fac0e26c0dc8a65b/location.json",
+                "usable_rows": 13260,
+                "conflicting_rows": 0,
+                "received_rows": 13260,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:49:56+00:00",
+                "end_utc": "2025-08-03T13:52:56+00:00",
+                "sha256": "3250e2bcf86f828325951bcb2ca34e44f9c394403d9c69470139b3df43f01b9a",
+                "cache_path": "data/telemetry/proximity/9928/field/fac0e26c0dc8a65b/car_data.json",
+                "usable_rows": 13320,
+                "conflicting_rows": 0,
+                "received_rows": 13320,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:52:54+00:00",
+                "end_utc": "2025-08-03T13:54:31+00:00",
+                "sha256": "bb99e81f7018784bb5850bf5d27cd61c2417dff1ae4c18ba97aa963fba1346e8",
+                "cache_path": "data/telemetry/proximity/9928/field/0af7099eae081150/location.json",
+                "usable_rows": 7440,
+                "conflicting_rows": 0,
+                "received_rows": 7440,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:52:54+00:00",
+                "end_utc": "2025-08-03T13:54:31+00:00",
+                "sha256": "9968226eaec83ebdf27b74ae4d53f16fef19f53c38150c44aabfe7f610336294",
+                "cache_path": "data/telemetry/proximity/9928/field/0af7099eae081150/car_data.json",
+                "usable_rows": 7140,
+                "conflicting_rows": 0,
+                "received_rows": 7140,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24280,
+                "duplicate_rows_removed": 320,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23960
+              },
+              "car_data": {
+                "rows_in_span": 24100,
+                "duplicate_rows_removed": 280,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23820
+              }
+            }
+          },
+          {
+            "kind": "history_close",
+            "telemetry": {
+              "session_key": 9928,
+              "start_utc": "2025-08-03 13:54:47+00:00",
+              "end_utc": "2025-08-03 14:00:07+00:00"
+            },
+            "seed_driver": 87,
+            "seed_lap": 38,
+            "name": "history_close_135447",
+            "anchor": "9928/87/38",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:54:47+00:00",
+                "end_utc": "2025-08-03T13:57:46+00:00",
+                "sha256": "5e41789d61b2c67b05f4c958985a1671137dcea38c058d7798af627b4bdbd7ee",
+                "cache_path": "data/telemetry/proximity/9928/field/5aa92a66f8572340/location.json",
+                "usable_rows": 13720,
+                "conflicting_rows": 0,
+                "received_rows": 13720,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:54:47+00:00",
+                "end_utc": "2025-08-03T13:57:46+00:00",
+                "sha256": "ce2f870c2ecbd48673ad64a5ce2b90df64c9125bb684311a55c0bb6cf4285a9f",
+                "cache_path": "data/telemetry/proximity/9928/field/5aa92a66f8572340/car_data.json",
+                "usable_rows": 13180,
+                "conflicting_rows": 0,
+                "received_rows": 13180,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:57:44+00:00",
+                "end_utc": "2025-08-03T14:00:07+00:00",
+                "sha256": "df1e1e62ea3e5f48490edbf5b089b64f2c6356c0d853410331861a40200b7db9",
+                "cache_path": "data/telemetry/proximity/9928/field/d3040b54378eef41/location.json",
+                "usable_rows": 11020,
+                "conflicting_rows": 0,
+                "received_rows": 11020,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:57:44+00:00",
+                "end_utc": "2025-08-03T14:00:07+00:00",
+                "sha256": "b20260f8614fe854ec3a5d2bd88dfc2ff2c09ed5f37a9ee4355cfa4508ec69c5",
+                "cache_path": "data/telemetry/proximity/9928/field/d3040b54378eef41/car_data.json",
+                "usable_rows": 10260,
+                "conflicting_rows": 0,
+                "received_rows": 10260,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24740,
+                "duplicate_rows_removed": 180,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24560
+              },
+              "car_data": {
+                "rows_in_span": 23440,
+                "duplicate_rows_removed": 120,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23320
+              }
+            }
+          },
+          {
+            "kind": "random_green",
+            "telemetry": {
+              "session_key": 9928,
+              "start_utc": "2025-08-03 13:32:18+00:00",
+              "end_utc": "2025-08-03 13:37:38+00:00"
+            },
+            "seed_driver": 12,
+            "seed_lap": 22,
+            "name": "random_green_133218",
+            "anchor": "9928/12/22",
+            "sources": [
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:29:41+00:00",
+                "end_utc": "2025-08-03T13:32:21+00:00",
+                "sha256": "52606c8f5aa6e779d1e602aed4e7b1e1fb2cfd8f9c14864a64fd81ef43e4387c",
+                "cache_path": "data/telemetry/proximity/9928/field/79093fa6309c21cf/location.json",
+                "usable_rows": 12300,
+                "conflicting_rows": 0,
+                "received_rows": 12300,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:29:41+00:00",
+                "end_utc": "2025-08-03T13:32:21+00:00",
+                "sha256": "a77f2e4c0a426687e28dd9d3db537c7feb42cfa33e8f87eed2e78776652e67b1",
+                "cache_path": "data/telemetry/proximity/9928/field/79093fa6309c21cf/car_data.json",
+                "usable_rows": 12020,
+                "conflicting_rows": 0,
+                "received_rows": 12020,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:33:50+00:00",
+                "end_utc": "2025-08-03T13:36:30+00:00",
+                "sha256": "81bedc83280f76312a1257ff9ede1b711578310e67ee276e0f6fe86c19a9b53b",
+                "cache_path": "data/telemetry/proximity/9928/field/e00c019c552c00df/location.json",
+                "usable_rows": 12180,
+                "conflicting_rows": 0,
+                "received_rows": 12180,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:33:50+00:00",
+                "end_utc": "2025-08-03T13:36:30+00:00",
+                "sha256": "b9786301b9faa1dd87291191dabf40d45c26db34f288e4da3d29d90475840235",
+                "cache_path": "data/telemetry/proximity/9928/field/e00c019c552c00df/car_data.json",
+                "usable_rows": 11980,
+                "conflicting_rows": 0,
+                "received_rows": 11980,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:32:20+00:00",
+                "end_utc": "2025-08-03T13:33:51+00:00",
+                "sha256": "2e4b9d2c6735c69d2e5f5e4ab3c4f3d9f719e79533b2a83609015e731dad2e7c",
+                "cache_path": "data/telemetry/proximity/9928/field/8745c189edddea29/location.json",
+                "usable_rows": 7060,
+                "conflicting_rows": 0,
+                "received_rows": 7060,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:32:20+00:00",
+                "end_utc": "2025-08-03T13:33:51+00:00",
+                "sha256": "58179af7ab2157be56d207bc21cd01955799e0b776bb170a57f9ab92189c4a43",
+                "cache_path": "data/telemetry/proximity/9928/field/8745c189edddea29/car_data.json",
+                "usable_rows": 6620,
+                "conflicting_rows": 0,
+                "received_rows": 6620,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:36:29+00:00",
+                "end_utc": "2025-08-03T13:36:50+00:00",
+                "sha256": "050da7f7f645a01d9f40ee301a43f80997250b16b9c0a2366fb932f8593616aa",
+                "cache_path": "data/telemetry/proximity/9928/field/4b86c1365f782223/location.json",
+                "usable_rows": 1680,
+                "conflicting_rows": 0,
+                "received_rows": 1680,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:36:29+00:00",
+                "end_utc": "2025-08-03T13:36:50+00:00",
+                "sha256": "a656ef31209afc6ca08af7b4aba63106dab0f1eebe1534a192be6a7609dff5e7",
+                "cache_path": "data/telemetry/proximity/9928/field/4b86c1365f782223/car_data.json",
+                "usable_rows": 1660,
+                "conflicting_rows": 0,
+                "received_rows": 1660,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "REUSED_BASELINE"
+              },
+              {
+                "endpoint": "location",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:36:49+00:00",
+                "end_utc": "2025-08-03T13:37:38+00:00",
+                "sha256": "a7bda60859536a0893191389e0174d8a5c4a42e65da2996baa74151413662885",
+                "cache_path": "data/telemetry/proximity/9928/field/3d964f14b2de44c0/location.json",
+                "usable_rows": 3700,
+                "conflicting_rows": 0,
+                "received_rows": 3700,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              },
+              {
+                "endpoint": "car_data",
+                "session_key": 9928,
+                "driver_number": null,
+                "start_utc": "2025-08-03T13:36:49+00:00",
+                "end_utc": "2025-08-03T13:37:38+00:00",
+                "sha256": "e7beaa2106b25a5578e1f6bf3151983e34bd749fd1e15d331b5a25517869e718",
+                "cache_path": "data/telemetry/proximity/9928/field/3d964f14b2de44c0/car_data.json",
+                "usable_rows": 3500,
+                "conflicting_rows": 0,
+                "received_rows": 3500,
+                "duplicates": 0,
+                "out_of_order_rows": 0,
+                "slice_role": "EXTENSION"
+              }
+            ],
+            "merge": {
+              "location": {
+                "rows_in_span": 24880,
+                "duplicate_rows_removed": 300,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 24580
+              },
+              "car_data": {
+                "rows_in_span": 23960,
+                "duplicate_rows_removed": 300,
+                "conflicting_rows_excluded": 0,
+                "usable_rows": 23660
+              }
+            }
+          }
+        ]
+      },
+      "targets": {
+        "cutoff_cohort": 390,
+        "full_laps": 290,
+        "screens": {
+          "LEFT_TRUNCATED_WINDOW": 100,
+          "PHYSICAL_SUPPORT_BELOW_MINIMUM": 161,
+          "PARTIAL_WINDOW": 100,
+          "FOLLOWING": 9,
+          "CLEAN_CONTROL": 25,
+          "INTERMEDIATE": 65,
+          "PIT_OR_STINT_TRANSITION": 18,
+          "ARCHIVE_PASS_INDICATION_CENSORED": 12
+        },
+        "physically_screened": {
+          "unique_laps": 99,
+          "drivers": 20,
+          "driver_stints": 27,
+          "driver_leader_stints": 40,
+          "races": 1
+        },
+        "following": {
+          "unique_laps": 9,
+          "drivers": 4,
+          "driver_stints": 4,
+          "driver_leader_stints": 4,
+          "races": 1
+        },
+        "supported_following": {
+          "unique_laps": 0,
+          "drivers": 0,
+          "driver_stints": 0,
+          "driver_leader_stints": 0,
+          "races": 0
+        },
+        "following_with_proxy": {
+          "unique_laps": 0,
+          "drivers": 0,
+          "driver_stints": 0,
+          "driver_leader_stints": 0,
+          "races": 0
+        },
+        "supported_d8_all": {
+          "unique_laps": 42,
+          "drivers": 13,
+          "driver_stints": 16,
+          "driver_leader_stints": 19,
+          "races": 1
+        },
+        "all_bias_adjusted_proxies": 13,
+        "episodes": 1344,
+        "segments": 21421,
+        "episode_terminations": {
+          "LOCALIZATION_UNSUPPORTED": 1046,
+          "WINDOW_ENDED": 28,
+          "LAP_RELATION_CHANGED": 12,
+          "GAP_OPENED": 258
+        },
+        "fragment_driver_leader_pairs": 61,
+        "largest_same_pair_fragment_count": 111,
+        "cutoff_encounter_continued": 15,
+        "later_or_different_episode": 66,
+        "by_stratum": {
+          "early_control": {
+            "cutoff_cohort": 160,
+            "full_laps": 120,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 40,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 90,
+              "PARTIAL_WINDOW": 40,
+              "FOLLOWING": 8,
+              "CLEAN_CONTROL": 5,
+              "INTERMEDIATE": 13,
+              "PIT_OR_STINT_TRANSITION": 4
+            },
+            "physically_screened": {
+              "unique_laps": 26,
+              "drivers": 6,
+              "driver_stints": 6,
+              "driver_leader_stints": 6,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 8,
+              "drivers": 3,
+              "driver_stints": 3,
+              "driver_leader_stints": 3,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 11,
+              "drivers": 3,
+              "driver_stints": 3,
+              "driver_leader_stints": 3,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 2,
+            "episodes": 749,
+            "segments": 9804,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 680,
+              "WINDOW_ENDED": 14,
+              "LAP_RELATION_CHANGED": 8,
+              "GAP_OPENED": 47
+            },
+            "fragment_driver_leader_pairs": 19,
+            "largest_same_pair_fragment_count": 73,
+            "cutoff_encounter_continued": 8,
+            "later_or_different_episode": 21,
+            "planned_blocks": 2,
+            "acquired_blocks": 2,
+            "coverage": {
+              "snapshots": 1278,
+              "complete": 1254,
+              "one_missing": 16,
+              "multiple_missing": 8
+            },
+            "acquired_seconds": 640.0,
+            "source_rows": {
+              "location": 49400,
+              "car_data": 47840
+            },
+            "following_independence": {
+              "unique_laps": 8,
+              "cutoff_encounters": 8,
+              "fragments": 33,
+              "driver_leader_stints": 3,
+              "independent_encounters": 3
+            },
+            "supported_control_laps": 5,
+            "control_proxies": 1,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9928/14/8",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              },
+              {
+                "opportunity_id": "9928/14/12",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              }
+            ],
+            "timing_markers": {
+              "requested": 8,
+              "resolved": 8
+            }
+          },
+          "history_close": {
+            "cutoff_cohort": 153,
+            "full_laps": 113,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 40,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 50,
+              "PARTIAL_WINDOW": 40,
+              "CLEAN_CONTROL": 15,
+              "PIT_OR_STINT_TRANSITION": 13,
+              "INTERMEDIATE": 26,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 8,
+              "FOLLOWING": 1
+            },
+            "physically_screened": {
+              "unique_laps": 42,
+              "drivers": 18,
+              "driver_stints": 19,
+              "driver_leader_stints": 25,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 1,
+              "drivers": 1,
+              "driver_stints": 1,
+              "driver_leader_stints": 1,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 16,
+              "drivers": 8,
+              "driver_stints": 8,
+              "driver_leader_stints": 11,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 9,
+            "episodes": 385,
+            "segments": 7552,
+            "episode_terminations": {
+              "GAP_OPENED": 126,
+              "LOCALIZATION_UNSUPPORTED": 245,
+              "LAP_RELATION_CHANGED": 3,
+              "WINDOW_ENDED": 11
+            },
+            "fragment_driver_leader_pairs": 37,
+            "largest_same_pair_fragment_count": 28,
+            "cutoff_encounter_continued": 4,
+            "later_or_different_episode": 24,
+            "planned_blocks": 2,
+            "acquired_blocks": 2,
+            "coverage": {
+              "snapshots": 1278,
+              "complete": 1234,
+              "one_missing": 37,
+              "multiple_missing": 7
+            },
+            "acquired_seconds": 640.0,
+            "source_rows": {
+              "location": 48520,
+              "car_data": 47140
+            },
+            "following_independence": {
+              "unique_laps": 1,
+              "cutoff_encounters": 1,
+              "fragments": 6,
+              "driver_leader_stints": 1,
+              "independent_encounters": 1
+            },
+            "supported_control_laps": 5,
+            "control_proxies": 4,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9928/22/34",
+                "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              },
+              {
+                "opportunity_id": "9928/87/38",
+                "screen": "ARCHIVE_PASS_INDICATION_CENSORED",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              }
+            ],
+            "timing_markers": {
+              "requested": 8,
+              "resolved": 8
+            }
+          },
+          "random_green": {
+            "cutoff_cohort": 77,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 21,
+              "PARTIAL_WINDOW": 20,
+              "CLEAN_CONTROL": 5,
+              "INTERMEDIATE": 26,
+              "PIT_OR_STINT_TRANSITION": 1
+            },
+            "physically_screened": {
+              "unique_laps": 31,
+              "drivers": 14,
+              "driver_stints": 14,
+              "driver_leader_stints": 14,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 15,
+              "drivers": 7,
+              "driver_stints": 7,
+              "driver_leader_stints": 7,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 2,
+            "episodes": 210,
+            "segments": 4065,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 121,
+              "GAP_OPENED": 85,
+              "WINDOW_ENDED": 3,
+              "LAP_RELATION_CHANGED": 1
+            },
+            "fragment_driver_leader_pairs": 21,
+            "largest_same_pair_fragment_count": 28,
+            "cutoff_encounter_continued": 3,
+            "later_or_different_episode": 21,
+            "planned_blocks": 1,
+            "acquired_blocks": 1,
+            "coverage": {
+              "snapshots": 639,
+              "complete": 633,
+              "one_missing": 4,
+              "multiple_missing": 2
+            },
+            "acquired_seconds": 320.0,
+            "source_rows": {
+              "location": 24580,
+              "car_data": 23660
+            },
+            "following_independence": {
+              "unique_laps": 0,
+              "cutoff_encounters": 0,
+              "fragments": 0,
+              "driver_leader_stints": 0,
+              "independent_encounters": 0
+            },
+            "supported_control_laps": 3,
+            "control_proxies": 0,
+            "anchor_outcomes": [
+              {
+                "opportunity_id": "9928/12/22",
+                "screen": "PIT_OR_STINT_TRANSITION",
+                "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+                "matched_control_count": null
+              }
+            ],
+            "timing_markers": {
+              "requested": 0,
+              "resolved": 0
+            }
+          }
+        },
+        "by_window": {
+          "early_control_131239": {
+            "cutoff_cohort": 80,
+            "full_laps": 60,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 50,
+              "PARTIAL_WINDOW": 20,
+              "FOLLOWING": 2,
+              "CLEAN_CONTROL": 3,
+              "INTERMEDIATE": 5
+            },
+            "physically_screened": {
+              "unique_laps": 10,
+              "drivers": 4,
+              "driver_stints": 4,
+              "driver_leader_stints": 4,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 2,
+              "drivers": 1,
+              "driver_stints": 1,
+              "driver_leader_stints": 1,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 5,
+              "drivers": 2,
+              "driver_stints": 2,
+              "driver_leader_stints": 2,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 0,
+            "episodes": 410,
+            "segments": 4721,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 382,
+              "WINDOW_ENDED": 8,
+              "LAP_RELATION_CHANGED": 3,
+              "GAP_OPENED": 17
+            },
+            "fragment_driver_leader_pairs": 17,
+            "largest_same_pair_fragment_count": 37,
+            "cutoff_encounter_continued": 2,
+            "later_or_different_episode": 7
+          },
+          "early_control_131811": {
+            "cutoff_cohort": 80,
+            "full_laps": 60,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 40,
+              "PARTIAL_WINDOW": 20,
+              "FOLLOWING": 6,
+              "INTERMEDIATE": 8,
+              "CLEAN_CONTROL": 2,
+              "PIT_OR_STINT_TRANSITION": 4
+            },
+            "physically_screened": {
+              "unique_laps": 16,
+              "drivers": 6,
+              "driver_stints": 6,
+              "driver_leader_stints": 6,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 6,
+              "drivers": 3,
+              "driver_stints": 3,
+              "driver_leader_stints": 3,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 6,
+              "drivers": 3,
+              "driver_stints": 3,
+              "driver_leader_stints": 3,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 2,
+            "episodes": 339,
+            "segments": 5083,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 298,
+              "GAP_OPENED": 30,
+              "WINDOW_ENDED": 6,
+              "LAP_RELATION_CHANGED": 5
+            },
+            "fragment_driver_leader_pairs": 19,
+            "largest_same_pair_fragment_count": 36,
+            "cutoff_encounter_continued": 6,
+            "later_or_different_episode": 14
+          },
+          "history_close_134911": {
+            "cutoff_cohort": 77,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 24,
+              "PARTIAL_WINDOW": 20,
+              "CLEAN_CONTROL": 14,
+              "PIT_OR_STINT_TRANSITION": 4,
+              "INTERMEDIATE": 15
+            },
+            "physically_screened": {
+              "unique_laps": 29,
+              "drivers": 14,
+              "driver_stints": 14,
+              "driver_leader_stints": 16,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 11,
+              "drivers": 5,
+              "driver_stints": 5,
+              "driver_leader_stints": 7,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 7,
+            "episodes": 186,
+            "segments": 3430,
+            "episode_terminations": {
+              "GAP_OPENED": 72,
+              "LOCALIZATION_UNSUPPORTED": 110,
+              "LAP_RELATION_CHANGED": 3,
+              "WINDOW_ENDED": 1
+            },
+            "fragment_driver_leader_pairs": 16,
+            "largest_same_pair_fragment_count": 20,
+            "cutoff_encounter_continued": 1,
+            "later_or_different_episode": 14
+          },
+          "history_close_135447": {
+            "cutoff_cohort": 76,
+            "full_laps": 56,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "INTERMEDIATE": 11,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 26,
+              "PARTIAL_WINDOW": 20,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 8,
+              "PIT_OR_STINT_TRANSITION": 9,
+              "FOLLOWING": 1,
+              "CLEAN_CONTROL": 1
+            },
+            "physically_screened": {
+              "unique_laps": 13,
+              "drivers": 10,
+              "driver_stints": 10,
+              "driver_leader_stints": 12,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 1,
+              "drivers": 1,
+              "driver_stints": 1,
+              "driver_leader_stints": 1,
+              "races": 1
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 5,
+              "drivers": 5,
+              "driver_stints": 5,
+              "driver_leader_stints": 5,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 2,
+            "episodes": 199,
+            "segments": 4122,
+            "episode_terminations": {
+              "GAP_OPENED": 54,
+              "LOCALIZATION_UNSUPPORTED": 135,
+              "WINDOW_ENDED": 10
+            },
+            "fragment_driver_leader_pairs": 30,
+            "largest_same_pair_fragment_count": 18,
+            "cutoff_encounter_continued": 3,
+            "later_or_different_episode": 10
+          },
+          "random_green_133218": {
+            "cutoff_cohort": 77,
+            "full_laps": 57,
+            "screens": {
+              "LEFT_TRUNCATED_WINDOW": 20,
+              "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM": 21,
+              "PARTIAL_WINDOW": 20,
+              "CLEAN_CONTROL": 5,
+              "INTERMEDIATE": 26,
+              "PIT_OR_STINT_TRANSITION": 1
+            },
+            "physically_screened": {
+              "unique_laps": 31,
+              "drivers": 14,
+              "driver_stints": 14,
+              "driver_leader_stints": 14,
+              "races": 1
+            },
+            "following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_following": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "following_with_proxy": {
+              "unique_laps": 0,
+              "drivers": 0,
+              "driver_stints": 0,
+              "driver_leader_stints": 0,
+              "races": 0
+            },
+            "supported_d8_all": {
+              "unique_laps": 15,
+              "drivers": 7,
+              "driver_stints": 7,
+              "driver_leader_stints": 7,
+              "races": 1
+            },
+            "all_bias_adjusted_proxies": 2,
+            "episodes": 210,
+            "segments": 4065,
+            "episode_terminations": {
+              "LOCALIZATION_UNSUPPORTED": 121,
+              "GAP_OPENED": 85,
+              "WINDOW_ENDED": 3,
+              "LAP_RELATION_CHANGED": 1
+            },
+            "fragment_driver_leader_pairs": 21,
+            "largest_same_pair_fragment_count": 28,
+            "cutoff_encounter_continued": 3,
+            "later_or_different_episode": 21
+          }
+        },
+        "following_evidence": [
+          {
+            "opportunity_id": "9928/4/8",
+            "window": "early_control_131239",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 63,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/4/63/2025-08-03T13:12:53+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:15:36.586000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:12:53.686000+00:00"
+          },
+          {
+            "opportunity_id": "9928/4/9",
+            "window": "early_control_131239",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 63,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/4/63/2025-08-03T13:13:57.500000+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:16:58.748000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:14:15.686000+00:00"
+          },
+          {
+            "opportunity_id": "9928/4/12",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 63,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/4/63/2025-08-03T13:18:12+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:21:05.427000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:18:21.564000+00:00"
+          },
+          {
+            "opportunity_id": "9928/4/14",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 63,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/4/63/2025-08-03T13:20:55.500000+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:23:51.099000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:21:06.755000+00:00"
+          },
+          {
+            "opportunity_id": "9928/5/12",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 14,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/5/14/2025-08-03T13:18:21.500000+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:21:18.849000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:18:32.774000+00:00"
+          },
+          {
+            "opportunity_id": "9928/5/13",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 14,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/5/14/2025-08-03T13:18:44+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:22:40.272000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:19:55.610000+00:00"
+          },
+          {
+            "opportunity_id": "9928/5/14",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 14,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/5/14/2025-08-03T13:20:41+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:24:04.793000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:21:18.849000+00:00"
+          },
+          {
+            "opportunity_id": "9928/18/12",
+            "window": "early_control_131811",
+            "window_kind": "early_control",
+            "stint_number": 1,
+            "cutoff_opponent": 1,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/18/1/2025-08-03T13:18:24.500000+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [],
+            "prior_clean_available_by_utc": [],
+            "outcome_available_by_utc": "2025-08-03 13:21:21.505000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:18:35.063000+00:00"
+          },
+          {
+            "opportunity_id": "9928/43/39",
+            "window": "history_close_135447",
+            "window_kind": "history_close",
+            "stint_number": 3,
+            "cutoff_opponent": 63,
+            "cutoff_episode_id": "s3-c-exposure-v1/9928/43/63/2025-08-03T13:56:49+00:00",
+            "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+            "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+            "prior_clean_lap_numbers": [
+              37
+            ],
+            "prior_clean_available_by_utc": [
+              "2025-08-03 13:55:24.901000+00:00"
+            ],
+            "outcome_available_by_utc": "2025-08-03 13:59:32.898000+00:00",
+            "matched_control_count": null,
+            "matched_control_ids": null,
+            "signed_residual_s": null,
+            "signed_proxy_s": null,
+            "as_of_utc": "2025-08-03 13:56:50.415000+00:00"
+          }
+        ]
+      },
+      "arms": {
+        "early_control": {
+          "cutoff_cohort": 160,
+          "full_laps": 120,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 40,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 90,
+            "PARTIAL_WINDOW": 40,
+            "FOLLOWING": 8,
+            "CLEAN_CONTROL": 5,
+            "INTERMEDIATE": 13,
+            "PIT_OR_STINT_TRANSITION": 4
+          },
+          "physically_screened": {
+            "unique_laps": 26,
+            "drivers": 6,
+            "driver_stints": 6,
+            "driver_leader_stints": 6,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 8,
+            "drivers": 3,
+            "driver_stints": 3,
+            "driver_leader_stints": 3,
+            "races": 1
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 11,
+            "drivers": 3,
+            "driver_stints": 3,
+            "driver_leader_stints": 3,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 2,
+          "episodes": 749,
+          "segments": 9804,
+          "episode_terminations": {
+            "LOCALIZATION_UNSUPPORTED": 680,
+            "WINDOW_ENDED": 14,
+            "LAP_RELATION_CHANGED": 8,
+            "GAP_OPENED": 47
+          },
+          "fragment_driver_leader_pairs": 19,
+          "largest_same_pair_fragment_count": 73,
+          "cutoff_encounter_continued": 8,
+          "later_or_different_episode": 21,
+          "planned_blocks": 2,
+          "acquired_blocks": 2,
+          "coverage": {
+            "snapshots": 1278,
+            "complete": 1254,
+            "one_missing": 16,
+            "multiple_missing": 8
+          },
+          "acquired_seconds": 640.0,
+          "source_rows": {
+            "location": 49400,
+            "car_data": 47840
+          },
+          "following_independence": {
+            "unique_laps": 8,
+            "cutoff_encounters": 8,
+            "fragments": 33,
+            "driver_leader_stints": 3,
+            "independent_encounters": 3
+          },
+          "supported_control_laps": 5,
+          "control_proxies": 1,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9928/14/8",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            },
+            {
+              "opportunity_id": "9928/14/12",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            }
+          ],
+          "timing_markers": {
+            "requested": 8,
+            "resolved": 8
+          }
+        },
+        "history_close": {
+          "cutoff_cohort": 153,
+          "full_laps": 113,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 40,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 50,
+            "PARTIAL_WINDOW": 40,
+            "CLEAN_CONTROL": 15,
+            "PIT_OR_STINT_TRANSITION": 13,
+            "INTERMEDIATE": 26,
+            "ARCHIVE_PASS_INDICATION_CENSORED": 8,
+            "FOLLOWING": 1
+          },
+          "physically_screened": {
+            "unique_laps": 42,
+            "drivers": 18,
+            "driver_stints": 19,
+            "driver_leader_stints": 25,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 1,
+            "drivers": 1,
+            "driver_stints": 1,
+            "driver_leader_stints": 1,
+            "races": 1
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 16,
+            "drivers": 8,
+            "driver_stints": 8,
+            "driver_leader_stints": 11,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 9,
+          "episodes": 385,
+          "segments": 7552,
+          "episode_terminations": {
+            "GAP_OPENED": 126,
+            "LOCALIZATION_UNSUPPORTED": 245,
+            "LAP_RELATION_CHANGED": 3,
+            "WINDOW_ENDED": 11
+          },
+          "fragment_driver_leader_pairs": 37,
+          "largest_same_pair_fragment_count": 28,
+          "cutoff_encounter_continued": 4,
+          "later_or_different_episode": 24,
+          "planned_blocks": 2,
+          "acquired_blocks": 2,
+          "coverage": {
+            "snapshots": 1278,
+            "complete": 1234,
+            "one_missing": 37,
+            "multiple_missing": 7
+          },
+          "acquired_seconds": 640.0,
+          "source_rows": {
+            "location": 48520,
+            "car_data": 47140
+          },
+          "following_independence": {
+            "unique_laps": 1,
+            "cutoff_encounters": 1,
+            "fragments": 6,
+            "driver_leader_stints": 1,
+            "independent_encounters": 1
+          },
+          "supported_control_laps": 5,
+          "control_proxies": 4,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9928/22/34",
+              "screen": "PHYSICAL_SUPPORT_BELOW_MINIMUM",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            },
+            {
+              "opportunity_id": "9928/87/38",
+              "screen": "ARCHIVE_PASS_INDICATION_CENSORED",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            }
+          ],
+          "timing_markers": {
+            "requested": 8,
+            "resolved": 8
+          }
+        },
+        "random_green": {
+          "cutoff_cohort": 77,
+          "full_laps": 57,
+          "screens": {
+            "LEFT_TRUNCATED_WINDOW": 20,
+            "ARCHIVE_PASS_INDICATION_CENSORED": 4,
+            "PHYSICAL_SUPPORT_BELOW_MINIMUM": 21,
+            "PARTIAL_WINDOW": 20,
+            "CLEAN_CONTROL": 5,
+            "INTERMEDIATE": 26,
+            "PIT_OR_STINT_TRANSITION": 1
+          },
+          "physically_screened": {
+            "unique_laps": 31,
+            "drivers": 14,
+            "driver_stints": 14,
+            "driver_leader_stints": 14,
+            "races": 1
+          },
+          "following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_following": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "following_with_proxy": {
+            "unique_laps": 0,
+            "drivers": 0,
+            "driver_stints": 0,
+            "driver_leader_stints": 0,
+            "races": 0
+          },
+          "supported_d8_all": {
+            "unique_laps": 15,
+            "drivers": 7,
+            "driver_stints": 7,
+            "driver_leader_stints": 7,
+            "races": 1
+          },
+          "all_bias_adjusted_proxies": 2,
+          "episodes": 210,
+          "segments": 4065,
+          "episode_terminations": {
+            "LOCALIZATION_UNSUPPORTED": 121,
+            "GAP_OPENED": 85,
+            "WINDOW_ENDED": 3,
+            "LAP_RELATION_CHANGED": 1
+          },
+          "fragment_driver_leader_pairs": 21,
+          "largest_same_pair_fragment_count": 28,
+          "cutoff_encounter_continued": 3,
+          "later_or_different_episode": 21,
+          "planned_blocks": 1,
+          "acquired_blocks": 1,
+          "coverage": {
+            "snapshots": 639,
+            "complete": 633,
+            "one_missing": 4,
+            "multiple_missing": 2
+          },
+          "acquired_seconds": 320.0,
+          "source_rows": {
+            "location": 24580,
+            "car_data": 23660
+          },
+          "following_independence": {
+            "unique_laps": 0,
+            "cutoff_encounters": 0,
+            "fragments": 0,
+            "driver_leader_stints": 0,
+            "independent_encounters": 0
+          },
+          "supported_control_laps": 3,
+          "control_proxies": 0,
+          "anchor_outcomes": [
+            {
+              "opportunity_id": "9928/12/22",
+              "screen": "PIT_OR_STINT_TRANSITION",
+              "pace_status": "PHYSICAL_OR_OUTCOME_SCREEN_REJECTED",
+              "matched_control_count": null
+            }
+          ],
+          "timing_markers": {
+            "requested": 0,
+            "resolved": 0
+          }
+        }
+      }
+    }
+  ],
+  "fixed_monza": {
+    "timing_marker_gate": true,
+    "targets": [
+      {
+        "opportunity_id": "9912/14/11",
+        "window": "random_green_131706",
+        "window_kind": "random_green",
+        "stint_number": 1,
+        "cutoff_opponent": 5,
+        "cutoff_episode_id": "s3-c-exposure-v1/9912/14/5/2025-09-07T13:17:19+00:00",
+        "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+        "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+        "prior_clean_lap_numbers": [],
+        "prior_clean_available_by_utc": [],
+        "outcome_available_by_utc": "2025-09-07 13:20:37.006000+00:00",
+        "matched_control_count": null,
+        "matched_control_ids": null,
+        "signed_residual_s": null,
+        "signed_proxy_s": null,
+        "as_of_utc": "2025-09-07 13:17:48.696000+00:00"
+      },
+      {
+        "opportunity_id": "9912/63/11",
+        "window": "random_green_131706",
+        "window_kind": "random_green",
+        "stint_number": 1,
+        "cutoff_opponent": 16,
+        "cutoff_episode_id": "s3-c-exposure-v1/9912/63/16/2025-09-07T13:17:40+00:00",
+        "cutoff_episode_termination": "LOCALIZATION_UNSUPPORTED",
+        "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+        "prior_clean_lap_numbers": [],
+        "prior_clean_available_by_utc": [],
+        "outcome_available_by_utc": "2025-09-07 13:20:31.546000+00:00",
+        "matched_control_count": null,
+        "matched_control_ids": null,
+        "signed_residual_s": null,
+        "signed_proxy_s": null,
+        "as_of_utc": "2025-09-07 13:17:44.258000+00:00"
+      }
+    ],
+    "following_d8": 0,
+    "following_proxies": 0
+  },
+  "frozen_control_audit": {
+    "attempted": 44,
+    "unattempted": 113,
+    "zero_matches": 17,
+    "maximum_matches": 4,
+    "proxies": 0,
+    "filter_totals": {
+      "supported_clean_controls": 612,
+      "development": 436,
+      "distinct_lap": 425,
+      "completed_before": 229,
+      "evidence_before": 218,
+      "compound": 150,
+      "tire_age": 56,
+      "race_progress": 55
+    }
+  },
+  "control_pool_audit": {
+    "attempted": 134,
+    "unattempted": 171,
+    "zero_matches": 48,
+    "maximum_matches": 10,
+    "proxies": 19,
+    "filter_totals": {
+      "supported_clean_controls": 4482,
+      "development": 3946,
+      "distinct_lap": 3915,
+      "completed_before": 1788,
+      "evidence_before": 1706,
+      "compound": 884,
+      "tire_age": 338,
+      "race_progress": 253
+    }
+  },
+  "historical_and_study_duplicate_lap_rows_removed": 76,
+  "original_hungary_rows_superseded_by_frozen_extension": 27,
+  "frozen_rows_superseded_on_study_grid": 49,
+  "frozen_hungary_history": [
+    {
+      "opportunity_id": "9928/4/12",
+      "cutoff_utc": "2025-08-03 13:18:21.564000+00:00",
+      "driver_number": 4,
+      "target_lap": 12,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 10,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 10,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 10
+      }
+    },
+    {
+      "opportunity_id": "9928/4/14",
+      "cutoff_utc": "2025-08-03 13:21:06.755000+00:00",
+      "driver_number": 4,
+      "target_lap": 14,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 13,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 13,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11,
+        "AGREEMENT": 2
+      }
+    },
+    {
+      "opportunity_id": "9928/4/15",
+      "cutoff_utc": "2025-08-03 13:22:28.820000+00:00",
+      "driver_number": 4,
+      "target_lap": 15,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 13,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 13,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11,
+        "AGREEMENT": 2
+      }
+    },
+    {
+      "opportunity_id": "9928/5/12",
+      "cutoff_utc": "2025-08-03 13:18:32.774000+00:00",
+      "driver_number": 5,
+      "target_lap": 12,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 11,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 11,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11
+      }
+    },
+    {
+      "opportunity_id": "9928/5/13",
+      "cutoff_utc": "2025-08-03 13:19:55.610000+00:00",
+      "driver_number": 5,
+      "target_lap": 13,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 11,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 11,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11
+      }
+    },
+    {
+      "opportunity_id": "9928/5/14",
+      "cutoff_utc": "2025-08-03 13:21:18.849000+00:00",
+      "driver_number": 5,
+      "target_lap": 14,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 13,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 13,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11,
+        "AGREEMENT": 2
+      }
+    },
+    {
+      "opportunity_id": "9928/18/12",
+      "cutoff_utc": "2025-08-03 13:18:35.063000+00:00",
+      "driver_number": 18,
+      "target_lap": 12,
+      "stint_number": 1,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 11,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 11,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 11
+      }
+    },
+    {
+      "opportunity_id": "9928/31/20",
+      "cutoff_utc": "2025-08-03 13:30:05.001000+00:00",
+      "driver_number": 31,
+      "target_lap": 20,
+      "stint_number": 2,
+      "pace_request_status": "AVAILABLE",
+      "prior_completed_laps": 4,
+      "prior_clean_laps": 0,
+      "stage1_traffic_laps": 4,
+      "physical_comparison": {
+        "INSUFFICIENT_EVIDENCE": 4
+      }
+    }
+  ],
+  "frozen_hungary_marker": {
+    "session_key": 9928,
+    "driver_number": 5,
+    "lap_number": 29,
+    "sector": 2,
+    "window": "random_green_134157",
+    "layout": "hungaroring-2025-fia-sampled-v1",
+    "geometry_sha256": "d1aa85e064a85d69916e4bdd0c2956de7ad6f4751715e48100c1c50ae756b1c3",
+    "location_source_sha256": [
+      "c514b39987587f5f3980e4dfbee0656b3669250df15fd721337018d21205a419",
+      "7f211aa15b6a2da4f8511849f6b00b6bc4a3c14b7db88d770b4732f78d5166f5",
+      "30903152126252f0326bd5393d5288c7b4874cade163a325ae762c8e8990de78",
+      "30faa74fa5bc4f54dc7f5536f83189ef5f9f1c8c96213668b5649af126862ff2"
+    ],
+    "timing_source": "silver.laps",
+    "lap_start_utc": "2025-08-03 13:42:05.945000+00:00",
+    "sector_1_s": 29.869,
+    "sector_2_s": 29.733,
+    "expected_utc": "2025-08-03 13:43:05.547000+00:00",
+    "marker_m": 3285.4715436898377,
+    "match_tolerance_s": 2.0,
+    "route_at_marker": "RACING",
+    "fixes": [
+      {
+        "date": "2025-08-03 13:43:03.869000+00:00",
+        "x": 4275,
+        "y": 2118,
+        "progress_m": 3168.746362209892,
+        "projection_error_m": 0.005188509053432796,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:04.049000+00:00",
+        "x": 4166,
+        "y": 2000,
+        "progress_m": 3185.0147147286752,
+        "projection_error_m": 0.02675191292145964,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:04.429000+00:00",
+        "x": 4033,
+        "y": 1866,
+        "progress_m": 3204.133255798825,
+        "projection_error_m": 0.01725975308362619,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:04.689000+00:00",
+        "x": 3839,
+        "y": 1669,
+        "progress_m": 3232.132047924863,
+        "projection_error_m": 0.03170756421965394,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:05.728000+00:00",
+        "x": 3356,
+        "y": 1173,
+        "progress_m": 3302.239938254236,
+        "projection_error_m": 0.01732406206070454,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:06.028000+00:00",
+        "x": 3273,
+        "y": 1087,
+        "progress_m": 3314.3430936935038,
+        "projection_error_m": 0.011667225469453271,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:06.328000+00:00",
+        "x": 3120,
+        "y": 928,
+        "progress_m": 3336.6880241062745,
+        "projection_error_m": 0.008948687118150202,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:06.608000+00:00",
+        "x": 2939,
+        "y": 738,
+        "progress_m": 3363.261457660672,
+        "projection_error_m": 0.048707919321957095,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:06.889000+00:00",
+        "x": 2839,
+        "y": 631,
+        "progress_m": 3378.0918375311057,
+        "projection_error_m": 0.057238252639446804,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:07.209000+00:00",
+        "x": 2678,
+        "y": 457,
+        "progress_m": 3402.0975606880897,
+        "projection_error_m": 0.08585737895917012,
+        "reason": null
+      },
+      {
+        "date": "2025-08-03 13:43:07.429000+00:00",
+        "x": 2569,
+        "y": 336,
+        "progress_m": 3418.5877309515317,
+        "projection_error_m": 0.0594165313350181,
+        "reason": null
+      }
+    ],
+    "left_utc": "2025-08-03 13:43:04.689000+00:00",
+    "right_utc": "2025-08-03 13:43:05.728000+00:00",
+    "bracket_s": 1.039,
+    "maximum_bracket_s": 1.0,
+    "counted_as_match": false,
+    "reason": "SOURCE_GAP_EXCEEDS_PASSAGE_BRACKET",
+    "diagnostic_only_interpolation_utc": "2025-08-03 13:43:05.479492+00:00",
+    "diagnostic_only_error_s": -0.067508
+  },
+  "d8": {
+    "sha256": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "stage3_splits_sha256": "3962f53dd2c4cf4717562cfa3eeb4175a8c2b65a6489b8a960e0139be9626922",
+    "trained_through_utc": "2024-10-20 20:38:45.387000+00:00",
+    "selected_and_calibrated_through_utc": "2025-06-01 14:36:47.725000+00:00",
+    "training_sessions": [
+      7953,
+      7779,
+      9102,
+      9118,
+      9133,
+      9157,
+      9165,
+      9173,
+      9472,
+      9496,
+      9515,
+      9539,
+      9566,
+      9582,
+      9590,
+      9606,
+      9617
+    ],
+    "selection_sessions": [
+      10006,
+      10014,
+      9987,
+      9971
+    ],
+    "calibration_sessions": [
+      10006,
+      10014,
+      9987,
+      9971
+    ],
+    "study_races_stage3_split": {
+      "9955": "test",
+      "9928": "test"
+    }
+  }
+}

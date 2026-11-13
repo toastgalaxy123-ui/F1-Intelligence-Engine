@@ -142,6 +142,37 @@ def _prior_clean_laps(laps: pd.DataFrame, next_lap: int, cutoff: datetime) -> pd
     return past[past.is_clean_green_pace_lap.fillna(False) & past.compound.isin(DRY_COMPOUNDS)]
 
 
+def _same_stint_history(laps: pd.DataFrame, current: pd.Series, cutoff: datetime) -> list[dict]:
+    """Inspect the prefix context used by the pace request, including excluded laps."""
+    starts = laps.set_index("lap_number").lap_start_utc.to_dict()
+    previous = laps[laps.lap_number.lt(current.lap_number)
+                    & laps.stint_number.eq(current.stint_number)
+                    & laps.observed_lap_time_s.notna() & laps.lap_end_estimate_utc.le(cutoff)]
+    result = []
+    for row in previous.itertuples():
+        next_line = starts.get(row.lap_number + 1)
+        if pd.isna(next_line) or next_line > cutoff:
+            continue
+        result.append({
+            "lap_number": int(row.lap_number), "stint_number": int(row.stint_number),
+            "compound": row.compound, "started_utc": row.lap_start_utc,
+            "completed_utc": row.lap_end_estimate_utc, "next_line_utc": next_line,
+            "available_by_utc": max(row.lap_end_estimate_utc, next_line),
+            "stage1_exclusions": row.exclusion_reason,
+            "clean_green": bool(row.is_clean_green_pace_lap),
+            "classification_position": _known(row.position_at_lap_start),
+            "classification_gap_raw": _known(row.gap_ahead_at_start_raw),
+            "classification_gap_s": _known(row.gap_ahead_at_start_s),
+            "track_gap_start_s": _known(row.track_gap_ahead_at_start_s),
+            "track_gap_end_s": _known(row.track_gap_ahead_at_end_s),
+            "clean_air_at_start": _known(row.is_clean_air_at_start),
+            "archive_pass_indication": bool(row.had_in_lap_on_track_pass),
+            "blue_flag": bool(row.is_blue_flagged_lap), "track_status": row.track_status,
+            "pit_in": bool(row.is_pit_in_lap), "pit_out": bool(row.is_pit_out_lap),
+        })
+    return result
+
+
 def _clean_lap_evidence(laps: pd.DataFrame, request: StintForecastRequest) -> list[dict]:
     clean = _prior_clean_laps(laps, request.planned_start_lap, request.as_of_utc)
     clean = clean[clean.stint_number.eq(request.stint_number) & clean.observed_lap_time_s.notna()]
@@ -208,6 +239,7 @@ def _driver_request(
 def build_field_snapshot(
     warehouse: Path, session_key: int, cutoff: datetime, scheduled_laps: int, horizon: int,
     *, clean_history_audit: dict[int, list[dict]] | None = None,
+    same_stint_history_audit: dict[int, list[dict]] | None = None,
 ) -> FieldSnapshot:
     """Build the whole field from one observation cutoff without joining race results."""
     if cutoff.utcoffset() is None or scheduled_laps <= 0 or not 1 <= horizon <= 20:
@@ -251,6 +283,8 @@ def build_field_snapshot(
             reason = "NO_OBSERVED_CROSSING"
         else:
             current = laps.dropna(subset=["lap_start_utc"]).iloc[-1]
+            if same_stint_history_audit is not None and number in same_stint_history_audit:
+                same_stint_history_audit[number] = _same_stint_history(laps, current, cutoff)
             lap = int(current.lap_number)
             completed = lap - 1
             crossing = current.lap_start_utc.to_pydatetime()

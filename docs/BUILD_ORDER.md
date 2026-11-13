@@ -64,6 +64,10 @@ and uncertainty/residual diagnostics are acceptable.
 - Use the paired field-coverage replay and bounded Hungary extension to audit
   following targets and earlier controls before selecting Traffic V1.
   [S3-C coverage results](../artifacts/reports/stage5_s3_c_coverage_report.md)
+- Use cutoff-qualified Austria and Hungary windows to measure overlap between
+  clean-stint history and physical following. Require independent encounters
+  and earlier controls before opening later evaluation cohorts.
+  [S3-C history study](../artifacts/reports/stage5_s3_c_history_report.md)
 - Backtest complete race probabilities against simple baselines with frozen,
   chronological cohorts and evaluate 2026 transfer separately.
 **Done when:** the mechanical invariants pass, and forecasting capability

@@ -69,7 +69,8 @@ def load_traffic_protocol(path: Path) -> tuple[dict, str]:
 
 
 def _collect_race(root, warehouse, race, cohort, config, output, client, bundle,
-                  *, coverage_diagnostics=False, pilot_path=None, protocol_hash=None):
+                  *, coverage_diagnostics=False, pilot_path=None, protocol_hash=None,
+                  development_planner=None):
     key = race["session_key"]
     inputs = race_inputs(warehouse, key)
     drivers = tuple(int(driver) for driver in inputs["drivers"].driver_number)
@@ -88,12 +89,19 @@ def _collect_race(root, warehouse, race, cohort, config, output, client, bundle,
     else:
         raise ValueError(f"No declared reference geometry passed for session {key}: {rejected_references}")
     sampling = config["sampling"]
-    planned = select_traffic_windows(key, inputs["laps"], inputs["track"],
-                                     pd.Timestamp(scheduled_reference["end"]), sampling, config["seed"])
-    windows = [window for window in planned if window.telemetry.start_utc >= geometry.available_at_utc]
-    discarded = len(planned) - len(windows)
+    if development_planner is None:
+        planned = select_traffic_windows(key, inputs["laps"], inputs["track"],
+                                         pd.Timestamp(scheduled_reference["end"]), sampling, config["seed"])
+        windows = [window for window in planned if window.telemetry.start_utc >= geometry.available_at_utc]
+        discarded = len(planned) - len(windows)
+    else:
+        windows, discarded = [], 0
     extensions = {}
     pilot_plan = None
+    if development_planner is not None:
+        extended, pilot_plan = development_planner(inputs, geometry.available_at_utc)
+        extensions = {item.replay.name: item for item in extended}
+        windows = [item.replay for item in extended]
     if pilot_path is not None:
         extended, pilot_plan = plan_extensions(
             pilot_path, protocol_hash, cohort, windows, inputs["track"], geometry.available_at_utc,
@@ -136,7 +144,11 @@ def _collect_race(root, warehouse, race, cohort, config, output, client, bundle,
     )
     references = clean_pace_references(warehouse, cohort["scheduled_laps"], features, bundle,
                                        config["reference"], audit_history=coverage_diagnostics) if bundle is not None else []
-    expected = sampling["windows_per_race"] if pilot_plan is None else dict.fromkeys(pilot_plan["strata_priority"], 1)
+    expected = sampling["windows_per_race"]
+    if pilot_path is not None:
+        expected = dict.fromkeys(pilot_plan["strata_priority"], 1)
+    if development_planner is not None:
+        expected = pilot_plan["planned_arm_counts"]
     actual = Counter(window.kind for window in windows)
     timing = summary["timing_markers"]
     threshold = config["reconstruction"]["maximum_timing_marker_mae_s"]
@@ -148,8 +160,11 @@ def _collect_race(root, warehouse, race, cohort, config, output, client, bundle,
         "windows_before_geometry_available": discarded,
         "field_window_seconds": sum((w.telemetry.end_utc - w.telemetry.start_utc).total_seconds() for w in windows),
         "window_counts": dict(actual), "all_window_strata_acquired": actual == expected,
-        "speed_samples": sum(source["usable_rows"] for w in window_manifest for source in w["sources"]
-                             if source["endpoint"] == "car_data"),
+        "speed_samples": (
+            sum(w["merge"]["car_data"]["usable_rows"] for w in window_manifest) if development_planner is not None
+            else sum(source["usable_rows"] for w in window_manifest for source in w["sources"]
+                     if source["endpoint"] == "car_data")
+        ),
         "timing_marker_gate": (
             timing["n"] == config["reconstruction"]["independent_laps"] * 4 and timing["mae"] <= threshold
         ),

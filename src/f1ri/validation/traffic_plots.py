@@ -93,3 +93,35 @@ def plot_coverage_diagnostics(result: dict, path: Path) -> None:
     axes[2].legend(frameon=False, fontsize=8, loc="upper center", bbox_to_anchor=(.5, -.20))
     fig.savefig(path, dpi=150)
     plt.close(fig)
+
+
+def plot_history_study(result: dict, path: Path) -> None:
+    rows = [(f"{race['name']} · {name.replace('_', ' ')}", arm)
+            for race in result["races"] for name, arm in race["arms"].items() if arm["acquired_blocks"]]
+    labels = [name for name, _ in rows]
+    y = np.arange(len(rows))
+    fig, axes = plt.subplots(1, 2, figsize=(11, max(4, len(rows) * .45)), layout="constrained")
+    fig.suptitle("Stage 5.3-C  |  Development target readiness")
+    rates = [100 * row["coverage"]["complete"] / row["coverage"]["snapshots"] for _, row in rows]
+    axes[0].barh(y, rates, color="#315f81")
+    axes[0].axvline(90, linestyle="--", color="#324357")
+    axes[0].set(xlim=(0, 100), xlabel="Complete point-in-time snapshots (%)")
+    for key, label, offset, color in (
+        ("following", "Physical following", -.22, "#a05d5d"),
+        ("supported_following", "Supported D8", 0, "#27734c"),
+        ("following_with_proxy", "Earlier-control proxy", .22, "#315f81"),
+    ):
+        values = [row[key]["unique_laps"] for _, row in rows]
+        axes[1].barh(y + offset, values, height=.20, label=label, color=color)
+        for i, value in enumerate(values):
+            axes[1].annotate(str(value), (value, y[i] + offset), xytext=(3, 0), textcoords="offset points",
+                             va="center", color=color, fontsize=8)
+    axes[1].set_xlabel("Unique following laps")
+    axes[1].legend(frameon=False, fontsize=8, loc="upper center", bbox_to_anchor=(.5, -.16))
+    for ax in axes:
+        ax.set_yticks(y, labels)
+        ax.invert_yaxis()
+        ax.grid(axis="x", alpha=.24)
+        ax.set_axisbelow(True)
+    fig.savefig(path, dpi=150)
+    plt.close(fig)

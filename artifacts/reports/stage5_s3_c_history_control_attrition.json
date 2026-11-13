@@ -1,0 +1,5207 @@
+[
+  {
+    "opportunity_id": "9928/16/7",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:11:26.285000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.30405387680161766,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/7",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:11:28.892000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/1/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:24:06.608000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:23:51.099000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:24:04.780000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:23:43.553000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 19,
+      "evidence_before": 19,
+      "compound": 12,
+      "tire_age": 6,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": 0.4930285470706792,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:23:50.219000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 19,
+      "evidence_before": 19,
+      "compound": 12,
+      "tire_age": 6,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": -0.28057840628660813,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/16",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:23:46.508000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 19,
+      "evidence_before": 19,
+      "compound": 12,
+      "tire_age": 6,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": 0.049916717848077496,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:32:02.951000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:32:15.681000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/23/20",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:30:03.888000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 6,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10"
+    ],
+    "signed_residual_s": 0.027776611488391723,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/23/21",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:31:25.960000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 7,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10",
+      "9928/16/12"
+    ],
+    "signed_residual_s": 0.20945443628713178,
+    "signed_proxy_s": 0.5135083130887494
+  },
+  {
+    "opportunity_id": "9928/27/21",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:31:16.272000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 7,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9928/16/16",
+      "9955/63/16",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": 0.4884044697601837,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/21",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:31:05.377000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/31/20",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:30:05.001000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/1/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:45:10.125000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/1/32",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:46:31.435000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:00.209000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:28.425000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:28.826000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:44:51.950000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:38.127000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:20.453000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/32",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:46:06.568000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:30.197000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:04.850000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 23,
+      "evidence_before": 23,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.2972003695805654,
+    "signed_proxy_s": 0.4733004034573014
+  },
+  {
+    "opportunity_id": "9928/16/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:44:26.228000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 23,
+      "evidence_before": 23,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.32275148567951817,
+    "signed_proxy_s": 0.4988515195562542
+  },
+  {
+    "opportunity_id": "9928/16/34",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:48:30.802000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 24,
+      "evidence_before": 24,
+      "compound": 8,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9928/63/30",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.5141181133085553,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/29",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:42:08.384000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:31.534000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:44:54.794000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/32",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:46:18.361000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:41.735000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/29",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:42:10.619000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:33.628000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:44:56.747000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/32",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:46:19.852000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:43.007000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:14.811000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 23,
+      "evidence_before": 23,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.10605344497146518,
+    "signed_proxy_s": 0.07004658890527082
+  },
+  {
+    "opportunity_id": "9928/63/32",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:45:58.007000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 24,
+      "evidence_before": 23,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.2538196536392263,
+    "signed_proxy_s": -0.07771961976249031
+  },
+  {
+    "opportunity_id": "9928/63/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:19.249000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 24,
+      "evidence_before": 24,
+      "compound": 8,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/63/30",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.26708397789499827,
+    "signed_proxy_s": -0.09098394401826226
+  },
+  {
+    "opportunity_id": "9928/81/30",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:43:06.367000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/31",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:44:27.728000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/33",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:47:10.867000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/34",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:48:32.384000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/1/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:33.768000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": -0.0864431271477315,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/4/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:37.128000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": -0.1686672039240733,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/5/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:47.915000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/14/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:48.696000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/16/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:43.657000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/30/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:18:18.399000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/63/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:44.258000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/81/11",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:17:41.518000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": 0.20670368793105354,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/1/13",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:20:19.843000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": 0.16713180309378117,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/4/13",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:20:23.703000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": -0.1276498857998405,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/5/13",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:20:36.906000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/30/13",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:21:06.414000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/81/13",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:20:28.875000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/9",
+      "9928/16/16"
+    ],
+    "signed_residual_s": -0.1115883728608793,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/4/20",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:30:06.408000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/16",
+      "9928/4/24"
+    ],
+    "signed_residual_s": -0.13216484328189892,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/10/19",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:29:17.282000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/81/20",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:30:12.707000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 9,
+      "development": 5,
+      "distinct_lap": 5,
+      "completed_before": 5,
+      "evidence_before": 5,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/16",
+      "9928/4/24"
+    ],
+    "signed_residual_s": -0.08936288700046191,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/4/23",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:34:15.416000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/10/22",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:33:29.832000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/16/23",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:34:27.088000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/44/23",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:34:31.274000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/63/23",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:34:29.195000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9912/81/23",
+    "session_key": 9912,
+    "as_of_utc": "2025-09-07 13:34:21.760000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/4/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:22:43.391000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/6/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:22:50.743000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/14/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:23:14.321000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/16/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:23:08.852000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/23/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:22:47.821000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/55/15",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:23:13.118000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/1/20",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:29:18.783000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/4/20",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:29:28.265000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/5/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:50.849000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/6/20",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:29:42.178000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/10/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:46.278000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/14/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:41.805000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/18/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:45.206000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/23/20",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:29:37.110000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/30/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:48.353000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/31/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:53.341000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/55/19",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:28:38.914000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/1/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:22.204000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/4/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:31.548000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/5/22",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:32:57.332000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/6/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:49.257000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/10/22",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:32:52.941000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/12/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:50.335000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/18/22",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:32:51.425000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/23/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:42.766000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/27/23",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:57.867000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/30/22",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:32:54.613000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/31/22",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:33:00.629000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/1/27",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:47.291000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/4/27",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:56.946000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/5/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:26.047000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/6/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:37:56.231000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/10/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:22.297000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/12/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:37:57.528000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/16/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:06.062000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/18/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:19.813000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/30/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:23.704000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/31/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:30.719000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/43/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:33.016000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/55/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:13.156000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9987/63/26",
+    "session_key": 9987,
+    "as_of_utc": "2025-05-18 13:38:10.656000+00:00",
+    "pace_status": "PACE_REFERENCE_NOT_OUT_OF_SAMPLE",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/23/10",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:30:26.988000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/23/11",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:31:38.360000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/9",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:29:12.468000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/10",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:30:23.066000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/11",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:31:34.320000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/12",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:32:45.433000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/9",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:29:14.207000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/10",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:30:25.082000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/11",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:31:36.221000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/12",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:32:47.735000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/15",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:36:25.970000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/16",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:37:37.422000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/30/15",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:36:27.251000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/15",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:36:17.745000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 0,
+      "evidence_before": 0,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.2336364486172613,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/16",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:37:28.613000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 0,
+      "evidence_before": 0,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.2670692489252957,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/17",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:38:39.495000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 0,
+      "evidence_before": 0,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.3070623268632886,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/14",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:35:10.419000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/15",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:36:22.233000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/16",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:37:33.898000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 0,
+      "evidence_before": 0,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.32802708920698365,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/17",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:38:45.781000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 0,
+      "evidence_before": 0,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.07231392995720398,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/16",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:37:58.584000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/28",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:51:43.342000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 1,
+      "evidence_before": 1,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.1269312394325084,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/29",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:52:52.857000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 1,
+      "evidence_before": 1,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.1750766975723792,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/29",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:53:09.263000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/27",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:50:58.888000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/28",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:51:49.760000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/29",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 13:52:59.325000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 2,
+      "evidence_before": 1,
+      "compound": 0,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.07810663505877358,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:08.894000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.1967950407014456,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:18.622000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.32988066541287253,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:39.674000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.1755628789153434,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:50.170000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.15661859705926418,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:00.834000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.05995474010337887,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:05:11.470000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 10,
+      "evidence_before": 7,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": 0.3015899189323079,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/6/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:09.839000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/81/29"
+    ],
+    "signed_residual_s": -0.19045946147413417,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/10/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:50.991000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.12617700220184247,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/10/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:02.715000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.20965003736928622,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/14/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:56.114000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/14/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:06.794000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:28.406000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.40794968560282996,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:37.892000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 6,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.3075087763644575,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:47.165000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 8,
+      "evidence_before": 6,
+      "compound": 4,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/29",
+      "9955/16/37"
+    ],
+    "signed_residual_s": -0.176100033876736,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/18/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:14.405000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.12111491915295858,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/18/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:25.111000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.001659615812926063,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:20.369000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.02758520035905576,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:30.653000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 5,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.007692693518592364,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:43.252000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.10538564814225992,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:54.200000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.1551193080042026,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:05.006000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.08472268513521897,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:05:15.716000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/30/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:04.689000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:46.330000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.5970185723351875,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:56.806000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.027578479507184284,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:07.428000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.029451905244897603,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:05:18.247000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 10,
+      "evidence_before": 7,
+      "compound": 4,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.09662184211666158,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/43/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:11.564000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.05505740234332279,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:31.792000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.28178926536591575,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:41.525000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 6,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.36713254993516387,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:50.770000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 9,
+      "evidence_before": 6,
+      "compound": 4,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37"
+    ],
+    "signed_residual_s": 0.35517552007132736,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:46.965000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.004346001549549783,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:57.416000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 6,
+      "evidence_before": 4,
+      "compound": 1,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.11252210327832302,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/63/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:05:07.850000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 10,
+      "evidence_before": 6,
+      "compound": 2,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.01986891261978485,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:02:14.416000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29"
+    ],
+    "signed_residual_s": 0.015268732183685074,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:23.841000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/4/29"
+    ],
+    "signed_residual_s": -0.20942911076203075,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/39",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:33.099000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.06604719362604783,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/36",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:01:50.007000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.827379700507251,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/37",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:03:01.071000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 4,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.005318488344840944,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/38",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:04:12.225000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 7,
+      "evidence_before": 4,
+      "compound": 3,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.10626908491410347,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:27.965000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.03956714058656985,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/4/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:38.086000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.02952488925848229,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/5/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:05.466000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38",
+      "9955/63/39"
+    ],
+    "signed_residual_s": 0.17562171186959574,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/10/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:39.822000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": 0.09465629525527675,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/10/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:50.261000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": -0.24200432549238826,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:10:35.590000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.005463577331880742,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:45.379000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.15427827946948014,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:55.292000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.0752124136066783,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/16/47",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:14:05.295000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 7,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/31/44"
+    ],
+    "signed_residual_s": 0.01987367915410232,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/18/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:33.025000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.021100182902586084,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/43",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:10:32.350000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 1,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.1972611092219836,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:42.900000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": 0.10657697038062963,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:53.417000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 3,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38"
+    ],
+    "signed_residual_s": -0.13640803866159956,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/22/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:14:03.748000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 6,
+      "tire_age": 4,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38",
+      "9955/63/39"
+    ],
+    "signed_residual_s": -0.10515940857787598,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:29.937000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/27/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:40.429000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:12.018000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.0603487509370666,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/31/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:13:33.735000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.2504525670778719,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/43/43",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:10:38.742000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/43/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:48.472000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/43/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:58.214000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 3,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.0512056205138407,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/43/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:14:08.045000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 7,
+      "tire_age": 4,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/16/37"
+    ],
+    "signed_residual_s": -0.027145927406081682,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:10:40.625000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.024305920241687318,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:50.756000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/16/39"
+    ],
+    "signed_residual_s": 0.4402928936058288,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:13:01.401000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.057710309419604755,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/44/47",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:14:11.763000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 7,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/31/44"
+    ],
+    "signed_residual_s": -0.0990655683715147,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:31.619000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.4130241603693037,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/81/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:41.758000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 0,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": 0.2892956450830724,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/44",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:11:36.181000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 12,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": 0.2547226454447866,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/45",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:12:46.315000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 12,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": 0.20908968466619626,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9955/87/46",
+    "session_key": 9955,
+    "as_of_utc": "2025-06-29 14:13:56.451000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": 0.23888162397766166,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/8",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:12:53.686000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/9",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:14:15.686000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/8",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:12:48.145000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 13,
+      "evidence_before": 13,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.6203538449849333,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/9",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:14:09.811000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 14,
+      "evidence_before": 13,
+      "compound": 6,
+      "tire_age": 2,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.5236460187318102,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/10",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:15:31.710000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 16,
+      "evidence_before": 14,
+      "compound": 7,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9928/16/7"
+    ],
+    "signed_residual_s": 0.10653066246965182,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/8",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:12:52.483000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/9",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:14:14.655000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/8",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:12:50.872000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/9",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:14:12.858000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 15,
+      "evidence_before": 14,
+      "compound": 7,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9928/16/7"
+    ],
+    "signed_residual_s": -0.23837708431202032,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/10",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:15:34.593000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 16,
+      "evidence_before": 15,
+      "compound": 8,
+      "tire_age": 4,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9928/16/8"
+    ],
+    "signed_residual_s": -0.4225648189840001,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:21.564000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/13",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:19:44.048000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/14",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:21:06.755000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:32.774000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/13",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:19:55.610000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/14",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:21:18.849000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:15.518000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 17,
+      "evidence_before": 17,
+      "compound": 10,
+      "tire_age": 6,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9955/63/16",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10"
+    ],
+    "signed_residual_s": 0.17732675673622111,
+    "signed_proxy_s": 0.4813806335378388
+  },
+  {
+    "opportunity_id": "9928/16/13",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:19:37.626000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 18,
+      "evidence_before": 17,
+      "compound": 10,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10"
+    ],
+    "signed_residual_s": -0.04426886174496758,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:35.063000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/14",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:21:21.505000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:20.889000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/13",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:19:43.095000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/14",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:21:05.427000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 19,
+      "evidence_before": 18,
+      "compound": 11,
+      "tire_age": 5,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/9",
+      "9928/16/10",
+      "9928/16/12"
+    ],
+    "signed_residual_s": 0.09804413345369767,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/12",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:18:18.289000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 17,
+      "evidence_before": 17,
+      "compound": 10,
+      "tire_age": 6,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/16/7",
+      "9955/63/16",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10"
+    ],
+    "signed_residual_s": 0.0775276443470716,
+    "signed_proxy_s": 0.38158152114868926
+  },
+  {
+    "opportunity_id": "9928/81/13",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:19:40.126000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 18,
+      "evidence_before": 17,
+      "compound": 10,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/8",
+      "9928/16/9",
+      "9928/16/10"
+    ],
+    "signed_residual_s": 0.365338407777017,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/14",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:21:02.349000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 19,
+      "evidence_before": 18,
+      "compound": 11,
+      "tire_age": 5,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/63/16",
+      "9928/16/9",
+      "9928/16/10",
+      "9928/16/12"
+    ],
+    "signed_residual_s": 0.14289455900544112,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:10.626000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:31.237000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/37",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:51.894000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 30,
+      "evidence_before": 28,
+      "compound": 12,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/63/30",
+      "9955/4/28",
+      "9955/4/29",
+      "9955/81/29",
+      "9955/16/37"
+    ],
+    "signed_residual_s": 0.20375749869012338,
+    "signed_proxy_s": 0.3306887381226318
+  },
+  {
+    "opportunity_id": "9928/5/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:23.719000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:46.609000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/6/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:03.074000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/10/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:05.854000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/12/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:16.726000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:16.204000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:39.309000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/37",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:53:02.276000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:49:51.928000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 26,
+      "evidence_before": 24,
+      "compound": 8,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9928/63/30",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.003690136069465666,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:13.377000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 26,
+      "evidence_before": 26,
+      "compound": 10,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/16/34",
+      "9928/63/33",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.22017738996667902,
+    "signed_proxy_s": 0.08733138639777849
+  },
+  {
+    "opportunity_id": "9928/16/37",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:34.767000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 29,
+      "evidence_before": 26,
+      "compound": 10,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9928/16/34",
+      "9928/63/33",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.06257807620561096,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/23/34",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:49:26.891000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 25,
+      "evidence_before": 24,
+      "compound": 16,
+      "tire_age": 8,
+      "race_progress": 6
+    },
+    "matched_control_count": 6,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38",
+      "9955/63/39",
+      "9928/4/23",
+      "9928/4/24",
+      "9928/4/25"
+    ],
+    "signed_residual_s": -0.06415065382518037,
+    "signed_proxy_s": -0.11823870468956699
+  },
+  {
+    "opportunity_id": "9928/23/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:49.974000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 26,
+      "evidence_before": 25,
+      "compound": 16,
+      "tire_age": 8,
+      "race_progress": 6
+    },
+    "matched_control_count": 6,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38",
+      "9955/63/39",
+      "9928/4/23",
+      "9928/4/24",
+      "9928/4/25"
+    ],
+    "signed_residual_s": -0.14169877612907555,
+    "signed_proxy_s": -0.19578682699346217
+  },
+  {
+    "opportunity_id": "9928/23/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:13.156000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 28,
+      "evidence_before": 26,
+      "compound": 16,
+      "tire_age": 6,
+      "race_progress": 6
+    },
+    "matched_control_count": 6,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38",
+      "9955/63/39",
+      "9928/4/23",
+      "9928/4/24",
+      "9928/4/25"
+    ],
+    "signed_residual_s": -0.13086890675869256,
+    "signed_proxy_s": -0.18495695762307918
+  },
+  {
+    "opportunity_id": "9928/27/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:46.157000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/27/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:08.899000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/31/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:51.498000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/31/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:14.930000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/44/34",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:49:21.727000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/44/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:43.985000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/55/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:47.719000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 26,
+      "evidence_before": 25,
+      "compound": 9,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/31/44"
+    ],
+    "signed_residual_s": 0.19861694460949764,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/55/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:52:10.748000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 28,
+      "evidence_before": 26,
+      "compound": 10,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/31/44"
+    ],
+    "signed_residual_s": 0.0029437058699528507,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:50:02.147000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 26,
+      "evidence_before": 25,
+      "compound": 9,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/63/30",
+      "9928/63/33",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.10466861500114533,
+    "signed_proxy_s": 0.16241536289385294
+  },
+  {
+    "opportunity_id": "9928/63/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:23.502000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 27,
+      "evidence_before": 26,
+      "compound": 10,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9928/16/34",
+      "9928/63/33",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39"
+    ],
+    "signed_residual_s": -0.3882826896410734,
+    "signed_proxy_s": -0.08077391327661587
+  },
+  {
+    "opportunity_id": "9928/81/35",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:49:53.803000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/36",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:51:15.377000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/1/39",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:56:04.357000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 31,
+      "evidence_before": 31,
+      "compound": 15,
+      "tire_age": 3,
+      "race_progress": 3
+    },
+    "matched_control_count": 3,
+    "matched_control_ids": [
+      "9955/31/44",
+      "9928/16/36",
+      "9928/63/36"
+    ],
+    "signed_residual_s": 0.1137350413042384,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/10/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:57:54.862000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 31,
+      "evidence_before": 31,
+      "compound": 16,
+      "tire_age": 8,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37"
+    ],
+    "signed_residual_s": 0.1415940356516927,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/38",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:54:58.185000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:57:41.144000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/23/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:58:07.224000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/27/38",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:54:54.155000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/27/39",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:56:17.165000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/43/39",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:56:50.415000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/44/38",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:54:50.893000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/44/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:57:35.720000+00:00",
+    "pace_status": "LIMITED_SUPPORT",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/55/38",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:54:56.211000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 31,
+      "evidence_before": 30,
+      "compound": 14,
+      "tire_age": 1,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/31/44"
+    ],
+    "signed_residual_s": 0.15951617772464033,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:56:49.447000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 31,
+      "evidence_before": 31,
+      "compound": 15,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/31/44",
+      "9928/16/35",
+      "9928/16/36",
+      "9928/63/35",
+      "9928/63/36"
+    ],
+    "signed_residual_s": 0.2672566324563803,
+    "signed_proxy_s": 0.37192524745752564
+  },
+  {
+    "opportunity_id": "9928/87/40",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:57:53.159000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 31,
+      "evidence_before": 31,
+      "compound": 15,
+      "tire_age": 10,
+      "race_progress": 10
+    },
+    "matched_control_count": 10,
+    "matched_control_ids": [
+      "9928/16/34",
+      "9928/63/30",
+      "9928/63/33",
+      "9955/4/28",
+      "9955/4/29",
+      "9955/81/29",
+      "9955/16/37",
+      "9955/16/38",
+      "9955/16/39",
+      "9928/4/37"
+    ],
+    "signed_residual_s": -0.31209997282496715,
+    "signed_proxy_s": -0.13651160710040955
+  },
+  {
+    "opportunity_id": "9928/4/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:25.151000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": 0.30163536972941074,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:47.206000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/63/37",
+      "9955/63/38"
+    ],
+    "signed_residual_s": 0.32897306808035864,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/4/25",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:36:09.293000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 30,
+      "completed_before": 21,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 2,
+      "race_progress": 2
+    },
+    "matched_control_count": 2,
+    "matched_control_ids": [
+      "9955/63/38",
+      "9955/63/39"
+    ],
+    "signed_residual_s": -0.17377123576150666,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:32:25.069000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.3153012973701408,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/5/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:48.268000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": -0.45291881153863756,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/12/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:21.496000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/12/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:42.642000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:40.743000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": 0.47659318387049154,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/14/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:03.347000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 21,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 2,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/38"
+    ],
+    "signed_residual_s": 0.2268175350029935,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:36.721000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/16/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:57.659000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:32:26.917000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 0
+    },
+    "matched_control_count": 0,
+    "matched_control_ids": [],
+    "signed_residual_s": -0.031167673014408592,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:50.018000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 3,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/37"
+    ],
+    "signed_residual_s": 0.10716009368682933,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/18/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:13.144000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 21,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 2,
+      "race_progress": 1
+    },
+    "matched_control_count": 1,
+    "matched_control_ids": [
+      "9955/63/38"
+    ],
+    "signed_residual_s": 0.016468000230844382,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/22/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:02.933000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/22/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:24.434000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/22/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:45.765000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/23/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:10.689000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 8,
+      "race_progress": 6
+    },
+    "matched_control_count": 6,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37",
+      "9928/16/9",
+      "9928/16/10",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": 0.12887342375059063,
+    "signed_proxy_s": 0.13881967717082233
+  },
+  {
+    "opportunity_id": "9928/23/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:33.209000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 21,
+      "evidence_before": 20,
+      "compound": 13,
+      "tire_age": 8,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/22/36",
+      "9955/22/37",
+      "9928/16/10",
+      "9928/16/12",
+      "9928/16/13"
+    ],
+    "signed_residual_s": 0.17024299429191103,
+    "signed_proxy_s": 0.16255030077331867
+  },
+  {
+    "opportunity_id": "9928/30/22",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:32:28.792000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:51.979000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/30/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:15.065000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/31/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:11.965000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/31/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:34.709000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/43/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:18.012000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 7,
+      "tire_age": 6,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/81/29",
+      "9955/16/37"
+    ],
+    "signed_residual_s": 0.18836105807478987,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/43/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:40.225000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 21,
+      "evidence_before": 20,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/16/37",
+      "9955/16/38"
+    ],
+    "signed_residual_s": 0.4350036246920297,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/55/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:08.003000+00:00",
+    "pace_status": "SUPPORTED",
+    "match_attempted": true,
+    "control_pool_attrition": {
+      "supported_clean_controls": 35,
+      "development": 31,
+      "distinct_lap": 31,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 7,
+      "tire_age": 5,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/4/28",
+      "9955/4/29",
+      "9955/81/29",
+      "9955/16/37"
+    ],
+    "signed_residual_s": -0.03763832594903249,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:43.533000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/63/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:35:05.018000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/23",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:33:38.649000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  },
+  {
+    "opportunity_id": "9928/81/24",
+    "session_key": 9928,
+    "as_of_utc": "2025-08-03 13:34:59.878000+00:00",
+    "pace_status": "INSUFFICIENT_PRIOR_CLEAN_STINT_LAPS",
+    "match_attempted": false,
+    "control_pool_attrition": null,
+    "matched_control_count": null,
+    "matched_control_ids": null,
+    "signed_residual_s": null,
+    "signed_proxy_s": null
+  }
+]

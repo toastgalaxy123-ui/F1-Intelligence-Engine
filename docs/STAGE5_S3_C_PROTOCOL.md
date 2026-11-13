@@ -146,3 +146,52 @@ diagnostics. Imola stays reconstruction-only. Hungary was part of the
 reported Stage 3 test cohort, with D8 selection and calibration on the
 earlier validation cohort. Monza is an inspected validation race. This
 increment leaves model fitting and the reserved races closed.
+
+## Austria and Hungary history pilot
+
+The follow-up pilot uses two 2025 development races in chronological
+order. Stage 3 lists both as test races. The frozen Pace V2 training and
+validation input sets exclude them. Keep Imola reconstruction-only and use
+the frozen Monza validation results. Austin and the reserved cohorts stay
+sealed for this increment.
+
+The one-lap cutoff population uses lap starts from laps 8 through 46.
+The close arm ranks prospective opportunities by a seeded hash within
+early and middle phases. It inspects up to 36 close candidates per phase
+and race. A fresh positive archived interval at or below 1.4 s supplies
+the close signal. The cutoff-visible D8 request must contain at least
+three earlier clean laps on the same stint. Select early controls first,
+using fresh intervals at or above 3.0 s and the earliest disjoint anchors
+in laps 8–24. The random comparison ranks the eligible green cutoff grid
+without a gap or history screen. Stage 1 signals and selection intervals
+are absent from the prediction features.
+
+Take at most two control blocks, two history-qualified blocks and one
+random block per race. Each block covers 320 seconds, starts 20 seconds
+before the anchor's whole-second clock and must lie in one high-confidence
+green interval after geometry availability. The source cache reuses
+verified baseline slices and fills gaps in at most 180-second requests,
+with one-second seam overlap. The run stops after the frozen block and
+request limits. It does not expand in response to target yield. The
+Hungary layout is frozen. Austria uses Norris lap 5 on the FIA 4,326 m
+centreline reference. Cutoff-dated broadcast evidence excludes the
+documented Austria withdrawals only after the configured clocks.
+[Frozen history plan](../config/experiments/stage5_s3_c_history_pilot.yaml)
+
+The previous same-stint history audit records both the elapsed completion
+and the next timing line from the frozen Stage 1 prefix. Its physical
+cross-check uses only already acquired prior-lap telemetry and never
+changes the D8 clean-history definition. It reports abstentions when
+full-window or simultaneous-field evidence is insufficient. Each
+supported residual records the control count after the development,
+distinct lap, completion, evidence time, compound, tire-age and progress
+filters. The extension takes precedence for shared lap keys. The
+retrospective control proxy remains observational.
+
+The candidate readiness audit counts at most one independent encounter
+per race, follower, cutoff leader and follower stint. It counts the
+cutoff encounter only, so multiple later fragments or repeated following
+laps cannot add independent support for the same group. This is a
+conservative counting rule. It leaves the frozen exposure construction
+and the historical replay available. The four-driver timing gate and
+the existing race, following and control minimums apply.

@@ -176,6 +176,18 @@ f1ri stage5-s3-continue --warehouse /path/to/f1ri.duckdb \
 
 [Coverage and target-readiness report](artifacts/reports/stage5_s3_c_coverage_report.md)
 
+The history study reuses the frozen coverage replay and measures whether
+cutoff-qualified Austria and Hungary windows yield supported following
+targets.
+
+```bash
+f1ri stage5-s3-continue --warehouse /path/to/f1ri.duckdb \
+  --stage3-root /path/to/original-stage3-project \
+  --history-pilot config/experiments/stage5_s3_c_history_pilot.yaml
+```
+
+[History and control readiness report](artifacts/reports/stage5_s3_c_history_report.md)
+
 ## Useful SQL
 
 ```python

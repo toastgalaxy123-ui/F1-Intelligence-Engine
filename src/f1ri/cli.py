@@ -127,6 +127,8 @@ def main() -> None:
     p.add_argument("--output", type=Path, help="Run directory. Coverage options default to a separate run.")
     p.add_argument("--coverage-diagnostics", action="store_true", help="Replay paired coverage modes and audit targets")
     p.add_argument("--coverage-pilot", type=Path, help="Run the frozen Hungary extension plan with the diagnostics")
+    p.add_argument("--history-pilot", type=Path, help="Run the preregistered Austria and Hungary development study")
+    p.add_argument("--history-baseline", type=Path, default=Path("artifacts/runs/stage5_s3_c_coverage"))
     p.add_argument("--ingest", action="store_true", help="Fetch missing bounded OpenF1 windows")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
@@ -195,17 +197,26 @@ def main() -> None:
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
     elif args.command == "stage5-s3-continue":
-        from f1ri.validation.traffic_continuation import run_traffic_continuation
+        if args.history_pilot:
+            from f1ri.validation.traffic_history_study import run_history_study
 
-        run_name = "stage5_s3_c_coverage" if args.coverage_diagnostics or args.coverage_pilot else "stage5_s3_c"
-        output = root / (args.output or Path("artifacts/runs") / run_name)
-        result = run_traffic_continuation(root, root / args.warehouse, root / args.config,
-                                          output, ingest=args.ingest,
-                                          stage3_root=root / args.stage3_root if args.stage3_root else None,
-                                          coverage_diagnostics=args.coverage_diagnostics,
-                                          coverage_pilot=root / args.coverage_pilot if args.coverage_pilot else None)
+            if not args.stage3_root or args.coverage_pilot or args.coverage_diagnostics:
+                parser.error("--history-pilot requires --stage3-root and a separate frozen coverage run")
+            output = root / (args.output or Path("artifacts/runs/stage5_s3_c_history"))
+            result = run_history_study(root, root / args.warehouse, root / args.config, root / args.history_pilot,
+                                       root / args.history_baseline, root / args.stage3_root, output, ingest=args.ingest)
+        else:
+            from f1ri.validation.traffic_continuation import run_traffic_continuation
+
+            run_name = "stage5_s3_c_coverage" if args.coverage_diagnostics or args.coverage_pilot else "stage5_s3_c"
+            output = root / (args.output or Path("artifacts/runs") / run_name)
+            result = run_traffic_continuation(root, root / args.warehouse, root / args.config,
+                                              output, ingest=args.ingest,
+                                              stage3_root=root / args.stage3_root if args.stage3_root else None,
+                                              coverage_diagnostics=args.coverage_diagnostics,
+                                              coverage_pilot=root / args.coverage_pilot if args.coverage_pilot else None)
         print(f"Stage 5.3-C | {len(result['races'])} races | {result['traffic_model_status']}")
-        print(output / "metrics.json")
+        print(output / ("history_study_metrics.json" if args.history_pilot else "metrics.json"))
     elif args.command == "stage5-s3":
         from f1ri.validation.proximity_pilot import run_stage5_s3
 
