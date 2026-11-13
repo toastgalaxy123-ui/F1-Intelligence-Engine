@@ -233,3 +233,33 @@ gates and the fixed Monza evidence. Later cohorts remain sealed. Compare
 arm yields descriptively given the different sampling rules and small
 acquisition.
 [Transition plan](../config/experiments/stage5_s3_c_transition_pilot.yaml)
+
+## Encounter conversion and control recovery
+
+The research selector ranks lap starts with frozen D8 support and
+eligible race state. It first looks for a supported close relationship
+with a known opponent in the newest point-in-time sample at or before
+the cutoff, within one 0.5 s sampling interval. The frozen physical
+approach rule is the next priority. Coarse interval evidence can seed
+acquisition when cutoff-local physical evidence is unavailable. Five
+earlier controls still gate the proxy. Available control counts rank
+within each trigger class, followed by the seeded order. The proposed
+evaluation span extends eight seconds before and 110 seconds after
+the cutoff. A mid-lap threshold crossing cannot relabel a lap start.
+Use the frozen outcome screens and keep archive observation time as
+the availability proxy. This increment uses the selector for cached
+diagnostics only.
+
+For Austria car 6, lap 47, test every chronologically possible
+compound, age and progress match with the frozen D8 request, timing
+boundary, censoring evidence clock and physical clean-control screen.
+Replay hash-verified cached field slices first. If that supplies fewer
+than five controls, a single preregistered earlier window may be
+selected using the Stage 1 clean label and an archived gap of at least
+3 s as acquisition priority. The new field budget is 100 seconds and
+two endpoint requests. Replay uses the frozen geometry and ends before
+the target cutoff. Freeze missing query spans before ingesting. Stop
+once cached support reaches five controls or the locked acquisition is
+exhausted. The registered race roles and encounter independence rule
+still apply.
+[Encounter plan](../config/experiments/stage5_s3_c_encounter_pilot.yaml)

@@ -1,0 +1,894 @@
+{
+  "version": "s3-c-encounter-forensics-v1",
+  "inputs": {
+    "stage5_s3_c_metrics.json": "2940a852ba36a48ea1b47860a28da6f897e328c9ed9e107691cff6c12748cff0",
+    "stage5_s3_c_coverage_diagnostics.json": "9916bb99c9a903c980f1af85f46ef9ea8b11c740cd4158f98bc35807549bb5fd",
+    "stage5_s3_c_history_metrics.json": "7ff964619c54c6987eab01f82db18aad1622d834ccaeda63fc3268e76c5c4010",
+    "stage5_s3_c_transition_metrics.json": "3553231894979528f28db4173a03b2c9fbfbd3c26ef67fbc3c721d88f0649db9",
+    "stage5_s3_c_transition_lock.json": "145239e8e4cf85b75a05c6ab1a446e7783c8d7c99688179d730c307a878d5f8c",
+    "stage5_s3_c_transition_census.json": "5b901f8e63943f2b34c1aa3eacdaf92dca1345cbccd0854f269563c41c1aac3e",
+    "warehouse": "9404346d9aef1ef44ee9cea7e36c3f66475dd1d9495a62aed3e0c0e35a0e53d0",
+    "d8": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "plan": "e17a8946357f59b286b9d4d708daf706eeb1c90ed4ce05a1510f91d1fd847939",
+    "protocol": "e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda"
+  },
+  "archive_availability": "OBSERVATION_TIMESTAMP_PROXY",
+  "target_bounds": {
+    "9955": {
+      "historical_cutoffs": 633,
+      "history_qualified": 312,
+      "d8_supported": 293,
+      "d8_supported_physical_approaches": 3,
+      "d8_with_five_cached_controls": 47,
+      "d8_supported_observed_following": 1,
+      "A": {
+        "laps": 0,
+        "independent_upper_bound": 0
+      },
+      "B": {
+        "laps_upper_bound": 6,
+        "additional_possible_sustained_following": 6,
+        "independent_upper_bound": 6,
+        "unresolved_candidates": [
+          {
+            "opportunity_id": "9955/30/38",
+            "driver": 30,
+            "stint": 2,
+            "known_leaders": [
+              10.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9955/6/39",
+            "driver": 6,
+            "stint": 3,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9955/18/39",
+            "driver": 18,
+            "stint": 2,
+            "known_leaders": [
+              43.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9955/30/40",
+            "driver": 30,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW",
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9955/6/40",
+            "driver": 6,
+            "stint": 3,
+            "known_leaders": [
+              87.0
+            ],
+            "observed_screens": [
+              "PARTIAL_WINDOW",
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9955/44/41",
+            "driver": 44,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          }
+        ]
+      },
+      "C": {
+        "laps_upper_bound": 1,
+        "additional_potential": 1,
+        "independent_upper_bound": 1
+      }
+    },
+    "9928": {
+      "historical_cutoffs": 780,
+      "history_qualified": 351,
+      "d8_supported": 280,
+      "d8_supported_physical_approaches": 4,
+      "d8_with_five_cached_controls": 113,
+      "d8_supported_observed_following": 0,
+      "A": {
+        "laps": 0,
+        "independent_upper_bound": 0
+      },
+      "B": {
+        "laps_upper_bound": 63,
+        "additional_possible_sustained_following": 63,
+        "independent_upper_bound": 60,
+        "unresolved_candidates": [
+          {
+            "opportunity_id": "9928/27/15",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW",
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/17",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/18",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/19",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              22.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/20",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              22.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/23",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              1.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/24",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW",
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/25",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              10.0
+            ],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/26",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/55/26",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/27",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              10.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/55/27",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [
+              27.0
+            ],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/27/28",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [
+              10.0
+            ],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/55/28",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/23/28",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/16/29",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/29",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/55/29",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/29",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/43/29",
+            "driver": 43,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/16/30",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/63/30",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/30",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/55/30",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/30",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/43/30",
+            "driver": 43,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/16/31",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/63/31",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/31",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/55/31",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/43/31",
+            "driver": 43,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/16/32",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/63/32",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/27/32",
+            "driver": 27,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/55/32",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/32",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/16/33",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/63/33",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/55/33",
+            "driver": 55,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/33",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/16/34",
+            "driver": 16,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/63/34",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/1/35",
+            "driver": 1,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/1/36",
+            "driver": 1,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/63/37",
+            "driver": 63,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/1/37",
+            "driver": 1,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/23/37",
+            "driver": 23,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PARTIAL_WINDOW"
+            ]
+          },
+          {
+            "opportunity_id": "9928/1/38",
+            "driver": 1,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/87/39",
+            "driver": 87,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": [
+              "PHYSICAL_SUPPORT_BELOW_MINIMUM"
+            ]
+          },
+          {
+            "opportunity_id": "9928/87/42",
+            "driver": 87,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/4/43",
+            "driver": 4,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/87/43",
+            "driver": 87,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/4/44",
+            "driver": 4,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/14/44",
+            "driver": 14,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/87/44",
+            "driver": 87,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/44",
+            "driver": 23,
+            "stint": 3,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/4/45",
+            "driver": 4,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/14/45",
+            "driver": 14,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/87/45",
+            "driver": 87,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/45",
+            "driver": 23,
+            "stint": 3,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/14/46",
+            "driver": 14,
+            "stint": 2,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/23/46",
+            "driver": 23,
+            "stint": 3,
+            "known_leaders": [],
+            "observed_screens": []
+          },
+          {
+            "opportunity_id": "9928/43/46",
+            "driver": 43,
+            "stint": 3,
+            "known_leaders": [],
+            "observed_screens": []
+          }
+        ]
+      },
+      "C": {
+        "laps_upper_bound": 0,
+        "additional_potential": 0,
+        "independent_upper_bound": 0
+      }
+    }
+  },
+  "frozen_target": {
+    "opportunity_id": "9955/6/47",
+    "split": "development",
+    "session_key": 9955,
+    "driver_number": 6,
+    "lap_number": 47,
+    "completed_utc": "2025-06-29 14:16:04.405000+00:00",
+    "observed_lap_s": 70.412,
+    "outcome_group": "FOLLOWING",
+    "physical_coverage": 1.0,
+    "clear_fraction": 0.0,
+    "close_fraction": 0.3049645390070922,
+    "episode_ids": [
+      "s3-c-exposure-v1/9955/6/63/2025-06-29T14:14:28+00:00",
+      "s3-c-exposure-v1/9955/6/63/2025-06-29T14:15:27+00:00"
+    ],
+    "outcome_available_by_utc": "2025-06-29 14:17:14.829000+00:00",
+    "cutoff_episode_id": "s3-c-exposure-v1/9955/6/63/2025-06-29T14:14:28+00:00",
+    "cutoff_opponent": 63,
+    "stint_number": 3,
+    "as_of_utc": "2025-06-29 14:14:53.993000+00:00",
+    "pace_artifact_sha256": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "prior_clean_lap_numbers": [
+      31,
+      32,
+      33,
+      37,
+      38,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "prior_clean_available_by_utc": [
+      "2025-06-29 13:57:16.793000+00:00",
+      "2025-06-29 13:58:27.374000+00:00",
+      "2025-06-29 13:59:37.992000+00:00",
+      "2025-06-29 14:04:20.370000+00:00",
+      "2025-06-29 14:05:30.716000+00:00",
+      "2025-06-29 14:07:51.279000+00:00",
+      "2025-06-29 14:09:01.549000+00:00",
+      "2025-06-29 14:10:11.818000+00:00",
+      "2025-06-29 14:11:22.197000+00:00",
+      "2025-06-29 14:12:32.454000+00:00",
+      "2025-06-29 14:13:42.828000+00:00"
+    ],
+    "pace_status": "SUPPORTED",
+    "expected_clean_s": 70.39127520721824,
+    "clean_std_s": 0.3334833913548806,
+    "compound": "HARD",
+    "tyre_age": 18,
+    "prior_clean_stint_laps": 11,
+    "circuit_seen_in_training": true,
+    "race_progress": 0.6714285714285714,
+    "signed_residual_s": 0.020724792781763313,
+    "control_pool_attrition": {
+      "supported_clean_controls": 48,
+      "development": 44,
+      "distinct_lap": 44,
+      "completed_before": 20,
+      "evidence_before": 20,
+      "compound": 12,
+      "tire_age": 4,
+      "race_progress": 4
+    },
+    "matched_control_count": 4,
+    "matched_control_ids": [
+      "9955/16/39",
+      "9955/4/34",
+      "9955/4/35",
+      "9955/4/36"
+    ],
+    "clean_control_bias_s": null,
+    "signed_proxy_s": null
+  },
+  "recovery_target": {
+    "opportunity_id": "9955/6/47",
+    "split": "development",
+    "session_key": 9955,
+    "driver_number": 6,
+    "lap_number": 47,
+    "completed_utc": "2025-06-29 14:16:04.405000+00:00",
+    "observed_lap_s": 70.412,
+    "outcome_group": "FOLLOWING",
+    "physical_coverage": 1.0,
+    "clear_fraction": 0.0,
+    "close_fraction": 0.3049645390070922,
+    "episode_ids": [
+      "s3-c-exposure-v1/9955/6/63/2025-06-29T14:14:28+00:00",
+      "s3-c-exposure-v1/9955/6/63/2025-06-29T14:15:27+00:00"
+    ],
+    "cutoff_episode_id": "s3-c-exposure-v1/9955/6/63/2025-06-29T14:14:28+00:00",
+    "cutoff_opponent": 63.0,
+    "stint_number": 3,
+    "outcome_available_by_utc": "2025-06-29 14:17:14.829000+00:00",
+    "as_of_utc": "2025-06-29 14:14:53.993000+00:00",
+    "pace_artifact_sha256": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+    "prior_clean_lap_numbers": [
+      31,
+      32,
+      33,
+      37,
+      38,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "prior_clean_available_by_utc": [
+      "2025-06-29 13:57:16.793000+00:00",
+      "2025-06-29 13:58:27.374000+00:00",
+      "2025-06-29 13:59:37.992000+00:00",
+      "2025-06-29 14:04:20.370000+00:00",
+      "2025-06-29 14:05:30.716000+00:00",
+      "2025-06-29 14:07:51.279000+00:00",
+      "2025-06-29 14:09:01.549000+00:00",
+      "2025-06-29 14:10:11.818000+00:00",
+      "2025-06-29 14:11:22.197000+00:00",
+      "2025-06-29 14:12:32.454000+00:00",
+      "2025-06-29 14:13:42.828000+00:00"
+    ],
+    "pace_status": "SUPPORTED",
+    "expected_clean_s": 70.39127520721824,
+    "clean_std_s": 0.3334833913548806,
+    "compound": "HARD",
+    "tyre_age": 18.0,
+    "prior_clean_stint_laps": 11.0,
+    "circuit_seen_in_training": true,
+    "race_progress": 0.6714285714285714,
+    "signed_residual_s": 0.020724792781763313,
+    "control_pool_attrition": {
+      "supported_clean_controls": 49,
+      "development": 45,
+      "distinct_lap": 45,
+      "completed_before": 21,
+      "evidence_before": 21,
+      "compound": 13,
+      "tire_age": 5,
+      "race_progress": 5
+    },
+    "matched_control_count": 5,
+    "matched_control_ids": [
+      "9955/16/39",
+      "9955/4/34",
+      "9955/4/35",
+      "9955/4/36",
+      "9955/31/43"
+    ],
+    "clean_control_bias_s": -0.19024999579926316,
+    "signed_proxy_s": 0.21097478858102647
+  },
+  "recovered_control_ids": [
+    "9955/31/43"
+  ],
+  "observed_following_proxies_after_recovery": {
+    "9955": 1,
+    "9928": 0
+  },
+  "qualifying_independent_groups_after_recovery": {
+    "9955": 1,
+    "9928": 0
+  },
+  "control_screen_counts": {
+    "COMPOUND": 686,
+    "TIRE_AGE": 286,
+    "RACE_PROGRESS": 40,
+    "ARCHIVE_PASS_INDICATION_CENSORED": 8,
+    "PHYSICAL_EVALUATION_REQUIRED": 1,
+    "FROZEN_MATCH": 4,
+    "INTERMEDIATE": 27,
+    "PHYSICAL_SUPPORT_BELOW_MINIMUM": 18,
+    "CLEAN_CONTROL": 1,
+    "EVIDENCE_NOT_BEFORE_TARGET": 7,
+    "NOT_COMPLETED_BEFORE_TARGET": 49,
+    "SELF": 1
+  },
+  "episode_alignment": {
+    "9955": {
+      "fragments": 531,
+      "began_mid_lap": 531,
+      "began_within_five_seconds": 15,
+      "crosses_boundary": 30,
+      "covers_whole_lap": 1,
+      "termination": {
+        "GAP_OPENED": 165,
+        "LOCALIZATION_UNSUPPORTED": 352,
+        "WINDOW_ENDED": 14
+      }
+    },
+    "9928": {
+      "fragments": 1221,
+      "began_mid_lap": 1221,
+      "began_within_five_seconds": 79,
+      "crosses_boundary": 99,
+      "covers_whole_lap": 0,
+      "termination": {
+        "LOCALIZATION_UNSUPPORTED": 938,
+        "WINDOW_ENDED": 37,
+        "LAP_RELATION_CHANGED": 10,
+        "GAP_OPENED": 236
+      }
+    }
+  },
+  "readiness": {
+    "eligible_development_races": [],
+    "eligible_validation_races": [],
+    "reserved_races_evaluated": 0,
+    "blockers": [
+      "INSUFFICIENT_DEVELOPMENT_RACES_WITH_MATCHED_CONTROL_AND_FOLLOWING_TARGETS",
+      "INSUFFICIENT_CHRONOLOGICAL_VALIDATION_RACES"
+    ],
+    "empirical_fit_status": "GATED",
+    "comparison_status": "PENDING_COMMON_T0_T1_T2_T3_EVALUATION",
+    "operational_baseline": "T1_DETERMINISTIC_NO_PASS",
+    "independence_rule": "driver-leader-stint-v1",
+    "qualifying_encounters_by_race": {
+      "9955": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      },
+      "9928": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      },
+      "9912": {
+        "unique_laps": 0,
+        "cutoff_encounters": 0,
+        "fragments": 0,
+        "driver_leader_stints": 0,
+        "independent_encounters": 0
+      }
+    },
+    "minimum_reserved_test_races": 3
+  },
+  "traffic_model_status": "RESEARCH_ONLY",
+  "selector_counts": {
+    "9955": {
+      "SUPPORTED_CLOSE_AT_LAP_START": 19,
+      "PHYSICAL_APPROACH_PRIORITY": 3,
+      "COARSE_ACQUISITION_PRIORITY": 3
+    },
+    "9928": {
+      "SUPPORTED_CLOSE_AT_LAP_START": 11,
+      "PHYSICAL_APPROACH_PRIORITY": 4,
+      "COARSE_ACQUISITION_PRIORITY": 5
+    }
+  },
+  "selector_close_conversion": {
+    "9955": {
+      "PHYSICAL_SUPPORT_BELOW_MINIMUM": 7,
+      "UNOBSERVED": 5,
+      "PARTIAL_WINDOW": 4,
+      "INTERMEDIATE": 1,
+      "ARCHIVE_PASS_INDICATION_CENSORED": 2
+    },
+    "9928": {
+      "PHYSICAL_SUPPORT_BELOW_MINIMUM": 5,
+      "UNOBSERVED": 4,
+      "PARTIAL_WINDOW": 2
+    }
+  }
+}

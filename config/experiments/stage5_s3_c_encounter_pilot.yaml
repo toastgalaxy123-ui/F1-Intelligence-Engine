@@ -1,0 +1,15 @@
+version: s3-c-encounter-forensics-v1
+frozen_protocol_sha256: e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda
+d8_sha256: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+seed: 530421
+selector:
+  maximum_age_s: 0.5
+  replay_prefix_seconds: 8
+  replay_suffix_seconds: 110
+  priority: [SUPPORTED_CLOSE_AT_LAP_START, PHYSICAL_APPROACH_PRIORITY, COARSE_ACQUISITION_PRIORITY]
+recovery:
+  pad_seconds: 8
+  minimum_coarse_gap_s: 3
+  maximum_windows: 1
+  maximum_new_field_seconds: 100
+  maximum_endpoint_requests: 2

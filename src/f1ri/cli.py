@@ -120,6 +120,13 @@ def main() -> None:
     p.add_argument("--config", type=Path, default=Path("config/experiments/stage5_s3_proximity.yaml"))
     p.add_argument("--output", type=Path, default=Path("artifacts/runs/stage5_s3_proximity"))
     p.add_argument("--ingest", action="store_true", help="Fetch only missing configured telemetry windows")
+    p = sub.add_parser("stage5-s3-encounters", help="Audit frozen S3-C encounters and earlier controls")
+    for name in ("warehouse", "stage3-root", "transition", "history", "baseline", "census", "output"):
+        p.add_argument(f"--{name}", type=Path, required=True)
+    p.add_argument("--plan", type=Path, default=Path("config/experiments/stage5_s3_c_encounter_pilot.yaml"))
+    p.add_argument("--recovery-lock", type=Path)
+    p.add_argument("--ingest", action="store_true")
+
     p = sub.add_parser("stage5-s3-continue", help="Run the frozen cross-circuit traffic research protocol")
     p.add_argument("--warehouse", type=Path, required=True, help="Warehouse with the initial race cohort")
     p.add_argument("--stage3-root", type=Path, help="Original project with the frozen Pace V2 artifact")
@@ -200,6 +207,14 @@ def main() -> None:
                 f"{exp_id:36} | val_h1_lap={v1!s:<6} | test_h5_cum={t5!s:<6} "
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
+    elif args.command == "stage5-s3-encounters":
+        from f1ri.validation.traffic_encounter_study import run_encounter_study
+
+        run_encounter_study(root, root / args.warehouse, root / args.stage3_root, root / args.transition,
+                            root / args.history, root / args.baseline, root / args.census, root / args.output,
+                            root / args.plan, lock_path=root / args.recovery_lock if args.recovery_lock else None,
+                            ingest=args.ingest)
+        print(root / args.output / "metrics.json")
     elif args.command == "stage5-s3-continue":
         if args.freeze_transition:
             import yaml
