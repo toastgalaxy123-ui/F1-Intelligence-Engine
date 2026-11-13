@@ -1,0 +1,40 @@
+version: s3-c-transition-v1
+frozen_protocol_sha256: e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda
+frozen_coverage_plan_sha256: 7bf27a1fc7559fb9987ad666d61b90ba645efcf6d5c1f5fb7ef5244376ffe2d7
+seed: 530419
+independence_rule: driver-leader-stint-v1
+acquisition:
+  window_seconds: 260
+  before_cutoff_seconds: 35
+  boundary_overlap_seconds: 1
+  arms: {transition: 3, earlier_control: 2, random_green: 1}
+  maximum_new_field_seconds_per_race: 1000
+  maximum_field_requests_per_race: 24
+  maximum_geometry_requests_per_race: 2
+  stop: execute_locked_windows_once
+cohorts:
+  - session_key: 9955
+    geometry_driver: 4
+    geometry_lap: 5
+    layout_version: spielberg-2025-fia-v2-sampled-v1
+    loop_length_m: 4326
+    length_source: https://www.fia.com/system/files/decision-document/2025_spielberg_event_-_circuit_map_-_spielberg_2025_0.pdf
+    known_off_track:
+      - driver_number: 55
+        available_by_utc: "2025-06-29T13:24:00+00:00"
+        reason: FORMATION_LAP_WITHDRAWAL
+        source: https://www.formula1.com/en/video/2025-austrian-grand-prix-race-start-aborted-after-sainzs-brakes-catch-fire.1836271745554555069
+      - driver_number: 1
+        available_by_utc: "2025-06-29T13:24:00+00:00"
+        reason: LAP_ONE_COLLISION_AND_SC_CLEARANCE
+        source: https://www.formula1.com/en/video/2025-austrian-grand-prix-antonelli-knocks-verstappen-out-of-the-race-on-lap-1.1836272513371164277
+      - driver_number: 12
+        available_by_utc: "2025-06-29T13:24:00+00:00"
+        reason: LAP_ONE_COLLISION_AND_SC_CLEARANCE
+        source: https://www.formula1.com/en/video/2025-austrian-grand-prix-antonelli-knocks-verstappen-out-of-the-race-on-lap-1.1836272513371164277
+      - driver_number: 23
+        available_by_utc: "2025-06-29T13:41:00+00:00"
+        reason: LAP_17_GARAGE_WITHDRAWAL
+        source: https://www.formula1.com/en/video/2025-austrian-grand-prix-albon-forced-to-retire-as-williams-suffer-a-double-dnf.1836282858831801208
+  - session_key: 9928
+    reuse_frozen_geometry: true

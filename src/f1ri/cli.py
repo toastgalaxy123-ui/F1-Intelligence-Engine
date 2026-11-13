@@ -129,6 +129,10 @@ def main() -> None:
     p.add_argument("--coverage-pilot", type=Path, help="Run the frozen Hungary extension plan with the diagnostics")
     p.add_argument("--history-pilot", type=Path, help="Run the preregistered Austria and Hungary development study")
     p.add_argument("--history-baseline", type=Path, default=Path("artifacts/runs/stage5_s3_c_coverage"))
+    p.add_argument("--transition-history", type=Path, help="Frozen history study run for a transition census or pilot")
+    p.add_argument("--transition-census", action="store_true", help="Enumerate cached transition candidates")
+    p.add_argument("--transition-lock", type=Path, help="Execute the locked transition acquisition")
+    p.add_argument("--freeze-transition", action="store_true", help="Write a deterministic lock from a cached census")
     p.add_argument("--ingest", action="store_true", help="Fetch missing bounded OpenF1 windows")
     p = sub.add_parser("pit-reference-import", help="Verify and import an official FIA pit-speed directive")
     p.add_argument("--metadata", type=Path, required=True, help="Source identity, date evidence and exact source quote JSON")
@@ -197,14 +201,42 @@ def main() -> None:
                 f"| test_h10_cum={t10!s:<6} | test_h15_cum={t15!s:<6} | 2026_h5_cum={tr5!s:<6}"
             )
     elif args.command == "stage5-s3-continue":
+        if args.freeze_transition:
+            import yaml
+
+            from f1ri.validation.traffic_transition import lock_transition_windows
+
+            if not args.history_pilot or not args.transition_history or not args.transition_lock or args.ingest:
+                parser.error("Freezing requires the pilot plan, history run and lock path in the census directory")
+            lock = root / args.transition_lock
+            if lock.exists():
+                parser.error("Transition lock already exists")
+            plan = yaml.safe_load((root / args.history_pilot).read_text(encoding="utf8"))
+            lock_transition_windows(root, root / args.warehouse, root / args.transition_history,
+                                    lock.parent, plan, lock)
+            print(lock)
+            return
+        if args.transition_census:
+            from f1ri.validation.traffic_transition import run_transition_census
+
+            if not args.transition_history or not args.stage3_root or args.ingest:
+                parser.error("Transition census requires the frozen history run, Stage 3 bundle and cached inputs")
+            output = root / (args.output or Path("artifacts/runs/stage5_s3_c_transition_census"))
+            run_transition_census(root, root / args.warehouse, root / args.stage3_root,
+                                  root / args.transition_history, output)
+            print(output / "census.json")
+            return
         if args.history_pilot:
             from f1ri.validation.traffic_history_study import run_history_study
 
             if not args.stage3_root or args.coverage_pilot or args.coverage_diagnostics:
                 parser.error("--history-pilot requires --stage3-root and a separate frozen coverage run")
-            output = root / (args.output or Path("artifacts/runs/stage5_s3_c_history"))
+            default_run = "stage5_s3_c_transition_v1" if args.transition_lock else "stage5_s3_c_history"
+            output = root / (args.output or Path("artifacts/runs") / default_run)
             result = run_history_study(root, root / args.warehouse, root / args.config, root / args.history_pilot,
-                                       root / args.history_baseline, root / args.stage3_root, output, ingest=args.ingest)
+                                       root / args.history_baseline, root / args.stage3_root, output, ingest=args.ingest,
+                                       transition_lock=root / args.transition_lock if args.transition_lock else None,
+                                       transition_history=root / args.transition_history if args.transition_history else None)
         else:
             from f1ri.validation.traffic_continuation import run_traffic_continuation
 
@@ -216,7 +248,8 @@ def main() -> None:
                                               coverage_diagnostics=args.coverage_diagnostics,
                                               coverage_pilot=root / args.coverage_pilot if args.coverage_pilot else None)
         print(f"Stage 5.3-C | {len(result['races'])} races | {result['traffic_model_status']}")
-        print(output / ("history_study_metrics.json" if args.history_pilot else "metrics.json"))
+        print(output / ("transition_metrics.json" if args.transition_lock else
+                        "history_study_metrics.json" if args.history_pilot else "metrics.json"))
     elif args.command == "stage5-s3":
         from f1ri.validation.proximity_pilot import run_stage5_s3
 

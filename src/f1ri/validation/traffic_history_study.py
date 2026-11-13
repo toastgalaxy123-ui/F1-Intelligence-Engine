@@ -187,16 +187,34 @@ def _arm_summary(summary, archive, detail, refs, residuals, folder):
 
 
 def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, baseline: Path,
-                      stage3_root: Path, output: Path, *, ingest: bool = False) -> dict:
+                      stage3_root: Path, output: Path, *, ingest: bool = False,
+                      transition_lock: Path | None = None, transition_history: Path | None = None) -> dict:
     config, protocol_hash = load_traffic_protocol(protocol)
     text = pilot.read_text(encoding="utf-8")
     plan = yaml.safe_load(text)
+    protected_inputs = [baseline]
+    if transition_history is not None:
+        protected_inputs.append(transition_history)
+    if transition_lock is not None:
+        protected_inputs.append(transition_lock.parent)
+    if any(path.resolve() in (output.resolve(), *output.resolve().parents) for path in protected_inputs):
+        raise ValueError("The candidate study requires a separate run directory")
+    locked = None
+    if transition_lock is not None:
+        from f1ri.validation.traffic_transition import lock_transition_windows, locked_extensions
+
+        locked = json.loads(transition_lock.read_text(encoding="utf8"))
+        if transition_history is None:
+            raise ValueError("Transition study requires its frozen history run")
+        output.mkdir(parents=True, exist_ok=True)
+        replay = output / "selection_verification.json"
+        lock_transition_windows(root, warehouse, transition_history, transition_lock.parent, plan, replay)
+        if replay.read_bytes() != transition_lock.read_bytes():
+            raise ValueError("Transition lock differs from deterministic census selection")
     if plan["frozen_protocol_sha256"] != protocol_hash or plan["independence_rule"] != INDEPENDENCE_RULE:
         raise ValueError("History study requires its frozen protocol and independence rule")
     if [row["session_key"] for row in plan["cohorts"]] != [9955, 9928]:
         raise ValueError("History study is limited to Austria and Hungary in chronological order")
-    if output.resolve() == baseline.resolve() or baseline.resolve() in output.resolve().parents:
-        raise ValueError("The candidate study requires a separate run directory")
     bundle = load_pace_bundle(root, stage3_root)
     stage3 = stage3_root / "artifacts/runs/stage3_degradation_v1"
     splits = json.loads((stage3 / "splits.json").read_text(encoding="utf-8"))
@@ -228,6 +246,12 @@ def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, 
             folder.mkdir(parents=True, exist_ok=True)
             planner = partial(_before_acquisition, folder, root=root, warehouse=warehouse,
                               cohort=cohort, plan=plan, config=config, archives=archives)
+            if locked is not None:
+                def planner(inputs, geometry_available, key=key):
+                    windows, summary = locked_extensions(key, locked, plan)
+                    if any(window.replay.telemetry.start_utc < geometry_available for window in windows):
+                        raise ValueError("Locked transition window predates geometry availability")
+                    return windows, summary
             result = _collect_race(root, warehouse, race, cohort, config, folder, openf1 if ingest else None, bundle,
                                    coverage_diagnostics=True, development_planner=planner)
             summary, _, refs, _, archive, detail = result
@@ -235,6 +259,10 @@ def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, 
                 prior_geometry = next(row["geometry_sha256"] for row in archives if row["session_key"] == key)
                 if archive["geometry_sha256"] != prior_geometry:
                     raise ValueError("Hungary geometry changed")
+            if locked is not None:
+                prior_geometry = json.loads((transition_history / str(key) / "geometry.json").read_text(encoding="utf8"))
+                if json.loads((folder / "geometry.json").read_text(encoding="utf8")) != prior_geometry:
+                    raise ValueError("Transition study geometry differs from its frozen history run")
             if len(archive["geometry_sources"]) > geometry_budget:
                 raise ValueError("History study exceeded geometry budget")
             ledger = {row["opportunity_id"]: row for row in detail["audit"].outcomes if row["screen"] in SCREENED}
@@ -243,10 +271,21 @@ def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, 
     # Original and extended Hungary can contribute earlier controls. The new
     # study supplies its own target labels and takes precedence at shared laps.
     covered = {lap["opportunity_id"] for row in candidate for lap in row[3]["audit"].cutoffs}
+    if locked is not None:
+        for key in (9955, 9928):
+            folder = transition_history / str(key)
+            covered.update(row["opportunity_id"] for row in parquet_rows(folder / "lap_cutoff_cohort.parquet"))
+        old_history = [_frozen_rows(transition_history / str(key)) for key in (9955, 9928)]
+        study_covered = {lap["opportunity_id"] for row in candidate for lap in row[3]["audit"].cutoffs}
+    else:
+        old_history, study_covered = [], covered
     retained = [([ref for ref in refs if ref["opportunity_id"] not in covered],
                  [outcome for outcome in outcomes if outcome["opportunity_id"] not in covered])
                 for refs, outcomes in frozen]
-    refs, outcomes = _deduplicate(retained + [(row[1], row[5]) for row in candidate])
+    history_retained = [([ref for ref in refs if ref["opportunity_id"] not in study_covered],
+                         [outcome for outcome in outcomes if outcome["opportunity_id"] not in study_covered])
+                        for refs, outcomes in old_history]
+    refs, outcomes = _deduplicate(retained + history_retained + [(row[1], row[5]) for row in candidate])
     controls, residuals = _control_audit(refs, outcomes, config["reference"], fixed_validation=fixed_validation)
     _parquet(output / "control_pool_attrition.parquet", controls)
     _json(output / "control_pool_attrition.json", _control_json_rows(controls))
@@ -287,7 +326,8 @@ def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, 
                         "following_proxies": fixed["targets"]["following_with_proxy"]["unique_laps"]},
         "frozen_control_audit": _audit_summary(frozen_controls),
         "control_pool_audit": _audit_summary(controls), "historical_and_study_duplicate_lap_rows_removed": (
-            frozen_overlap + sum(len(pair[1]) for pair in frozen) + sum(len(row[5]) for row in candidate) - len(outcomes)
+            frozen_overlap + sum(len(pair[1]) for pair in frozen + old_history)
+            + sum(len(row[5]) for row in candidate) - len(outcomes)
         ),
         "original_hungary_rows_superseded_by_frozen_extension": frozen_overlap,
         "frozen_rows_superseded_on_study_grid": sum(len(old[1]) - len(kept[1])
@@ -306,4 +346,32 @@ def run_history_study(root: Path, warehouse: Path, protocol: Path, pilot: Path, 
     from f1ri.validation.traffic_plots import plot_history_study
 
     plot_history_study(result, output / "stage5_s3_c_history_study.png")
+    if locked is not None:
+        from f1ri.validation.traffic_transition import anchor_conversion
+        from f1ri.validation.traffic_transition_plots import plot_transition
+
+        result["transition_lock_sha256"] = _sha(transition_lock)
+        result["prior_history_outcomes_reused"] = sum(len(pair[1]) for pair in history_retained)
+        result["anchor_conversion"] = anchor_conversion(results, locked, output, config["reference"])
+        for race in results:
+            folder = output / str(race["session_key"])
+            ledger = parquet_rows(folder / "lap_eligibility_ledger.parquet")
+            race["following_independence"] = encounter_units([
+                row | {"episode_ids": row["outcome_episode_ids"] or []}
+                for row in ledger if row["screen"] == "FOLLOWING"
+            ])
+            residuals_path = folder / "traffic_residuals.parquet"
+            pace = ({row["opportunity_id"]: row for row in parquet_rows(residuals_path)}
+                    if residuals_path.is_file() else {})
+            for row in race["targets"]["following_evidence"]:
+                residual = pace.get(row["opportunity_id"], {})
+                row.update({name: residual.get(name) for name in ("expected_clean_s", "observed_lap_s")})
+        census = json.loads((transition_lock.parent / "census.json").read_text(encoding="utf8"))
+        control_counts = {}
+        for key in (9955, 9928):
+            rows = parquet_rows(transition_lock.parent / f"candidates_{key}.parquet")
+            control_counts[key] = [(row["lap_number"], len(row["matched_control_ids"]))
+                                   for row in rows if row["matched_control_ids"] is not None]
+        plot_transition(census, result, control_counts, output / "stage5_s3_c_transition.png")
+        _json(output / "transition_metrics.json", result)
     return result

@@ -16,7 +16,7 @@ from f1ri.validation.traffic_history_audit import visible_history
 
 
 def cutoff_candidates(warehouse: Path, session_key: int, track: pd.DataFrame, population: dict,
-                      geometry_available, prefix_s: int) -> list[dict]:
+                      geometry_available, prefix_s: int, *, include_ineligible=False) -> list[dict]:
     """Use only recorded lap starts and intervals available at each cutoff."""
     with duckdb.connect(str(warehouse), read_only=True) as con:
         con.execute("SET TimeZone = 'UTC'")
@@ -40,7 +40,8 @@ def cutoff_candidates(warehouse: Path, session_key: int, track: pd.DataFrame, po
     for row in cutoffs.itertuples():
         at = row.cutoff_utc
         start = at.floor("s") - timedelta(seconds=prefix_s)
-        if start < geometry_available or not any(a <= at < b for a, b in green):
+        state_eligible = start >= geometry_available and any(a <= at < b for a, b in green)
+        if not state_eligible and not include_ineligible:
             continue
         age = (at - row.interval_utc).total_seconds() if pd.notna(row.interval_utc) else None
         gap = row.interval_s if age is not None and 0 <= age <= population["maximum_interval_age_s"] else None
@@ -51,7 +52,7 @@ def cutoff_candidates(warehouse: Path, session_key: int, track: pd.DataFrame, po
             "interval_source_utc": row.interval_utc if pd.notna(row.interval_utc) else None,
             "interval_age_s": age, "interval_source_raw": row.interval_raw,
             "selection_gap_s": float(gap) if pd.notna(gap) else None,
-        })
+        } | ({"state_eligible": state_eligible} if include_ineligible else {}))
     return result
 
 

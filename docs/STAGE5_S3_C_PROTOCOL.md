@@ -195,3 +195,41 @@ laps cannot add independent support for the same group. This is a
 conservative counting rule. It leaves the frozen exposure construction
 and the historical replay available. The four-driver timing gate and
 the existing race, following and control minimums apply.
+
+## Clean-to-traffic transition pilot
+
+The census covers recorded lap starts from laps 8–46 at Austria and
+Hungary. It reconstructs the existing D8 prefix at each cutoff and
+audits cached physical evidence for earlier laps. Archive observation
+time remains a source-availability proxy.
+
+A physical approach uses complete-field samples no older than one
+second at cutoff and three seconds earlier. It requires the same leader,
+an earlier upper gap bound above 120 m, a reduction of more than 10 m,
+and a current upper bound at most 225 m. Already-close samples without
+that transition are a separate state. The coarse fallback uses a current
+classification interval of 0.25–2.2 s no older than eight seconds, an
+earlier interval at least 2.0 s and a reduction of at least 0.4 s. The
+earlier observation is 12–30 seconds old. Classification intervals
+supply sampling priority and stay outside the prediction features.
+
+The transition arm requires three cutoff-visible clean laps on the
+same stint and a supported D8 forecast. It prefers cached physical
+approaches, greater earlier-control support and positive relative
+clean pace when a same-lap leader has a supported D8 cutoff within
+90 seconds. Seeded ordering breaks ties. Each follower stint can be
+selected once per race. Later anchors favor phase and compound diversity.
+The earlier-control arm prioritizes potential matches to deficient
+targets using cutoff clocks and tire context. Actual completion,
+availability and matching gates still apply. The random arm ranks the
+green cutoff grid without pace or proximity screening.
+
+After the cached census, freeze exact windows and request spans before
+fetching. Blocks lie in a high-confidence green interval after geometry
+availability and start 35 seconds before the anchor. Reuse hash-verified
+original, extension and history-study slices. Execute the locked
+acquisition once. Preserve the full-field, history, control and encounter
+gates and the fixed Monza evidence. Later cohorts remain sealed. Compare
+arm yields descriptively given the different sampling rules and small
+acquisition.
+[Transition plan](../config/experiments/stage5_s3_c_transition_pilot.yaml)

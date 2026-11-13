@@ -1,0 +1,71 @@
+{
+  "version": "s3-c-transition-census-v1",
+  "races": {
+    "9955": {
+      "candidates": 633,
+      "history": {
+        "QUALIFIED": 312,
+        "INSUFFICIENT_CLEAN_HISTORY": 265,
+        "INSUFFICIENT_COMPLETED_HISTORY": 56
+      },
+      "d8": {
+        "SUPPORTED": 293,
+        "UNATTEMPTED": 321,
+        "LIMITED_SUPPORT": 19
+      },
+      "qualified_approach": 6,
+      "approach": {
+        "NO_USABLE_APPROACH": 538,
+        "ALREADY_PHYSICALLY_CLOSE": 84,
+        "COARSE_INTERVAL_APPROACH": 5,
+        "PHYSICAL_APPROACH": 6
+      },
+      "qualified_by_phase_stint": {
+        "early/1": 54,
+        "early/2": 13,
+        "middle/1": 18,
+        "middle/2": 196,
+        "middle/3": 31
+      },
+      "with_five_controls": 0,
+      "driver_stints": 5,
+      "known_leader_stints": 3,
+      "ledger_sha256": "d61e980c9d279f5eca6c9d878da3469ff3504b18a501bf635827cf5b9091bd97"
+    },
+    "9928": {
+      "candidates": 780,
+      "history": {
+        "QUALIFIED": 351,
+        "INSUFFICIENT_CLEAN_HISTORY": 360,
+        "INSUFFICIENT_COMPLETED_HISTORY": 69
+      },
+      "d8": {
+        "SUPPORTED": 280,
+        "UNATTEMPTED": 429,
+        "LIMITED_SUPPORT": 71
+      },
+      "qualified_approach": 9,
+      "approach": {
+        "NO_USABLE_APPROACH": 635,
+        "ALREADY_PHYSICALLY_CLOSE": 126,
+        "PHYSICAL_APPROACH": 10,
+        "COARSE_INTERVAL_APPROACH": 9
+      },
+      "qualified_by_phase_stint": {
+        "early/1": 72,
+        "early/2": 32,
+        "middle/1": 80,
+        "middle/2": 163,
+        "middle/3": 4
+      },
+      "with_five_controls": 3,
+      "driver_stints": 6,
+      "known_leader_stints": 4,
+      "ledger_sha256": "ac2676073e26239b2dab457de7017dd05175845b4278868c4af6f05d381a6e97"
+    }
+  },
+  "protocol_sha256": "e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda",
+  "d8_sha256": "31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c",
+  "history_sha256": "7ff964619c54c6987eab01f82db18aad1622d834ccaeda63fc3268e76c5c4010",
+  "warehouse_sha256": "9404346d9aef1ef44ee9cea7e36c3f66475dd1d9495a62aed3e0c0e35a0e53d0"
+}

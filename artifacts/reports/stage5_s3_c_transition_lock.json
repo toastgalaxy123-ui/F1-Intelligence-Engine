@@ -1,0 +1,770 @@
+{
+  "census_sha256": "5b901f8e63943f2b34c1aa3eacdaf92dca1345cbccd0854f269563c41c1aac3e",
+  "races": {
+    "9955": {
+      "windows": [
+        {
+          "arm": "transition",
+          "start_utc": "2025-06-29T14:06:11+00:00",
+          "end_utc": "2025-06-29T14:10:31+00:00",
+          "anchor": {
+            "driver_number": 18,
+            "lap_number": 40,
+            "cutoff_utc": "2025-06-29 14:06:46.778000+00:00",
+            "block_start_utc": "2025-06-29 14:06:46+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 14:06:46.591000+00:00",
+            "interval_age_s": 0.187,
+            "interval_source_raw": "5.734",
+            "selection_gap_s": 5.734,
+            "state_eligible": true,
+            "session_key": 9955,
+            "opportunity_id": "9955/18/40",
+            "history_status": "QUALIFIED",
+            "prior_completed": 13,
+            "prior_clean": 8,
+            "stint_number": 2,
+            "compound": "HARD",
+            "tire_age": 14,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 70.96474805777359,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 12,
+              "evidence_before": 10,
+              "compound": 5,
+              "tire_age": 2,
+              "race_progress": 2
+            },
+            "matched_control_ids": [
+              "9955/16/37",
+              "9955/16/38"
+            ],
+            "approach": "PHYSICAL_APPROACH",
+            "earlier_interval_utc": "2025-06-29 14:06:33.934000+00:00",
+            "earlier_interval_s": 5.623,
+            "physical_neighbor": 87,
+            "physical_as_of_utc": "2025-06-29 14:06:46.500000+00:00",
+            "physical_gap_m": 161.273371810119,
+            "physical_gap_lower_m": 126.12754008608901,
+            "physical_gap_upper_m": 196.41920353414895,
+            "physical_relationship": "SAME_LAP",
+            "physical_closing_mps": 56.78437126061029,
+            "relative_clean_pace_s": 0.2598285595493337,
+            "leader_pace_cutoff_utc": "2025-06-29 14:05:23.701000+00:00"
+          },
+          "reused": [
+            [
+              "2025-06-29T14:04:36+00:00",
+              "2025-06-29T14:06:59+00:00"
+            ],
+            [
+              "2025-06-29T14:10:15+00:00",
+              "2025-06-29T14:13:14+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-06-29T14:06:58+00:00",
+              "2025-06-29T14:09:58+00:00"
+            ],
+            [
+              "2025-06-29T14:09:56+00:00",
+              "2025-06-29T14:10:16+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "transition",
+          "start_utc": "2025-06-29T14:12:52+00:00",
+          "end_utc": "2025-06-29T14:17:12+00:00",
+          "anchor": {
+            "driver_number": 5,
+            "lap_number": 46,
+            "cutoff_utc": "2025-06-29 14:13:27.246000+00:00",
+            "block_start_utc": "2025-06-29 14:13:27+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 14:13:27.012000+00:00",
+            "interval_age_s": 0.234,
+            "interval_source_raw": "1.266",
+            "selection_gap_s": 1.266,
+            "state_eligible": true,
+            "session_key": 9955,
+            "opportunity_id": "9955/5/46",
+            "history_status": "QUALIFIED",
+            "prior_completed": 23,
+            "prior_clean": 14,
+            "stint_number": 2,
+            "compound": "MEDIUM",
+            "tire_age": 24,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 70.84050245893827,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 13,
+              "evidence_before": 12,
+              "compound": 6,
+              "tire_age": 2,
+              "race_progress": 2
+            },
+            "matched_control_ids": [
+              "9955/63/38",
+              "9955/63/39"
+            ],
+            "approach": "COARSE_INTERVAL_APPROACH",
+            "earlier_interval_utc": "2025-06-29 14:13:14.446000+00:00",
+            "earlier_interval_s": 4.68,
+            "physical_neighbor": null,
+            "physical_as_of_utc": null,
+            "physical_gap_m": null,
+            "physical_gap_lower_m": null,
+            "physical_gap_upper_m": null,
+            "physical_relationship": null,
+            "physical_closing_mps": null,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-06-29T14:10:15+00:00",
+              "2025-06-29T14:13:14+00:00"
+            ],
+            [
+              "2025-06-29T14:13:12+00:00",
+              "2025-06-29T14:15:35+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-06-29T14:15:34+00:00",
+              "2025-06-29T14:17:12+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "earlier_control",
+          "start_utc": "2025-06-29T13:58:11+00:00",
+          "end_utc": "2025-06-29T14:02:31+00:00",
+          "anchor": {
+            "driver_number": 81,
+            "lap_number": 34,
+            "cutoff_utc": "2025-06-29 13:58:46.327000+00:00",
+            "block_start_utc": "2025-06-29 13:58:46+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 13:58:46.109000+00:00",
+            "interval_age_s": 0.218,
+            "interval_source_raw": "5.688",
+            "selection_gap_s": 5.688,
+            "state_eligible": true,
+            "session_key": 9955,
+            "opportunity_id": "9955/81/34",
+            "history_status": "QUALIFIED",
+            "prior_completed": 9,
+            "prior_clean": 7,
+            "stint_number": 2,
+            "compound": "HARD",
+            "tire_age": 9,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 69.45904819783061,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 4,
+              "evidence_before": 4,
+              "compound": 3,
+              "tire_age": 3,
+              "race_progress": 3
+            },
+            "matched_control_ids": [
+              "9955/4/28",
+              "9955/4/29",
+              "9955/81/29"
+            ],
+            "approach": "NO_USABLE_APPROACH",
+            "earlier_interval_utc": "2025-06-29 13:58:33.905000+00:00",
+            "earlier_interval_s": 5.844,
+            "physical_neighbor": null,
+            "physical_as_of_utc": null,
+            "physical_gap_m": null,
+            "physical_gap_lower_m": null,
+            "physical_gap_upper_m": null,
+            "physical_relationship": null,
+            "physical_closing_mps": null,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-06-29T14:01:39+00:00",
+              "2025-06-29T14:04:38+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-06-29T13:58:11+00:00",
+              "2025-06-29T14:01:10+00:00"
+            ],
+            [
+              "2025-06-29T14:01:08+00:00",
+              "2025-06-29T14:01:40+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "earlier_control",
+          "start_utc": "2025-06-29T13:47:30+00:00",
+          "end_utc": "2025-06-29T13:51:50+00:00",
+          "anchor": {
+            "driver_number": 16,
+            "lap_number": 25,
+            "cutoff_utc": "2025-06-29 13:48:05.499000+00:00",
+            "block_start_utc": "2025-06-29 13:48:05+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-06-29 13:48:05.218000+00:00",
+            "interval_age_s": 0.281,
+            "interval_source_raw": "3.377",
+            "selection_gap_s": 3.377,
+            "state_eligible": true,
+            "session_key": 9955,
+            "opportunity_id": "9955/16/25",
+            "history_status": "QUALIFIED",
+            "prior_completed": 24,
+            "prior_clean": 18,
+            "stint_number": 1,
+            "compound": "MEDIUM",
+            "tire_age": 24,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 71.30694660039991,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 1,
+              "evidence_before": 1,
+              "compound": 1,
+              "tire_age": 0,
+              "race_progress": 0
+            },
+            "matched_control_ids": [],
+            "approach": "NO_USABLE_APPROACH",
+            "earlier_interval_utc": "2025-06-29 13:47:52.421000+00:00",
+            "earlier_interval_s": 6.503,
+            "physical_neighbor": null,
+            "physical_as_of_utc": null,
+            "physical_gap_m": null,
+            "physical_gap_lower_m": null,
+            "physical_gap_upper_m": null,
+            "physical_relationship": null,
+            "physical_closing_mps": null,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-06-29T13:49:35+00:00",
+              "2025-06-29T13:52:34+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-06-29T13:47:30+00:00",
+              "2025-06-29T13:49:36+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "random_green",
+          "start_utc": "2025-06-29T13:37:11+00:00",
+          "end_utc": "2025-06-29T13:41:31+00:00",
+          "anchor": {
+            "driver_number": 6,
+            "lap_number": 16,
+            "cutoff_utc": "2025-06-29 13:37:46.861000+00:00",
+            "block_start_utc": "2025-06-29 13:37:46+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-06-29 13:37:46.661000+00:00",
+            "interval_age_s": 0.2,
+            "interval_source_raw": "0.514",
+            "selection_gap_s": 0.514,
+            "state_eligible": true,
+            "session_key": 9955,
+            "opportunity_id": "9955/6/16",
+            "history_status": "INSUFFICIENT_CLEAN_HISTORY",
+            "prior_completed": 12,
+            "prior_clean": 0,
+            "stint_number": 2,
+            "compound": "MEDIUM",
+            "tire_age": 13,
+            "d8_status": null,
+            "expected_clean_s": null,
+            "control_pool": null,
+            "matched_control_ids": null,
+            "approach": "ALREADY_PHYSICALLY_CLOSE",
+            "earlier_interval_utc": "2025-06-29 13:37:33.459000+00:00",
+            "earlier_interval_s": 0.437,
+            "physical_neighbor": 18,
+            "physical_as_of_utc": "2025-06-29 13:37:46.500000+00:00",
+            "physical_gap_m": 39.49225490447225,
+            "physical_gap_lower_m": 24.73225490447225,
+            "physical_gap_upper_m": 54.252254904472245,
+            "physical_relationship": "SAME_LAP",
+            "physical_closing_mps": -2.765883683887599,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-06-29T13:34:42+00:00",
+              "2025-06-29T13:37:41+00:00"
+            ],
+            [
+              "2025-06-29T13:37:39+00:00",
+              "2025-06-29T13:40:02+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-06-29T13:40:01+00:00",
+              "2025-06-29T13:41:31+00:00"
+            ]
+          ]
+        }
+      ],
+      "field_requests": 14,
+      "field_request_seconds": 725.0,
+      "blocks_by_arm": {
+        "transition": 2,
+        "earlier_control": 2,
+        "random_green": 1
+      }
+    },
+    "9928": {
+      "windows": [
+        {
+          "arm": "transition",
+          "start_utc": "2025-08-03T13:54:42+00:00",
+          "end_utc": "2025-08-03T13:59:02+00:00",
+          "anchor": {
+            "driver_number": 16,
+            "lap_number": 39,
+            "cutoff_utc": "2025-08-03 13:55:17.721000+00:00",
+            "block_start_utc": "2025-08-03 13:55:17+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-08-03 13:55:17.534000+00:00",
+            "interval_age_s": 0.187,
+            "interval_source_raw": "0.0",
+            "selection_gap_s": 0.0,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/16/39",
+            "history_status": "QUALIFIED",
+            "prior_completed": 19,
+            "prior_clean": 17,
+            "stint_number": 2,
+            "compound": "HARD",
+            "tire_age": 19,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 81.38291556850808,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 26,
+              "evidence_before": 25,
+              "compound": 11,
+              "tire_age": 5,
+              "race_progress": 5
+            },
+            "matched_control_ids": [
+              "9955/31/44",
+              "9928/16/35",
+              "9928/16/36",
+              "9928/63/35",
+              "9928/63/36"
+            ],
+            "approach": "PHYSICAL_APPROACH",
+            "earlier_interval_utc": null,
+            "earlier_interval_s": null,
+            "physical_neighbor": 22,
+            "physical_as_of_utc": "2025-08-03 13:55:17.500000+00:00",
+            "physical_gap_m": 118.60963491400071,
+            "physical_gap_lower_m": 73.2338975539166,
+            "physical_gap_upper_m": 163.9853722740848,
+            "physical_relationship": "LAPPING",
+            "physical_closing_mps": 65.10030378255776,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:54:47+00:00",
+              "2025-08-03T13:57:46+00:00"
+            ],
+            [
+              "2025-08-03T13:57:44+00:00",
+              "2025-08-03T14:00:07+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-08-03T13:54:42+00:00",
+              "2025-08-03T13:54:48+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "transition",
+          "start_utc": "2025-08-03T13:21:03+00:00",
+          "end_utc": "2025-08-03T13:25:23+00:00",
+          "anchor": {
+            "driver_number": 27,
+            "lap_number": 14,
+            "cutoff_utc": "2025-08-03 13:21:38.209000+00:00",
+            "block_start_utc": "2025-08-03 13:21:38+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:21:37.989000+00:00",
+            "interval_age_s": 0.22,
+            "interval_source_raw": "5.18",
+            "selection_gap_s": 5.18,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/27/14",
+            "history_status": "QUALIFIED",
+            "prior_completed": 7,
+            "prior_clean": 6,
+            "stint_number": 2,
+            "compound": "MEDIUM",
+            "tire_age": 8,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 82.32727318235098,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 18,
+              "evidence_before": 17,
+              "compound": 10,
+              "tire_age": 6,
+              "race_progress": 4
+            },
+            "matched_control_ids": [
+              "9928/16/8",
+              "9928/16/9",
+              "9928/16/10",
+              "9928/16/12"
+            ],
+            "approach": "PHYSICAL_APPROACH",
+            "earlier_interval_utc": "2025-08-03 13:21:22.443000+00:00",
+            "earlier_interval_s": 6.614,
+            "physical_neighbor": 43,
+            "physical_as_of_utc": "2025-08-03 13:21:38+00:00",
+            "physical_gap_m": 93.29383886613323,
+            "physical_gap_lower_m": 54.34803371098473,
+            "physical_gap_upper_m": 132.23964402128172,
+            "physical_relationship": "SAME_LAP",
+            "physical_closing_mps": 42.62400663952485,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:22:36+00:00",
+              "2025-08-03T13:25:16+00:00"
+            ],
+            [
+              "2025-08-03T13:20:33+00:00",
+              "2025-08-03T13:22:37+00:00"
+            ],
+            [
+              "2025-08-03T13:25:15+00:00",
+              "2025-08-03T13:25:36+00:00"
+            ]
+          ],
+          "requested": []
+        },
+        {
+          "arm": "transition",
+          "start_utc": "2025-08-03T13:32:10+00:00",
+          "end_utc": "2025-08-03T13:36:30+00:00",
+          "anchor": {
+            "driver_number": 55,
+            "lap_number": 22,
+            "cutoff_utc": "2025-08-03 13:32:45.792000+00:00",
+            "block_start_utc": "2025-08-03 13:32:45+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:32:45.592000+00:00",
+            "interval_age_s": 0.2,
+            "interval_source_raw": "5.646",
+            "selection_gap_s": 5.646,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/55/22",
+            "history_status": "QUALIFIED",
+            "prior_completed": 5,
+            "prior_clean": 4,
+            "stint_number": 2,
+            "compound": "HARD",
+            "tire_age": 6,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 82.18351922987863,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 18,
+              "evidence_before": 18,
+              "compound": 7,
+              "tire_age": 4,
+              "race_progress": 3
+            },
+            "matched_control_ids": [
+              "9955/4/28",
+              "9955/4/29",
+              "9955/81/29"
+            ],
+            "approach": "PHYSICAL_APPROACH",
+            "earlier_interval_utc": "2025-08-03 13:32:29.933000+00:00",
+            "earlier_interval_s": 5.74,
+            "physical_neighbor": 12,
+            "physical_as_of_utc": "2025-08-03 13:32:45.500000+00:00",
+            "physical_gap_m": 147.6507729931618,
+            "physical_gap_lower_m": 116.48093412948711,
+            "physical_gap_upper_m": 178.8206118568365,
+            "physical_relationship": "SAME_LAP",
+            "physical_closing_mps": 42.95554638853506,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:29:41+00:00",
+              "2025-08-03T13:32:21+00:00"
+            ],
+            [
+              "2025-08-03T13:33:50+00:00",
+              "2025-08-03T13:36:30+00:00"
+            ],
+            [
+              "2025-08-03T13:32:20+00:00",
+              "2025-08-03T13:33:51+00:00"
+            ],
+            [
+              "2025-08-03T13:36:29+00:00",
+              "2025-08-03T13:36:50+00:00"
+            ]
+          ],
+          "requested": []
+        },
+        {
+          "arm": "earlier_control",
+          "start_utc": "2025-08-03T13:12:24+00:00",
+          "end_utc": "2025-08-03T13:16:44+00:00",
+          "anchor": {
+            "driver_number": 14,
+            "lap_number": 8,
+            "cutoff_utc": "2025-08-03 13:12:59.161000+00:00",
+            "block_start_utc": "2025-08-03 13:12:59+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:12:58.895000+00:00",
+            "interval_age_s": 0.266,
+            "interval_source_raw": "5.382",
+            "selection_gap_s": 5.382,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/14/8",
+            "history_status": "QUALIFIED",
+            "prior_completed": 7,
+            "prior_clean": 3,
+            "stint_number": 1,
+            "compound": "MEDIUM",
+            "tire_age": 8,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 83.46195848155266,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 13,
+              "evidence_before": 13,
+              "compound": 6,
+              "tire_age": 2,
+              "race_progress": 0
+            },
+            "matched_control_ids": [],
+            "approach": "NO_USABLE_APPROACH",
+            "earlier_interval_utc": "2025-08-03 13:12:43.505000+00:00",
+            "earlier_interval_s": 5.561,
+            "physical_neighbor": 4,
+            "physical_as_of_utc": "2025-08-03 13:12:59+00:00",
+            "physical_gap_m": 425.9499198152689,
+            "physical_gap_lower_m": 410.3783038152689,
+            "physical_gap_upper_m": 441.5215358152689,
+            "physical_relationship": "SAME_LAP",
+            "physical_closing_mps": -15.075895540608144,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:10:12+00:00",
+              "2025-08-03T13:12:52+00:00"
+            ],
+            [
+              "2025-08-03T13:12:55+00:00",
+              "2025-08-03T13:15:35+00:00"
+            ],
+            [
+              "2025-08-03T13:12:51+00:00",
+              "2025-08-03T13:12:56+00:00"
+            ],
+            [
+              "2025-08-03T13:15:34+00:00",
+              "2025-08-03T13:17:37+00:00"
+            ]
+          ],
+          "requested": []
+        },
+        {
+          "arm": "earlier_control",
+          "start_utc": "2025-08-03T13:37:05+00:00",
+          "end_utc": "2025-08-03T13:41:25+00:00",
+          "anchor": {
+            "driver_number": 16,
+            "lap_number": 26,
+            "cutoff_utc": "2025-08-03 13:37:40.029000+00:00",
+            "block_start_utc": "2025-08-03 13:37:40+00:00",
+            "phase": "middle",
+            "interval_source_utc": "2025-08-03 13:37:39.873000+00:00",
+            "interval_age_s": 0.156,
+            "interval_source_raw": "8.831",
+            "selection_gap_s": 8.831,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/16/26",
+            "history_status": "QUALIFIED",
+            "prior_completed": 5,
+            "prior_clean": 3,
+            "stint_number": 2,
+            "compound": "HARD",
+            "tire_age": 6,
+            "d8_status": "SUPPORTED",
+            "expected_clean_s": 81.02471218788048,
+            "control_pool": {
+              "supported_clean_controls": 26,
+              "development": 26,
+              "distinct_lap": 26,
+              "completed_before": 21,
+              "evidence_before": 20,
+              "compound": 7,
+              "tire_age": 4,
+              "race_progress": 4
+            },
+            "matched_control_ids": [
+              "9955/4/28",
+              "9955/4/29",
+              "9955/81/29",
+              "9955/16/37"
+            ],
+            "approach": "NO_USABLE_APPROACH",
+            "earlier_interval_utc": "2025-08-03 13:37:24.263000+00:00",
+            "earlier_interval_s": 8.754,
+            "physical_neighbor": null,
+            "physical_as_of_utc": null,
+            "physical_gap_m": null,
+            "physical_gap_lower_m": null,
+            "physical_gap_upper_m": null,
+            "physical_relationship": null,
+            "physical_closing_mps": null,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:36:49+00:00",
+              "2025-08-03T13:37:38+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-08-03T13:37:37+00:00",
+              "2025-08-03T13:40:37+00:00"
+            ],
+            [
+              "2025-08-03T13:40:35+00:00",
+              "2025-08-03T13:41:25+00:00"
+            ]
+          ]
+        },
+        {
+          "arm": "random_green",
+          "start_utc": "2025-08-03T13:27:38+00:00",
+          "end_utc": "2025-08-03T13:31:58+00:00",
+          "anchor": {
+            "driver_number": 5,
+            "lap_number": 19,
+            "cutoff_utc": "2025-08-03 13:28:13.835000+00:00",
+            "block_start_utc": "2025-08-03 13:28:13+00:00",
+            "phase": "early",
+            "interval_source_utc": "2025-08-03 13:28:13.663000+00:00",
+            "interval_age_s": 0.172,
+            "interval_source_raw": "5.083",
+            "selection_gap_s": 5.083,
+            "state_eligible": true,
+            "session_key": 9928,
+            "opportunity_id": "9928/5/19",
+            "history_status": "INSUFFICIENT_CLEAN_HISTORY",
+            "prior_completed": 17,
+            "prior_clean": 1,
+            "stint_number": 1,
+            "compound": "MEDIUM",
+            "tire_age": 18,
+            "d8_status": null,
+            "expected_clean_s": null,
+            "control_pool": null,
+            "matched_control_ids": null,
+            "approach": "NO_USABLE_APPROACH",
+            "earlier_interval_utc": "2025-08-03 13:27:57.741000+00:00",
+            "earlier_interval_s": 4.755,
+            "physical_neighbor": null,
+            "physical_as_of_utc": null,
+            "physical_gap_m": null,
+            "physical_gap_lower_m": null,
+            "physical_gap_upper_m": null,
+            "physical_relationship": null,
+            "physical_closing_mps": null,
+            "relative_clean_pace_s": null,
+            "leader_pace_cutoff_utc": null
+          },
+          "reused": [
+            [
+              "2025-08-03T13:29:41+00:00",
+              "2025-08-03T13:32:21+00:00"
+            ],
+            [
+              "2025-08-03T13:28:50+00:00",
+              "2025-08-03T13:29:42+00:00"
+            ]
+          ],
+          "requested": [
+            [
+              "2025-08-03T13:27:38+00:00",
+              "2025-08-03T13:28:51+00:00"
+            ]
+          ]
+        }
+      ],
+      "field_requests": 8,
+      "field_request_seconds": 309.0,
+      "blocks_by_arm": {
+        "transition": 3,
+        "earlier_control": 2,
+        "random_green": 1
+      }
+    }
+  }
+}
