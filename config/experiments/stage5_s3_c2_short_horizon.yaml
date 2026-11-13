@@ -1,0 +1,40 @@
+version: s3-c2-short-horizon-v1
+development_sessions: [9955, 9928]
+archive_availability: OBSERVATION_TIMESTAMP_PROXY
+frozen_encounter_sha256: ed93d599b55882da255c7e37aac1463e38daa7e2fa891ab109762dc08534d1d5
+frozen_d8_sha256: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+frozen_protocol_sha256: e4cc63aee2282157f7fb30070d21e17f8caa092a9885d8769fc006431369fcda
+sampling:
+  distance_markers_fraction: [0, 0.25, 0.5, 0.75, 1]
+  diagnostic_seconds: [5, 10, 20, 30]
+  diagnostic_stride_seconds: 5
+  maximum_bracket_seconds: 1.0
+  maximum_sector_marker_disagreement_seconds: 1.0
+  maximum_cutoff_sample_age_seconds: 0.5
+  maximum_unsupported_gap_seconds: 2.0
+  minimum_support_fraction: 0.90
+  minimum_clear_fraction: 0.90
+  cutoff_close_continuation_seconds: 2.0
+reference:
+  seed: 530202
+  validation_driver_fraction: 0.4
+  minimum_pool: 8
+  minimum_same_stint: 3
+  hierarchical_shrinkage: 6
+  minimum_matched_controls: 3
+  maximum_tyre_age_delta: 5
+  maximum_progress_delta: 0.20
+  maximum_track_temperature_delta_c: 5
+  interval_minimum_calibration: 8
+feasibility:
+  minimum_independent_encounters_per_race: 10
+  minimum_independent_clean_stints_per_race: 10
+  minimum_clean_reference_predictions_per_race: 20
+  minimum_following_conversion: 0.20
+  minimum_timing_pass_fraction: 0.80
+  timing_error_p90_max_s: 0.25
+  reference_mae_max_s: 0.30
+  reference_absolute_bias_max_s: 0.15
+  reference_error_p90_max_s: 0.60
+  planning_effect_s: 0.30
+acquisition: CACHE_ONLY

@@ -25,6 +25,7 @@ artifacts/reports/*
 !artifacts/reports/stage5_s3_*.json
 !artifacts/reports/stage5_s3_c_transition_candidate_ledger.zip
 !artifacts/reports/stage5_s3_c_encounter_ledgers.zip
+!artifacts/reports/stage5_s3_c2_short_horizon_ledgers.zip
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

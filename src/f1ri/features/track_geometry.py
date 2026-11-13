@@ -166,6 +166,13 @@ def forward_passages(
     trace: Iterable[MappedFix], marker_m: float, length_m: float,
 ) -> tuple[datetime, ...]:
     """Interpolate forward passages of a common marker between adjacent good samples."""
+    return tuple(row[0] for row in forward_passage_brackets(trace, marker_m, length_m))
+
+
+def forward_passage_brackets(
+    trace: Iterable[MappedFix], marker_m: float, length_m: float,
+) -> tuple[tuple[datetime, MappedFix, MappedFix], ...]:
+    """Retain the source fixes that bound each interpolated crossing."""
     fixes = tuple(trace)
     passages = []
     for left, right in itertools.pairwise(fixes):
@@ -177,5 +184,5 @@ def forward_passages(
         delta = signed_loop_delta(left.progress_m, right.progress_m, length_m)
         distance = (marker_m - left.progress_m) % length_m
         if 0 < distance <= delta:
-            passages.append(left.fix.at_utc + span * (distance / delta))
+            passages.append((left.fix.at_utc + span * (distance / delta), left, right))
     return tuple(passages)
