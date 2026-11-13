@@ -1,0 +1,12 @@
+version: s3-c4-clean-reference-validation-v1
+c3_sha256: 8db99cd71b51b93c3165e4fbe5892166f0f9b746f44b917ecc8c993d40e16d97
+r4_sha256: 6f10cbd13986eaa812182e7142fabcedc8323f12f0bef5f7fce6b6d710b6ad50
+development_sessions: [9955, 9928]
+approved_transfer_sessions: []
+acquisition: CACHE_ONLY
+maximum_new_requests: 0
+expansion_sources:
+  - {session_key: 9928, run: baseline, role: development_clean_reconstruction}
+  - {session_key: 9928, run: coverage, role: development_clean_reconstruction}
+tier_b_sensitivity_weights: [0.10, 0.50]
+calibration_methods: [U0, U1, U2]

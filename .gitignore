@@ -27,6 +27,7 @@ artifacts/reports/*
 !artifacts/reports/stage5_s3_c_encounter_ledgers.zip
 !artifacts/reports/stage5_s3_c2_short_horizon_ledgers.zip
 !artifacts/reports/stage5_s3_c3_latent_sector_pace_ledgers.zip
+!artifacts/reports/stage5_s3_c4_clean_reference_validation_ledgers.zip
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

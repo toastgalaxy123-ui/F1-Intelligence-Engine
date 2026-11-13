@@ -190,7 +190,7 @@ def _append_candidate(rows, key, geometry, window, lap, horizon, checkpoint, ori
     })
 
 
-def build_race(root, transition, history, key, config, protocol, d8_index, inputs):
+def build_race(root, transition, history, key, config, protocol, d8_index, inputs, *, sectors_only=False):
     rows, geometry_manifest, source_hashes = [], {}, {}
     geometry_file = transition / str(key) / "geometry.json"
     raw = json.loads(geometry_file.read_text(encoding="utf8"))
@@ -235,10 +235,12 @@ def build_race(root, transition, history, key, config, protocol, d8_index, input
                 for r in stream:
                     r["episode_id"] = episode_at.get((driver, r["as_of_utc"]))
                 trace = map_fixes(geometry, _fixes(frame))
-                markers = set(sector_markers + distance_markers)
+                markers = set(sector_markers if sectors_only else sector_markers + distance_markers)
                 crossing_index = {m: crossings(trace, m, geometry.length_m) for m in markers}
-                alternate = [{m: crossings(trace[offset::2], m, geometry.length_m) for m in distance_markers}
-                             for offset in (0, 1)]
+                alternate = [] if sectors_only else [
+                    {m: crossings(trace[offset::2], m, geometry.length_m) for m in distance_markers}
+                    for offset in (0, 1)
+                ]
                 own = inputs["laps"][inputs["laps"].driver_number.eq(driver)].sort_values("lap_start_utc")
                 lap_rows = list(own.itertuples(index=False))
                 for lap, next_lap in pairwise(lap_rows):
@@ -251,7 +253,10 @@ def build_race(root, transition, history, key, config, protocol, d8_index, input
                                               end, max(available, availability.get((driver, lap.lap_number),
                                                                                   next_lap.lap_start_utc)) if available else None,
                                               clocks, stream, config, d8_index, timing)
-                    timing_rows(lap, next_lap, sector_markers, distance_markers, crossing_index, config, add, alternate)
+                    timing_rows(lap, next_lap, sector_markers, [] if sectors_only else distance_markers,
+                                crossing_index, config, add, alternate)
+                if sectors_only:
+                    continue
                 starts = list(own.lap_start_utc)
                 for i, at in enumerate(clocks):
                     if at.timestamp() % config["sampling"]["diagnostic_stride_seconds"]:

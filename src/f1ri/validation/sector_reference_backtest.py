@@ -45,7 +45,7 @@ def _prediction_row(row, model, estimate, sources, count, scale=None, **extra):
     } | extra
 
 
-def replay_sector_references(rows, config, baseline):
+def replay_sector_references(rows, config, baseline, *, sensitivity_weights=()):
     if len({r["session_key"] for r in rows}) != 1:
         raise ValueError("Sector replay requires a single permitted race/layout")
     folds = assign_folds((r["driver_number"] for r in rows), config["seed"], config["folds"])
@@ -92,7 +92,9 @@ def replay_sector_references(rows, config, baseline):
                         [_legacy_row(r) for r in same_stint], baseline,
                     ).items():
                         predictions.append(_prediction_row(target, model, estimate, sources, count, scale))
-                for label, weight in (("A", 0.), ("B", config["model"]["tier_b_weight"])):
+                policies = [("A", 0.), ("B", config["model"]["tier_b_weight"])]
+                policies.extend((f"B-{weight:.2f}", weight) for weight in sensitivity_weights)
+                for label, weight in policies:
                     fit_pool = a_pool if label == "A" else pool
                     signature = (label, tuple(r["opportunity_id"] for r in fit_pool))
                     if signature not in model_cache:
@@ -105,7 +107,9 @@ def replay_sector_references(rows, config, baseline):
                     model_id = model_cache[signature]
                     fit = models.get(model_id)
                     latent, reason = sector_prediction(fit, target, same_stint, config["model"])
-                    candidates = ("R4-A", "R4-B") if label == "A" else ("R4-B-TIER-B",)
+                    candidates = ("R4-A", "R4-B") if label == "A" else (
+                        "R4-B-TIER-B" if label == "B" else f"R4-B-TIER-{label}",
+                    )
                     status.update(dict.fromkeys(candidates, reason))
                     if not latent:
                         continue
@@ -126,7 +130,7 @@ def replay_sector_references(rows, config, baseline):
                     if role == "CALIBRATION":
                         calibration[key].append(row)
                         continue
-                    if evaluation == "B" and model in R4:
+                    if evaluation == "B" and model.startswith("R4-"):
                         previous = calibration[key]
                         widths, n = interval_from_prefix(previous, cutoff, row["raw_scale_s"],
                                                         config["calibration"]["minimum_independent_stints"])
@@ -173,7 +177,8 @@ def summarize(predictions, availability, gate):
         common = {key for key, n in Counter(r["opportunity_id"] for r in local if r["model"] in models).items()
                   if n == len(models)}
         result[evaluation] = {}
-        for model in ALL_MODELS:
+        models_present = ALL_MODELS + tuple(sorted({r["model"] for r in local} - set(ALL_MODELS)))
+        for model in models_present:
             rows = [r for r in local if r["model"] == model]
             stats = diagnostics(rows)
             intervals = [r for r in rows if r["half_width_90_s"] is not None]
