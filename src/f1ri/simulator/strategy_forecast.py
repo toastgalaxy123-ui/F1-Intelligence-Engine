@@ -119,11 +119,11 @@ class StrategyForecastAdapter:
             seed = int.from_bytes(sha256(raw.encode()).digest()[:8], "big")
             request = replace(r, n_trajectory_samples=self.samples, random_seed=seed)
             try:
-                batch = forecast_pace(self.bundle, request)
+                batch = self.forecast_request(request, replacement=False)
             except ValueError as error:
                 raise StrategyInputError("REQUEST_UNSUPPORTED", str(error)) from error
-            curves.append(_curve(batch, c.tyres.set_id, self.sample))
-            ledger.append(_record(request, batch, f.source_sha256, None, self.sample))
+            curves.append(self.pace_curve(batch, c.tyres.set_id))
+            ledger.append(self.forecast_record(request, batch, f.source_sha256, None))
         version = getattr(getattr(self.bundle, "model", None), "model_version", "")
         label = version if version == "PaceV2_D8R1" else "D8"
         source = PaceSource(PaceMode.FULL_MODEL, tuple(curves),
@@ -135,6 +135,19 @@ class StrategyForecastAdapter:
 
     def branch(self, scenario, continuation):
         return _Branch(self, self._inputs(scenario), continuation)
+
+    def forecast_request(self, request, *, replacement):
+        predict = forecast_new_stint if replacement else forecast_pace
+        return predict(self.bundle, request)
+
+    def pace_curve(self, batch, tyre_id):
+        return _curve(batch, tyre_id, self.sample)
+
+    def replacement_horizon(self, request, start):
+        return min(20, request.scheduled_race_laps-start+1)
+
+    def forecast_record(self, request, batch, source_hash, fit_clock):
+        return _record(request, batch, source_hash, fit_clock, self.sample)
 
 
 def _record(request, batch, source_hash, fit_clock, sample):
@@ -171,18 +184,18 @@ class _Branch:
                               ReplacementTyres(tyre.compound, tyre.age_laps, tyre.compound_absolute, tyre.set_id),
                               state.simulation_id, TrackState.GREEN)
         self.check_replacement(state, car, stop.replacement, stop.pit_in_lap)
-        horizon = min(20, r.scheduled_race_laps-start+1)
         p = self.parent
+        horizon = p.replacement_horizon(r, start)
         # Match alternative tyres at the same stint start and draw shape.
         # Different stop laps or stint ordinals use separate innovations.
         seed = _seed("s5-c1-replacement", p.seed, r.session_key, r.as_of_utc, d, tyre.stint_number, start, horizon)
         req = replacement_pace_request(r, stop, horizon=horizon, seed=seed, samples=p.samples)
         try:
-            batch = forecast_new_stint(p.bundle, req)
+            batch = p.forecast_request(req, replacement=True)
         except ValueError as error:
             self.ledger.append({"request": asdict(req), "fit_clock_us": state.race_clock_us,
                                 "support": "UNSUPPORTED", "reason": str(error)})
             raise
         self.current[d] = req
-        self.ledger.append(_record(req, batch, self.evidence[d].source_sha256, state.race_clock_us, p.sample))
-        return _curve(batch, tyre.set_id, p.sample)
+        self.ledger.append(p.forecast_record(req, batch, self.evidence[d].source_sha256, state.race_clock_us))
+        return p.pace_curve(batch, tyre.set_id)

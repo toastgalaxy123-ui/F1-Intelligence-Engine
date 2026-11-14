@@ -57,6 +57,9 @@ artifacts/reports/*
 !artifacts/reports/stage3_r1_metrics.json
 !artifacts/reports/stage3_r1_model_release.json
 !artifacts/reports/stage3_r1_diagnostics.png
+!artifacts/reports/stage6_s6_a_metrics.json
+!artifacts/reports/stage6_s6_a_diagnostics.png
+!artifacts/reports/stage6_s6_a_ledgers.zip
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

@@ -1,0 +1,25 @@
+version: stage6-s6-a-v1
+model_version: PaceV2_D8R1
+release: MEAN_ONLY_VALIDATED
+search:
+  horizons_laps: [3, 5, 10]
+  max_total_stops: 2
+  max_simulator_evaluations: 128
+  default_simulator_evaluations: 64
+  minimum_same_driver_stop_separation_laps: 2
+  near_margin_us_per_driver: {3: 910000, 5: 1440000, 10: 3540000}
+  seed: 42
+  default_information: POINT_IN_TIME
+  selection: exhaustive enumeration with deterministic truncation
+  cache: full typed forecast request within a single optimization, never simulated state
+sensitivities:
+  clean_air_s_per_lap: 0.3
+  soft_compound_s_per_lap: 0.3
+  tire_age_s_per_lap_per_lap: 0.06
+  lane_travel_seconds: 2.0
+  stationary_service_seconds: 1.0
+  physical_gap_metres: [24.635, 689.78]
+  slower_opponent_clean_history_s: 4.0
+  vsc_speed_multiplier: 0.9
+  restart_speed_multiplier: 1.1
+  interpretation: declared perturbations, no probability weights

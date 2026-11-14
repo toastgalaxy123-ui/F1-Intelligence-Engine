@@ -164,6 +164,8 @@ def main() -> None:
     p.add_argument("--backup", type=Path, help="Local project archive to inventory for recovery")
     p = sub.add_parser("stage3-r1", help="Rebuild and validate the separately versioned Pace V2 successor")
     p.add_argument("--cache", type=Path, default=Path("artifacts/runs/stage3_r1_sources"))
+    s6 = sub.add_parser("stage6-s6-a", help="Optimize declared strategies with verified mean pace")
+    s6.add_argument("--output", type=Path, required=True)
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -362,6 +364,10 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage6-s6-a":
+        from f1ri.validation.optimization_study import run_study
+
+        print(run_study(root, root / args.output))
     elif args.command == "stage3-r1":
         import json
 

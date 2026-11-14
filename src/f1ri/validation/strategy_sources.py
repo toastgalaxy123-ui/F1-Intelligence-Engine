@@ -49,7 +49,7 @@ def audit_model_assets(root, stage3=None):
         "trajectory_sampler": "f1ri.models.trajectory_uncertainty.CorrelatedTrajectorySampler",
         "replacement_adapter": "f1ri.simulator.pit_pace",
         "pit_model_artifacts": sorted(p.relative_to(root).as_posix()
-                                      for p in (root / "artifacts/models").rglob("*.pkl")),
+                                      for p in (root / "artifacts/models/pit_loss_v1").rglob("*.pkl")),
     }
 
 

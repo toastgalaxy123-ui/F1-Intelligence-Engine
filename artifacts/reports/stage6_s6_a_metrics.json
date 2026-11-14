@@ -1,0 +1,33 @@
+{
+  "stage": "stage6-s6-a-v1",
+  "baseline": 348,
+  "scenarios": 27,
+  "fixture_checks": {
+    "O1_no_pit_needed": true,
+    "O2_immediate": true,
+    "O3_delayed": true,
+    "O4_compound": true,
+    "O5_exact_tie": true,
+    "O6_following": true,
+    "O7_blocker_removed": true,
+    "O8_vsc": true,
+    "O9_sc": true,
+    "O10_double_stack": true,
+    "O11_two_stop": true,
+    "O12_unavailable": true,
+    "O14_budget": true,
+    "O15_small_case_and_order": true,
+    "O17_no_pass": true,
+    "cache_parity": true,
+    "O13_unsupported_horizon": true,
+    "O16_historical_field_unsupported": true,
+    "O18_unverified_model": true
+  },
+  "invariant_failures": [],
+  "model_hash": "f98e8444a5982dd482a29444ce2c06848a39829cc248cb6cfceb760b59eae16a",
+  "simulator_evaluations": 856,
+  "rankable_scenarios": 27,
+  "decision": "PATH_A_CONDITIONAL_OPTIMIZATION_VALIDATED",
+  "scope": "BEST_WITHIN_EVALUATED_CANDIDATES",
+  "release": "MEAN_ONLY_VALIDATED"
+}

@@ -23,6 +23,11 @@ def dashboard():
     st.title("F1 Strategy Scenarios")
     st.caption("Paired comparisons at the same racing markers")
     root = Path(__file__).resolve().parents[3]
+    if st.sidebar.radio("Strategy tool", ("Compare policies", "Optimize strategies")) == "Optimize strategies":
+        from f1ri.dashboard.optimization_panel import optimization_panel
+
+        optimization_panel(root)
+        return
     fixtures = strategy_families()
     extended = cases(4909.)
     fixtures.update({k: extended[k][0] for k in ("clean-air", "unblocked", "multi-car")})

@@ -91,6 +91,13 @@ conditional tire scenarios, reference sourcing and remaining acceptance gaps.
 The [official FIA reference audit](artifacts/reports/stage4_1_fia_reference_audit.md)
 adds dated source evidence separately from the frozen evaluation inputs.
 
+## Stage 6-A — Conditional strategy optimization
+
+Run `f1ri stage6-s6-a --output artifacts/runs/stage6_s6_a_reproduced` or select **Optimize strategies**
+in the strategy dashboard. S6-A searches bounded pit and tyre policies with frozen D8R1 mean pace at
+three-, five- and ten-lap horizons. See the [validation report](artifacts/reports/stage6_s6_a_validation.md)
+for the scenario results, limits and reproduction checks.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,
