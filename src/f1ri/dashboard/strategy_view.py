@@ -11,6 +11,7 @@ from f1ri.simulator.strategy import StrategyInputError, compare_strategies, fing
 from f1ri.simulator.strategy_constraints import CheckpointConstraints, constraint_summary
 from f1ri.simulator.strategy_forecast import StrategyForecastAdapter, read_forecast_inputs
 from f1ri.validation.model_strategy_recovery import recover_bundle
+from f1ri.validation.stage3_r_release import load_successor
 from f1ri.validation.strategy_discrimination import cases
 from f1ri.validation.strategy_fixtures import strategy_families
 from f1ri.validation.strategy_io import scenario_from_document
@@ -26,27 +27,38 @@ def dashboard():
     extended = cases(4909.)
     fixtures.update({k: extended[k][0] for k in ("clean-air", "unblocked", "multi-car")})
     uploaded = st.sidebar.file_uploader("Scenario configuration", type=["json"])
-    source = st.sidebar.selectbox("Pace source", ["DECLARED_SYNTHETIC", "FROZEN_PACE_REPLAY", "FULL_MODEL"])
+    source = st.sidebar.selectbox("Pace source", ["DECLARED_SYNTHETIC", "FROZEN_PACE_REPLAY", "FULL_MODEL",
+                                                 "PaceV2_D8R1 mean", "PaceV2_D8R1 correlated"])
     adapter = None
     status = "DECLARED_SYNTHETIC"
     try:
-        if source == "FULL_MODEL":
-            path = Path(st.sidebar.text_input("Local Stage 3 bundle folder", value="C:/Projects/f1-race-intelligence"))
-            audit, bundle = recover_bundle(root, path)
+        if source in {"FULL_MODEL", "PaceV2_D8R1 mean", "PaceV2_D8R1 correlated"}:
+            successor = source.startswith("PaceV2_D8R1")
+            if successor:
+                bundle, support = load_successor(root, correlated=source.endswith("correlated"))
+            else:
+                path = Path(st.sidebar.text_input("Local Stage 3 bundle folder", value="C:/Projects/f1-race-intelligence"))
+                audit, bundle = recover_bundle(root, path)
+                support = audit["status"]
             if bundle is None:
-                st.warning(f"MODEL_UNAVAILABLE · {audit['status']}. Full-model forecasts are unsupported.")
+                st.warning(f"MODEL_UNAVAILABLE · {support}")
                 return
-            st.caption(f"FULL_MODEL_VERIFIED · {bundle.model.model_version} · {bundle.artifact_sha256[:12]}")
+            st.caption(f"{support if successor else 'FULL_MODEL_VERIFIED'} · "
+                       f"{bundle.model.model_version} · {bundle.artifact_sha256[:12]}")
+            st.caption(f"Training cutoff {bundle.trained_through_utc} · Calibration cutoff "
+                       f"{bundle.calibrated_through_utc} · {bundle.regulation_era}")
             feature_file = st.sidebar.file_uploader("Cutoff feature records", type=["json"])
             if not uploaded or not feature_file:
                 st.info("REQUEST_UNSUPPORTED · Upload a scenario and its cutoff feature records.")
                 return
             features = read_forecast_inputs(json.loads(feature_file.getvalue()))
-            stochastic = st.sidebar.checkbox("Use one paired D8 draw")
+            stochastic = source.endswith("correlated") if successor else st.sidebar.checkbox("Use one paired D8 draw")
             index = st.sidebar.number_input("Paired draw index", 0, 999, 0) if stochastic else None
             adapter = StrategyForecastAdapter(bundle, features, seed=42, samples=1000, sample=index)
             s = scenario_from_document(json.loads(uploaded.getvalue()), root, forecast_adapter=adapter)
-            status = "FULL_MODEL_VERIFIED"
+            status = f"{support} · {'PAIRED STINT DRAW' if stochastic else 'MEAN PACE'}"
+            st.caption(f"{s.horizon_laps} forecast laps · Physical following and race-control bounds apply. "
+                       "Strategy deltas are conditional on the selected race scenario.")
         elif uploaded:
             s = scenario_from_document(json.loads(uploaded.getvalue()), root)
             status = "FROZEN_PACE_CONTINUATION" if s.pace.mode == "FROZEN_PACE_REPLAY" else status

@@ -12,6 +12,10 @@ A reproducible, strictly point-in-time Formula 1 race analytics and stint-simula
   - Stint-level and open-loop horizon tables (`gold.stint_observations`, `gold.stint_lap_observations`, `gold.stint_training_examples` for $H \in \{1, 3, 5, 10, 15, 20\}$).
   - Hierarchical empirical-Bayes tire degradation (`HierarchicalTireDegradationModel`), online Bayesian stint-state filtering (`OnlineStintStateEstimator`), correlated multi-lap trajectory uncertainty (`CorrelatedTrajectorySampler`), and counterfactual strategy comparison (`StintTrajectoryForecaster`, [Stage 3 Validation Report](artifacts/reports/stage3_validation.md)).
 
+- **Stage 3-R — Pace V2 reconstruction**: Rebuilt the historical training and evaluation inputs and validated
+  `PaceV2_D8R1` for mean pace in declared strategy scenarios. See the
+  [Stage 3-R report](artifacts/reports/stage3_r1_validation.md) for the coverage gate and reproduction commands.
+
 - **Stage 4 — Pit-Loss Research**: Reconstructed pit visits, uncertain cross-fitted
   net-loss labels, matched controls, pooled route/service models, P0–P10 and
   conditional N-series evaluation, bounded telemetry checks, and explicit

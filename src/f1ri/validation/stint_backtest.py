@@ -59,6 +59,7 @@ def evaluate_open_loop_trajectories_for_df(
     *,
     n_samples_override: int | None = None,
     record_lap_rows: bool = False,
+    request_factory=row_to_stint_forecast_request,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Evaluate a fitted StintForecastModel across all cutoff x scenario x horizon rows in eval_df.
 
@@ -76,7 +77,7 @@ def evaluate_open_loop_trajectories_for_df(
     for _, grp in eval_df.groupby(group_cols, sort=False):
         ordered_grp = grp.sort_values("requested_horizon")
         max_row = ordered_grp.iloc[-1]
-        base_req = row_to_stint_forecast_request(max_row)
+        base_req = request_factory(max_row)
         if n_samples_override is not None:
             object.__setattr__(base_req, "n_trajectory_samples", int(n_samples_override))
 

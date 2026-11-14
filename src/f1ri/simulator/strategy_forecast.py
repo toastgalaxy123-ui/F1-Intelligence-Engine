@@ -124,11 +124,13 @@ class StrategyForecastAdapter:
                 raise StrategyInputError("REQUEST_UNSUPPORTED", str(error)) from error
             curves.append(_curve(batch, c.tyres.set_id, self.sample))
             ledger.append(_record(request, batch, f.source_sha256, None, self.sample))
+        version = getattr(getattr(self.bundle, "model", None), "model_version", "")
+        label = version if version == "PaceV2_D8R1" else "D8"
         source = PaceSource(PaceMode.FULL_MODEL, tuple(curves),
-                            (("D8", self.bundle.artifact_sha256),
+                            ((label, self.bundle.artifact_sha256),
                              ("features", fingerprint([asdict(f) for f in features.values()]))),
-                            f"D8:{self.seed}:{self.samples}:{self.sample}",
-                            "Verified D8; correlated within stint, independently keyed by driver and stint")
+                            f"{label}:{self.seed}:{self.samples}:{self.sample}",
+                            f"Verified {label}; correlated within stint, independently keyed by driver and stint")
         return replace(scenario, pace=source), tuple(ledger)
 
     def branch(self, scenario, continuation):

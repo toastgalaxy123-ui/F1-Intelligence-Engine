@@ -13,6 +13,7 @@ dist/
 *.parquet
 *.zip
 artifacts/models/*
+!artifacts/models/PaceV2_D8R1/
 artifacts/runs/*
 artifacts/reports/*
 !artifacts/reports/*.md
@@ -52,6 +53,10 @@ artifacts/reports/*
 !artifacts/reports/stage5_s5_c1_model_strategy_integration_ledgers.zip
 !artifacts/reports/stage5_s5_c1_model_strategy_integration_metrics.json
 !artifacts/reports/stage5_s5_c1_model_strategy_integration.png
+!artifacts/reports/stage3_r1_pace_reconstruction.zip
+!artifacts/reports/stage3_r1_metrics.json
+!artifacts/reports/stage3_r1_model_release.json
+!artifacts/reports/stage3_r1_diagnostics.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

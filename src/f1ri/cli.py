@@ -162,6 +162,11 @@ def main() -> None:
     p.add_argument("--stage3-root", type=Path)
     p.add_argument("--frozen-s5-c", type=Path, help="Directory of a reproduced S5-C run")
     p.add_argument("--backup", type=Path, help="Local project archive to inventory for recovery")
+    p = sub.add_parser("stage3-r1", help="Rebuild and validate the separately versioned Pace V2 successor")
+    p.add_argument("--cache", type=Path, default=Path("artifacts/runs/stage3_r1_sources"))
+    p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
+    p.add_argument("--output", type=Path)
+    p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -357,6 +362,22 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage3-r1":
+        import json
+
+        from f1ri.validation.stage3_r_sources import acquire
+        from f1ri.validation.stage3_r_study import run_reconstruction, verify_run
+
+        if args.verify_run:
+            if args.acquire or args.output:
+                parser.error("--verify-run verifies a sealed run independently of acquisition and rebuilding")
+            print(json.dumps(verify_run(root / args.verify_run), indent=2))
+        if not args.acquire and args.output is None and args.verify_run is None:
+            parser.error("stage3-r1 requires --acquire, --output or --verify-run")
+        if args.acquire and acquire(root, root / args.cache):
+            print("Some approved sources were unavailable. See acquisition_failures.json.")
+        if args.output:
+            print(run_reconstruction(root, root / args.cache, root / args.output))
     elif args.command == "stage5-s5-c1":
         from f1ri.validation.model_strategy_study import run_model_strategy_study
 

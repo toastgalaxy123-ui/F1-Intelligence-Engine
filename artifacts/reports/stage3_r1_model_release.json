@@ -1,0 +1,81 @@
+{
+  "model_version": "PaceV2_D8R1",
+  "model_sha256": "f98e8444a5982dd482a29444ce2c06848a39829cc248cb6cfceb760b59eae16a",
+  "published_model": "artifacts/models/PaceV2_D8R1/pace_v2_d8r1.pkl",
+  "regulation_era": "2023_2025",
+  "release": "MEAN_ONLY_VALIDATED",
+  "trained_through_utc": "2024-10-20T20:38:45.387000+00:00",
+  "calibrated_through_utc": "2025-06-01T15:00:00+00:00",
+  "train_sessions": [
+    7953,
+    7779,
+    9102,
+    9118,
+    9133,
+    9157,
+    9165,
+    9173,
+    9472,
+    9515,
+    9539,
+    9566,
+    9582,
+    9590,
+    9606,
+    9617
+  ],
+  "calibration_sessions": [
+    10006,
+    10014,
+    9987,
+    9971
+  ],
+  "feature_schema_sha256": "63415f5e314c58ef9d41bffc0927637313af5434370cc88fcc4613840f77606a",
+  "promotion_gates": {
+    "G0_data_provenance": true,
+    "G1_numerical_integrity": true,
+    "G2_mean_quality": true,
+    "G3_uncertainty_quality": false,
+    "G4_replacement_forecasting": true,
+    "G5_strategy_integration": true,
+    "G6_reproducibility": true,
+    "matched_mean_benchmarks": {
+      "endpoint_h1": {
+        "d8r1_s": 0.3308,
+        "baselines_s": {
+          "B0_E2_compound_median": 0.3632,
+          "B4_adaptive_reset_progress": 0.3496
+        },
+        "pass": true
+      },
+      "cumulative_h5": {
+        "d8r1_s": 1.5545,
+        "baselines_s": {
+          "B0_E2_compound_median": 1.7685,
+          "B4_adaptive_reset_progress": 1.7174
+        },
+        "pass": true
+      }
+    },
+    "coverage_by_horizon": {
+      "5": {
+        "50": 0.5295,
+        "90": 0.8621
+      },
+      "10": {
+        "50": 0.4245,
+        "90": 0.7877
+      },
+      "15": {
+        "50": 0.3117,
+        "90": 0.7273
+      },
+      "20": {
+        "50": 0.1364,
+        "90": 0.4545
+      }
+    }
+  },
+  "evidence_archive": "artifacts/reports/stage3_r1_pace_reconstruction.zip",
+  "evidence_archive_sha256": "7f4debe12cd1e798c521f797e71df28e8e2c92deaeed262647ec12a02963637d"
+}

@@ -1,0 +1,878 @@
+{
+  "version": "stage3-r1-v1",
+  "identity": "PaceV2_D8R1",
+  "model_recovery": "MODEL_UNAVAILABLE",
+  "decision": "PATH_B_MODEL_FITTED_WITH_LIMITS",
+  "release": "MEAN_ONLY_VALIDATED",
+  "training_and_eval": {
+    "train": [
+      7953,
+      7779,
+      9102,
+      9118,
+      9133,
+      9157,
+      9165,
+      9173,
+      9472,
+      9515,
+      9539,
+      9566,
+      9582,
+      9590,
+      9606,
+      9617
+    ],
+    "calibration": [
+      10006,
+      10014,
+      9987,
+      9971
+    ],
+    "test": [
+      9955,
+      9928,
+      9912,
+      9896,
+      9888,
+      9839
+    ],
+    "test_historical_uninspected": [
+      9955,
+      9928,
+      9888,
+      9839
+    ]
+  },
+  "promotion_gates": {
+    "G0_data_provenance": true,
+    "G1_numerical_integrity": true,
+    "G2_mean_quality": true,
+    "G3_uncertainty_quality": false,
+    "G4_replacement_forecasting": true,
+    "G5_strategy_integration": true,
+    "G6_reproducibility": true,
+    "matched_mean_benchmarks": {
+      "endpoint_h1": {
+        "d8r1_s": 0.3308,
+        "baselines_s": {
+          "B0_E2_compound_median": 0.3632,
+          "B4_adaptive_reset_progress": 0.3496
+        },
+        "pass": true
+      },
+      "cumulative_h5": {
+        "d8r1_s": 1.5545,
+        "baselines_s": {
+          "B0_E2_compound_median": 1.7685,
+          "B4_adaptive_reset_progress": 1.7174
+        },
+        "pass": true
+      }
+    },
+    "coverage_by_horizon": {
+      "5": {
+        "50": 0.5295,
+        "90": 0.8621
+      },
+      "10": {
+        "50": 0.4245,
+        "90": 0.7877
+      },
+      "15": {
+        "50": 0.3117,
+        "90": 0.7273
+      },
+      "20": {
+        "50": 0.1364,
+        "90": 0.4545
+      }
+    }
+  },
+  "model_sha256": "f98e8444a5982dd482a29444ce2c06848a39829cc248cb6cfceb760b59eae16a",
+  "population": {
+    "7779": {
+      "laps_with_stint": 942,
+      "clean_laps": 380,
+      "drivers": 20,
+      "clean_stints": 34,
+      "compounds": {
+        "HARD": 544,
+        "MEDIUM": 366,
+        "SOFT": 32
+      },
+      "exclusions": {
+        "TRAFFIC": 441,
+        "ELIGIBLE": 380,
+        "TRACK_STATUS_SC|TRAFFIC": 34,
+        "LAP_1|TRAFFIC": 18,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 11,
+        "TRACK_STATUS_SC": 11,
+        "PIT_OUT|TRAFFIC": 9,
+        "PIT_IN|TRAFFIC": 8,
+        "PIT_IN|TRACK_STATUS_SC": 8,
+        "TRACK_STATUS_DOUBLE_YELLOW": 5,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 4,
+        "PIT_OUT|TRACK_STATUS_SC": 3,
+        "PIT_IN": 3,
+        "BLUE_FLAG|TRAFFIC": 3,
+        "LAP_1": 1,
+        "PIT_OUT": 1,
+        "BLUE_FLAG": 1,
+        "LAP_1|PIT_IN|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "7953": {
+      "laps_with_stint": 1055,
+      "clean_laps": 484,
+      "drivers": 20,
+      "clean_stints": 55,
+      "compounds": {
+        "HARD": 588,
+        "SOFT": 457,
+        "MEDIUM": 10
+      },
+      "exclusions": {
+        "ELIGIBLE": 484,
+        "TRAFFIC": 399,
+        "PIT_OUT|TRAFFIC": 41,
+        "PIT_IN|TRAFFIC": 28,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 21,
+        "LAP_1|TRACK_STATUS_YELLOW|TRAFFIC": 19,
+        "PIT_IN": 16,
+        "TRACK_STATUS_VSC": 15,
+        "BLUE_FLAG|TRAFFIC": 6,
+        "TRACK_STATUS_YELLOW": 4,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 4,
+        "PIT_IN|TRACK_STATUS_VSC": 4,
+        "TRACK_STATUS_VSC|TRAFFIC": 4,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 2,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 2,
+        "BLUE_FLAG": 2,
+        "LAP_1|TRACK_STATUS_YELLOW": 1,
+        "PIT_OUT": 1,
+        "PIT_OUT|TRACK_STATUS_VSC": 1,
+        "PIT_OUT|TRACK_STATUS_VSC|BLUE_FLAG|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9102": {
+      "laps_with_stint": 1312,
+      "clean_laps": 607,
+      "drivers": 20,
+      "clean_stints": 52,
+      "compounds": {
+        "HARD": 544,
+        "MEDIUM": 402,
+        "SOFT": 366
+      },
+      "exclusions": {
+        "ELIGIBLE": 607,
+        "TRAFFIC": 579,
+        "PIT_OUT|TRAFFIC": 42,
+        "PIT_IN|TRAFFIC": 34,
+        "BLUE_FLAG|TRAFFIC": 17,
+        "LAP_1|TRAFFIC": 16,
+        "PIT_IN": 7,
+        "BLUE_FLAG": 4,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRAFFIC": 2,
+        "LAP_1": 1,
+        "LAP_1|PIT_IN|TRAFFIC": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9118": {
+      "laps_with_stint": 1353,
+      "clean_laps": 552,
+      "drivers": 20,
+      "clean_stints": 42,
+      "compounds": {
+        "HARD": 738,
+        "MEDIUM": 613,
+        "SOFT": 2
+      },
+      "exclusions": {
+        "TRAFFIC": 579,
+        "ELIGIBLE": 552,
+        "PIT_OUT|TRAFFIC": 28,
+        "BLUE_FLAG|TRAFFIC": 28,
+        "PIT_IN|TRAFFIC": 21,
+        "PIT_OUT|TRACK_STATUS_UNKNOWN|TRAFFIC": 19,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 14,
+        "LAP_1|TRACK_STATUS_SC|TRAFFIC": 13,
+        "TRACK_STATUS_VSC|TRAFFIC": 13,
+        "TRACK_STATUS_VSC": 12,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 11,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 10,
+        "BLUE_FLAG": 9,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 8,
+        "PIT_IN": 5,
+        "PIT_IN|TRACK_STATUS_SC": 4,
+        "PIT_IN|TRACK_STATUS_VSC": 4,
+        "LAP_1|TRACK_STATUS_SC": 4,
+        "TRACK_STATUS_YELLOW": 3,
+        "TRACK_STATUS_DOUBLE_YELLOW": 3,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 3,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 2,
+        "PIT_OUT|TRACK_STATUS_UNKNOWN": 1,
+        "PIT_OUT|TRACK_STATUS_VSC": 1,
+        "PIT_IN|PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|PIT_IN|TRACK_STATUS_SC|TRAFFIC": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 1,
+        "LAP_1|PIT_IN|TRACK_STATUS_SC": 1,
+        "PIT_IN|PIT_OUT|TRACK_STATUS_SC": 1
+      },
+      "missing_weather": 0
+    },
+    "9133": {
+      "laps_with_stint": 1252,
+      "clean_laps": 634,
+      "drivers": 20,
+      "clean_stints": 48,
+      "compounds": {
+        "HARD": 770,
+        "MEDIUM": 448,
+        "SOFT": 34
+      },
+      "exclusions": {
+        "ELIGIBLE": 634,
+        "TRAFFIC": 476,
+        "PIT_OUT|TRAFFIC": 33,
+        "PIT_IN|TRAFFIC": 26,
+        "BLUE_FLAG|TRAFFIC": 23,
+        "LAP_1|TRACK_STATUS_YELLOW|TRAFFIC": 17,
+        "TRACK_STATUS_DOUBLE_YELLOW": 11,
+        "PIT_IN": 10,
+        "BLUE_FLAG": 8,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 7,
+        "LAP_1|TRACK_STATUS_YELLOW": 3,
+        "PIT_OUT": 2,
+        "TRACK_STATUS_DOUBLE_YELLOW|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9157": {
+      "laps_with_stint": 949,
+      "clean_laps": 370,
+      "drivers": 20,
+      "clean_stints": 34,
+      "compounds": {
+        "HARD": 502,
+        "MEDIUM": 447
+      },
+      "exclusions": {
+        "TRAFFIC": 507,
+        "ELIGIBLE": 370,
+        "PIT_OUT|TRAFFIC": 25,
+        "PIT_IN|TRAFFIC": 21,
+        "LAP_1|TRAFFIC": 18,
+        "PIT_IN": 4,
+        "BLUE_FLAG|TRAFFIC": 2,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_UNKNOWN": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9165": {
+      "laps_with_stint": 1085,
+      "clean_laps": 284,
+      "drivers": 19,
+      "clean_stints": 30,
+      "compounds": {
+        "HARD": 595,
+        "MEDIUM": 430,
+        "SOFT": 60
+      },
+      "exclusions": {
+        "TRAFFIC": 554,
+        "ELIGIBLE": 284,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 42,
+        "TRACK_STATUS_DOUBLE_YELLOW": 39,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 27,
+        "TRACK_STATUS_SC|TRAFFIC": 21,
+        "TRACK_STATUS_VSC|TRAFFIC": 20,
+        "LAP_1|TRACK_STATUS_YELLOW|TRAFFIC": 16,
+        "TRACK_STATUS_VSC": 14,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 12,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 12,
+        "TRACK_STATUS_YELLOW": 11,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 6,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 6,
+        "TRACK_STATUS_SC": 4,
+        "PIT_OUT|TRAFFIC": 4,
+        "PIT_IN|TRACK_STATUS_SC": 3,
+        "PIT_OUT|TRACK_STATUS_SC": 3,
+        "PIT_IN": 2,
+        "PIT_IN|TRAFFIC": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_UNKNOWN": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_YELLOW|TRAFFIC": 1,
+        "PIT_IN|TRACK_STATUS_YELLOW|TRAFFIC": 1,
+        "LAP_1|TRACK_STATUS_YELLOW": 1
+      },
+      "missing_weather": 0
+    },
+    "9173": {
+      "laps_with_stint": 880,
+      "clean_laps": 417,
+      "drivers": 20,
+      "clean_stints": 40,
+      "compounds": {
+        "HARD": 461,
+        "MEDIUM": 316,
+        "SOFT": 103
+      },
+      "exclusions": {
+        "ELIGIBLE": 417,
+        "TRAFFIC": 267,
+        "TRACK_STATUS_SC|TRAFFIC": 44,
+        "PIT_OUT|TRAFFIC": 30,
+        "PIT_IN|TRAFFIC": 17,
+        "TRACK_STATUS_VSC": 15,
+        "PIT_IN": 14,
+        "TRACK_STATUS_DOUBLE_YELLOW": 10,
+        "LAP_1|TRACK_STATUS_SC|TRAFFIC": 10,
+        "TRACK_STATUS_VSC|TRAFFIC": 9,
+        "TRACK_STATUS_SC": 8,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 6,
+        "LAP_1|TRACK_STATUS_SC": 5,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 4,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 3,
+        "LAP_1|PIT_IN|TRACK_STATUS_SC": 3,
+        "BLUE_FLAG|TRAFFIC": 3,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 2,
+        "PIT_OUT|TRACK_STATUS_SC": 2,
+        "PIT_IN|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 2,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 2,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_OUT": 1,
+        "PIT_IN|PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 1,
+        "PIT_IN|PIT_OUT|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 1,
+        "LAP_1|PIT_IN|TRACK_STATUS_SC|TRAFFIC": 1,
+        "BLUE_FLAG": 1
+      },
+      "missing_weather": 0
+    },
+    "9472": {
+      "laps_with_stint": 1129,
+      "clean_laps": 531,
+      "drivers": 20,
+      "clean_stints": 50,
+      "compounds": {
+        "HARD": 791,
+        "SOFT": 338
+      },
+      "exclusions": {
+        "ELIGIBLE": 531,
+        "TRAFFIC": 455,
+        "PIT_OUT|TRAFFIC": 35,
+        "PIT_IN|TRAFFIC": 22,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 18,
+        "PIT_IN": 17,
+        "BLUE_FLAG|TRAFFIC": 16,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 11,
+        "TRACK_STATUS_YELLOW": 7,
+        "BLUE_FLAG": 4,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 3,
+        "PIT_OUT": 3,
+        "PIT_IN|TRACK_STATUS_YELLOW|TRAFFIC": 2,
+        "PIT_OUT|TRACK_STATUS_YELLOW|TRAFFIC": 2,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1|PIT_IN|TRACK_STATUS_DOUBLE_YELLOW": 1
+      },
+      "missing_weather": 0
+    },
+    "9515": {
+      "laps_with_stint": 1238,
+      "clean_laps": 533,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "HARD": 710,
+        "MEDIUM": 510,
+        "SOFT": 18
+      },
+      "exclusions": {
+        "TRAFFIC": 576,
+        "ELIGIBLE": 533,
+        "BLUE_FLAG|TRAFFIC": 55,
+        "PIT_OUT|TRAFFIC": 22,
+        "PIT_IN|TRAFFIC": 21,
+        "LAP_1|TRAFFIC": 18,
+        "PIT_IN": 4,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 4,
+        "LAP_1": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRAFFIC": 1,
+        "PIT_IN|PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "BLUE_FLAG": 1
+      },
+      "missing_weather": 0
+    },
+    "9539": {
+      "laps_with_stint": 1310,
+      "clean_laps": 555,
+      "drivers": 20,
+      "clean_stints": 54,
+      "compounds": {
+        "SOFT": 511,
+        "MEDIUM": 439,
+        "HARD": 360
+      },
+      "exclusions": {
+        "TRAFFIC": 602,
+        "ELIGIBLE": 555,
+        "BLUE_FLAG|TRAFFIC": 40,
+        "PIT_OUT|TRAFFIC": 39,
+        "PIT_IN|TRAFFIC": 35,
+        "LAP_1|TRAFFIC": 18,
+        "BLUE_FLAG": 9,
+        "PIT_IN": 5,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 3,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 2,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9566": {
+      "laps_with_stint": 1355,
+      "clean_laps": 605,
+      "drivers": 20,
+      "clean_stints": 48,
+      "compounds": {
+        "HARD": 870,
+        "MEDIUM": 441,
+        "SOFT": 44
+      },
+      "exclusions": {
+        "ELIGIBLE": 605,
+        "TRAFFIC": 593,
+        "PIT_OUT|TRAFFIC": 39,
+        "BLUE_FLAG|TRAFFIC": 30,
+        "PIT_IN|TRAFFIC": 29,
+        "LAP_1|TRAFFIC": 18,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 11,
+        "PIT_IN": 9,
+        "TRACK_STATUS_YELLOW": 8,
+        "BLUE_FLAG": 6,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 2,
+        "TRACK_STATUS_YELLOW|BLUE_FLAG": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRAFFIC": 1,
+        "TRACK_STATUS_YELLOW|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9582": {
+      "laps_with_stint": 1426,
+      "clean_laps": 628,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "HARD": 806,
+        "MEDIUM": 507,
+        "SOFT": 113
+      },
+      "exclusions": {
+        "TRAFFIC": 676,
+        "ELIGIBLE": 628,
+        "BLUE_FLAG|TRAFFIC": 43,
+        "PIT_OUT|TRAFFIC": 25,
+        "PIT_IN|TRAFFIC": 24,
+        "LAP_1|TRAFFIC": 18,
+        "BLUE_FLAG": 7,
+        "PIT_IN": 2,
+        "LAP_1": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRAFFIC": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9590": {
+      "laps_with_stint": 1008,
+      "clean_laps": 420,
+      "drivers": 20,
+      "clean_stints": 42,
+      "compounds": {
+        "HARD": 732,
+        "MEDIUM": 274,
+        "SOFT": 2
+      },
+      "exclusions": {
+        "TRAFFIC": 488,
+        "ELIGIBLE": 420,
+        "PIT_OUT|TRAFFIC": 28,
+        "PIT_IN|TRAFFIC": 26,
+        "LAP_1|TRAFFIC": 19,
+        "BLUE_FLAG|TRAFFIC": 15,
+        "BLUE_FLAG": 5,
+        "PIT_IN": 3,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 2,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9606": {
+      "laps_with_stint": 1177,
+      "clean_laps": 574,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "MEDIUM": 541,
+        "HARD": 534,
+        "SOFT": 102
+      },
+      "exclusions": {
+        "ELIGIBLE": 574,
+        "TRAFFIC": 517,
+        "PIT_OUT|TRAFFIC": 21,
+        "LAP_1|TRAFFIC": 19,
+        "PIT_IN|TRAFFIC": 19,
+        "BLUE_FLAG|TRAFFIC": 19,
+        "PIT_IN": 3,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 2,
+        "LAP_1": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "BLUE_FLAG": 1
+      },
+      "missing_weather": 0
+    },
+    "9617": {
+      "laps_with_stint": 1058,
+      "clean_laps": 511,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "HARD": 574,
+        "MEDIUM": 480,
+        "SOFT": 4
+      },
+      "exclusions": {
+        "ELIGIBLE": 511,
+        "TRAFFIC": 356,
+        "TRACK_STATUS_SC|TRAFFIC": 48,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 21,
+        "PIT_OUT|TRAFFIC": 19,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 17,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 16,
+        "TRACK_STATUS_YELLOW": 15,
+        "PIT_IN": 14,
+        "PIT_IN|TRAFFIC": 8,
+        "BLUE_FLAG|TRAFFIC": 8,
+        "BLUE_FLAG": 7,
+        "TRACK_STATUS_SC": 7,
+        "TRACK_STATUS_DOUBLE_YELLOW": 3,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW": 2,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_OUT": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_YELLOW|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9839": {
+      "laps_with_stint": 1156,
+      "clean_laps": 415,
+      "drivers": 20,
+      "clean_stints": 37,
+      "compounds": {
+        "HARD": 713,
+        "MEDIUM": 420,
+        "SOFT": 23
+      },
+      "exclusions": {
+        "TRAFFIC": 663,
+        "ELIGIBLE": 415,
+        "PIT_OUT|TRAFFIC": 25,
+        "LAP_1|TRAFFIC": 19,
+        "PIT_IN|TRAFFIC": 19,
+        "PIT_IN": 8,
+        "BLUE_FLAG": 2,
+        "PIT_OUT": 2,
+        "BLUE_FLAG|TRAFFIC": 2,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9888": {
+      "laps_with_stint": 1066,
+      "clean_laps": 510,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "MEDIUM": 551,
+        "SOFT": 456,
+        "HARD": 59
+      },
+      "exclusions": {
+        "ELIGIBLE": 510,
+        "TRAFFIC": 412,
+        "TRACK_STATUS_VSC|TRAFFIC": 27,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 18,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 18,
+        "PIT_OUT|TRAFFIC": 17,
+        "PIT_IN": 14,
+        "TRACK_STATUS_VSC": 14,
+        "TRACK_STATUS_DOUBLE_YELLOW": 10,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 7,
+        "PIT_IN|TRAFFIC": 6,
+        "BLUE_FLAG|TRAFFIC": 4,
+        "LAP_1|TRACK_STATUS_DOUBLE_YELLOW": 2,
+        "TRACK_STATUS_YELLOW": 2,
+        "PIT_OUT|TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 2,
+        "PIT_OUT": 1,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9896": {
+      "laps_with_stint": 1229,
+      "clean_laps": 474,
+      "drivers": 20,
+      "clean_stints": 37,
+      "compounds": {
+        "MEDIUM": 508,
+        "HARD": 504,
+        "SOFT": 217
+      },
+      "exclusions": {
+        "TRAFFIC": 622,
+        "ELIGIBLE": 474,
+        "BLUE_FLAG|TRAFFIC": 25,
+        "PIT_OUT|TRAFFIC": 22,
+        "LAP_1|TRAFFIC": 19,
+        "PIT_IN|TRAFFIC": 19,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 16,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 9,
+        "TRACK_STATUS_YELLOW": 7,
+        "TRACK_STATUS_DOUBLE_YELLOW": 4,
+        "TRACK_STATUS_YELLOW|BLUE_FLAG|TRAFFIC": 3,
+        "BLUE_FLAG": 3,
+        "PIT_IN": 2,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "PIT_IN|TRACK_STATUS_YELLOW|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9912": {
+      "laps_with_stint": 975,
+      "clean_laps": 415,
+      "drivers": 20,
+      "clean_stints": 32,
+      "compounds": {
+        "HARD": 516,
+        "MEDIUM": 428,
+        "SOFT": 31
+      },
+      "exclusions": {
+        "TRAFFIC": 481,
+        "ELIGIBLE": 415,
+        "PIT_OUT|TRAFFIC": 18,
+        "LAP_1|TRAFFIC": 18,
+        "PIT_IN|TRAFFIC": 17,
+        "TRACK_STATUS_DOUBLE_YELLOW|TRAFFIC": 10,
+        "TRACK_STATUS_DOUBLE_YELLOW": 9,
+        "PIT_IN": 2,
+        "LAP_1": 1,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_UNKNOWN": 1,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 1,
+        "BLUE_FLAG|TRAFFIC": 1,
+        "BLUE_FLAG": 1
+      },
+      "missing_weather": 0
+    },
+    "9928": {
+      "laps_with_stint": 1368,
+      "clean_laps": 513,
+      "drivers": 20,
+      "clean_stints": 42,
+      "compounds": {
+        "HARD": 757,
+        "MEDIUM": 560,
+        "SOFT": 51
+      },
+      "exclusions": {
+        "TRAFFIC": 746,
+        "ELIGIBLE": 513,
+        "PIT_OUT|TRAFFIC": 27,
+        "BLUE_FLAG|TRAFFIC": 25,
+        "PIT_IN|TRAFFIC": 23,
+        "LAP_1|TRAFFIC": 19,
+        "PIT_IN": 6,
+        "BLUE_FLAG": 6,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 2,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9955": {
+      "laps_with_stint": 1127,
+      "clean_laps": 477,
+      "drivers": 20,
+      "clean_stints": 40,
+      "compounds": {
+        "MEDIUM": 611,
+        "HARD": 442,
+        "SOFT": 74
+      },
+      "exclusions": {
+        "TRAFFIC": 489,
+        "ELIGIBLE": 477,
+        "TRACK_STATUS_SC|TRAFFIC": 30,
+        "PIT_OUT|TRAFFIC": 29,
+        "PIT_IN|TRAFFIC": 23,
+        "BLUE_FLAG|TRAFFIC": 20,
+        "BLUE_FLAG": 10,
+        "LAP_1|TRACK_STATUS_SC|TRAFFIC": 10,
+        "TRACK_STATUS_YELLOW": 8,
+        "LAP_1|TRACK_STATUS_SC": 7,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 7,
+        "PIT_IN": 5,
+        "LAP_1|INCOMPLETE_OR_INVALID_LAP|TRACK_STATUS_UNKNOWN": 3,
+        "TRACK_STATUS_SC": 2,
+        "PIT_OUT|BLUE_FLAG|TRAFFIC": 2,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 2,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 1,
+        "PIT_IN|TRACK_STATUS_YELLOW|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "9971": {
+      "laps_with_stint": 1202,
+      "clean_laps": 446,
+      "drivers": 19,
+      "clean_stints": 53,
+      "compounds": {
+        "SOFT": 684,
+        "MEDIUM": 507,
+        "HARD": 11
+      },
+      "exclusions": {
+        "TRAFFIC": 513,
+        "ELIGIBLE": 446,
+        "TRACK_STATUS_SC|TRAFFIC": 69,
+        "PIT_OUT|TRAFFIC": 39,
+        "PIT_IN|TRAFFIC": 30,
+        "BLUE_FLAG|TRAFFIC": 25,
+        "LAP_1|TRAFFIC": 18,
+        "TRACK_STATUS_SC": 14,
+        "PIT_IN|TRACK_STATUS_SC": 10,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 9,
+        "PIT_IN": 9,
+        "BLUE_FLAG": 5,
+        "PIT_OUT|TRACK_STATUS_SC": 5,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 4,
+        "TRACK_STATUS_SC|BLUE_FLAG|TRAFFIC": 2,
+        "PIT_OUT": 1,
+        "PIT_IN|BLUE_FLAG|TRAFFIC": 1,
+        "TRACK_STATUS_DOUBLE_YELLOW": 1,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    },
+    "9987": {
+      "laps_with_stint": 1205,
+      "clean_laps": 338,
+      "drivers": 20,
+      "clean_stints": 40,
+      "compounds": {
+        "HARD": 812,
+        "MEDIUM": 393
+      },
+      "exclusions": {
+        "TRAFFIC": 602,
+        "ELIGIBLE": 338,
+        "TRACK_STATUS_SC|TRAFFIC": 96,
+        "TRACK_STATUS_SC": 40,
+        "LAP_1|TRAFFIC": 17,
+        "PIT_OUT|TRACK_STATUS_VSC|TRAFFIC": 15,
+        "PIT_OUT|TRAFFIC": 12,
+        "TRACK_STATUS_VSC": 10,
+        "PIT_IN|TRAFFIC": 10,
+        "TRACK_STATUS_VSC|TRAFFIC": 9,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 9,
+        "PIT_IN|TRACK_STATUS_VSC|TRAFFIC": 8,
+        "TRACK_STATUS_YELLOW": 8,
+        "PIT_IN|TRACK_STATUS_VSC": 7,
+        "TRACK_STATUS_YELLOW|TRAFFIC": 5,
+        "PIT_IN|TRACK_STATUS_SC": 5,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 4,
+        "BLUE_FLAG|TRAFFIC": 3,
+        "LAP_1": 2,
+        "PIT_IN": 2,
+        "PIT_OUT|TRACK_STATUS_VSC": 1,
+        "TRACK_STATUS_SC|BLUE_FLAG|TRAFFIC": 1,
+        "LAP_1|PIT_IN|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "10006": {
+      "laps_with_stint": 1059,
+      "clean_laps": 464,
+      "drivers": 20,
+      "clean_stints": 34,
+      "compounds": {
+        "HARD": 543,
+        "MEDIUM": 452,
+        "SOFT": 64
+      },
+      "exclusions": {
+        "TRAFFIC": 531,
+        "ELIGIBLE": 464,
+        "PIT_OUT|TRAFFIC": 20,
+        "LAP_1|TRAFFIC": 19,
+        "PIT_IN|TRAFFIC": 15,
+        "PIT_IN": 6,
+        "LAP_1": 1,
+        "PIT_OUT": 1,
+        "BLUE_FLAG": 1,
+        "BLUE_FLAG|TRAFFIC": 1
+      },
+      "missing_weather": 0
+    },
+    "10014": {
+      "laps_with_stint": 1128,
+      "clean_laps": 306,
+      "drivers": 20,
+      "clean_stints": 38,
+      "compounds": {
+        "MEDIUM": 517,
+        "HARD": 316,
+        "SOFT": 295
+      },
+      "exclusions": {
+        "TRAFFIC": 666,
+        "ELIGIBLE": 306,
+        "TRACK_STATUS_SC|TRAFFIC": 36,
+        "PIT_OUT|TRAFFIC": 28,
+        "PIT_IN|TRAFFIC": 23,
+        "LAP_1|TRAFFIC": 19,
+        "TRACK_STATUS_SC": 16,
+        "PIT_OUT|TRACK_STATUS_SC|TRAFFIC": 12,
+        "PIT_IN|TRACK_STATUS_SC": 7,
+        "PIT_IN|TRACK_STATUS_SC|TRAFFIC": 7,
+        "PIT_IN": 5,
+        "PIT_OUT|TRACK_STATUS_SC": 2,
+        "LAP_1": 1
+      },
+      "missing_weather": 0
+    }
+  },
+  "open_loop_opportunities": 11702,
+  "independent_test_races": 6
+}
