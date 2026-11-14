@@ -1,0 +1,37 @@
+version: s5-b-historical-neutralization-v1
+baseline: fad15efcc9861406e92a3dc80e324664452a243e
+seed: null
+cohort:
+  9987: {circuit: Imola, role: reconstruction_only, scheduled_laps: 63}
+  9896: {circuit: Singapore, role: frozen_pilot, scheduled_laps: 62}
+cache_census_roles:
+  9955: development
+  9928: development
+  9912: validation_sealed
+  9920: audited
+  9904: audited
+availability: archive_event_time_only_receipt_unknown
+location_max_age_s: 0.9
+timing_reconciliation_tolerance_s: 0.12
+position_uncertainty_sensitivity_multipliers: [-1, 0, 1]
+frozen:
+  s5_a1: 1d77585f99578084160eb47332caa988ed6934aed508459dbc5753e0acc655d3
+  s5_a: c345b7e78f96168c7b72f367362bece02534b675942ba44861d759a4b5cfe54e
+  s4_b1: 438026418c126c0002999e4f2d038e4ef383da4f9cd230de6b5a8e9fb1690792
+  s4_b: 09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d
+  s4_a: 9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+acquisition:
+  session: 9987
+  role: reconstruction_only
+  purpose: Independently constrain historical sector timing and physical approach or restart snapshots
+  logical_request_budget: 6
+  stop: One cached pass over the six specified queries. No automatic window expansion.
+  windows:
+    - [laps, vsc_timing, date_start, '2025-05-18T13:36:30+00:00', '2025-05-18T13:50:00+00:00']
+    - [laps, sc_timing, date_start, '2025-05-18T14:02:00+00:00', '2025-05-18T14:25:30+00:00']
+    - [location, vsc_deploy, date, '2025-05-18T13:42:19+00:00', '2025-05-18T13:43:04+00:00']
+    - [location, sc_deploy, date, '2025-05-18T14:06:10+00:00', '2025-05-18T14:06:55+00:00']
+    - [location, sc_announcement, date, '2025-05-18T14:19:55+00:00', '2025-05-18T14:20:25+00:00']
+    - [location, sc_clear, date, '2025-05-18T14:21:27+00:00', '2025-05-18T14:23:00+00:00']

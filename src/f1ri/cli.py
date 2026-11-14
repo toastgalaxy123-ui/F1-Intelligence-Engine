@@ -142,6 +142,10 @@ def main() -> None:
     for name in ("warehouse", "stage3-root", "s4-replay"):
         p.add_argument(f"--{name}", type=Path)
     p.add_argument("--frozen-inputs", action="store_true", help="Use the hash-verified archived S5-A scenario inputs")
+    p = sub.add_parser("stage5-s5-b", help="Validate historical neutralization support from frozen and cached inputs")
+    p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
+    p.add_argument("--imola", type=Path, default=Path("artifacts/runs/stage5_s3_c_forensics_baseline/9987"))
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -274,6 +278,10 @@ def main() -> None:
         print(run_stabilization(root, warehouse, stage3_root, root / args.baseline,
                                 s4_replay, root / args.imola, root / args.output,
                                 frozen_inputs=args.frozen_inputs))
+    elif args.command == "stage5-s5-b":
+        from f1ri.validation.historical_neutralization_study import run_historical_neutralization
+
+        print(run_historical_neutralization(root, root / args.output, root / args.imola, root / args.warehouse))
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

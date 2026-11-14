@@ -43,6 +43,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s5_a1_pit_restart_stabilization_ledgers.zip
 !artifacts/reports/stage5_s5_a1_pit_restart_stabilization_metrics.json
 !artifacts/reports/stage5_s5_a1_pit_restart_stabilization.png
+!artifacts/reports/stage5_s5_b_historical_neutralization_validation_ledgers.zip
+!artifacts/reports/stage5_s5_b_historical_neutralization_validation_metrics.json
+!artifacts/reports/stage5_s5_b_historical_neutralization_validation.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/
