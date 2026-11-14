@@ -266,6 +266,9 @@ class _DynamicField:
         return max(1, round((checkpoint - origin) * self.pace[driver] / 3)
                    - round((previous - origin) * self.pace[driver] / 3))
 
+    def _pace_at(self, driver, checkpoint):
+        return self.pace[driver]
+
     def _crossing_floor(self, state, key, start):
         return max(state.race_clock_us + 1, self.motion_floor.get(key, start), self.pause_floor.get(key, start))
 
@@ -341,7 +344,7 @@ class _DynamicField:
             cp = car.completed_checkpoints + 1
             progress = positions[driver]
             self.motion_origin[driver, cp] = progress, state.race_clock_us
-            self.motion_floor[driver, cp] = state.race_clock_us + round((cp-progress)*self.pace[driver]/3)
+            self.motion_floor[driver, cp] = state.race_clock_us + round((cp-progress)*self._pace_at(driver, cp)/3)
 
     def _reschedule(self, state, scheduler, *, preserve_motion=False):
         if preserve_motion:
@@ -436,7 +439,7 @@ class _DynamicField:
         # A pass authorizes the alternate dependency at one checkpoint only.
         candidate = self._predict(state, pending).get((driver, a.checkpoint))
         progress = self._positions(state, event.at_us, driver)[driver]
-        proposal_floor = event.at_us + round((a.checkpoint-progress)*self.pace[driver]/3)
+        proposal_floor = event.at_us + round((a.checkpoint-progress)*self._pace_at(driver, a.checkpoint)/3)
         candidate_us = max(candidate.crossing_us, proposal_floor) if candidate else None
         distance_m = (a.checkpoint - self._before(driver, a.checkpoint)[0]) * self.physical.length_m / 3
         if (candidate is None or candidate_us + self.gap > target.crossing_us

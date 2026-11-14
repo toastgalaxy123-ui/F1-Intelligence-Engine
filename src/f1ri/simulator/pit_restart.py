@@ -46,9 +46,10 @@ class _PitTick(Event):
 
 
 class StabilizedField(_NeutralizedField):
-    def __init__(self, *args, pit_decisions, individual_restart, **kwargs):
+    def __init__(self, *args, pit_decisions, individual_restart, strategy_runtime=None, **kwargs):
         super().__init__(*args, **kwargs)
         self.individual_restart = individual_restart
+        self.strategy_runtime = strategy_runtime
         self.decisions = {row.decision_id: row for row in pit_decisions}
         if (len(self.decisions) != len(pit_decisions)
                 or any(r.at_us < self.initial.race_clock_us for r in pit_decisions)
@@ -66,6 +67,9 @@ class StabilizedField(_NeutralizedField):
 
     def events(self):
         items = super().events()
+        if self.strategy_runtime:
+            items.extend(Event(at, K.STRATEGY_REVIEW, source="S5_C_POLICY")
+                         for at in self.strategy_runtime.review_clocks())
         for row in self.decisions.values():
             driver = row.driver if row.driver in self.ahead else None
             items.append(_PitTick(row.at_us, K.PIT_DECISION, driver, attempt_id=row.decision_id))
@@ -75,6 +79,17 @@ class StabilizedField(_NeutralizedField):
             items.append(_PitTick(row.valid_until_us+1, K.PIT_DECISION, driver,
                                   source="EXPIRE", attempt_id=row.decision_id))
         return [e for e in items if self.end_us is None or e.at_us <= self.end_us]
+
+    def _pace_at(self, driver, checkpoint):
+        if self.strategy_runtime:
+            return self.strategy_runtime.pace_at(driver, checkpoint)
+        return super()._pace_at(driver, checkpoint)
+
+    def _traversal_clean_us(self, driver, checkpoint, previous):
+        if self.strategy_runtime:
+            pace = self._pace_at(driver, checkpoint)
+            return max(1, round(checkpoint * pace / 3) - round(previous * pace / 3))
+        return super()._traversal_clean_us(driver, checkpoint, previous)
 
     def _defer_team_release(self):
         return False if self.individual_restart else super()._defer_team_release()
@@ -292,6 +307,8 @@ class StabilizedField(_NeutralizedField):
         restricted = d in self.release_lines
         if self.individual_restart:
             self._release_crossing(event, state)
+        if self.strategy_runtime and event.kind is K.PIT_SERVICE_END:
+            self.strategy_runtime.fit(state, d)
         result = super().on_event(event, state, scheduler)
         if self.individual_restart and event.kind in (K.PIT_ROUTE_ENTRY, K.TRACK_REJOIN, K.RETIREMENT):
             car = next(c for c in state.cars if c.driver_number == d)
@@ -330,5 +347,7 @@ class StabilizedField(_NeutralizedField):
                           neighbors=dict(self.ahead), track_state=state.track_state)
             if event.kind is K.TRACK_REJOIN:
                 self.active_pits.pop(d)
+        if self.strategy_runtime:
+            self.strategy_runtime.observe(event, state, self)
         self._schedule_entries(state, scheduler)
         return result

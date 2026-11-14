@@ -1,0 +1,22 @@
+version: s5-c-strategy-v1
+baseline: e17ef08076ea0100276fbc57aa32b9038fb1e73e
+information: POINT_IN_TIME_POLICY
+clock: FIXED_RACE_WALL_CLOCK_US
+objective: MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS
+frozen:
+  s5_b: a49ce8809f8169d8eacfe8f640f4e406b52780a3d37aeaa2b326794772d8b9df
+  s5_a1: 1d77585f99578084160eb47332caa988ed6934aed508459dbc5753e0acc655d3
+  s5_a: c345b7e78f96168c7b72f367362bece02534b675942ba44861d759a4b5cfe54e
+  s4_b1: 438026418c126c0002999e4f2d038e4ef383da4f9cd230de6b5a8e9fb1690792
+  s4_b: 09a0512aa29d3c4b2f3e5522e3a9f3a9e4c59d676f2e4d64c6d2bdde3345ee4d
+  s4_a: 9d99d3815a65b2d43722bdd2c2ac16316a689ea82392a529ce8afec1d130c5ec
+  c4: 21451ffd5a8734f007e0fdc2ffc8701b342e17ade39c2b1a251e0bffb1df7fff
+  d8: 31734c2244b3bdbd555c1407fe62207b3edf0eaddafe85e722b2cc936c75923c
+frozen_pace:
+  path: artifacts/runs/stage5_s1_pace
+  files:
+    trajectory_samples.npz: dda6aea4f4a16549d73b1c2c2b86e49843a433694d2b72efd331e6f610b852fe
+    snapshot.json: f36417292a3333c410ee24852a8c7591b2b819a26f6f0bfee2f7d7b13a864627
+    metrics.json: 1c35871d2b2f10f0a14a8b3baa3d91eb33e393d87fb257c7d3ab742d47904e7f
+  study_sample: 0
+  note: Singapore continuation only. No supported archived matched replacement trajectories for this snapshot.

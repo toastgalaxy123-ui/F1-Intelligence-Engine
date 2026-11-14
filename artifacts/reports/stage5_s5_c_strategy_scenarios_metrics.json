@@ -1,0 +1,1746 @@
+{
+  "version": "s5-c-strategy-v1",
+  "baseline": "e17ef08076ea0100276fbc57aa32b9038fb1e73e",
+  "families": 10,
+  "strategy_runs": 34,
+  "sensitivity_cases": 12,
+  "sensitivity_summary": {
+    "react-sc": {
+      "range_us": [
+        -39641666,
+        11433334
+      ],
+      "ranking_reverses": true
+    },
+    "pit-now-medium": {
+      "range_us": [
+        -92566666,
+        11433334
+      ],
+      "ranking_reverses": true
+    }
+  },
+  "strategy_statuses": {
+    "MARKERS_REACHED": 34
+  },
+  "invariant_failures": [],
+  "regressions": {
+    "frozen_green_pit_reexecuted": true,
+    "frozen_imola_green_zero_delay": true,
+    "frozen_imola_vsc_sc_and_singapore": true,
+    "frozen_mechanics_invariants": true,
+    "identical_reference": true,
+    "additional_policy_independence": true,
+    "execution_order_independence": true,
+    "frozen_draw_parity": true,
+    "s5_a1_metrics_replayed": true
+  },
+  "model_modes": {
+    "full_model": {
+      "status": "UNSUPPORTED",
+      "reason": "D8 bundle missing or unverified",
+      "bundle_files": {
+        "artifacts/models/degradation_v1/pace_v2_degradation_v1.pkl": "MISSING",
+        "artifacts/runs/stage3_degradation_v1/config.yaml": "MISSING",
+        "artifacts/runs/stage3_degradation_v1/data_manifest.json": "MISSING",
+        "artifacts/runs/stage3_degradation_v1/run_metadata.json": "MISSING",
+        "artifacts/runs/stage3_degradation_v1/splits.json": "MISSING",
+        "data/raw/reference/pirelli_allocations.csv": "MISSING"
+      }
+    },
+    "frozen_pace_replay": {
+      "status": "VERIFIED_CONTINUATION_ONLY",
+      "files": {
+        "trajectory_samples.npz": true,
+        "snapshot.json": true,
+        "metrics.json": true
+      }
+    },
+    "declared_synthetic": {
+      "status": "AVAILABLE"
+    },
+    "warehouse": {
+      "local": {
+        "available": true,
+        "sha256": "ffe0bcac996326b9c641240daa593af78a74d4ec56abefd129afe4e5fd884494"
+      },
+      "stage3": {
+        "available": false,
+        "sha256": null
+      }
+    },
+    "pace_model_schema": "f1ri.models.contracts.StintForecastRequest",
+    "trajectory_sampler": "f1ri.models.trajectory_uncertainty.CorrelatedTrajectorySampler",
+    "replacement_adapter": "f1ri.simulator.pit_pace",
+    "pit_model_artifacts": []
+  },
+  "comparisons": {
+    "green": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "green",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "0770c7194704123522919cb8cc37488ab40a7a092dfc94acc27ca18633ebc8c6",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "9c4fe51666b02799a7e1fc5bd9fe3551a8db0845ea9feaf4b716585c50f97f93",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "extend-one": {
+          "reference": "continue",
+          "candidate": "extend-one",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 300000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-hard": {
+          "reference": "continue",
+          "candidate": "pit-now-hard",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-medium": {
+          "reference": "continue",
+          "candidate": "pit-now-medium",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-used-soft": {
+          "reference": "continue",
+          "candidate": "pit-now-used-soft",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "two-stop": {
+          "reference": "continue",
+          "candidate": "two-stop",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 2,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            },
+            {
+              "driver": 63,
+              "decision_id": "stop-1",
+              "reference_marker_us": 390000000,
+              "paired_clock_gap_at_merge_us": 17211112,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "extend-one",
+          11433334
+        ],
+        [
+          "pit-now-hard",
+          11433334
+        ],
+        [
+          "pit-now-medium",
+          11433334
+        ],
+        [
+          "pit-now-used-soft",
+          11433334
+        ],
+        [
+          "two-stop",
+          11433334
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "vsc": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "vsc",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "7c575e3c9a1ff090271daf14def2cbc0e87d13d0e51ae77f6a868a0f50dae888",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "a6d66b83358d01d507a2f67fa7bc2c0464c14304929ab9fbe7539c269d082a88",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [
+        {
+          "event_id": "000-VSC",
+          "simulation_id": "synthetic-s2",
+          "command": "VSC_DEPLOY",
+          "at_us": 156000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "001-VSC_ENDING",
+          "simulation_id": "synthetic-s2",
+          "command": "VSC_ENDING",
+          "at_us": 182000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "002-GREEN",
+          "simulation_id": "synthetic-s2",
+          "command": "GREEN_RELEASE",
+          "at_us": 194000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        }
+      ],
+      "pairs": {
+        "after-green": {
+          "reference": "continue",
+          "candidate": "after-green",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 10607247,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 10607247,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 300826087,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "react-vsc": {
+          "reference": "continue",
+          "candidate": "react-vsc",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 10607247,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 10607247,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210826087,
+              "paired_clock_gap_at_merge_us": 8818358,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "after-green",
+          10607247
+        ],
+        [
+          "react-vsc",
+          10607247
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "sc": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "sc",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "cb6fed6af2dc3a8b3a52fb191c432eb941f5bbc1a5b9c284851c8b50919fa583",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "a64abbd26b5ecdca19aea3109ea83e918aa1a91e2393eb606298842782c51fb0",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [
+        {
+          "event_id": "000-SC",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_DEPLOY",
+          "at_us": 156000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "001-SC_IN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_IN_THIS_LAP",
+          "at_us": 192000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "002-SC_WITHDRAWN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_WITHDRAWN",
+          "at_us": 205000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "003-GREEN",
+          "simulation_id": "synthetic-s2",
+          "command": "GREEN_RELEASE",
+          "at_us": 206000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        }
+      ],
+      "pairs": {
+        "after-green": {
+          "reference": "continue",
+          "candidate": "after-green",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 8553334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 8553334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 307200000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "react-sc": {
+          "reference": "continue",
+          "candidate": "react-sc",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 7326667,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 7326667,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 217200000,
+              "paired_clock_gap_at_merge_us": 3925000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "react-sc",
+          7326667
+        ],
+        [
+          "after-green",
+          8553334
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "shared-box": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "shared-box",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "1c6fcd512fa8cc2334ce2941624f4da9f0c09c34026cb9a9cba7ca6668fc1d9b",
+      "matched": {
+        "initial_state_hash": "ccf3c0ed562d8d7567398ce0e93da020d5d175f8475861a3aaab1caa1fcf4951",
+        "exogenous_hash": "32979fa6fddeb9644792d0c7e455486345402c0869e5a4f7cb2e84a2063ad87e",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "4-first": {
+          "reference": "continue",
+          "candidate": "4-first",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 11,
+              "delta_time_us": 4833334,
+              "delta_classification": 1
+            },
+            {
+              "driver": 4,
+              "checkpoint": 11,
+              "delta_time_us": -11888888,
+              "delta_classification": -1
+            }
+          ],
+          "combined_delta_us": -7055554,
+          "pit_count_delta": 2,
+          "pit_accounting": [
+            {
+              "driver": 4,
+              "decision_id": "stop-0",
+              "reference_marker_us": 54382223,
+              "paired_clock_gap_at_merge_us": 8444444,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            },
+            {
+              "driver": 63,
+              "decision_id": "stop-1",
+              "reference_marker_us": 142500000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "63-first": {
+          "reference": "continue",
+          "candidate": "63-first",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 11,
+              "delta_time_us": -7006561,
+              "delta_classification": 0
+            },
+            {
+              "driver": 4,
+              "checkpoint": 11,
+              "delta_time_us": 3111113,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": -3895448,
+          "pit_count_delta": 2,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 52500000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            },
+            {
+              "driver": 4,
+              "decision_id": "stop-1",
+              "reference_marker_us": 146382223,
+              "paired_clock_gap_at_merge_us": 8444445,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 11,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            },
+            {
+              "driver": 4,
+              "checkpoint": 11,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "stack": {
+          "reference": "continue",
+          "candidate": "stack",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 11,
+              "delta_time_us": -8166666,
+              "delta_classification": 0
+            },
+            {
+              "driver": 4,
+              "checkpoint": 11,
+              "delta_time_us": -6715555,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": -14882221,
+          "pit_count_delta": 2,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 52500000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            },
+            {
+              "driver": 4,
+              "decision_id": "stop-1",
+              "reference_marker_us": 54382223,
+              "paired_clock_gap_at_merge_us": 13617777,
+              "actual_pit_elapsed_us": 62173333,
+              "wait_us": 5173333
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "stack",
+          -14882221
+        ],
+        [
+          "4-first",
+          -7055554
+        ],
+        [
+          "63-first",
+          -3895448
+        ],
+        [
+          "continue",
+          0
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "degradation": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "degradation",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "8711943d64be16e27bb97266ab09d894c1f4859849ea08595850be83189156d6",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "9c4fe51666b02799a7e1fc5bd9fe3551a8db0845ea9feaf4b716585c50f97f93",
+        "pace_hash": "6e8b624b16649ff3739607eaed211f3b8f0aa256cc9f8e03a5aa95644d537a13",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "extend-one": {
+          "reference": "continue",
+          "candidate": "extend-one",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": -58972221,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": -58972221,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 308333333,
+              "paired_clock_gap_at_merge_us": 5194445,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-hard": {
+          "reference": "continue",
+          "candidate": "pit-now-hard",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 211666667,
+              "paired_clock_gap_at_merge_us": 7833333,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-medium": {
+          "reference": "continue",
+          "candidate": "pit-now-medium",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 211666667,
+              "paired_clock_gap_at_merge_us": 7833333,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-used-soft": {
+          "reference": "continue",
+          "candidate": "pit-now-used-soft",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 211666667,
+              "paired_clock_gap_at_merge_us": 7833333,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "two-stop": {
+          "reference": "continue",
+          "candidate": "two-stop",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433335,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433335,
+          "pit_count_delta": 2,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 211666667,
+              "paired_clock_gap_at_merge_us": 7833333,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            },
+            {
+              "driver": 63,
+              "decision_id": "stop-1",
+              "reference_marker_us": 410000000,
+              "paired_clock_gap_at_merge_us": 10266667,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "extend-one",
+          -58972221
+        ],
+        [
+          "continue",
+          0
+        ],
+        [
+          "pit-now-hard",
+          11433334
+        ],
+        [
+          "pit-now-medium",
+          11433334
+        ],
+        [
+          "pit-now-used-soft",
+          11433334
+        ],
+        [
+          "two-stop",
+          11433335
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "red": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "red",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "e9f1687ad30fc0c88a3a3e1fda63acc2d97eee1a2bb14cd7b02ec53bea0c4db7",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "e0e9a327a187bd08e61bb41be074db9999bd8d3adf47617353476abb28bb57ce",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [
+        {
+          "event_id": "000-RED",
+          "simulation_id": "synthetic-s2",
+          "command": "RED_SUSPEND",
+          "at_us": 156000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "001-PREPARE",
+          "simulation_id": "synthetic-s2",
+          "command": "RED_PREPARE_RESUMPTION",
+          "at_us": 179000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "002-ROLLING",
+          "simulation_id": "synthetic-s2",
+          "command": "RED_RESUME_ROLLING",
+          "at_us": 184000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "003-SC_IN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_IN_THIS_LAP",
+          "at_us": 198000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "004-SC_WITHDRAWN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_WITHDRAWN",
+          "at_us": 205000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "005-GREEN",
+          "simulation_id": "synthetic-s2",
+          "command": "GREEN_RELEASE",
+          "at_us": 206000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        }
+      ],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "extend-one": {
+          "reference": "continue",
+          "candidate": "extend-one",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 328000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-now-medium": {
+          "reference": "continue",
+          "candidate": "pit-now-medium",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 11433334,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 11433334,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 238000000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "extend-one",
+          11433334
+        ],
+        [
+          "pit-now-medium",
+          11433334
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "traffic-no-pass": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "traffic-no-pass",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "e7f94a51fdf80d7e6c5399cb8f552dd9f4419638b75558f08d04700141706d77",
+      "matched": {
+        "initial_state_hash": "1458c27c09c9b2e69f6aa07fe561329199419b3b926e69e06f0413a1ec9b97a0",
+        "exogenous_hash": "a25efab7d9790503e1955d86174c2324630bd635afc280d2ba16555143d3ea05",
+        "pace_hash": "8c8775724c699a689b1eaeb40b61a83d5d68e93a6b50e366121de6dd3da01cf9",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 2,
+              "checkpoint": 15,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-car-2": {
+          "reference": "continue",
+          "candidate": "pit-car-2",
+          "drivers": [
+            {
+              "driver": 2,
+              "checkpoint": 15,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 2,
+              "decision_id": "stop-0",
+              "reference_marker_us": 100100000,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "pit-car-2",
+          0
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "traffic-scripted-pass": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "traffic-scripted-pass",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "5f2acee78fc5fcab9a78c948e1b6690c902b39681f08f800815b3f0ea03281af",
+      "matched": {
+        "initial_state_hash": "1458c27c09c9b2e69f6aa07fe561329199419b3b926e69e06f0413a1ec9b97a0",
+        "exogenous_hash": "edbac3b1e11b4a95560063373196cc74e6c34dcbda15f867bccd2bf3aa895bf9",
+        "pace_hash": "8c8775724c699a689b1eaeb40b61a83d5d68e93a6b50e366121de6dd3da01cf9",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "SCRIPTED_PASS_EVENTS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 2,
+              "checkpoint": 15,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "pit-car-2": {
+          "reference": "continue",
+          "candidate": "pit-car-2",
+          "drivers": [
+            {
+              "driver": 2,
+              "checkpoint": 15,
+              "delta_time_us": 33250000,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 33250000,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 2,
+              "decision_id": "stop-0",
+              "reference_marker_us": 52500000,
+              "paired_clock_gap_at_merge_us": 33250000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "pit-car-2",
+          33250000
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "vsc-then-sc": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "vsc-then-sc",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "7053fd8433b60e85c6961f6f91df1aa9a762533e9e2338af143afc39e1be6450",
+      "matched": {
+        "initial_state_hash": "4e924a138b17bc1f6bf0bd033178c3603c0a844b3007b90431f6cbfff7ad9c6f",
+        "exogenous_hash": "54c62a7c440ce67f130c20c89b1188f08f12ca59d78aafaa2783e16e7d8ad3be",
+        "pace_hash": "b3b8335a2f8a628b82cfe95f6174c3f288b010061a38764690b1dc0405156ad5",
+        "stream_id": null
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "DECLARED_SYNTHETIC",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [
+        {
+          "event_id": "000-VSC",
+          "simulation_id": "synthetic-s2",
+          "command": "VSC_DEPLOY",
+          "at_us": 156000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "001-VSC_ENDING",
+          "simulation_id": "synthetic-s2",
+          "command": "VSC_ENDING",
+          "at_us": 182000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "002-GREEN",
+          "simulation_id": "synthetic-s2",
+          "command": "GREEN_RELEASE",
+          "at_us": 194000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "later-000-SC",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_DEPLOY",
+          "at_us": 280000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "later-001-SC_IN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_IN_THIS_LAP",
+          "at_us": 305000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "later-002-SC_WITHDRAWN",
+          "simulation_id": "synthetic-s2",
+          "command": "SC_WITHDRAWN",
+          "at_us": 320000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        },
+        {
+          "event_id": "later-003-GREEN",
+          "simulation_id": "synthetic-s2",
+          "command": "GREEN_RELEASE",
+          "at_us": 321000000,
+          "provenance": "S5_SYNTHETIC",
+          "source": "DETERMINISTIC_SCRIPT",
+          "observation_utc": null,
+          "available_utc": null,
+          "previous": null,
+          "requested": null,
+          "scope": "TRACK",
+          "profile_id": "fia-2025-issue5-s5a-mechanical-v1",
+          "message": "",
+          "confidence": "DECLARED",
+          "affected_cars": [],
+          "restart": null,
+          "support": "SUPPORTED",
+          "local_flag": null
+        }
+      ],
+      "pairs": {
+        "after-green": {
+          "reference": "continue",
+          "candidate": "after-green",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 10607246,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 10607246,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 300826087,
+              "paired_clock_gap_at_merge_us": 9500000,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "react-vsc": {
+          "reference": "continue",
+          "candidate": "react-vsc",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 17,
+              "delta_time_us": 10607247,
+              "delta_classification": 1
+            }
+          ],
+          "combined_delta_us": 10607247,
+          "pit_count_delta": 1,
+          "pit_accounting": [
+            {
+              "driver": 63,
+              "decision_id": "stop-0",
+              "reference_marker_us": 210826087,
+              "paired_clock_gap_at_merge_us": 8818358,
+              "actual_pit_elapsed_us": 57000000,
+              "wait_us": 0
+            }
+          ],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "after-green",
+          10607246
+        ],
+        [
+          "react-vsc",
+          10607247
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    },
+    "frozen-pace": {
+      "schema": "s5-c-strategy-v1",
+      "scenario_id": "frozen-pace",
+      "experiment_id": "s5-c-family",
+      "scenario_hash": "a6a986ff05efdd940ecd821bc0f7d9f772f18ab1c95dc42558125122d15fd30e",
+      "matched": {
+        "initial_state_hash": "74c594c83e6e56796b44f26cbfe4e25e7a660d03eaf8d0076069cc65e9c7353c",
+        "exogenous_hash": "4a0697e37a6c7d989d6b7d4c537bf779e4950ae214cbc0aa75c7a717c73fbd40",
+        "pace_hash": "575bf72c2acd07adca4f17e13d82de19ce3688b1d54ab05a8f0912f6673a6e6c",
+        "stream_id": "D8_SEED_42_INDEX_0"
+      },
+      "reference": "continue",
+      "information": "POINT_IN_TIME_POLICY",
+      "trigger_clock": "FIXED_RACE_WALL_CLOCK_US",
+      "pace_mode": "FROZEN_PACE_REPLAY",
+      "field_support": "DECLARED_EXACT_SCENARIO",
+      "overtaking": "T1_NO_UNSCRIPTED_PASS",
+      "rule_profile": "fia-2025-issue5-s5a-mechanical-v1",
+      "regulatory_scope": "TACTICAL_WINDOW_COMPLIANCE_NOT_ASSESSED",
+      "schedule": [],
+      "pairs": {
+        "continue": {
+          "reference": "continue",
+          "candidate": "continue",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 96,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        },
+        "repeat": {
+          "reference": "continue",
+          "candidate": "repeat",
+          "drivers": [
+            {
+              "driver": 63,
+              "checkpoint": 96,
+              "delta_time_us": 0,
+              "delta_classification": 0
+            }
+          ],
+          "combined_delta_us": 0,
+          "pit_count_delta": 0,
+          "pit_accounting": [],
+          "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."
+        }
+      },
+      "ranking": [
+        [
+          "continue",
+          0
+        ],
+        [
+          "repeat",
+          0
+        ]
+      ],
+      "objective": "MINIMUM_SUM_OF_TIMES_TO_COMMON_RACING_MARKERS",
+      "assumptions": [
+        "S5-B physical pace and train behavior remain uncalibrated",
+        "T1 follows with no empirical dirty-air model",
+        "No neutralization tyre thermal model or stochastic deployment model"
+      ]
+    }
+  },
+  "decision": "PATH_A_BOUNDED_DETERMINISTIC_INTEGRATION",
+  "full_model_strategy": "PATH_C_REQUIRED_D8_AND_REPLACEMENT_REQUEST_CONTRACT_UNAVAILABLE"
+}

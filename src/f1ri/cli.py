@@ -146,6 +146,15 @@ def main() -> None:
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--warehouse", type=Path, default=Path("data/warehouse/f1ri.duckdb"))
     p.add_argument("--imola", type=Path, default=Path("artifacts/runs/stage5_s3_c_forensics_baseline/9987"))
+    p = sub.add_parser("stage5-s5-c", help="Evaluate matched deterministic race strategies")
+    p.add_argument("--output", type=Path)
+    p.add_argument("--scenario", type=Path, help="Versioned scenario document")
+    p.add_argument("--fixture", help="Named built-in strategy fixture")
+    p.add_argument("--reference", default="continue")
+    p.add_argument("--candidate", action="append")
+    p.add_argument("--stage3-root", type=Path)
+    p.add_argument("--list", action="store_true", dest="list_strategies")
+    p.add_argument("--validate", action="store_true")
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -282,6 +291,54 @@ def main() -> None:
         from f1ri.validation.historical_neutralization_study import run_historical_neutralization
 
         print(run_historical_neutralization(root, root / args.output, root / args.imola, root / args.warehouse))
+    elif args.command == "stage5-s5-c":
+        import json
+
+        from f1ri.simulator.strategy import (
+            StrategyInputError,
+            compare_strategies,
+            fingerprint,
+            validate_scenario,
+        )
+        from f1ri.simulator.strategy_policy import PolicyKind
+        from f1ri.validation.strategy_fixtures import strategy_families
+        from f1ri.validation.strategy_io import load_scenario, write_comparison
+        from f1ri.validation.strategy_sources import audit_model_assets, frozen_pace_fixture
+        from f1ri.validation.strategy_study import run_strategy_study
+
+        try:
+            fixtures = strategy_families()
+            if args.list_strategies:
+                print(json.dumps({"fixtures": [*fixtures, "frozen-pace"], "policies": list(PolicyKind)}, indent=2))
+            elif args.scenario and args.fixture:
+                raise StrategyInputError("AMBIGUOUS_INPUT", "Choose a scenario document or a fixture.")
+            elif args.scenario or args.fixture:
+                if args.scenario:
+                    scenario = load_scenario(root / args.scenario, root)
+                elif args.fixture == "frozen-pace":
+                    scenario = frozen_pace_fixture(root, audit_model_assets(root, args.stage3_root)[0])
+                elif args.fixture in fixtures:
+                    scenario = fixtures[args.fixture]
+                else:
+                    raise StrategyInputError("UNKNOWN_FIXTURE", "Use --list for available fixtures.")
+                if args.validate:
+                    validate_scenario(scenario)
+                    from dataclasses import asdict
+
+                    print(json.dumps({"scenario": scenario.scenario_id, "valid": True, "hash": fingerprint(asdict(scenario))}))
+                elif args.output:
+                    result = compare_strategies(scenario, args.reference, args.candidate)
+                    write_comparison(root / args.output, scenario, result)
+                    print(root / args.output / "metrics.json")
+                else:
+                    raise StrategyInputError("OUTPUT_REQUIRED", "Supply a new output directory.")
+            elif args.output and not args.validate:
+                print(run_strategy_study(root, root / args.output, args.stage3_root))
+            else:
+                raise StrategyInputError("INPUT_REQUIRED", "Supply a fixture, a scenario document or a study output path.")
+        except (StrategyInputError, FileExistsError, FileNotFoundError) as error:
+            parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
+                                       "message": str(error)}) + "\n")
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

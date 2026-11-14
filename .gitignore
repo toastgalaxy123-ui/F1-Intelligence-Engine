@@ -46,6 +46,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s5_b_historical_neutralization_validation_ledgers.zip
 !artifacts/reports/stage5_s5_b_historical_neutralization_validation_metrics.json
 !artifacts/reports/stage5_s5_b_historical_neutralization_validation.png
+!artifacts/reports/stage5_s5_c_strategy_scenarios_ledgers.zip
+!artifacts/reports/stage5_s5_c_strategy_scenarios_metrics.json
+!artifacts/reports/stage5_s5_c_strategy_scenarios.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

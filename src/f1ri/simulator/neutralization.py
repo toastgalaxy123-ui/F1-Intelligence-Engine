@@ -1,7 +1,7 @@
 """Deterministic neutralization on the shared S4 field and checkpoint timeline."""
 from dataclasses import asdict, dataclass, replace
 from datetime import timedelta
-from math import ceil
+from math import ceil, floor
 
 from f1ri.simulator.engine import _PIT_ROUTE_CHANGES, _run_timeline
 from f1ri.simulator.events import Event, EventKind
@@ -56,13 +56,13 @@ class NeutralizationRun:
 def simulate_neutralization(
     initial, physical, clean_lap_s, controls, *, laps, attempts=(), environment=(),
     minimum_gap_s=.1, end_us=None, profile=_DEFAULT_PROFILE,
-    pit_decisions=(), individual_restart=False,
+    pit_decisions=(), individual_restart=False, strategy_runtime=None,
 ):
     """Execute only the supplied intervention script. No random stream is read."""
     controls, attempts = tuple(controls), tuple(attempts)
     environment = tuple(replace(event, generation=None) for event in environment)
     pit_decisions = tuple(pit_decisions)
-    if not controls and not pit_decisions:
+    if not controls and not pit_decisions and strategy_runtime is None:
         return NeutralizationRun(simulate_scripted_overtaking(
             initial, physical, clean_lap_s, attempts, laps=laps, environment=environment,
             minimum_gap_s=minimum_gap_s, end_us=end_us,
@@ -86,11 +86,12 @@ def simulate_neutralization(
         return NeutralizationRun(baseline, rows, rule_profile=profile)
     options = {}
     field_type = _NeutralizedField
-    if pit_decisions or individual_restart:
+    if pit_decisions or individual_restart or strategy_runtime is not None:
         from f1ri.simulator.pit_restart import StabilizedField
 
         field_type = StabilizedField
-        options = {"pit_decisions": pit_decisions, "individual_restart": individual_restart}
+        options = {"pit_decisions": pit_decisions, "individual_restart": individual_restart,
+                   "strategy_runtime": strategy_runtime}
     motion = field_type(initial, physical, clean_lap_s, laps, minimum_gap_s, attempts,
                         environment, end_us, controls=controls, profile=profile, **options)
     run = _run_timeline(initial, motion.events(), capability="S5-A", before_event=motion.before_event,
@@ -197,7 +198,7 @@ class _NeutralizedField(_DynamicField):
             d, cp = c.driver_number, c.completed_checkpoints + 1
             if d in positions:
                 self.motion_origin[d, cp] = positions[d], clock
-                self.motion_floor[d, cp] = clock + max(0, round((cp-positions[d]) * self.pace[d]/3))
+                self.motion_floor[d, cp] = clock + max(0, round((cp-positions[d]) * self._pace_at(d, cp)/3))
         if self.phase in RED_PHASES:
             invalidated = sum(r.crossing_us >= clock for r in self.plan.values())
             self.paths = {d: [(p, 0.)] for d, p in positions.items()}
@@ -209,7 +210,8 @@ class _NeutralizedField(_DynamicField):
             return
         if self.phase in VSC_PHASES and positions:
             # One common speed preserves separation for the whole circuit.
-            speed = min(self.profile.vsc_speed_mps, *(self.physical.length_m*1e6/self.pace[d] for d in positions))
+            speed = min(self.profile.vsc_speed_mps, *(self.physical.length_m*1e6/
+                        self._pace_at(d, floor(positions[d])+1) for d in positions))
             self.paths = {d: [(p, speed/self.step/1e6)] for d, p in positions.items()}
             self.motion_floor.clear()
         elif self.phase in SC_PHASES and positions:
@@ -237,7 +239,8 @@ class _NeutralizedField(_DynamicField):
                 virtual = positions[self.pacer] + (virtual-positions[self.pacer]) % 3
         # The virtual boundary uses the declared ceiling and remains
         # collectable by the pacing car in slow synthetic fields.
-        base = min(base, self.physical.length_m*1e6/self.pace[self.pacer])
+        pace = {d: self._pace_at(d, floor(p)+1) for d, p in positions.items()}
+        base = min(base, self.physical.length_m*1e6/pace[self.pacer])
         self.boundary = virtual, base / unit
         # Each trajectory is the minimum of its own catch-up line and the
         # forward lines translated by their legal circular separation.
@@ -245,7 +248,7 @@ class _NeutralizedField(_DynamicField):
         free = {}
         for d, p in positions.items():
             leader = self.ahead[d]
-            free[d] = (p, min(profile.catchup_speed_mps, self.physical.length_m*1e6/self.pace[d]) / unit)
+            free[d] = (p, min(profile.catchup_speed_mps, self.physical.length_m*1e6/pace[d]) / unit)
             if leader is not None:
                 delta = positions[leader] - p - self.offsets[d, leader]
                 if delta < -1e-7:

@@ -58,7 +58,8 @@ See [Stage 4 contracts and limitations](docs/STAGE4_SPEC.md) and the
 [validation report](artifacts/reports/stage4_validation.md). The research model
 is not automatically approved for strategy optimization: superior held-out
 accuracy, sourced pit-lane references and supported VSC/SC estimates remain
-evidence-based acceptance gates. The dashboard remains a placeholder.
+evidence-based acceptance gates. The local dashboard compares declared strategy scenarios with matched conditions.
+See [the S5-C strategy guide](docs/STAGE5_S5_C_STRATEGY.md).
 
 ### Stage 4.1 stabilization
 
