@@ -49,6 +49,9 @@ artifacts/reports/*
 !artifacts/reports/stage5_s5_c_strategy_scenarios_ledgers.zip
 !artifacts/reports/stage5_s5_c_strategy_scenarios_metrics.json
 !artifacts/reports/stage5_s5_c_strategy_scenarios.png
+!artifacts/reports/stage5_s5_c1_model_strategy_integration_ledgers.zip
+!artifacts/reports/stage5_s5_c1_model_strategy_integration_metrics.json
+!artifacts/reports/stage5_s5_c1_model_strategy_integration.png
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

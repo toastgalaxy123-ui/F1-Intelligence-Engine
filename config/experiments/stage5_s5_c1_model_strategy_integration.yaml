@@ -1,0 +1,11 @@
+version: s5-c1-model-strategy-v1
+baseline: fb01eb144db5d2b9ce0cad499edbb8dc36957138
+s5_c_sha256: 669312321029a882336ffdee8f39cb7d0ddb78eeea10df22febed1d2ae5795c1
+geometry: artifacts/reports/stage5_s3_c_geometry_9987.json
+historical_session: 9896
+historical_role: frozen_pilot
+stage3_root: C:/Projects/f1-race-intelligence
+forecast_horizons: [1, 3, 5, 10, 15, 20]
+continuation_realizations: [0, 1, 7]
+replacement_stream: same driver, stint ordinal, start lap, draw shape and forecast cutoff
+forecast_policy: fixed start-of-experiment observed features; planned lap, previous set, and age from the executed branch

@@ -1,0 +1,377 @@
+{
+  "version": "s5-c1-model-strategy-v1",
+  "baseline": "fb01eb144db5d2b9ce0cad499edbb8dc36957138",
+  "model_recovery": "MODEL_UNAVAILABLE",
+  "full_model": {
+    "status": "MODEL_UNAVAILABLE",
+    "diagnostic": "FULL_MODEL_UNSUPPORTED",
+    "numeric_ranking": null,
+    "reason": "Original fitted D8 model and run metadata unavailable"
+  },
+  "replacement_forecasts_executed": 0,
+  "fixture_count": 13,
+  "branches": 68,
+  "sensitivity_cases": 13,
+  "invariant_failures": 0,
+  "constraint_counts": {
+    "CLEAN_AIR_FREE": 1860,
+    "PIT_ROUTE": 205,
+    "CLOCK_FLOOR": 82,
+    "PHYSICAL_FOLLOWING_LIMITED": 407,
+    "NEUTRALIZATION_LIMITED": 33,
+    "SERVICE_WAIT": 2,
+    "RESTART_LIMITED": 14
+  },
+  "saved_realizations": [
+    {
+      "index": 0,
+      "stream": "D8_SEED_42_INDEX_0",
+      "identical_trajectory": true,
+      "delta_us": 0,
+      "source": {
+        "initial_state_hash": "74c594c83e6e56796b44f26cbfe4e25e7a660d03eaf8d0076069cc65e9c7353c",
+        "exogenous_hash": "4a0697e37a6c7d989d6b7d4c537bf779e4950ae214cbc0aa75c7a717c73fbd40",
+        "pace_hash": "575bf72c2acd07adca4f17e13d82de19ce3688b1d54ab05a8f0912f6673a6e6c",
+        "stream_id": "D8_SEED_42_INDEX_0"
+      }
+    },
+    {
+      "index": 1,
+      "stream": "D8_SEED_42_INDEX_1",
+      "identical_trajectory": true,
+      "delta_us": 0,
+      "source": {
+        "initial_state_hash": "74c594c83e6e56796b44f26cbfe4e25e7a660d03eaf8d0076069cc65e9c7353c",
+        "exogenous_hash": "4a0697e37a6c7d989d6b7d4c537bf779e4950ae214cbc0aa75c7a717c73fbd40",
+        "pace_hash": "bc96bbeee74450e55fc45f9bbf1d04700e582fce95d7b679af8986c570b515f2",
+        "stream_id": "D8_SEED_42_INDEX_1"
+      }
+    },
+    {
+      "index": 7,
+      "stream": "D8_SEED_42_INDEX_7",
+      "identical_trajectory": true,
+      "delta_us": 0,
+      "source": {
+        "initial_state_hash": "74c594c83e6e56796b44f26cbfe4e25e7a660d03eaf8d0076069cc65e9c7353c",
+        "exogenous_hash": "4a0697e37a6c7d989d6b7d4c537bf779e4950ae214cbc0aa75c7a717c73fbd40",
+        "pace_hash": "2752fa5a10347028a0a55e0447f6c44127a123a53362998ebe5ff795851a679e",
+        "stream_id": "D8_SEED_42_INDEX_7"
+      }
+    }
+  ],
+  "field_roster": [
+    63,
+    4,
+    1,
+    16,
+    81,
+    87
+  ],
+  "geometry_source": {
+    "version": "imola-2025-fia-sampled-v1",
+    "sha256": "1329f6890e8ffdde3ad9f815353ef9588a8ad087a33c9ac6e229b3a45b31f10d",
+    "position_source": "DECLARED"
+  },
+  "rankings": {
+    "green": [
+      [
+        "continue",
+        0
+      ],
+      [
+        "extend-one",
+        11433334
+      ],
+      [
+        "pit-now-hard",
+        11433334
+      ],
+      [
+        "pit-now-medium",
+        11433334
+      ],
+      [
+        "pit-now-used-soft",
+        11433334
+      ],
+      [
+        "two-stop",
+        11433334
+      ]
+    ],
+    "clean-air": [
+      [
+        "pit-now-medium",
+        -29666666
+      ],
+      [
+        "pit-now-used-soft",
+        -22166666
+      ],
+      [
+        "two-stop",
+        -19736110
+      ],
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "pit-now-hard",
+        -9000000
+      ],
+      [
+        "continue",
+        0
+      ]
+    ],
+    "unblocked": [
+      [
+        "pit-now-medium",
+        -21542571
+      ],
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "pit-now-used-soft",
+        -12118115
+      ],
+      [
+        "two-stop",
+        -11612015
+      ],
+      [
+        "pit-now-hard",
+        -7236629
+      ],
+      [
+        "continue",
+        0
+      ]
+    ],
+    "longer-horizon": [
+      [
+        "continue",
+        0
+      ],
+      [
+        "extend-one",
+        17433334
+      ],
+      [
+        "pit-now-hard",
+        17433334
+      ],
+      [
+        "pit-now-medium",
+        17433334
+      ],
+      [
+        "two-stop",
+        18100001
+      ],
+      [
+        "pit-now-used-soft",
+        31766668
+      ]
+    ],
+    "gap-5": [
+      [
+        "continue",
+        0
+      ],
+      [
+        "pit-now-hard",
+        8500000
+      ],
+      [
+        "pit-now-medium",
+        8500000
+      ],
+      [
+        "pit-now-used-soft",
+        8500000
+      ],
+      [
+        "two-stop",
+        8500000
+      ],
+      [
+        "extend-one",
+        8500001
+      ]
+    ],
+    "gap-70": [
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "continue",
+        0
+      ],
+      [
+        "pit-now-hard",
+        15144445
+      ],
+      [
+        "pit-now-medium",
+        15144445
+      ],
+      [
+        "pit-now-used-soft",
+        15144445
+      ],
+      [
+        "two-stop",
+        15144445
+      ]
+    ],
+    "gap-240": [
+      [
+        "pit-now-medium",
+        -29666666
+      ],
+      [
+        "pit-now-used-soft",
+        -22166666
+      ],
+      [
+        "two-stop",
+        -19736110
+      ],
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "pit-now-hard",
+        -9000000
+      ],
+      [
+        "continue",
+        0
+      ]
+    ],
+    "opponent-78": [
+      [
+        "pit-now-medium",
+        -29666666
+      ],
+      [
+        "pit-now-used-soft",
+        -22166666
+      ],
+      [
+        "two-stop",
+        -19736110
+      ],
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "pit-now-hard",
+        -9000000
+      ],
+      [
+        "continue",
+        0
+      ]
+    ],
+    "opponent-94": [
+      [
+        "extend-one",
+        -19666666
+      ],
+      [
+        "continue",
+        0
+      ],
+      [
+        "pit-now-hard",
+        19397102
+      ],
+      [
+        "pit-now-medium",
+        19397102
+      ],
+      [
+        "pit-now-used-soft",
+        19397102
+      ],
+      [
+        "two-stop",
+        19397102
+      ]
+    ],
+    "vsc": [
+      [
+        "continue",
+        0
+      ],
+      [
+        "after-green",
+        10607247
+      ],
+      [
+        "react-vsc",
+        10607247
+      ]
+    ],
+    "sc": [
+      [
+        "continue",
+        0
+      ],
+      [
+        "react-sc",
+        7326667
+      ],
+      [
+        "after-green",
+        8553334
+      ]
+    ],
+    "shared-box": [
+      [
+        "stack",
+        -14882221
+      ],
+      [
+        "4-first",
+        -7055554
+      ],
+      [
+        "63-first",
+        -3895448
+      ],
+      [
+        "continue",
+        0
+      ]
+    ],
+    "multi-car": [
+      [
+        "stagger",
+        -23743977
+      ],
+      [
+        "stack",
+        -22188586
+      ],
+      [
+        "continue",
+        0
+      ],
+      [
+        "react-sc",
+        18374506
+      ]
+    ]
+  },
+  "decision": "PATH_C_ORIGINAL_MODEL_UNAVAILABLE"
+}

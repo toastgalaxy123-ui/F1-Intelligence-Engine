@@ -91,6 +91,10 @@ class StabilizedField(_NeutralizedField):
             return max(1, round(checkpoint * pace / 3) - round(previous * pace / 3))
         return super()._traversal_clean_us(driver, checkpoint, previous)
 
+    def _record_prediction(self, row, start, headway, clock_floor, movement):
+        if self.strategy_runtime:
+            self.strategy_runtime.record_prediction(row, start, headway, clock_floor, movement)
+
     def _defer_team_release(self):
         return False if self.individual_restart else super()._defer_team_release()
 
@@ -309,6 +313,8 @@ class StabilizedField(_NeutralizedField):
             self._release_crossing(event, state)
         if self.strategy_runtime and event.kind is K.PIT_SERVICE_END:
             self.strategy_runtime.fit(state, d)
+        if self.strategy_runtime:
+            self.strategy_runtime.before_commit(event, state, self)
         result = super().on_event(event, state, scheduler)
         if self.individual_restart and event.kind in (K.PIT_ROUTE_ENTRY, K.TRACK_REJOIN, K.RETIREMENT):
             car = next(c for c in state.cars if c.driver_number == d)

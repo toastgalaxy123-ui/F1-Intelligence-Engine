@@ -155,6 +155,13 @@ def main() -> None:
     p.add_argument("--stage3-root", type=Path)
     p.add_argument("--list", action="store_true", dest="list_strategies")
     p.add_argument("--validate", action="store_true")
+    p.add_argument("--forecast-features", type=Path, help="Cutoff feature document for a verified D8 comparison")
+    p.add_argument("--draw-index", type=int, help="Stochastic realization index for verified D8")
+    p = sub.add_parser("stage5-s5-c1", help="Audit D8 recovery and diagnose matched strategy outcomes")
+    p.add_argument("--output", type=Path, required=True)
+    p.add_argument("--stage3-root", type=Path)
+    p.add_argument("--frozen-s5-c", type=Path, help="Directory of a reproduced S5-C run")
+    p.add_argument("--backup", type=Path, help="Local project archive to inventory for recovery")
     p = sub.add_parser("stage5-s3-clean-validation", help="Audit cached C4 sector calibration and controls")
     for name in ("warehouse", "stage3-root", "c3", "c2", "transition", "history", "census", "baseline", "output"):
         p.add_argument(f"--{name}", type=Path, required=True)
@@ -313,8 +320,18 @@ def main() -> None:
             elif args.scenario and args.fixture:
                 raise StrategyInputError("AMBIGUOUS_INPUT", "Choose a scenario document or a fixture.")
             elif args.scenario or args.fixture:
+                adapter = None
                 if args.scenario:
-                    scenario = load_scenario(root / args.scenario, root)
+                    if args.forecast_features:
+                        from f1ri.simulator.strategy_forecast import (
+                            StrategyForecastAdapter,
+                            read_forecast_inputs,
+                        )
+
+                        features = read_forecast_inputs(json.loads((root / args.forecast_features).read_bytes()))
+                        adapter = StrategyForecastAdapter.from_verified_files(root, args.stage3_root or root, features,
+                                                                             sample=args.draw_index)
+                    scenario = load_scenario(root / args.scenario, root, forecast_adapter=adapter)
                 elif args.fixture == "frozen-pace":
                     scenario = frozen_pace_fixture(root, audit_model_assets(root, args.stage3_root)[0])
                 elif args.fixture in fixtures:
@@ -322,12 +339,13 @@ def main() -> None:
                 else:
                     raise StrategyInputError("UNKNOWN_FIXTURE", "Use --list for available fixtures.")
                 if args.validate:
-                    validate_scenario(scenario)
+                    selected = adapter.attach(scenario)[0] if adapter else scenario
+                    validate_scenario(selected, verified_forecast=adapter is not None)
                     from dataclasses import asdict
 
                     print(json.dumps({"scenario": scenario.scenario_id, "valid": True, "hash": fingerprint(asdict(scenario))}))
                 elif args.output:
-                    result = compare_strategies(scenario, args.reference, args.candidate)
+                    result = compare_strategies(scenario, args.reference, args.candidate, forecast_adapter=adapter)
                     write_comparison(root / args.output, scenario, result)
                     print(root / args.output / "metrics.json")
                 else:
@@ -336,9 +354,14 @@ def main() -> None:
                 print(run_strategy_study(root, root / args.output, args.stage3_root))
             else:
                 raise StrategyInputError("INPUT_REQUIRED", "Supply a fixture, a scenario document or a study output path.")
-        except (StrategyInputError, FileExistsError, FileNotFoundError) as error:
+        except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage5-s5-c1":
+        from f1ri.validation.model_strategy_study import run_model_strategy_study
+
+        print(run_model_strategy_study(root, root / args.output, stage3=args.stage3_root,
+                                       frozen_reproduction=args.frozen_s5_c, backup=args.backup))
     elif args.command == "stage5-s3-clean-validation":
         from f1ri.validation.sector_validation_study import run_c4
 

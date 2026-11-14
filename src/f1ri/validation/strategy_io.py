@@ -17,13 +17,13 @@ from f1ri.validation.frozen_neutralization_inputs import _command, _physical, _s
 from f1ri.validation.proximity_pilot import _json
 
 
-def scenario_from_document(doc, project_root=None):
+def scenario_from_document(doc, project_root=None, *, forecast_adapter=None):
     def policy(row):
         return Policy(row["strategy_id"], PolicyKind(row["kind"]), tuple(Stop(**x) for x in row["stops"]))
 
     try:
         source = doc["pace"]
-        scenario = validate_scenario(StrategyScenario(**(doc | {
+        scenario = StrategyScenario(**(doc | {
             "initial": _state(doc["initial"]),
             "physical": _physical(doc["physical"]),
             "resources": tuple(DriverResources(**(r | {
@@ -46,7 +46,10 @@ def scenario_from_document(doc, project_root=None):
                                                    "track_state": TrackState(x["track_state"])})) for x in doc["passes"]),
             "profile": RaceControlProfile(**doc["profile"]),
             "mandatory_compounds": tuple(doc["mandatory_compounds"]),
-        })))
+        }))
+        if scenario.pace.mode is PaceMode.FULL_MODEL and forecast_adapter is not None:
+            return scenario
+        validate_scenario(scenario)
         if scenario.pace.mode is PaceMode.FROZEN_PACE_REPLAY:
             from f1ri.validation.strategy_sources import audit_model_assets, frozen_pace_fixture
 
@@ -64,12 +67,12 @@ def scenario_from_document(doc, project_root=None):
         raise StrategyInputError("SCENARIO_DOCUMENT", str(error)) from error
 
 
-def load_scenario(path, project_root=None):
+def load_scenario(path, project_root=None, *, forecast_adapter=None):
     try:
         doc = yaml.safe_load(Path(path).read_bytes())
     except yaml.YAMLError as error:
         raise StrategyInputError("SCENARIO_DOCUMENT", str(error)) from error
-    return scenario_from_document(doc, project_root)
+    return scenario_from_document(doc, project_root, forecast_adapter=forecast_adapter)
 
 
 def write_comparison(folder, scenario, result):

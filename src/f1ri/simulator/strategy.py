@@ -57,7 +57,7 @@ class StrategyScenario:
     schema: str = SCHEMA
 
 
-def validate_scenario(s):
+def validate_scenario(s, *, verified_forecast=False):
     state, physical = s.initial, s.physical
     cars = {c.driver_number: c for c in state.cars}
     ids = set(cars)
@@ -83,7 +83,7 @@ def validate_scenario(s):
         raise StrategyInputError("PHYSICAL_STATE_UNSUPPORTED", "The scheduler requires an active exact declared field.")
     if len(ids) > 1 and any(n.ahead is None for n in physical_neighborhoods(physical).values()):
         raise StrategyInputError("UNRESOLVED_PREDECESSOR", "The initial physical predecessor order is unresolved.")
-    if s.pace.mode is PaceMode.FULL_MODEL:
+    if s.pace.mode is PaceMode.FULL_MODEL and not verified_forecast:
         raise StrategyInputError("FULL_MODEL_UNSUPPORTED",
                                  "Live full-model strategy forecasts require the verified D8 bundle and a paired request adapter.")
     if s.pace.mode is PaceMode.UNSUPPORTED or not s.pace.provenance:
@@ -151,7 +151,7 @@ def validate_scenario(s):
 
 
 class _PolicyRuntime:
-    def __init__(self, s, policy):
+    def __init__(self, s, policy, *, diagnostics=None, forecast=None):
         self.s = s
         self.policy = policy
         self.actions = [(p, stop) for p in (policy, *s.opponents) for stop in p.stops]
@@ -166,6 +166,16 @@ class _PolicyRuntime:
         self.evaluated = set()
         self.ledger = []
         self.unsupported = []
+        self.diagnostics = diagnostics
+        self.forecast = forecast
+
+    def record_prediction(self, row, start, headway, clock_floor, movement):
+        if self.diagnostics is not None:
+            self.diagnostics.prediction(row, start, headway, clock_floor, movement)
+
+    def before_commit(self, event, state, field):
+        if self.diagnostics is not None:
+            self.diagnostics.commit(event, state, field)
 
     def review_clocks(self):
         return sorted({at for _, s in self.actions for at in (s.review_us, s.cancel_us) if at is not None})
@@ -178,6 +188,8 @@ class _PolicyRuntime:
     def fit(self, state, driver):
         car = next(c for c in state.cars if c.driver_number == driver)
         new_set = car.tyres
+        if self.forecast is not None:
+            self.curves[driver, new_set.set_id] = self.forecast.replacement(state, car)
         self.stints[driver] = new_set.set_id, new_set.age_laps, new_set.stint_start_lap
         self.inventory[driver].pop(new_set.set_id)
         self.reservations.pop(driver, None)
@@ -187,6 +199,8 @@ class _PolicyRuntime:
                             "set_id": stop.set_id, "outcome": outcome, **details})
 
     def observe(self, event, state, field):
+        if self.diagnostics is not None:
+            self.diagnostics.prune(field)
         if event.kind is EventKind.PIT_LANE_EXIT and event.source == "S2_DYNAMIC":
             tyre = next(c.tyres for c in state.cars if c.driver_number == event.driver_number)
             self.compounds[event.driver_number].add(tyre.compound)
@@ -234,13 +248,16 @@ class _PolicyRuntime:
             if lap < view.next_pit_lap:
                 self._record(i, stop, state, "MISSED_ENTRY", target_lap=lap)
                 continue
-            if lap >= state.ruleset.scheduled_laps or not tyre or not curve:
+            if lap >= state.ruleset.scheduled_laps or not tyre or (not curve and self.forecast is None):
                 reason = "INVENTORY_UNAVAILABLE" if not tyre else "PACE_UNSUPPORTED" if not curve else "RACE_DISTANCE"
                 self.unsupported.append(reason)
                 self._record(i, stop, state, "UNSUPPORTED", reason=reason)
                 continue
             try:
-                curve.seconds(tyre.initial_age_laps, lap+1)
+                if self.forecast:
+                    self.forecast.check_replacement(state, car, tyre, lap)
+                else:
+                    curve.seconds(tyre.initial_age_laps, lap+1)
             except ValueError as exc:
                 self.unsupported.append("REPLACEMENT_PACE_UNSUPPORTED")
                 self._record(i, stop, state, "UNSUPPORTED", reason=str(exc))
@@ -277,8 +294,8 @@ def run_strategy(s, policy):
     return _execute_strategy(s, policy)
 
 
-def _execute_strategy(s, policy):
-    runtime = _PolicyRuntime(s, policy)
+def _execute_strategy(s, policy, *, diagnostics=None, forecast=None):
+    runtime = _PolicyRuntime(s, policy, diagnostics=diagnostics, forecast=forecast)
     try:
         run = simulate_neutralization(
             s.initial, s.physical,
@@ -412,13 +429,25 @@ def _pair(ref, result, targets):
             "explanation": "Signed difference at the same racing marker. Pit, tyre and following effects interact."}
 
 
-def compare_strategies(s, reference, candidates=None):
-    validate_scenario(s)
+def compare_strategies(s, reference, candidates=None, *, recorder_factory=None, forecast_adapter=None):
+    continuation = ()
+    if forecast_adapter is not None:
+        s, continuation = forecast_adapter.attach(s)
+    validate_scenario(s, verified_forecast=forecast_adapter is not None)
     policies = {p.strategy_id: p for p in s.policies}
     choices = sorted(policies if candidates is None else set(candidates) | {reference})
     if reference not in policies or any(x not in policies for x in choices):
         raise StrategyInputError("UNKNOWN_STRATEGY", "Choose from the policies in the scenario.")
-    results = {key: _execute_strategy(s, policies[key]) for key in choices}
+    results = {}
+    for key in choices:
+        recorder = recorder_factory() if recorder_factory is not None else None
+        forecast = forecast_adapter.branch(s, continuation) if forecast_adapter is not None else None
+        result = _execute_strategy(s, policies[key], diagnostics=recorder, forecast=forecast)
+        if recorder is not None:
+            result["checkpoint_constraints"] = recorder.rows
+        if forecast is not None:
+            result["forecast_requests"] = forecast.ledger
+        results[key] = result
     pairs = {key: _pair(results[reference], res, s.targets) for key, res in results.items()}
     matched_ids = {"initial_state_hash": fingerprint((asdict(s.initial), asdict(s.physical), s.field_support)),
                    "exogenous_hash": fingerprint((tuple(map(asdict, s.controls)), tuple(map(asdict, s.retirements)),

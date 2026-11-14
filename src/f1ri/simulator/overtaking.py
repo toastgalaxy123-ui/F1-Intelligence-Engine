@@ -323,17 +323,22 @@ class _DynamicField:
                 planned[key] = None
             else:
                 admissible = (leading + self.gap - start) if leading is not None else 0
-                minimum = max(admissible, self._crossing_floor(state, key, start) - start, 0)
+                clock_floor = self._crossing_floor(state, key, start) - start
+                minimum = max(admissible, clock_floor, 0)
                 movement = self._minimum_free_time(driver, checkpoint, start, clean)
                 effective = max(movement, effective_traversal_us(clean, 0, minimum))
                 planned[key] = FollowingTraversal(driver, checkpoint, clean, effective, effective-clean,
                                                  leader, other, start+effective)
+                self._record_prediction(planned[key], start, admissible, clock_floor, movement)
             visiting.remove(key)
             return planned[key].crossing_us if planned[key] is not None else None
 
         for driver, checkpoint in sorted(pending):
             passage(driver, checkpoint)
         return {key: value for key, value in planned.items() if value is not None}
+
+    def _record_prediction(self, row, start, headway, clock_floor, movement):
+        """Optional diagnostics for the same bounds the scheduler just evaluated."""
 
     def _preserve_motion(self, state):
         positions = self._positions(state, state.race_clock_us)
