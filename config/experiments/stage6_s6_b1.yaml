@@ -1,0 +1,20 @@
+version: stage6-s6-b1-v1
+model_release: MEAN_ONLY_VALIDATED
+comparator_original: s6-b-v1-library-37
+comparator_expanded: s6-b1-v1-library-42
+primary_family: Frozen S6-B six futures
+timing_family: Frozen S6-B expanded eleven futures
+deployment_seeds_us: [5000000, 28000000, 58000000, 89000000]
+refinement:
+  maximum_midpoints_per_flag: 6
+  maximum_coarse_brackets_per_flag: 2
+  deterministic_round_robin: true
+  sensitivity_intervals_are_observed_brackets: true
+duration:
+  sc_late_deployment_seconds: 58
+  sc_durations_seconds: [60, 75, 92, 120]
+  vsc_late_deployment_seconds: 58
+  vsc_durations_seconds: [40, 75, 105]
+physical_irreversibility: Strictly before the active geometric pit-entry boundary
+clock_units: Integer microseconds after race start
+probabilities: SCENARIO_PROBABILITIES_NOT_ESTIMATED

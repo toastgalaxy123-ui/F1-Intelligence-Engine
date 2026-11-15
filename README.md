@@ -105,6 +105,12 @@ Select **Robust strategy** in the existing dashboard or run
 across declared futures using D8R1 mean pace. See the [S6-B validation report](artifacts/reports/stage6_s6_b_validation.md)
 for regret, dominance, control-clock and support results.
 
+### Stage 6-B.1 — Timing risk and pit commitment
+
+Select **Timing risk** in the strategy dashboard to inspect the released timing-boundary evidence.
+Run `f1ri stage6-s6-b1 --output artifacts/runs/stage6_s6_b1_reproduced` to replay the study.
+See the [S6-B.1 report](artifacts/reports/stage6_s6_b1_validation.md) for the fixed and revisable policy comparisons.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

@@ -375,6 +375,8 @@ def _evaluation(run, pair, policy, targets, weights, near_us):
     if status == "MARKERS_REACHED" and (len(visits) < fixed or any(
         d["outcome"] == "REQUESTED" and d["at_us"] < run["targets"].get(d["driver"], {}).get("clock_us", 0)
         and not any(p["decision_id"] == d["decision_id"] for p in visits)
+        and not any(r["decision_id"] == d["decision_id"] and r["outcome"] == "REVISED_CANCEL"
+                    for r in run["decisions"])
         for d in run["decisions"] if d["driver"] in driver_times
     )):
         status = "INCOMPLETE_STRATEGY_ACTION"

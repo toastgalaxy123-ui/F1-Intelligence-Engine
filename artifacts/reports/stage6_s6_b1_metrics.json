@@ -1,0 +1,29 @@
+{
+  "stage": "stage6-s6-b1-v1",
+  "baseline_tests": 373,
+  "families": 16,
+  "evaluations": 4546,
+  "boundary_probes": 20,
+  "original_regret_us": 46754185,
+  "fixed_worst_regret_us": 13518744,
+  "checks": {
+    "frozen_failure": true,
+    "frozen_fixed_worst": true,
+    "no_negative_regret": true,
+    "cancel_before_entry": true,
+    "single_revised_fit": true,
+    "family_sensitive": true,
+    "transitions_detected": true,
+    "exact_green_boundary": true
+  },
+  "invariant_failures": [],
+  "statuses": [
+    "ROBUST_WITHIN_DECLARED_FAMILY",
+    "FAMILY_SENSITIVE",
+    "BOUNDARY_SENSITIVE",
+    "NEAR_EQUAL_ALTERNATIVES",
+    "CONSTRAINT_DOMINATED_IDENTIFIABILITY",
+    "NO_UNIQUE_RECOMMENDATION"
+  ],
+  "decision": "PATH_A_TIMING_ROBUSTNESS_AND_POLICY_SEMANTICS_VALIDATED"
+}

@@ -23,7 +23,12 @@ def dashboard():
     st.title("F1 Strategy Scenarios")
     st.caption("Paired comparisons at the same racing markers")
     root = Path(__file__).resolve().parents[3]
-    tool = st.sidebar.radio("Strategy tool", ("Compare policies", "Optimize strategies", "Robust strategy"))
+    tool = st.sidebar.radio("Strategy tool", ("Compare policies", "Optimize strategies", "Robust strategy", "Timing risk"))
+    if tool == "Timing risk":
+        from f1ri.dashboard.commitment_panel import commitment_panel
+
+        commitment_panel(root)
+        return
     if tool == "Robust strategy":
         from f1ri.dashboard.robust_panel import robust_panel
 

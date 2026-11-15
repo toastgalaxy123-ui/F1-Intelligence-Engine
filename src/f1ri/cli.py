@@ -168,6 +168,8 @@ def main() -> None:
     s6.add_argument("--output", type=Path, required=True)
     robust = sub.add_parser("stage6-s6-b", help="Evaluate a shared policy library across declared futures")
     robust.add_argument("--output", type=Path, required=True)
+    timing = sub.add_parser("stage6-s6-b1", help="Audit neutralization timing and pit commitment boundaries")
+    timing.add_argument("--output", type=Path, required=True)
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -366,6 +368,10 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage6-s6-b1":
+        from f1ri.validation.commitment_study import run_study
+
+        print(run_study(root, root / args.output))
     elif args.command == "stage6-s6-b":
         from f1ri.validation.robust_study import run_robust_study
 

@@ -1,5 +1,5 @@
 """Paired deterministic strategy evaluation on the S5-A.1 scheduler."""
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from datetime import timedelta
 from hashlib import sha256
 from itertools import pairwise
@@ -164,6 +164,7 @@ class _PolicyRuntime:
                           for c in s.initial.cars}
         self.reservations = {}
         self.evaluated = set()
+        self.revisions = set()
         self.ledger = []
         self.unsupported = []
         self.diagnostics = diagnostics
@@ -195,7 +196,8 @@ class _PolicyRuntime:
         self.reservations.pop(driver, None)
 
     def _record(self, i, stop, state, outcome, **details):
-        self.ledger.append({"decision_id": f"stop-{i}", "driver": stop.driver, "at_us": state.race_clock_us,
+        ident = f"stop-{i}-r1" if i in self.revisions else f"stop-{i}"
+        self.ledger.append({"decision_id": ident, "driver": stop.driver, "at_us": state.race_clock_us,
                             "set_id": stop.set_id, "outcome": outcome, **details})
 
     def observe(self, event, state, field):
@@ -224,7 +226,10 @@ class _PolicyRuntime:
                     self._record(i, stop, state, "CANCELLED_BEFORE_REQUEST")
                 self.evaluated.add(i)
                 continue
-            if i in self.evaluated or d in field.pending_pits or d in field.active_pits:
+            pending = field.pending_pits.get(d)
+            review = getattr(policy, "revise_on_green", None)
+            may_review = pending is not None and pending.decision_id == f"stop-{i}" and review is not None
+            if d in field.active_pits or not may_review and (i in self.evaluated or pending is not None):
                 continue
             car = next(c for c in state.cars if c.driver_number == d)
             if car.status is not CarStatus.ACTIVE or car.route is not Route.ON_TRACK or state.track_state is TrackState.RED:
@@ -239,7 +244,17 @@ class _PolicyRuntime:
                               car.completed_laps + (2 if progress > r.entry_m + 1e-6 else 1),
                               motion["neighbors"].get(d), state.timing_order.index(d)+1, motion["gaps_m"].get(d),
                               tuple(sorted(available)), field.box_free.get(r.route.box_id))
-            resolve = getattr(policy, "resolve", None)
+            if may_review:
+                if not review(pending.plan.request.track_state, view) or not field.can_revise_entry(pending, state):
+                    continue
+                field._decision(_PitTick(clock, EventKind.PIT_DECISION, d, source="CANCEL",
+                                         attempt_id=pending.decision_id), state)
+                self.reservations.pop(d, None)
+                self._record(i, replace(stop, set_id=pending.plan.request.replacement.set_id), state, "REVISED_CANCEL",
+                             reason="GREEN_OBSERVED_BEFORE_PHYSICAL_ENTRY", target_lap=pending.plan.request.pit_in_lap)
+                self.revisions.add(i)
+                self.evaluated.discard(i)
+            resolve = policy.resolve_fallback if i in self.revisions else getattr(policy, "resolve", None)
             if resolve is None:
                 lap = policy.choose(stop, view)
                 if lap is None:
@@ -272,7 +287,8 @@ class _PolicyRuntime:
             track = state.track_state if state.track_state in (TrackState.VSC, TrackState.SC) else TrackState.GREEN
             request = PitStopRequest(state.session_key, d, state.race_start_utc+timedelta(microseconds=clock),
                                      lap, tyre, state.simulation_id, track)
-            row = PitDecision(f"stop-{i}", state.simulation_id, clock, self.s.end_us,
+            ident = f"stop-{i}-r1" if i in self.revisions else f"stop-{i}"
+            row = PitDecision(ident, state.simulation_id, clock, self.s.end_us,
                               PitTransitionPlan(request, r.route), self.s.physical.layout_version, r.entry_m,
                               "S5_C_DECLARED_BRANCH_AND_ROUTE")
             field.decisions[row.decision_id] = row
@@ -285,7 +301,7 @@ class _PolicyRuntime:
     def finish(self, state):
         for i, (_, stop) in enumerate(self.actions):
             if i not in self.evaluated:
-                self._record(i, stop, state, "NO_TRIGGER_BEFORE_HORIZON")
+                self._record(i, stop, state, "FALLBACK_STAY_OUT" if i in self.revisions else "NO_TRIGGER_BEFORE_HORIZON")
         if self.s.dry_race_rule and state.phase is RacePhase.FINISHED:
             for car in state.cars:
                 if car.status is CarStatus.FINISHED:

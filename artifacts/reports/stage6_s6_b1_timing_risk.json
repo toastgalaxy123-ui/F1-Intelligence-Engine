@@ -1,0 +1,6284 @@
+{
+  "recommendation_support": {
+    "version": "s6-b1-recommendation-support-v1",
+    "statuses": [
+      "ROBUST_WITHIN_DECLARED_FAMILY",
+      "FAMILY_SENSITIVE",
+      "BOUNDARY_SENSITIVE",
+      "NEAR_EQUAL_ALTERNATIVES",
+      "CONSTRAINT_DOMINATED_IDENTIFIABILITY",
+      "NO_UNIQUE_RECOMMENDATION"
+    ],
+    "unique_action": null,
+    "family_choices": {
+      "A-primary": [
+        "adaptive-63-hard-or-soft",
+        "adaptive-63-medium-or-soft",
+        "adaptive-63-used-soft-or-soft",
+        "p1-active-at-decision",
+        "p2-green-replan",
+        "p2-green-stay-out",
+        "p4-early-window"
+      ],
+      "B-stress": [
+        "63-L31-hard",
+        "63-L31-medium",
+        "63-L31-soft",
+        "63-L31-used-soft",
+        "p5-scheduled-conditional"
+      ],
+      "D-gap": [
+        "after-sc-63-hard",
+        "after-sc-63-medium",
+        "after-sc-63-soft",
+        "after-sc-63-used-soft",
+        "reference",
+        "sc-63-hard",
+        "sc-63-medium",
+        "sc-63-soft",
+        "sc-63-used-soft",
+        "vsc-63-hard",
+        "vsc-63-medium",
+        "vsc-63-soft",
+        "vsc-63-used-soft"
+      ],
+      "D-opponent": [
+        "after-sc-63-hard",
+        "after-sc-63-medium",
+        "after-sc-63-soft",
+        "after-sc-63-used-soft",
+        "reference",
+        "sc-63-hard",
+        "sc-63-medium",
+        "sc-63-soft",
+        "sc-63-used-soft",
+        "vsc-63-hard",
+        "vsc-63-medium",
+        "vsc-63-soft",
+        "vsc-63-used-soft"
+      ],
+      "D-shared-box": [
+        "4-L31-soft__63-L31-soft"
+      ],
+      "D-clean-air": [
+        "adaptive-63-soft-or-hard",
+        "adaptive-63-soft-or-medium",
+        "adaptive-63-soft-or-used-soft"
+      ],
+      "D-wider-gap": [
+        "sc-63-soft"
+      ],
+      "D-original-opponent": [
+        "adaptive-63-soft-or-hard",
+        "adaptive-63-soft-or-medium",
+        "adaptive-63-soft-or-used-soft"
+      ],
+      "E-wider-gap-stress": [
+        "reference",
+        "vsc-63-hard",
+        "vsc-63-medium",
+        "vsc-63-soft",
+        "vsc-63-used-soft"
+      ],
+      "C-duration": [
+        "63-L31-soft"
+      ],
+      "H3": [
+        "63-L31-soft"
+      ],
+      "H5": [
+        "63-L31-soft"
+      ],
+      "H10": [
+        "63-L31-soft"
+      ],
+      "C-sc-boundary": [
+        "63-L31-soft"
+      ],
+      "C-vsc-boundary": [
+        "63-L31-hard",
+        "63-L31-medium",
+        "63-L31-soft",
+        "63-L31-used-soft",
+        "p5-scheduled-conditional"
+      ],
+      "C-exact-event-order": [
+        "63-L31-soft",
+        "p5-scheduled-conditional"
+      ]
+    },
+    "primary_margin_us": 1440000,
+    "clock_unit": "microseconds",
+    "scenario_probabilities_estimated": false
+  },
+  "commitment_contract": {
+    "version": "s6-b1-entry-commitment-v1",
+    "proposal": "A policy resolves a proposed stop from its current PolicyView.",
+    "decision": "REQUESTED and PIT_PLANNED record a pending instruction. The scheduled entry may be retimed.",
+    "approach": "APPROACHING_PIT_ENTRY is a forecast of entry, subject to physical rescheduling.",
+    "revision": "P2 may revise a neutralization request on a committed GREEN_RELEASE while the car stays on track and strictly before its current geometric entry line. It can revise once.",
+    "irreversible": "The geometric pit-entry line is the revision deadline. PIT_ENTRY_COMMITTED records the actual route transition. Simultaneous race control is processed first but the geometric guard disallows cancellation at equality.",
+    "replacement": "A revised instruction has a distinct decision ID. Only service completion consumes a set.",
+    "latency": "The archived scripts provide committed event clocks. Late availability relative to the simulation event is rejected by the S6-A input gate. No empirical latency model is used.",
+    "closure": "Red phases and unsupported geometry use existing scheduler gates. No independent pit closure model.",
+    "receding_scope": "One bounded in-run plan revision on newly observed GREEN. No rewind or future-query optimizer."
+  },
+  "boundary_transitions": [
+    {
+      "flag": "SC",
+      "observed_interval_us": [
+        13625000,
+        16500000
+      ],
+      "width_us": 2875000
+    },
+    {
+      "flag": "SC",
+      "observed_interval_us": [
+        28000000,
+        31750000
+      ],
+      "width_us": 3750000
+    },
+    {
+      "flag": "VSC",
+      "observed_interval_us": [
+        13625000,
+        16500000
+      ],
+      "width_us": 2875000
+    },
+    {
+      "flag": "VSC",
+      "observed_interval_us": [
+        28000000,
+        31750000
+      ],
+      "width_us": 3750000
+    }
+  ],
+  "families": {
+    "B-stress": {
+      "outcomes": {
+        "sc-deploy-28": {
+          "63-L31-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 29278490,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108148832,
+                "service_start_us": 3130148832,
+                "merge_us": 3165148832
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 13770711,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 24016464,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 24016464,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-deploy-5": {
+          "63-L31-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-deploy-58": {
+          "63-L31-soft": {
+            "delta_us": -41492159,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 47471588,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3205048962,
+                "service_start_us": 3227048962,
+                "merge_us": 3262048962
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -40626300,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-132": {
+          "63-L31-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 32718402,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 32718402,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-66": {
+          "63-L31-soft": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 985892,
+            "regret_us": 985892,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2991808886,
+                "service_start_us": 3013808886,
+                "merge_us": 3048808886
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-97": {
+          "63-L31-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "vsc-deploy-28": {
+          "63-L31-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 27395941,
+            "following_us": 9784111,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049776,
+                "service_start_us": 3109049776,
+                "merge_us": 3144049776
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -26551805,
+            "regret_us": 844135,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 27395940,
+            "following_us": 15576334,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 27395940,
+            "following_us": 15576334,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          }
+        },
+        "vsc-deploy-5": {
+          "63-L31-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "vsc-deploy-58": {
+          "63-L31-soft": {
+            "delta_us": -18815574,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 9188761,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3186628496,
+                "service_start_us": 3208628496,
+                "merge_us": 3243628496
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -18015098,
+            "regret_us": 800476,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          }
+        },
+        "vsc-deploy-89": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 10277472,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 9518142,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          }
+        },
+        "vsc-pace": {
+          "63-L31-soft": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 24639641,
+            "following_us": 16166649,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 24639641,
+            "following_us": 16166649,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -24639641,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980631119,
+                "service_start_us": 3002631119,
+                "merge_us": 3037631119
+              }
+            ]
+          }
+        }
+      },
+      "coverage": 462,
+      "description": {
+        "vsc-deploy-5": "VSC +5 s for 75 s",
+        "vsc-deploy-28": "VSC +28 s for 75 s",
+        "vsc-deploy-58": "VSC +58 s for 75 s",
+        "vsc-deploy-89": "VSC +89 s for 75 s",
+        "sc-deploy-5": "SC +5 s for 92 s",
+        "sc-deploy-28": "SC +28 s for 92 s",
+        "sc-deploy-58": "SC +58 s for 92 s",
+        "sc-release-66": "SC +5 s with GREEN at +66 s",
+        "sc-release-97": "SC +5 s with GREEN at +97 s",
+        "sc-release-132": "SC +5 s with GREEN at +132 s",
+        "vsc-pace": "VSC −10% pace ceiling"
+      }
+    },
+    "C-sc-boundary": {
+      "outcomes": {
+        "sc-10750000": {
+          "63-L31-soft": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 20717654,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -20717654,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2986131959,
+                "service_start_us": 3008131959,
+                "merge_us": 3043131959
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 20717654,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-13625000": {
+          "63-L31-soft": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23526167,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -23526167,
+            "regret_us": 0,
+            "following_us": 189786,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2983176074,
+                "service_start_us": 3005176074,
+                "merge_us": 3040176074
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23526167,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-16500000": {
+          "63-L31-soft": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 28838156,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3107707550,
+                "service_start_us": 3129707550,
+                "merge_us": 3164707550
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 2505367,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23576130,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -23576130,
+            "regret_us": 0,
+            "following_us": 3371226,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2980234993,
+                "service_start_us": 3002234993,
+                "merge_us": 3037234993
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23576130,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-28000000": {
+          "63-L31-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 29278490,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108148832,
+                "service_start_us": 3130148832,
+                "merge_us": 3165148832
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 13770711,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 24016464,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -24016464,
+            "regret_us": 0,
+            "following_us": 14636570,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2968970597,
+                "service_start_us": 2990970597,
+                "merge_us": 3025970597
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 24016464,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-31750000": {
+          "63-L31-soft": {
+            "delta_us": -40483853,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45745879,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108292729,
+                "service_start_us": 3130292729,
+                "merge_us": 3165292729
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 45745879,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108292729,
+                "service_start_us": 3130292729,
+                "merge_us": 3165292729
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 46463282,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3204040656,
+                "service_start_us": 3226040656,
+                "merge_us": 3261040656
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 40483853,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 45745879,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108292729,
+                "service_start_us": 3130292729,
+                "merge_us": 3165292729
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -39617994,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40483853,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45745879,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108292729,
+                "service_start_us": 3130292729,
+                "merge_us": 3165292729
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40483853,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-35500000": {
+          "63-L31-soft": {
+            "delta_us": -40627748,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45889774,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108436624,
+                "service_start_us": 3130436624,
+                "merge_us": 3165436624
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 45889774,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108436624,
+                "service_start_us": 3130436624,
+                "merge_us": 3165436624
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 46607177,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3204184551,
+                "service_start_us": 3226184551,
+                "merge_us": 3261184551
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 40627748,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 45889774,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108436624,
+                "service_start_us": 3130436624,
+                "merge_us": 3165436624
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -39761889,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40627748,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45889774,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108436624,
+                "service_start_us": 3130436624,
+                "merge_us": 3165436624
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40627748,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-43000000": {
+          "63-L31-soft": {
+            "delta_us": -40915541,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46177567,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108724417,
+                "service_start_us": 3130724417,
+                "merge_us": 3165724417
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 46177567,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108724417,
+                "service_start_us": 3130724417,
+                "merge_us": 3165724417
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 46894970,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3204472344,
+                "service_start_us": 3226472344,
+                "merge_us": 3261472344
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 40915541,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 46177567,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108724417,
+                "service_start_us": 3130724417,
+                "merge_us": 3165724417
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -40049682,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40915541,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46177567,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108724417,
+                "service_start_us": 3130724417,
+                "merge_us": 3165724417
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40915541,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-5000000": {
+          "63-L31-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-58000000": {
+          "63-L31-soft": {
+            "delta_us": -41492159,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 47471588,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3205048962,
+                "service_start_us": 3227048962,
+                "merge_us": 3262048962
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -40626300,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 46754185,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3109301035,
+                "service_start_us": 3131301035,
+                "merge_us": 3166301035
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 41492159,
+            "following_us": 1517747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-89000000": {
+          "63-L31-soft": {
+            "delta_us": 2928872,
+            "regret_us": 2928872,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 3700197,
+            "regret_us": 3700197,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 1020837,
+            "regret_us": 1020837,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3106253105,
+                "service_start_us": 3128253105,
+                "merge_us": 3163253105
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        }
+      },
+      "coverage": 420,
+      "description": {
+        "sc-5000000": "SC deployment +5000000 us and duration 92 s",
+        "sc-10750000": "SC deployment +10750000 us and duration 92 s",
+        "sc-13625000": "SC deployment +13625000 us and duration 92 s",
+        "sc-16500000": "SC deployment +16500000 us and duration 92 s",
+        "sc-28000000": "SC deployment +28000000 us and duration 92 s",
+        "sc-31750000": "SC deployment +31750000 us and duration 92 s",
+        "sc-35500000": "SC deployment +35500000 us and duration 92 s",
+        "sc-43000000": "SC deployment +43000000 us and duration 92 s",
+        "sc-58000000": "SC deployment +58000000 us and duration 92 s",
+        "sc-89000000": "SC deployment +89000000 us and duration 92 s"
+      }
+    },
+    "C-vsc-boundary": {
+      "outcomes": {
+        "vsc-10750000": {
+          "63-L31-soft": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 25386420,
+            "following_us": 15871070,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 25386420,
+            "following_us": 15871070,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -25386420,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2974427055,
+                "service_start_us": 2996427055,
+                "merge_us": 3031427055
+              }
+            ]
+          }
+        },
+        "vsc-13625000": {
+          "63-L31-soft": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 26560287,
+            "following_us": 15828297,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 26560287,
+            "following_us": 15828297,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -26560287,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2973252829,
+                "service_start_us": 2995252829,
+                "merge_us": 3030252829
+              }
+            ]
+          }
+        },
+        "vsc-16500000": {
+          "63-L31-soft": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 27723875,
+            "following_us": 10226827,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087051210,
+                "service_start_us": 3109051210,
+                "merge_us": 3144051210
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -26858015,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 27723874,
+            "following_us": 16019050,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 27723874,
+            "following_us": 16019050,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -27723874,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2972088884,
+                "service_start_us": 2994088884,
+                "merge_us": 3029088884
+              }
+            ]
+          }
+        },
+        "vsc-28000000": {
+          "63-L31-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 27395941,
+            "following_us": 9784111,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049776,
+                "service_start_us": 3109049776,
+                "merge_us": 3144049776
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -26551805,
+            "regret_us": 844135,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 27395940,
+            "following_us": 15576334,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 27395940,
+            "following_us": 15576334,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -27395940,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967780276,
+                "service_start_us": 2989780276,
+                "merge_us": 3024780276
+              }
+            ]
+          }
+        },
+        "vsc-31750000": {
+          "63-L31-soft": {
+            "delta_us": -26772896,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1,
+            "regret_us": 26772897,
+            "following_us": 9639747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049308,
+                "service_start_us": 3109049308,
+                "merge_us": 3144049308
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1,
+            "regret_us": 26772897,
+            "following_us": 9639747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049308,
+                "service_start_us": 3109049308,
+                "merge_us": 3144049308
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 26772896,
+            "following_us": 8922224,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3186630682,
+                "service_start_us": 3208630682,
+                "merge_us": 3243630682
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 26772896,
+            "following_us": 15431970,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 26772897,
+            "following_us": 9639747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049308,
+                "service_start_us": 3109049308,
+                "merge_us": 3144049308
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -25935135,
+            "regret_us": 837761,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 26772896,
+            "following_us": 15431970,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 26772896,
+            "following_us": 15431970,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 1,
+            "regret_us": 26772897,
+            "following_us": 9639747,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087049308,
+                "service_start_us": 3109049308,
+                "merge_us": 3144049308
+              }
+            ]
+          }
+        },
+        "vsc-35500000": {
+          "63-L31-soft": {
+            "delta_us": -25635981,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1,
+            "regret_us": 25635982,
+            "following_us": 9495384,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087048841,
+                "service_start_us": 3109048841,
+                "merge_us": 3144048841
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1,
+            "regret_us": 25635982,
+            "following_us": 9495384,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087048841,
+                "service_start_us": 3109048841,
+                "merge_us": 3144048841
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 25635981,
+            "following_us": 8777861,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3186630215,
+                "service_start_us": 3208630215,
+                "merge_us": 3243630215
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 25635981,
+            "following_us": 15287607,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 25635982,
+            "following_us": 9495384,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087048841,
+                "service_start_us": 3109048841,
+                "merge_us": 3144048841
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -24803546,
+            "regret_us": 832435,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 25635981,
+            "following_us": 15287607,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 25635981,
+            "following_us": 15287607,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 1,
+            "regret_us": 25635982,
+            "following_us": 9495384,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087048841,
+                "service_start_us": 3109048841,
+                "merge_us": 3144048841
+              }
+            ]
+          }
+        },
+        "vsc-43000000": {
+          "63-L31-soft": {
+            "delta_us": -23362150,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1,
+            "regret_us": 23362151,
+            "following_us": 9206656,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047906,
+                "service_start_us": 3109047906,
+                "merge_us": 3144047906
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1,
+            "regret_us": 23362151,
+            "following_us": 9206656,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047906,
+                "service_start_us": 3109047906,
+                "merge_us": 3144047906
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 23362150,
+            "following_us": 8489133,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3186629280,
+                "service_start_us": 3208629280,
+                "merge_us": 3243629280
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 23362150,
+            "following_us": 14998879,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 23362151,
+            "following_us": 9206656,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047906,
+                "service_start_us": 3109047906,
+                "merge_us": 3144047906
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -22540368,
+            "regret_us": 821782,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23362150,
+            "following_us": 14998879,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23362150,
+            "following_us": 14998879,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 1,
+            "regret_us": 23362151,
+            "following_us": 9206656,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047906,
+                "service_start_us": 3109047906,
+                "merge_us": 3144047906
+              }
+            ]
+          }
+        },
+        "vsc-5000000": {
+          "63-L31-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "vsc-58000000": {
+          "63-L31-soft": {
+            "delta_us": -18815574,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 9188761,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3186628496,
+                "service_start_us": 3208628496,
+                "merge_us": 3243628496
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -18015098,
+            "regret_us": 800476,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 18815574,
+            "following_us": 15698507,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 1,
+            "regret_us": 18815575,
+            "following_us": 9906284,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3087047122,
+                "service_start_us": 3109047122,
+                "merge_us": 3144047122
+              }
+            ]
+          }
+        },
+        "vsc-89000000": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 10277472,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 9518142,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          }
+        }
+      },
+      "coverage": 420,
+      "description": {
+        "vsc-5000000": "VSC deployment +5000000 us and duration 75 s",
+        "vsc-10750000": "VSC deployment +10750000 us and duration 75 s",
+        "vsc-13625000": "VSC deployment +13625000 us and duration 75 s",
+        "vsc-16500000": "VSC deployment +16500000 us and duration 75 s",
+        "vsc-28000000": "VSC deployment +28000000 us and duration 75 s",
+        "vsc-31750000": "VSC deployment +31750000 us and duration 75 s",
+        "vsc-35500000": "VSC deployment +35500000 us and duration 75 s",
+        "vsc-43000000": "VSC deployment +43000000 us and duration 75 s",
+        "vsc-58000000": "VSC deployment +58000000 us and duration 75 s",
+        "vsc-89000000": "VSC deployment +89000000 us and duration 75 s"
+      }
+    },
+    "C-exact-event-order": {
+      "outcomes": {
+        "sc-deployment-after": {
+          "63-L31-soft": {
+            "delta_us": -40415472,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 46394901,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3203972275,
+                "service_start_us": 3225972275,
+                "merge_us": 3260972275
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -39549613,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-deployment-before": {
+          "63-L31-soft": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 45677497,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -39549612,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40415471,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -40415471,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042959,
+                "service_start_us": 2989042959,
+                "merge_us": 3024042959
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40415471,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-deployment-equal": {
+          "63-L31-soft": {
+            "delta_us": -40415472,
+            "regret_us": 0,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 5979429,
+            "regret_us": 46394901,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3203972275,
+                "service_start_us": 3225972275,
+                "merge_us": 3260972275
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -39549613,
+            "regret_us": 865859,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 5262026,
+            "regret_us": 45677498,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3108224348,
+                "service_start_us": 3130224348,
+                "merge_us": 3165224348
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 40415472,
+            "following_us": 240717,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-hold": {
+          "63-L31-soft": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 256300,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -256300,
+            "regret_us": 0,
+            "following_us": 15641996,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 256300,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-after": {
+          "63-L31-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048515,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048515,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-before": {
+          "63-L31-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 3930913,
+            "regret_us": 3930913,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3173839684,
+                "service_start_us": 3195839684,
+                "merge_us": 3230839684
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048516,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048516,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048516,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "sc-release-equal": {
+          "63-L31-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048516,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 2979986,
+            "regret_us": 2979986,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2982354341,
+                "service_start_us": 3004354341,
+                "merge_us": 3039354341
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 2048516,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "vsc-hold": {
+          "63-L31-soft": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 26417081,
+            "following_us": 14416353,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 26417081,
+            "following_us": 14416353,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -26417081,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "vsc-release-after": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084911,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084911,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "vsc-release-before": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 10575165,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3175651742,
+                "service_start_us": 3197651742,
+                "merge_us": 3232651742
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084911,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "p4-early-window": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084911,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084911,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056409,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "vsc-release-equal": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084912,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 17084912,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12056410,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        }
+      },
+      "coverage": 462,
+      "description": {
+        "vsc-hold": "Declared prefix with delayed GREEN",
+        "vsc-release-before": "GREEN at prefix entry -1 us",
+        "vsc-release-equal": "GREEN at prefix entry +0 us",
+        "vsc-release-after": "GREEN at prefix entry +1 us",
+        "sc-hold": "Declared prefix with delayed GREEN",
+        "sc-release-before": "GREEN at prefix entry -1 us",
+        "sc-release-equal": "GREEN at prefix entry +0 us",
+        "sc-release-after": "GREEN at prefix entry +1 us",
+        "sc-deployment-before": "SC deployment +29967957 us and duration 92 s",
+        "sc-deployment-equal": "SC deployment +29967958 us and duration 92 s",
+        "sc-deployment-after": "SC deployment +29967959 us and duration 92 s"
+      }
+    },
+    "A-primary": {
+      "outcomes": {
+        "early-sc": {
+          "63-L31-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -14721056,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 14721056,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "early-vsc": {
+          "63-L31-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 23038684,
+            "following_us": 15956613,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -23038684,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2976775507,
+                "service_start_us": 2998775507,
+                "merge_us": 3033775507
+              }
+            ]
+          }
+        },
+        "green": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 12572114,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11620837,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3166194181,
+                "service_start_us": 3188194181,
+                "merge_us": 3223194181
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11620837,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3166194181,
+                "service_start_us": 3188194181,
+                "merge_us": 3223194181
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11620837,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3166194181,
+                "service_start_us": 3188194181,
+                "merge_us": 3223194181
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11620837,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3166194181,
+                "service_start_us": 3188194181,
+                "merge_us": 3223194181
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11620837,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 33,
+                "entry_us": 3166194181,
+                "service_start_us": 3188194181,
+                "merge_us": 3223194181
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 11706255,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 18130583,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 18130583,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 0,
+            "following_us": 18130583,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "late-vsc": {
+          "63-L31-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 10277472,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 9518142,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2967042958,
+                "service_start_us": 2989042958,
+                "merge_us": 3024042958
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 13518744,
+            "following_us": 15782835,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "vsc-63-soft": {
+            "delta_us": -13518744,
+            "regret_us": 0,
+            "following_us": 2795333,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 32,
+                "entry_us": 3081793819,
+                "service_start_us": 3103793819,
+                "merge_us": 3138793819
+              }
+            ]
+          }
+        },
+        "longer-sc": {
+          "63-L31-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 32718402,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -32718402,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 32718402,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        },
+        "restart-pace": {
+          "63-L31-soft": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "adaptive-63-medium-or-soft": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p1-active-at-decision": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-replan": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p2-green-stay-out": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p4-early-window": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "p5-scheduled-conditional": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "reference": {
+            "delta_us": 0,
+            "regret_us": 13951564,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          },
+          "sc-63-soft": {
+            "delta_us": -13951564,
+            "regret_us": 0,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": [
+              {
+                "target_lap": 31,
+                "entry_us": 2992043730,
+                "service_start_us": 3014043730,
+                "merge_us": 3049043730
+              }
+            ]
+          },
+          "vsc-63-soft": {
+            "delta_us": 0,
+            "regret_us": 13951564,
+            "following_us": 0,
+            "status": "MARKERS_REACHED",
+            "visited_pits": []
+          }
+        }
+      },
+      "coverage": 252,
+      "description": {
+        "green": "Continue under GREEN",
+        "early-vsc": "VSC deployment +5 s and green +80 s",
+        "late-vsc": "VSC deployment +89 s and green +164 s",
+        "early-sc": "SC deployment +5 s, green +97 s",
+        "longer-sc": "Same SC deployment, green delayed 35 s",
+        "restart-pace": "Identical SC clocks and 10% higher declared restart speed"
+      }
+    }
+  }
+}

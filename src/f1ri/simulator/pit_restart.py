@@ -154,6 +154,13 @@ class StabilizedField(_NeutralizedField):
     def _boundary(self, row):
         return row.line-3 + row.entry_progress_m / self.step
 
+    def can_revise_entry(self, row, state):
+        """Use the current position, not a possibly superseded entry prediction."""
+        if self.pending_pits.get(row.driver) is not row or row.driver in self.active_pits:
+            return False
+        position = self._positions(state, state.race_clock_us, row.driver).get(row.driver)
+        return position is not None and position < self._boundary(row) - 1e-8
+
     def _decision(self, event, state):
         row = self.decisions[event.attempt_id]
         d = row.driver

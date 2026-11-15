@@ -338,10 +338,11 @@ def _representatives(winners, pairs, policies):
     return sorted(set(parent.values()), key=complexity)
 
 
-def evaluate_family(family, bundle, *, library=None):
+def evaluate_family(family, bundle, *, library=None, extra_policies=()):
     """Score a complete or rectangular truncated matrix over one shared rule library."""
     request_weights = _validate_family(family, bundle)
     policies, rejected = policy_library(family.library_reference or family.initial, contingent=family.contingent)
+    policies = (*policies, *extra_policies)
     if library is not None:
         allowed = set(policies)
         if not set(library) <= allowed or len(set(library)) != len(library):
