@@ -177,6 +177,9 @@ def main() -> None:
     history = sub.add_parser("stage7-s7-a", help="Reproduce the bounded historical field pilot")
     history.add_argument("--output", type=Path, required=True)
     history.add_argument("--s6-c-run", type=Path, help="Check a separate rerun against all frozen S6-C bytes")
+    branches = sub.add_parser("stage7-s7-a1", help="Reproduce the historical pit-branch and order study")
+    branches.add_argument("--output", type=Path, required=True)
+    branches.add_argument("--s7-a-run", type=Path, help="Check a separate rerun against frozen S7-A bytes")
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -375,6 +378,10 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage7-s7-a1":
+        from f1ri.validation.pit_branch_study import run
+
+        print(run(root, root / args.output, prior_run=root / args.s7_a_run if args.s7_a_run else None))
     elif args.command == "stage7-s7-a":
         from f1ri.validation.historical_field_study import run_study
 

@@ -96,13 +96,17 @@ def freeze_inputs(root, output):
 
 def acquire(root):
     """Attempt only the frozen queries; every outcome is retained in the new cache."""
+    return acquire_protocol(root / PROTOCOL, root / INPUT_CACHE)
+
+
+def acquire_protocol(protocol, out):
+    """Run a versioned bounded acquisition plan using the established raw cache."""
     from f1ri.validation.proximity_pilot import _json
 
-    config = loads((root / PROTOCOL).read_bytes())["acquisition"]
+    config = loads(protocol.read_bytes())["acquisition"]
     requests = config["requests"]
     if len(requests) != config["logical_request_budget"]:
         raise ValueError("Acquisition manifest and request budget disagree.")
-    out = root / INPUT_CACHE
     out.mkdir(parents=True, exist_ok=True)
     outcomes = []
     with OpenF1Client(config["endpoint_base"], config["minimum_call_interval_s"]) as client:

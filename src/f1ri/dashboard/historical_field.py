@@ -65,6 +65,8 @@ def _pace_join(board_snapshot, field):
 
 
 def race_state(root, board_snapshot):
+    from f1ri.dashboard.pit_branch import panel
+
     data = _load(root)
     if data is None:
         return
@@ -91,6 +93,7 @@ def race_state(root, board_snapshot):
                        f"Track progress {'supported' if row['has_supported_track_progress'] else 'unavailable'}")
     st.info("Historical strategy execution is unavailable. Tyre-set inventory, physical pit routing and the "
             "complete local order have separate evidence requirements.")
+    panel(root, selected, cutoff, mode)
     rows = _rows(field)
     plot_rows = [row | {"Car": f"#{row['Driver']}"} for row in rows if row["Loop progress (m)"] is not None]
     if plot_rows:
@@ -131,9 +134,12 @@ def race_state(root, board_snapshot):
 
 
 def evidence(root):
+    from f1ri.dashboard.pit_branch import provenance
+
     data = _load(root)
     if data is None:
         return
+    provenance(root)
     with st.expander("Historical field provenance and readiness"):
         st.caption(f"{data['version']} · {data['release']} · LIVE_UNSUPPORTED")
         st.json({"geometry": data["geometry"], "live_readiness": data["live_readiness"]}, expanded=False)

@@ -138,7 +138,7 @@ def _projection(session, driver, at, mode):
     return estimate, diagnostics, estimate.reason
 
 
-def _position(session, driver, at, mode):
+def _position(session, driver, at, mode, route_evidence=None):
     lap = _latest(session.laps, driver, at)
     rank = _latest(session.classification, driver, at)
     pit = _latest(session.pit, driver, at)
@@ -147,9 +147,14 @@ def _position(session, driver, at, mode):
     route = PhysicalRoute.UNKNOWN
     align = False
     pit_recent = pit and (at-pit.at).total_seconds() <= 45
-    if pit_recent and pit.value == "LANE_ENTRY_TIMING":
+    evidence_route = route_evidence.get("route") if route_evidence else None
+    if evidence_route == "PIT_LANE":
+        route = PhysicalRoute.PIT
+        reason = "HELD_CHECKED_PIT_CORE"
+    elif pit_recent and pit.value == "LANE_ENTRY_TIMING":
         reason = "PIT_ROUTE_PARTIAL_LANE_TIMING"
-    elif details.get("stationary_trace"):
+    elif details.get("stationary_trace") or (route_evidence is not None and estimate and
+                                            estimate.speed_mps is not None and estimate.speed_mps <= 1):
         reason = "STATIONARY_ROUTE_UNVERIFIED"
     elif estimate and estimate.progress_m is not None:
         length = session.geometry.length_m
@@ -158,7 +163,7 @@ def _position(session, driver, at, mode):
         bounds = 1.5*estimate.uncertainty_m
         # The start/finish corridor may also contain the separate pit branch.
         # Retain the matched coordinate for audit, while excluding it from racing order.
-        if min(local, length-local) <= 650+bounds:
+        if min(local, length-local) <= 650+bounds and evidence_route != "RACING_LOOP":
             reason = "PIT_BRANCH_UNRESOLVED_NEAR_CONTROL_LINE"
         else:
             route = PhysicalRoute.RACING
@@ -170,16 +175,20 @@ def _position(session, driver, at, mode):
     else:
         pos = TrackPosition(driver, route, completed, classification, observed_at_utc=details["location_utc"],
                             lap_aligned=False, reason=reason)
+    if route_evidence is not None:
+        details["route_comparison"] = route_evidence
     return pos, details | {
         "lap_anchor_utc": lap.at if lap else None, "lap_source": lap.source if lap else None,
         "classification_utc": rank.at if rank else None, "classification_source": rank.source if rank else None,
         "pit_timing_utc": pit.at if pit else None, "pit_timing_source": pit.source if pit else None,
         "pit_timing_kind": pit.value if pit else None,
-        "route_evidence": ("MAIN_LOOP_COMPATIBLE_OUTSIDE_PIT_CORRIDOR" if route is PhysicalRoute.RACING else reason),
+        "route_evidence": ("HELD_CHECKED_RACING_ROUTE_CORE" if route is PhysicalRoute.RACING and
+                           evidence_route == "RACING_LOOP" else "MAIN_LOOP_COMPATIBLE_OUTSIDE_PIT_CORRIDOR"
+                           if route is PhysicalRoute.RACING else reason),
     }
 
 
-def reconstruct_field(session, cutoff, mode=FieldMode.CAUSAL, drivers=None):
+def reconstruct_field(session, cutoff, mode=FieldMode.CAUSAL, drivers=None, *, route_matcher=None):
     """Report a bounded field without claiming receipt time or complete race coverage."""
     mode = FieldMode(mode)
     if cutoff.utcoffset() is None or not session.start <= cutoff <= session.end:
@@ -197,7 +206,10 @@ def reconstruct_field(session, cutoff, mode=FieldMode.CAUSAL, drivers=None):
     if mode is FieldMode.RECEIPT:
         return header | {"support": "RECEIPT_ORDER_UNAVAILABLE", "drivers": [], "track_status": None,
                          "supported_positions": 0, "supported_predecessors": 0}
-    cars, diagnostics = zip(*(_position(session, driver, cutoff, mode) for driver in roster), strict=True)
+    cars, diagnostics = zip(*(
+        _position(session, driver, cutoff, mode, route_matcher(session, driver, cutoff, mode) if route_matcher else None)
+        for driver in roster
+    ), strict=True)
     geometry = session.geometry
     snapshot = PhysicalSnapshot(session.key, cutoff, geometry.version, geometry.length_m, cars) if geometry else None
     neighborhoods = physical_neighborhoods(snapshot) if snapshot else {}

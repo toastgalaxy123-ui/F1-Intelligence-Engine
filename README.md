@@ -127,6 +127,13 @@ observations support them. Run `f1ri stage7-s7-a --output artifacts/runs/stage7_
 to regenerate the historical ledgers. See the [S7-A report](artifacts/reports/stage7_s7_a_validation.md)
 for the pilot results, reproducibility checks and remaining evidence gaps.
 
+### Stage 7-A.1 — Historical pit branch and predecessor evidence
+
+Open **Race State → Pit routes and predecessor evidence** to inspect the held-checked Imola pit
+interior, retrospective route-change windows and candidate-order certificates. Run
+`f1ri stage7-s7-a1 --output artifacts/runs/stage7_s7_a1_reproduced` to regenerate the ledgers.
+See the [S7-A.1 report](artifacts/reports/stage7_s7_a1_validation.md) for the supported cases and limits.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

@@ -1,0 +1,150 @@
+{
+  "version": "s7-a1-pit-route-v1",
+  "baseline": "b5739ba432babd6e76a45a246d9cf58a1d139973",
+  "policy": {
+    "strict_guard_m": 650,
+    "position_age_limit_s": 0.9,
+    "history_s": 4,
+    "after_s": 1,
+    "fit_lane_trim_s": 4,
+    "minimum_curve_length_m": 120,
+    "max_segment_m": 35,
+    "max_track_residual_m": 25,
+    "min_cross_route_margin_m": 8,
+    "route_radius_m": 7,
+    "uncertainty_multiplier": 1.5,
+    "max_reference_offset_m": 100,
+    "max_racing_speed_mps": 105,
+    "max_fix_span_s": 1,
+    "offline_validation": "Fit and held validation event windows must both end before causal cutoff",
+    "held_gate": {
+      "min_independent_visits": 1,
+      "min_pit_witnesses": 8,
+      "min_racing_witnesses": 8,
+      "max_wrong_route_rows": 0,
+      "min_fraction_identified": 0.5
+    }
+  },
+  "visits": [
+    {
+      "id": "imola-vsc-1",
+      "session": 9987,
+      "driver": 1,
+      "role": "FIT",
+      "phase": "VSC",
+      "entry": "2025-05-18T13:42:58.463Z",
+      "exit": "2025-05-18T13:43:28.454Z"
+    },
+    {
+      "id": "imola-sc-4",
+      "session": 9987,
+      "driver": 4,
+      "role": "HELD",
+      "phase": "SC",
+      "entry": "2025-05-18T14:07:28.426Z",
+      "exit": null
+    },
+    {
+      "id": "imola-green-87",
+      "session": 9987,
+      "driver": 87,
+      "role": "HELD",
+      "phase": "AFTER_REPORTED_VSC_CLEAR",
+      "entry": "2025-05-18T13:47:41.593Z",
+      "exit": null
+    },
+    {
+      "id": "imola-sparse-22",
+      "session": 9987,
+      "driver": 22,
+      "role": "SPARSE_NEGATIVE",
+      "phase": "VSC",
+      "entry": "2025-05-18T13:44:06.245Z",
+      "exit": null
+    },
+    {
+      "id": "imola-ambiguous-23",
+      "session": 9987,
+      "driver": 23,
+      "role": "AMBIGUOUS_NEGATIVE",
+      "phase": "VSC",
+      "entry": "2025-05-18T13:43:34.189Z",
+      "exit": null
+    },
+    {
+      "id": "sg-fit-22",
+      "session": 9896,
+      "driver": 22,
+      "role": "FIT",
+      "phase": "RACE",
+      "entry": "2025-10-05T12:25:48.079Z",
+      "exit": "2025-10-05T12:26:12.689Z"
+    },
+    {
+      "id": "sg-held-43",
+      "session": 9896,
+      "driver": 43,
+      "role": "HELD",
+      "phase": "RACE",
+      "entry": "2025-10-05T12:27:18.400Z",
+      "exit": "2025-10-05T12:27:42.440Z"
+    }
+  ],
+  "acquisition": {
+    "endpoint_base": "https://api.openf1.org/v1",
+    "logical_request_budget": 4,
+    "minimum_call_interval_s": 2.1,
+    "retry": "Existing OpenF1 client. Up to five transport attempts per request, with terminal authentication failures.",
+    "stop": "One pass over these four field windows. No extension or outcome-based replacement.",
+    "requests": [
+      {
+        "id": "imola-sc-4",
+        "endpoint": "location",
+        "params": {
+          "session_key": 9987,
+          "date>": "2025-05-18T14:07:19Z",
+          "date<": "2025-05-18T14:08:13Z"
+        },
+        "purpose": "Held SC visit and contemporaneous comparison cars",
+        "coverage": "The frozen S7-A source windows do not cover this full visit.",
+        "expected": "Contemporaneous full-field, subsecond telemetry through approach, transit and post-lane."
+      },
+      {
+        "id": "imola-green-87",
+        "endpoint": "location",
+        "params": {
+          "session_key": 9987,
+          "date>": "2025-05-18T13:47:31Z",
+          "date<": "2025-05-18T13:48:31Z"
+        },
+        "purpose": "Held post-VSC visit and contemporaneous comparison cars",
+        "coverage": "The frozen S7-A source windows do not cover this full visit.",
+        "expected": "Contemporaneous full-field, subsecond telemetry through approach, transit and post-lane."
+      },
+      {
+        "id": "sg-fit-22",
+        "endpoint": "location",
+        "params": {
+          "session_key": 9896,
+          "date>": "2025-10-05T12:25:38Z",
+          "date<": "2025-10-05T12:26:23Z"
+        },
+        "purpose": "Pre-cutoff candidate branch fit, with control cars",
+        "coverage": "The frozen S7-A source windows do not cover this full visit.",
+        "expected": "Contemporaneous full-field, subsecond telemetry through approach, transit and post-lane."
+      },
+      {
+        "id": "sg-held-43",
+        "endpoint": "location",
+        "params": {
+          "session_key": 9896,
+          "date>": "2025-10-05T12:27:08Z",
+          "date<": "2025-10-05T12:27:54Z"
+        },
+        "purpose": "Separate pre-cutoff pit visit and control cars",
+        "coverage": "The frozen S7-A source windows do not cover this full visit.",
+        "expected": "Contemporaneous full-field, subsecond telemetry through approach, transit and post-lane."
+      }
+    ]
+  }
+}
