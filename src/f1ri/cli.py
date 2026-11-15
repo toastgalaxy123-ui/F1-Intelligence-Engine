@@ -170,6 +170,10 @@ def main() -> None:
     robust.add_argument("--output", type=Path, required=True)
     timing = sub.add_parser("stage6-s6-b1", help="Audit neutralization timing and pit commitment boundaries")
     timing.add_argument("--output", type=Path, required=True)
+    board = sub.add_parser("stage6-s6-c", help="Validate or reproduce a decision-board research analysis")
+    board_mode = board.add_mutually_exclusive_group(required=True)
+    board_mode.add_argument("--output", type=Path)
+    board_mode.add_argument("--replay", type=Path)
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -368,6 +372,15 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage6-s6-c":
+        from f1ri.decision_board import replay
+        from f1ri.validation.decision_board_study import run_study
+
+        if args.replay:
+            result = replay(root, (root / args.replay).read_bytes())
+            print(f"Reproduced {result['snapshot']['snapshot_id']}")
+        else:
+            print(run_study(root, root / args.output))
     elif args.command == "stage6-s6-b1":
         from f1ri.validation.commitment_study import run_study
 

@@ -67,6 +67,8 @@ artifacts/reports/*
 !artifacts/reports/stage6_s6_b1_diagnostics.png
 !artifacts/reports/stage6_s6_b1_ledgers.zip
 !artifacts/reports/stage6_s6_b1_timing_risk.json
+!artifacts/reports/stage6_s6_c_evidence.zip
+!artifacts/reports/stage6_s6_c_metrics.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

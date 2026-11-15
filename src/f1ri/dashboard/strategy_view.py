@@ -19,11 +19,17 @@ from f1ri.validation.strategy_sources import audit_model_assets, frozen_pace_fix
 
 
 def dashboard():
-    st.set_page_config(page_title="F1 Strategy Scenarios", layout="wide")
+    st.set_page_config(page_title="F1 Race Intelligence", layout="wide")
+    root = Path(__file__).resolve().parents[3]
+    tool = st.sidebar.radio("Strategy tool", ("Decision board", "Compare policies", "Optimize strategies",
+                                            "Robust strategy", "Timing risk"))
+    if tool == "Decision board":
+        from f1ri.dashboard.decision_board import decision_board
+
+        decision_board(root)
+        return
     st.title("F1 Strategy Scenarios")
     st.caption("Paired comparisons at the same racing markers")
-    root = Path(__file__).resolve().parents[3]
-    tool = st.sidebar.radio("Strategy tool", ("Compare policies", "Optimize strategies", "Robust strategy", "Timing risk"))
     if tool == "Timing risk":
         from f1ri.dashboard.commitment_panel import commitment_panel
 

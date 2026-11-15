@@ -111,6 +111,14 @@ Select **Timing risk** in the strategy dashboard to inspect the released timing-
 Run `f1ri stage6-s6-b1 --output artifacts/runs/stage6_s6_b1_reproduced` to replay the study.
 See the [S6-B.1 report](artifacts/reports/stage6_s6_b1_validation.md) for the fixed and revisable policy comparisons.
 
+### Stage 6-C — Race Intelligence Decision Board
+
+Launch `python -m streamlit run src/f1ri/dashboard/app.py` to open the research board.
+It links an archived or declared cutoff to D8R1 mean forecasts, physical strategy comparison,
+robust evaluation and frozen timing-risk evidence. The board has six presets and a reproducible
+analysis export. See the [S6-C validation report](artifacts/reports/stage6_s6_c_validation.md)
+for the readiness decision, verification and commands.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,
