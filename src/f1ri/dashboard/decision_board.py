@@ -23,7 +23,7 @@ from f1ri.decision_board import (
 )
 
 PAGES = ("Overview", "Race State", "Forecasts", "Strategy Comparison", "Robust Strategy",
-         "Timing Risk", "Evidence & Validation")
+         "Timing Risk", "Source Availability & Replay", "Evidence & Validation")
 MODE_LABELS = dict(zip(MODES, ("Historical cutoff replay", "Declared counterfactual", "Hindsight analysis",
                               "Live · unavailable"), strict=True))
 
@@ -170,6 +170,10 @@ def decision_board(root):
         _robust(snapshot, current)
     elif page == "Timing Risk":
         _timing_panel(current.get("timing") if current and "timing" in current else _timing(root))
+    elif page == "Source Availability & Replay":
+        from f1ri.dashboard.source_availability import source_panel
+
+        source_panel(root)
     elif page == "Evidence & Validation":
         from f1ri.dashboard.historical_field import evidence
 

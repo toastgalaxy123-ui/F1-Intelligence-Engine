@@ -1,0 +1,33 @@
+{
+  "version": "s7-b-availability-v1",
+  "baseline": "642569229b9f70a3bb69b6616bf32127bc189527",
+  "capture": {
+    "session": 9896,
+    "endpoints": ["sessions", "location", "position", "laps", "race_control"],
+    "duration_s": 45,
+    "interval_s": 2.1,
+    "request_budget": 10,
+    "max_retries": 1,
+    "mode": "RETROSPECTIVE_RETRIEVAL",
+    "window_start": "2025-10-05T12:52:26Z",
+    "window_end": "2025-10-05T12:52:32Z"
+  },
+  "capture_purpose": "Observe current request and receipt behavior on an archived race. The race-event publication and receipt clocks in 2025 remain unavailable.",
+  "coverage_policy": "OpenF1 query completeness is unverified. Only the declared controlled fixture permits absence bounds.",
+  "freshness_policy": {
+    "response_max_s": 10,
+    "location": 2,
+    "position": 15,
+    "race_control": 30,
+    "pit": 30,
+    "laps": 150,
+    "weather": 120,
+    "intervals": 3,
+    "car_data": 2
+  },
+  "freshness_basis": "Declared engineering limits for replay tests, without empirical calibration.",
+  "historical_events": {
+    "singapore_cutoff": "2025-10-05T12:52:29.272Z",
+    "imola_sc_report": "2025-05-18T14:06:27Z"
+  }
+}

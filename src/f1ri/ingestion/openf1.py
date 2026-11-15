@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import os
 import time
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Self
 
@@ -12,6 +13,11 @@ from f1ri.ingestion.raw_cache import read_snapshot, save_snapshot, snapshot_path
 
 
 class OpenF1Client:
+    ENDPOINTS = frozenset({
+        "meetings", "sessions", "drivers", "laps", "stints", "pit", "weather",
+        "race_control", "session_result", "starting_grid", "position", "intervals",
+        "car_data", "location", "overtakes",
+    })
     def __init__(self, base_url: str, min_interval_seconds: float = 2.1):
         self.base_url = base_url.rstrip("/")
         self.min_interval_seconds = min_interval_seconds
@@ -34,11 +40,7 @@ class OpenF1Client:
                 time.sleep(self.min_interval_seconds - delta)
 
     def fetch(self, endpoint: str, params: dict) -> tuple[bytes, str]:
-        if endpoint not in {
-            "meetings", "sessions", "drivers", "laps", "stints", "pit", "weather",
-            "race_control", "session_result", "starting_grid", "position", "intervals",
-            "car_data", "location", "overtakes",
-        }:
+        if endpoint not in self.ENDPOINTS:
             raise ValueError(f"Unsupported endpoint: {endpoint}")
         url = f"{self.base_url}/{endpoint}"
         for attempt in range(5):
@@ -81,6 +83,58 @@ class OpenF1Client:
                     raise
                 time.sleep(min(2 ** attempt, 16))
         raise RuntimeError(f"All attempts failed: {url}")
+
+    def capture_attempt(self, endpoint, params, *, deadline, max_bytes, started):
+        """Stream one bounded attempt through the existing OpenF1 transport."""
+        if endpoint not in self.ENDPOINTS:
+            raise ValueError(f"Unsupported endpoint: {endpoint}")
+        delay = max(0., self.min_interval_seconds-(time.monotonic()-self._last_request_monotonic)) \
+            if self._last_request_monotonic is not None else 0.
+        if time.monotonic()+delay >= deadline:
+            return None
+        if delay:
+            time.sleep(delay)
+        remaining = deadline-time.monotonic()
+        if remaining <= 0:
+            return None
+        start = datetime.now(UTC)
+        start_ns = time.monotonic_ns()
+        started(start, start_ns)
+        self._last_request_monotonic = start_ns/1e9
+        timeout = min(3., remaining)
+        received = bytearray()
+        status = first_byte = error = None
+        headers = {}
+        try:
+            # Do not follow redirects here: every transport attempt must be
+            # accounted for in the capture request budget.
+            with self.client.stream("GET", f"{self.base_url}/{endpoint}", params=params,
+                                    headers={"Accept-Encoding": "identity"}, timeout=timeout,
+                                    follow_redirects=False) as response:
+                status = response.status_code
+                headers = {k: response.headers[k] for k in (
+                    "date", "age", "etag", "last-modified", "retry-after", "content-type",
+                    "content-encoding", "content-length", "content-range", "link",
+                ) if k in response.headers}
+                for chunk in response.iter_raw():
+                    if first_byte is None and chunk:
+                        first_byte = datetime.now(UTC)
+                    if time.monotonic() >= deadline:
+                        error = "CAPTURE_DEADLINE"
+                        break
+                    if len(received)+len(chunk) > max_bytes:
+                        received.extend(chunk[:max_bytes-len(received)])
+                        error = "BODY_LIMIT"
+                        break
+                    received.extend(chunk)
+        except KeyboardInterrupt:
+            error = "INTERRUPTED"
+        except httpx.RequestError as exc:
+            error = type(exc).__name__
+        return {"request_utc": start, "request_ns": start_ns,
+                "first_byte_utc": first_byte, "completed_utc": datetime.now(UTC),
+                "completed_ns": time.monotonic_ns(), "http_status": status,
+                "headers": headers, "error": error}, bytes(received)
 
     def cached_get(
         self, root: Path, *, endpoint: str, year: int,

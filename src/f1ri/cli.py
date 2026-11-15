@@ -180,6 +180,36 @@ def main() -> None:
     branches = sub.add_parser("stage7-s7-a1", help="Reproduce the historical pit-branch and order study")
     branches.add_argument("--output", type=Path, required=True)
     branches.add_argument("--s7-a-run", type=Path, help="Check a separate rerun against frozen S7-A bytes")
+    availability = sub.add_parser("stage7-s7-b", help="Capture and replay source receipt evidence")
+    availability_mode = availability.add_subparsers(dest="receipt_command", required=True)
+    collect = availability_mode.add_parser("capture")
+    collect.add_argument("--session", type=int, required=True)
+    collect.add_argument("--endpoints", nargs="+", required=True)
+    collect.add_argument("--duration", type=int, default=45)
+    collect.add_argument("--interval", type=float, default=2.1)
+    collect.add_argument("--budget", type=int, default=10)
+    collect.add_argument("--retries", type=int, default=1)
+    collect.add_argument("--mode", choices=["RETROSPECTIVE_RETRIEVAL", "FIRST_SEEN_OBSERVED"],
+                         default="RETROSPECTIVE_RETRIEVAL")
+    collect.add_argument("--window-start")
+    collect.add_argument("--window-end")
+    collect.add_argument("--output", type=Path, required=True)
+    collect.add_argument("--resume", action="store_true")
+    collect.add_argument("--recover-writer", action="store_true")
+    receipts = availability_mode.add_parser("study")
+    receipts.add_argument("--output", type=Path, required=True)
+    receipts.add_argument("--s6-c-run", type=Path)
+    receipts.add_argument("--s7-a-run", type=Path)
+    receipts.add_argument("--s7-a1-run", type=Path)
+    receipt_verify = availability_mode.add_parser("verify")
+    receipt_verify.add_argument("--export", type=Path, required=True)
+    receipt_replay = availability_mode.add_parser("replay")
+    receipt_replay.add_argument("--capture-dir", type=Path, required=True)
+    receipt_replay.add_argument("--decision", required=True, help="Decision UTC in ISO 8601")
+    receipt_replay.add_argument("--event-cutoff", required=True, help="Latest source event UTC")
+    receipt_replay.add_argument("--receipt-cutoff", required=True, help="Latest usable receipt UTC")
+    receipt_replay.add_argument("--expected-driver", action="append", type=int, default=[])
+    receipt_replay.add_argument("--snapshot", type=Path, required=True)
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -378,6 +408,45 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage7-s7-b":
+        if args.receipt_command == "capture":
+            from f1ri.ingestion.source_capture import CapturePlan, capture, recover_lock
+
+            if args.recover_writer:
+                if not args.resume:
+                    parser.error("--recover-writer requires --resume")
+                recover_lock(root / args.output)
+            plan = CapturePlan(args.session, tuple(args.endpoints), args.duration, args.interval, args.budget,
+                               args.retries, args.mode, args.window_start, args.window_end)
+            print(capture(root / args.output, plan, resume=args.resume))
+        elif args.receipt_command == "study":
+            from f1ri.validation.source_availability_study import run
+
+            print(run(root, root / args.output, previous={
+                key: root / path for key, path in (("s6c", args.s6_c_run), ("s7a", args.s7_a_run),
+                                                  ("s7a1", args.s7_a1_run)) if path
+            }))
+        elif args.receipt_command == "replay":
+            from json import loads
+
+            from f1ri.ingestion.source_capture import _write_new, capture_files, load_capture_files
+            from f1ri.ingestion.source_receipt import digest
+            from f1ri.ingestion.source_replay import ReplayIndex
+            from f1ri.validation.source_availability_study import PROTOCOL
+
+            manifest, rows, _ = load_capture_files(capture_files(root / args.capture_dir))
+            plan = manifest["plan"]
+            policy = loads((root / PROTOCOL).read_bytes())["freshness_policy"]
+            index = ReplayIndex(manifest["capture_id"], plan["session"], plan["endpoints"], rows,
+                                mode=plan["mode"], roster=args.expected_driver)
+            payload = index.replay(args.decision, event_cutoff=args.event_cutoff, receipt_cutoff=args.receipt_cutoff,
+                                   policy=policy)
+            _write_new(root / args.snapshot, payload)
+            print(digest(payload))
+        else:
+            from f1ri.validation.source_availability_study import verify_export
+
+            print(verify_export(root, root / args.export))
     elif args.command == "stage7-s7-a1":
         from f1ri.validation.pit_branch_study import run
 

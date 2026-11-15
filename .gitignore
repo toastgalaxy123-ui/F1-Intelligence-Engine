@@ -77,6 +77,10 @@ artifacts/reports/*
 !artifacts/reports/stage7_s7_a1_evidence.zip
 !artifacts/reports/stage7_s7_a1_dashboard.json
 !artifacts/reports/stage7_s7_a1_metrics.json
+!artifacts/reports/stage7_s7_b_capture.zip
+!artifacts/reports/stage7_s7_b_evidence.zip
+!artifacts/reports/stage7_s7_b_dashboard.json
+!artifacts/reports/stage7_s7_b_metrics.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

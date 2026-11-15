@@ -134,6 +134,13 @@ interior, retrospective route-change windows and candidate-order certificates. R
 `f1ri stage7-s7-a1 --output artifacts/runs/stage7_s7_a1_reproduced` to regenerate the ledgers.
 See the [S7-A.1 report](artifacts/reports/stage7_s7_a1_validation.md) for the supported cases and limits.
 
+### Stage 7-B — Source availability and receipt replay
+
+Open **Source Availability & Replay** in the Decision Board to inspect archived event clocks,
+observed collector receipts and controlled delivery failures. Run
+`f1ri stage7-s7-b study --output artifacts/runs/stage7_s7_b_reproduced` to reproduce the study.
+The [S7-B report](artifacts/reports/stage7_s7_b_validation.md) documents the capture, outcome and limits.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,
