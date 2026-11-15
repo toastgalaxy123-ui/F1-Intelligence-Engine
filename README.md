@@ -119,6 +119,14 @@ robust evaluation and frozen timing-risk evidence. The board has six presets and
 analysis export. See the [S6-C validation report](artifacts/reports/stage6_s6_c_validation.md)
 for the readiness decision, verification and commands.
 
+### Stage 7-A — Historical multi-car field reconstruction
+
+Open **Race State** in the decision board to inspect the Singapore and Imola 2025 pilot cutoffs.
+The event-time view shows reconstructed progress, coverage, and neighbor candidates where the
+observations support them. Run `f1ri stage7-s7-a --output artifacts/runs/stage7_s7_a_reproduced`
+to regenerate the historical ledgers. See the [S7-A report](artifacts/reports/stage7_s7_a_validation.md)
+for the pilot results, reproducibility checks and remaining evidence gaps.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

@@ -1,0 +1,82 @@
+{
+  "version": "s7-a-field-v1",
+  "baseline": "87dc0e116e075cb5dd186b71471d7d0526c813ac",
+  "policy": {
+    "event_time_only": true,
+    "max_location_age_s": 0.9,
+    "max_velocity_span_s": 1.0,
+    "mapping_history_s": 4.0,
+    "pit_entry_evidence_max_age_s": 45.0,
+    "unmapped_pit_corridor_m_each_side": 650,
+    "line_anchor_max_age_s": 180,
+    "line_origin_corroboration_s": 1.25,
+    "mapping_bound_multiplier": 1.5
+  },
+  "pilots": {
+    "9896": {
+      "race": "Singapore 2025",
+      "cutoffs": {
+        "Archived model cutoff": "2025-10-05T12:52:29.272+00:00",
+        "Sparse negative control": "2025-10-05T13:05:00+00:00",
+        "Later field control": "2025-10-05T13:10:20+00:00"
+      },
+      "reference_driver": 1,
+      "reference_lap": 25,
+      "reference_start": "2025-10-05T12:42:57.593+00:00",
+      "reference_next_line": "2025-10-05T12:44:33.510+00:00"
+    },
+    "9987": {
+      "race": "Imola 2025",
+      "cutoffs": {
+        "VSC deployment": "2025-05-18T13:42:34+00:00",
+        "VSC running": "2025-05-18T13:42:59+00:00",
+        "VSC track clear": "2025-05-18T13:46:14+00:00",
+        "SC deployment": "2025-05-18T14:06:27+00:00",
+        "SC running": "2025-05-18T14:06:45+00:00",
+        "SC in this lap": "2025-05-18T14:20:09+00:00",
+        "SC track clear": "2025-05-18T14:21:42+00:00"
+      }
+    }
+  },
+  "acquisition": {
+    "endpoint_base": "https://api.openf1.org/v1",
+    "logical_request_budget": 4,
+    "minimum_call_interval_s": 2.1,
+    "retry": "Existing OpenF1 client, up to five transport attempts; authentication errors are terminal.",
+    "stop": "One pass over the exact queries, reuse successful immutable snapshots; no adaptive window expansion.",
+    "requests": [
+      {
+        "id": "singapore_reference",
+        "endpoint": "location",
+        "params": {"session_key": 9896, "driver_number": 1, "date>": "2025-10-05T12:42:55+00:00", "date<": "2025-10-05T12:44:36+00:00"},
+        "purpose": "Earlier complete racing-line reference for the same 2025 layout and clock.",
+        "cached_coverage": "The S3 reference closes after the S6-C cutoff.",
+        "expectation": "Millisecond event clocks bracketing both timing-line crossings."
+      },
+      {
+        "id": "singapore_cutoff",
+        "endpoint": "location",
+        "params": {"session_key": 9896, "date>": "2025-10-05T12:52:16+00:00", "date<": "2025-10-05T12:52:45+00:00"},
+        "purpose": "Field-wide telemetry around the exact archived D8R1 cutoff.",
+        "cached_coverage": "Only the sampled reference driver near this timestamp.",
+        "expectation": "All-car fixes at the historical cadence; later fixes reserved for retrospective use."
+      },
+      {
+        "id": "imola_vsc_release",
+        "endpoint": "location",
+        "params": {"session_key": 9987, "date>": "2025-05-18T13:46:02+00:00", "date<": "2025-05-18T13:46:30+00:00"},
+        "purpose": "VSC track-clear observation at the independently archived race-control timestamp.",
+        "cached_coverage": "S5-B cached VSC deployment only.",
+        "expectation": "Fresh field-wide fixes before and after the reported clear."
+      },
+      {
+        "id": "imola_vsc_pit",
+        "endpoint": "location",
+        "params": {"session_key": 9987, "date>": "2025-05-18T13:42:53+00:00", "date<": "2025-05-18T13:43:45+00:00"},
+        "purpose": "Held pit transition and service evidence around the preselected car 1 visit, including nearby field.",
+        "cached_coverage": "S5-B telemetry ended before the archived lane-exit clock.",
+        "expectation": "Fresh fixes across approach, branch departure, stationary phase and return."
+      }
+    ]
+  }
+}

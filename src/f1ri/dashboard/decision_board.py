@@ -158,6 +158,9 @@ def decision_board(root):
     if page == "Overview":
         _overview(snapshot, settings, current, unsupported)
     elif page == "Race State":
+        from f1ri.dashboard.historical_field import race_state
+
+        race_state(root, snapshot)
         _race_state(snapshot)
     elif page == "Forecasts":
         _forecasts(snapshot, current)
@@ -168,7 +171,10 @@ def decision_board(root):
     elif page == "Timing Risk":
         _timing_panel(current.get("timing") if current and "timing" in current else _timing(root))
     elif page == "Evidence & Validation":
+        from f1ri.dashboard.historical_field import evidence
+
         _evidence(snapshot, current, assets[1])
+        evidence(root)
     with st.sidebar:
         st.caption(f"{request.scenario.profile.identifier}" if snapshot.rule_profile.value else "Archived forecast context")
 

@@ -174,6 +174,9 @@ def main() -> None:
     board_mode = board.add_mutually_exclusive_group(required=True)
     board_mode.add_argument("--output", type=Path)
     board_mode.add_argument("--replay", type=Path)
+    history = sub.add_parser("stage7-s7-a", help="Reproduce the bounded historical field pilot")
+    history.add_argument("--output", type=Path, required=True)
+    history.add_argument("--s6-c-run", type=Path, help="Check a separate rerun against all frozen S6-C bytes")
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -372,6 +375,10 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage7-s7-a":
+        from f1ri.validation.historical_field_study import run_study
+
+        print(run_study(root, root / args.output, frozen_run=root / args.s6_c_run if args.s6_c_run else None))
     elif args.command == "stage6-s6-c":
         from f1ri.decision_board import replay
         from f1ri.validation.decision_board_study import run_study
