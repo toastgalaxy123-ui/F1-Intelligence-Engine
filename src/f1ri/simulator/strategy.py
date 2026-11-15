@@ -239,9 +239,16 @@ class _PolicyRuntime:
                               car.completed_laps + (2 if progress > r.entry_m + 1e-6 else 1),
                               motion["neighbors"].get(d), state.timing_order.index(d)+1, motion["gaps_m"].get(d),
                               tuple(sorted(available)), field.box_free.get(r.route.box_id))
-            lap = policy.choose(stop, view)
-            if lap is None:
-                continue
+            resolve = getattr(policy, "resolve", None)
+            if resolve is None:
+                lap = policy.choose(stop, view)
+                if lap is None:
+                    continue
+            else:
+                action = resolve(stop, view)
+                if action is None:
+                    continue
+                lap, stop = action.lap, action
             self.evaluated.add(i)
             tyre = available.get(stop.set_id)
             curve = self.curves.get((d, stop.set_id))
@@ -439,8 +446,11 @@ def compare_strategies(s, reference, candidates=None, *, recorder_factory=None, 
     if reference not in policies or any(x not in policies for x in choices):
         raise StrategyInputError("UNKNOWN_STRATEGY", "Choose from the policies in the scenario.")
     results = {}
+    policy_context = getattr(forecast_adapter, "set_policy_context", None)
     for key in choices:
         recorder = recorder_factory() if recorder_factory is not None else None
+        if policy_context is not None:
+            policy_context(policies[key])
         forecast = forecast_adapter.branch(s, continuation) if forecast_adapter is not None else None
         result = _execute_strategy(s, policies[key], diagnostics=recorder, forecast=forecast)
         if recorder is not None:

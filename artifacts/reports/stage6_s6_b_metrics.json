@@ -1,0 +1,79 @@
+{
+  "stage": "stage6-s6-b-v1",
+  "decision": "PATH_A_ROBUST_OPTIMIZATION_VALIDATED",
+  "release": "MEAN_ONLY_VALIDATED",
+  "probabilities": "SCENARIO_PROBABILITIES_NOT_ESTIMATED",
+  "baseline_tests": 363,
+  "families": 15,
+  "completed_families": 14,
+  "evaluations": 2652,
+  "supported_cells": 2336,
+  "primary": {
+    "selected": [
+      "adaptive-63-hard-or-soft",
+      "adaptive-63-medium-or-soft",
+      "adaptive-63-used-soft-or-soft"
+    ],
+    "presentation": [
+      "adaptive-63-hard-or-soft",
+      "adaptive-63-medium-or-soft",
+      "adaptive-63-used-soft-or-soft"
+    ],
+    "near": [
+      "adaptive-63-hard-or-medium",
+      "adaptive-63-hard-or-used-soft",
+      "adaptive-63-medium-or-hard",
+      "adaptive-63-medium-or-used-soft",
+      "adaptive-63-soft-or-hard",
+      "adaptive-63-soft-or-medium",
+      "adaptive-63-soft-or-used-soft",
+      "adaptive-63-used-soft-or-hard",
+      "adaptive-63-used-soft-or-medium"
+    ],
+    "search": {
+      "offered_policies": 37,
+      "evaluated_policies": 37,
+      "scenarios": 6,
+      "expected_policy_scenario": 222,
+      "evaluated_policy_scenario": 222,
+      "unevaluated_policies": [],
+      "budget_rejected": 0,
+      "supported_cells": 222,
+      "unsupported_cells": 0,
+      "simulator_evaluations": 262,
+      "total_budget": 768,
+      "per_scenario_budget": 64,
+      "fixed_space_exhausted": true,
+      "selected_comparator_complete": true,
+      "perfect_information_complete": true
+    }
+  },
+  "checks": {
+    "B03_green_sc": true,
+    "B05_vsc_observed_only": true,
+    "B06_sc_observed_only": true,
+    "B07_oracle_separate": true,
+    "B09_minimax_regret": true,
+    "B13_exact_ties": true,
+    "B14_trigger_equivalence_subset": true,
+    "B17_pit_entry_boundary": true,
+    "B15_following_limited": true,
+    "B16_initial_gap_changes_ranking": true,
+    "B04_late_vsc_near_equal": true,
+    "B02_green_vsc_exchange": true,
+    "B18_shared_box_queue": true,
+    "B21_incomplete_withholds_result": true,
+    "B01_identical_rank": true,
+    "B08_hand_regret": true,
+    "B10_relative_loss_can_differ": true,
+    "B11_dominance": true,
+    "B12_pareto": true,
+    "B19_horizon_mismatch": true,
+    "B20_missing_model_inputs": true,
+    "B22_order_and_additions": true,
+    "B23_cache_parity": true,
+    "B25_single_scenario_s6_a": true,
+    "B24_no_unscripted_pass": true
+  },
+  "invariant_failures": []
+}

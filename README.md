@@ -98,6 +98,13 @@ in the strategy dashboard. S6-A searches bounded pit and tyre policies with froz
 three-, five- and ten-lap horizons. See the [validation report](artifacts/reports/stage6_s6_a_validation.md)
 for the scenario results, limits and reproduction checks.
 
+### Stage 6-B — Robust strategy
+
+Select **Robust strategy** in the existing dashboard or run
+`f1ri stage6-s6-b --output artifacts/runs/stage6_s6_b_reproduced`. The same policy library runs
+across declared futures using D8R1 mean pace. See the [S6-B validation report](artifacts/reports/stage6_s6_b_validation.md)
+for regret, dominance, control-clock and support results.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

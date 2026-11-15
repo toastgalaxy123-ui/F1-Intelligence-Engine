@@ -60,6 +60,9 @@ artifacts/reports/*
 !artifacts/reports/stage6_s6_a_metrics.json
 !artifacts/reports/stage6_s6_a_diagnostics.png
 !artifacts/reports/stage6_s6_a_ledgers.zip
+!artifacts/reports/stage6_s6_b_metrics.json
+!artifacts/reports/stage6_s6_b_diagnostics.png
+!artifacts/reports/stage6_s6_b_ledgers.zip
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

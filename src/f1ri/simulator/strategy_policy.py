@@ -1,5 +1,5 @@
 """Immutable decision inputs for the first deterministic strategy policies."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from enum import StrEnum
 from typing import Protocol
 
@@ -69,6 +69,11 @@ class Policy:
         ):
             return None
         return (stop.lap if stop.lap is not None else view.next_pit_lap) + stop.delay_laps
+
+    def resolve(self, stop, view):
+        """Resolve a proposed action from observed state at the decision clock."""
+        lap = self.choose(stop, view)
+        return replace(stop, lap=lap) if lap is not None else None
 
 
 @dataclass(frozen=True, slots=True)

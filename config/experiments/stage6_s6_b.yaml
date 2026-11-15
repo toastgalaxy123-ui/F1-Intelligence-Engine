@@ -1,0 +1,40 @@
+version: stage6-s6-b-v1
+model: PaceV2_D8R1
+release: MEAN_ONLY_VALIDATED
+default_objective: MINIMAX_REGRET
+default_comparator: BEST_REALIZED_POLICY
+oracle: S6-A declared-event review clocks appended to the fixed policy library
+scenario_weights: null
+bounds:
+  horizons: [3, 5, 10]
+  stops_max: 2
+  max_scenarios: 12
+  max_policies: 96
+  max_simulator_evaluations_per_scenario: 128
+  max_simulator_evaluations_per_family: 1536
+primary:
+  cutoff: Singapore 2025 archived cutoff with declared slower predecessor
+  horizon: 5
+  permitted_sets: [hard, medium, soft, used-soft]
+  pit_opportunities: 3
+  max_stops: 1
+  conditional_decision_deadline_s: 120
+  futures: [green, early-vsc, late-vsc, early-sc, longer-sc, restart-pace]
+timing_grid:
+  vsc_deploy_s: [5, 28, 58, 89]
+  sc_deploy_s: [5, 28, 58]
+  sc_release_offset_s: [66, 97, 132]
+  vsc_pace_multiplier: 0.9
+  pinned_s6_a_green_pit_entry_offset_us: 29967958
+model_sensitivity:
+  pace_level_s: 0.3
+  soft_compound_s: 0.3
+  degradation_s_per_age_lap: 0.06
+  replacement_initialization_s: 0.3
+  replacement_used_soft_age: 6
+assumptions:
+  - Policy receives committed current state only.
+  - No scenario probability estimation.
+  - A declared timing prefix can end before the action.
+  - Shared fixture and frozen opponent rules are held fixed within future families.
+  - Alternative gap positions and pace perturbations are separately audited.
