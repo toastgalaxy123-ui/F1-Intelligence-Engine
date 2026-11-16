@@ -1,0 +1,25 @@
+[Unit]
+Description=F1 Race Intelligence private research
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=f1ri
+Group=f1ri
+WorkingDirectory=/opt/f1ri/current
+UMask=0077
+StateDirectory=f1ri
+Environment=PATH=/opt/f1ri/runtime/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/opt/f1ri/runtime/bin/python scripts/private_stack.py serve --config /etc/f1ri/production.private.json --cert /etc/f1ri/edge.pem --key /etc/f1ri/edge.key --bind-interface 0.0.0.0
+Restart=on-failure
+KillMode=control-group
+TimeoutStopSec=55
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/f1ri
+
+[Install]
+WantedBy=multi-user.target

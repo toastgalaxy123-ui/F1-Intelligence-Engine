@@ -4,3 +4,5 @@ artifacts/runs/stage5_s1_pace/*.json -text whitespace=cr-at-eol
 data/raw/reference/pirelli_allocations.csv text eol=lf
 apps/web/package-lock.json text eol=lf
 artifacts/reports/stage8_s8_a_validation.md text eol=lf
+artifacts/reports/stage8_s8_b_validation.md text eol=lf
+artifacts/reports/stage8_s8_c_validation.md text eol=lf

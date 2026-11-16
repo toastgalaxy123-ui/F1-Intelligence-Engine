@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "playwright test",
+    "test:private": "playwright test --config playwright.private.config.ts",
     "test:unit": "node --experimental-strip-types --test tests-unit/*.test.mjs"
   },
   "dependencies": {

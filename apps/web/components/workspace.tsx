@@ -3,13 +3,14 @@
 import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
 import { Activity, ArrowUpRight, ChevronDown, ClipboardList, Flag, FlaskConical, FolderOpen, Gauge,
   LayoutGrid, Menu, Radio, Route, ShieldCheck, Timer, Workflow, X } from "lucide-react";
-import { active, api, post, type AnalysisRequest, type Context, type Job, type Operation, type Preset, type PresetId,
+import { active, api, post, privateMode, type AnalysisRequest, type Context, type Job, type Operation, type Preset, type PresetId,
   type Result, type Snapshot } from "../lib/api";
 import { ForecastView, JobFeedback, Reproducibility, RobustView, StrategyView, TimingView } from "./analysis-views";
 import { ResearchEvidence } from "./evidence";
 import { Overview, RaceState, type View } from "./overview";
 import { DataTable, Empty, Notice, Panel, readable, seconds } from "./ui";
 import { WorkspaceShelf } from "./workspace-shelf";
+import { PrivateSession } from "./private-session";
 import { type WorkspaceFile, workspaceVersion } from "../lib/workspaces";
 
 const nav = [
@@ -233,7 +234,8 @@ export function Workspace() {
       <nav aria-label="Research workspace">{nav.map(({ name, icon: Icon }) => <button className={view === name ? "nav-active" : ""}
         aria-current={view === name ? "page" : undefined} key={name} onClick={() => navigate(name)}>
         <Icon size={17} strokeWidth={1.75} /><span>{name}</span>{view === name && <span className="nav-dot" />}</button>)}</nav>
-      <div className="side-bottom"><div className="side-status"><span className="indicator" /><div><strong>Private research</strong><small>Local workspace · API v1</small></div></div>
+      <div className="side-bottom">{privateMode ? <PrivateSession /> :
+        <div className="side-status"><span className="indicator" /><div><strong>Private research</strong><small>Local workspace · API v1</small></div></div>}
         <button className="side-evidence" onClick={() => navigate("Research Evidence")}>Model and source limits <ArrowUpRight size={14} /></button></div>
     </aside>
     {menu && <button className="overlay" aria-label="Close navigation backdrop" onClick={() => setMenu(false)} />}

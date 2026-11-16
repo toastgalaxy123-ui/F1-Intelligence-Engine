@@ -1,0 +1,18 @@
+{
+  "environment": "production",
+  "origin": "https://research.example.invalid:8443",
+  "oidc_issuer": "https://login.example.invalid/realms/research",
+  "oidc_client_id": "f1ri-private",
+  "oidc_client_secret": "<paste the provider-issued client secret here>",
+  "flow_secret": "<generate an independent URL-safe 32-byte secret>",
+  "edge_secret": "<generate another independent URL-safe 32-byte secret>",
+  "database": "/var/lib/f1ri/research.sqlite3",
+  "session_seconds": 1800,
+  "queue_seconds": 90,
+  "owner_pending": 2,
+  "workspace_limit": 50,
+  "rate_submissions": 20,
+  "rate_exports": 12,
+  "result_days": 7,
+  "log_level": "INFO"
+}

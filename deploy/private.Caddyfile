@@ -1,0 +1,54 @@
+{
+	admin off
+	persist_config off
+	auto_https disable_redirects
+	storage file_system {$F1RI_GATEWAY_STATE}
+	log default {
+		format filter {
+			wrap json
+			fields {
+				request>uri delete
+				request>headers delete
+				resp_headers delete
+			}
+		}
+	}
+}
+
+{$F1RI_GATEWAY_ORIGIN} {
+	bind {$F1RI_GATEWAY_BIND}
+	tls {$F1RI_GATEWAY_CERT} {$F1RI_GATEWAY_KEY}
+
+	header {
+		-Server
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy no-referrer
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'"
+		X-Robots-Tag "noindex, nofollow"
+		Cache-Control "private, no-store"
+	}
+
+	route {
+		request_header -X-F1RI-Edge
+		request_header -X-F1RI-Web-Gateway
+		@api path /api/* /auth/* /healthz
+		handle @api {
+			reverse_proxy 127.0.0.1:8100 {
+				header_up X-F1RI-Edge {$F1RI_EDGE_TOKEN}
+			}
+		}
+		handle {
+			forward_auth 127.0.0.1:8100 {
+				uri /auth/check
+				header_up X-F1RI-Edge {$F1RI_EDGE_TOKEN}
+			}
+			reverse_proxy 127.0.0.1:3100 {
+				header_up X-F1RI-Web-Gateway {$F1RI_EDGE_TOKEN}
+				header_up -Cookie
+			}
+		}
+	}
+}

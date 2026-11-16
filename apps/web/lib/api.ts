@@ -116,6 +116,7 @@ export type Shadow = {
 };
 
 const base = process.env.NEXT_PUBLIC_F1RI_API_URL ?? "http://127.0.0.1:8000/api/v1";
+export const privateMode = process.env.NEXT_PUBLIC_F1RI_PRIVATE === "true";
 
 export function apiUrl(path: string) {
   return base + path;
@@ -149,9 +150,11 @@ export async function api<T>(path: string, options: RequestInit = {}): Promise<T
     cache: "no-store",
   });
   if (!response.ok) {
+    if (response.status === 401 && privateMode) window.location.replace("/auth/sign-in");
     const problem = await response.json().catch(() => null);
     throw new Error(problem?.error?.message ?? `Research service returned ${response.status}.`);
   }
+  if (response.status === 204) return undefined as T;
   const payload: unknown = await response.json();
   checkEnvelope(path, payload);
   return payload as T;

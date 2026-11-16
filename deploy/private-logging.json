@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "service": {"()": "f1ri.private.logging.ServiceFormatter", "fmt": "%(asctime)s level=%(levelname)s service=%(name)s %(message)s"}
+  },
+  "handlers": {
+    "stderr": {"class": "logging.StreamHandler", "formatter": "service", "stream": "ext://sys.stderr"}
+  },
+  "loggers": {
+    "f1ri.private": {"level": "INFO", "handlers": ["stderr"], "propagate": false},
+    "uvicorn": {"level": "INFO", "handlers": ["stderr"], "propagate": false},
+    "uvicorn.access": {"level": "CRITICAL", "handlers": [], "propagate": false}
+  }
+}

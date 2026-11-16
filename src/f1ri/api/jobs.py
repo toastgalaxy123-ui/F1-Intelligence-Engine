@@ -34,13 +34,16 @@ class Entry:
     stop: Event = field(default_factory=Event)
     size: int = 0
     details: AnalysisDetails | None = None
+    queued_at: float = field(default_factory=monotonic)
 
 
 class Jobs:
-    def __init__(self, root, *, wall_seconds=WALL_SECONDS, rss_bytes=RSS_BYTES):
+    def __init__(self, root, *, wall_seconds=WALL_SECONDS, rss_bytes=RSS_BYTES, queue_seconds=None):
         self.root = root
         self.wall_seconds = wall_seconds
         self.rss_bytes = rss_bytes
+        self.queue_seconds = queue_seconds
+        self.work_root = None
         self.entries = OrderedDict()
         self.lock = RLock()
         self.worker = ThreadPoolExecutor(max_workers=1, thread_name_prefix="f1ri-research")
@@ -108,17 +111,24 @@ class Jobs:
         with self.lock:
             if entry.stop.is_set():
                 return
+            if self.queue_seconds and monotonic()-entry.queued_at >= self.queue_seconds:
+                return self._set(entry, "FAILED", code="QUEUE_TIMEOUT", message="The analysis waited too long in the queue.")
             self._set(entry, "RUNNING")
         start = monotonic()
         peak = cpu = 0
         try:
-            with TemporaryDirectory(prefix="f1ri-web-") as work:
+            with TemporaryDirectory(prefix="f1ri-web-", dir=self.work_root) as work:
                 work = Path(work)
                 (work / "request.json").write_text(request.model_dump_json(), encoding="utf-8")
                 env = os.environ | {"PYTHONHASHSEED": "0", "OPENBLAS_NUM_THREADS": "1", "OMP_NUM_THREADS": "1",
                                     "MKL_NUM_THREADS": "1", "NUMEXPR_NUM_THREADS": "1"}
                 code = None
-                with subprocess.Popen([sys.executable, "-m", "f1ri.api.worker", str(self.root), str(work)],
+                command = [sys.executable, "-m", "f1ri.api.worker", str(self.root), str(work)]
+                if self.queue_seconds is not None:
+                    command.extend((str(os.getpid()), str(psutil.Process().create_time()), str(start+self.wall_seconds)))
+                    env = {key: value for key, value in env.items() if key not in (
+                        "F1RI_PRIVATE_CONFIG", "F1RI_EDGE_TOKEN", "OPENF1_TOKEN", "F1RI_ISSUER_SECRET")}
+                with subprocess.Popen(command,
                                       stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                                       env=env, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0)) as child:
                     process = psutil.Process(child.pid)
@@ -150,6 +160,9 @@ class Jobs:
                                      message="The run stopped before a complete result was available.",
                                      measurements=measurements)
                 path = work / "output.json"
+                if child.returncode in (124, -24):
+                    return self._set(entry, "FAILED", code="TIME_LIMIT",
+                                     message="The analysis exceeded its execution budget.", measurements=measurements)
                 if child.returncode or not path.is_file() or path.stat().st_size > MAX_RESULT_BYTES:
                     raise ValueError("Invalid worker response")
                 value = loads(path.read_bytes())

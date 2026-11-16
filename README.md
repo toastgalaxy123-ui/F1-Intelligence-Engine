@@ -164,6 +164,13 @@ comparisons. The Workspaces shelf can verify and reproduce a saved investigation
 [workspace guide](docs/web/strategy-workspace.md) and
 [validation report](artifacts/reports/stage8_s8_b_validation.md).
 
+### Stage 8-C — Authenticated private research hosting
+
+Invited researchers can run the existing analyses over HTTPS and reopen saved investigations
+from a second signed-in browser. The local research workflow remains available. See the
+[private hosting setup](docs/web/private-beta.md), [validation report](artifacts/reports/stage8_s8_c_validation.md)
+and [checksummed verification archive](artifacts/reports/stage8_s8_c_evidence.zip).
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

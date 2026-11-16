@@ -105,8 +105,17 @@ data/telemetry/*
 .DS_Store
 apps/web/node_modules/
 apps/web/.next/
+apps/web/.next-private*/
 apps/web/next-env.d.ts
 apps/web/*.tsbuildinfo
 apps/web/test-results/
+apps/web/test-results-private/
 apps/web/playwright-report/
 apps/web/.env.local
+*.private.json
+*.sqlite3
+*.sqlite3-*
+*.sqlite3.worker
+*.sqlite3.scratch/
+!artifacts/reports/stage8_s8_c_evidence.zip
+!artifacts/reports/stage8_s8_c_metrics.json

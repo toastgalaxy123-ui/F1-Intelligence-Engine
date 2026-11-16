@@ -1,7 +1,7 @@
 """FastAPI entry point for localhost research. The engine data root is operator-configured."""
 
 import os
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, nullcontext
 from pathlib import Path
 from typing import Annotated
 
@@ -60,7 +60,7 @@ class LocalRequests:
         self.origins = origins
 
     async def __call__(self, scope, receive, send):
-        if scope["type"] != "http" or scope["method"] not in ("POST", "DELETE"):
+        if scope["type"] != "http" or scope["method"] not in ("POST", "DELETE", "PUT"):
             return await self.app(scope, receive, send)
         headers = Headers(scope=scope)
         if (origin := headers.get("origin")) and origin not in self.origins:
@@ -87,24 +87,44 @@ class LocalRequests:
         await self.app(scope, read, send)
 
 
-def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
+def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None, private_config=None):
     root = Path(root or os.environ.get("F1RI_REPO_ROOT") or Path(__file__).resolve().parents[3]).resolve()
+    private = private_config
+    store = None
+    if private:
+        from f1ri.private.auth import install, owner
+        from f1ri.private.jobs import OwnedJobs
+        from f1ri.private.routes import workspace_routes
+        from f1ri.private.storage import Store, lease
+
+        store = Store(private.database)
 
     @asynccontextmanager
     async def lifespan(app):
-        assets(root)
-        evidence(root)
-        app.state.jobs = queue_factory(root)
-        try:
-            yield
-        finally:
-            app.state.jobs.close()
+        with lease(private.database) if private else nullcontext():
+            assets(root)
+            evidence(root)
+            if private:
+                from logging import getLogger
 
-    app = FastAPI(title="F1 Race Intelligence Research API", version="1.0.0", lifespan=lifespan)
-    app.add_middleware(LocalRequests, origins=DEFAULT_ORIGINS)
-    app.add_middleware(CORSMiddleware, allow_origins=DEFAULT_ORIGINS,
-                       allow_methods=["GET", "POST", "DELETE"], allow_headers=["Content-Type"])
-    app.add_middleware(TrustedHostMiddleware, allowed_hosts=allowed_hosts or ["127.0.0.1", "localhost", "[::1]"])
+                getLogger("f1ri.private").setLevel(private.log_level)
+                store.migrate()
+            app.state.jobs = OwnedJobs(root, store, private) if private else queue_factory(root)
+            try:
+                yield
+            finally:
+                app.state.jobs.close()
+
+    app = FastAPI(title="F1 Race Intelligence Research API", version="1.0.0", lifespan=lifespan,
+                  openapi_url=None if private else "/openapi.json")
+    app.add_middleware(LocalRequests, origins=[private.origin] if private else DEFAULT_ORIGINS)
+    if not private:
+        app.add_middleware(CORSMiddleware, allow_origins=DEFAULT_ORIGINS,
+                           allow_methods=["GET", "POST", "DELETE"], allow_headers=["Content-Type"])
+    app.add_middleware(TrustedHostMiddleware, allowed_hosts=(
+        [private.host] if private else allowed_hosts or ["127.0.0.1", "localhost", "[::1]"]))
+    if private:
+        install(app, private, store)
     api = APIRouter(prefix="/api/v1")
 
     @app.exception_handler(ResearchError)
@@ -130,7 +150,7 @@ def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
 
     @api.get("/health")
     def health():
-        return {"status": "ready", "api": "v1", "deployment": "LOCAL_RESEARCH_ONLY",
+        return {"status": "ready", "api": "v1", "deployment": "AUTHENTICATED_RESEARCH" if private else "LOCAL_RESEARCH_ONLY",
                 "live": "LIVE_UNSUPPORTED", "budgets": {"wall_s": WALL_SECONDS,
                     "rss_mib": RSS_BYTES // 1024**2, "pending": MAX_PENDING, "active": 1}}
 
@@ -202,7 +222,9 @@ def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
 
             return Job(id=digest(canonical(request.model_dump(mode="json"))), state="UNSUPPORTED",
                        code=problem.code, message=str(problem))
-        return http.app.state.jobs.submit(identity, normalized, expected)
+        service = http.app.state.jobs
+        return service.submit_for(owner(http), identity, normalized, expected) if private else service.submit(
+            identity, normalized, expected)
 
     @api.post("/analyses", response_model=Job, status_code=202)
     def analysis(request: AnalysisRequest, http: Request):
@@ -214,26 +236,35 @@ def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
 
     @api.get("/analyses/{identity}", response_model=Job)
     def job(identity: Hash, http: Request):
-        return http.app.state.jobs.get(identity)
+        service = http.app.state.jobs
+        return service.get_for(owner(http), identity) if private else service.get(identity)
 
     @api.get("/analyses/{identity}/details", response_model=AnalysisDetails)
     def analysis_details(identity: Hash, http: Request):
-        return http.app.state.jobs.details(identity)
+        service = http.app.state.jobs
+        return service.details_for(owner(http), identity) if private else service.details(identity)
 
     @api.delete("/analyses/{identity}", response_model=Job)
     def cancel(identity: Hash, http: Request):
-        return http.app.state.jobs.cancel(identity)
+        service = http.app.state.jobs
+        return service.cancel_for(owner(http), identity) if private else service.cancel(identity)
 
     @api.get("/analyses/{identity}/export")
     def export(identity: Hash, http: Request):
-        job = http.app.state.jobs.get(identity)
-        if not job.result:
+        record = job(identity, http)
+        if private:
+            store.limit(owner(http), "export", private.rate_exports)
+        if not record.result:
             raise ResearchError("EXPORT_UNAVAILABLE", "A completed analysis is required for export.", 409)
-        return Response(canonical(job.result.model_dump(mode="json")), media_type="application/json",
+        return Response(canonical(record.result.model_dump(mode="json")), media_type="application/json",
                         headers={"Content-Disposition": f'attachment; filename="f1ri-{identity[:12]}.json"'})
 
     app.include_router(api)
+    if private:
+        workspace_routes(app, root, store, private)
     return app
 
 
-app = create_app()
+from f1ri.private.config import configured
+
+app = create_app(private_config=configured())
