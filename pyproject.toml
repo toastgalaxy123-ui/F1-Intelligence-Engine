@@ -20,6 +20,8 @@ dependencies = [
 dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
 modeling = ["scikit-learn>=1.5,<2", "statsmodels>=0.14,<1", "matplotlib>=3.8,<4"]
 dashboard = ["streamlit>=1.40,<2", "plotly>=5.20,<7"]
+web = ["fastapi==0.163.1", "uvicorn==0.54.0", "psutil==7.2.2", "pydantic==2.13.5",
+       "scikit-learn>=1.5,<2", "pyarrow>=18,<30"]
 
 [project.scripts]
 f1ri = "f1ri.cli:main"

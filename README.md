@@ -149,6 +149,14 @@ timing and sealed research snapshots. Run
 bounded study. The [S7-C0 report](artifacts/reports/stage7_s7_c0_validation.md) documents the
 readiness gates and the evidence needed for a contemporary capture.
 
+### Stage 8-A — Local web research workspace
+
+The Next.js workspace and versioned FastAPI service expose archived D8R1 pace, legal declared
+strategy comparisons, bounded optimization, timing risk and source evidence. Follow the
+[local setup guide](docs/web/local.md) to start both services. The
+[S8-A validation report](artifacts/reports/stage8_s8_a_validation.md) records the browser and
+engine parity checks and the limits on historical and live strategy.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

@@ -2,3 +2,4 @@
 artifacts/reports/*.json text eol=lf
 artifacts/runs/stage5_s1_pace/*.json -text whitespace=cr-at-eol
 data/raw/reference/pirelli_allocations.csv text eol=lf
+apps/web/package-lock.json text eol=lf

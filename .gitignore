@@ -91,6 +91,8 @@ artifacts/reports/*
 !artifacts/reports/stage7_s7_c0_dashboard.json
 !artifacts/reports/stage7_s7_c0_evidence.zip
 !artifacts/reports/stage7_s7_c0_metrics.json
+!artifacts/reports/stage8_s8_a_evidence.zip
+!artifacts/reports/stage8_s8_a_metrics.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/
@@ -99,3 +101,10 @@ data/warehouse/*
 data/telemetry/*
 !data/**/.gitkeep
 .DS_Store
+apps/web/node_modules/
+apps/web/.next/
+apps/web/next-env.d.ts
+apps/web/*.tsbuildinfo
+apps/web/test-results/
+apps/web/playwright-report/
+apps/web/.env.local

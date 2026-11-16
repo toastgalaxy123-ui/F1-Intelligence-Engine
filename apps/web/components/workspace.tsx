@@ -1,0 +1,259 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import { Activity, ArrowUpRight, ChevronDown, ClipboardList, Flag, FlaskConical, Gauge,
+  LayoutGrid, Menu, Radio, Route, ShieldCheck, Timer, Workflow, X } from "lucide-react";
+import { active, api, post, type AnalysisRequest, type Context, type Job, type Operation, type Preset, type PresetId,
+  type Result, type Snapshot } from "../lib/api";
+import { ForecastView, Reproducibility, RobustView, StrategyView, TimingView } from "./analysis-views";
+import { ResearchEvidence } from "./evidence";
+import { Overview, RaceState, type View } from "./overview";
+import { Empty, Notice, readable } from "./ui";
+
+const nav = [
+  { name: "Overview", icon: LayoutGrid, description: "Selected scenario and decision support" },
+  { name: "Race State", icon: Route, description: "Cutoff-visible timing, tires and physical evidence" },
+  { name: "Pace Forecast", icon: Activity, description: "D8R1 clean-air stint trajectories" },
+  { name: "Strategy Lab", icon: FlaskConical, description: "Candidate selection and deterministic simulation" },
+  { name: "Robust Strategy", icon: Workflow, description: "Policy outcomes across declared race-control futures" },
+  { name: "Timing Risk", icon: Timer, description: "Safety Car observation and pit-entry commitment" },
+  { name: "Research Evidence", icon: ClipboardList, description: "Source, model and decision provenance" },
+] as const;
+type JobKey = Operation | "replay";
+type Loaded = { key: string; data?: Snapshot; error?: string };
+
+export function Workspace() {
+  const [view, setView] = useState<View>("Overview");
+  const [presets, setPresets] = useState<Preset[]>([]);
+  const [catalogError, setCatalogError] = useState("");
+  const [generation, setGeneration] = useState(0);
+  const [context, setContext] = useState<Context>({ preset: "archive", driver: 63, horizon: 5 });
+  const [loaded, setLoaded] = useState<Loaded>();
+  const [jobs, setJobs] = useState<Partial<Record<JobKey, Job>>>({});
+  const [comparison, setComparison] = useState<"manual" | "conditional">("manual");
+  const [menu, setMenu] = useState(false);
+  const [browse, setBrowse] = useState(false);
+  const controllers = useRef<Partial<Record<JobKey, AbortController>>>({});
+  const contextKey = JSON.stringify(context);
+  const snapshot = loaded?.key === contextKey ? loaded.data : undefined;
+  const snapshotError = loaded?.key === contextKey ? loaded.error : undefined;
+  const preset = presets.find(p => p.id === context.preset);
+
+  useEffect(() => {
+    const abort = new AbortController();
+    api<Preset[]>("/presets", { signal: abort.signal }).then(setPresets).catch(e => {
+      if (!abort.signal.aborted) setCatalogError(e.message);
+    });
+    return () => abort.abort();
+  }, [generation]);
+  useEffect(() => {
+    const abort = new AbortController();
+    post<Snapshot>("/snapshots", JSON.parse(contextKey), abort.signal).then(data => {
+      if (!abort.signal.aborted) setLoaded({ key: contextKey, data });
+    }).catch(e => {
+      if (!abort.signal.aborted) setLoaded({ key: contextKey, error: e.message });
+    });
+    return () => abort.abort();
+  }, [contextKey, generation]);
+  useEffect(() => {
+    const activeControllers = controllers.current;
+    return () => Object.values(activeControllers).forEach(c => c.abort());
+  }, []);
+
+  const start = useCallback(async (key: JobKey, path: string, body: unknown) => {
+    controllers.current[key]?.abort();
+    const abort = new AbortController();
+    controllers.current[key] = abort;
+    const update = (job: Job) => {
+      if (!abort.signal.aborted) setJobs(existing => ({ ...existing, [key]: job }));
+    };
+    update({ id: "", state: "QUEUED", cache_hit: false });
+    try {
+      let job = await post<Job>(path, body, abort.signal);
+      update(job);
+      while (active(job) && !abort.signal.aborted) {
+        await new Promise(resolve => setTimeout(resolve, 170));
+        if (abort.signal.aborted) break;
+        job = await api<Job>(`/analyses/${job.id}`, { signal: abort.signal });
+        update(job);
+      }
+    } catch (cause) {
+      if (!abort.signal.aborted) update({ id: "", state: "FAILED", cache_hit: false,
+        message: cause instanceof Error ? cause.message : "The local research request failed." });
+    }
+  }, []);
+
+  const launch = useCallback((operation: Operation, options: Partial<AnalysisRequest> = {}) => {
+    if (!snapshot?.operations.includes(operation)) return;
+    controllers.current.replay?.abort();
+    setJobs(existing => ({ ...existing, replay: undefined }));
+    void start(operation, "/analyses", {
+      ...options, context: snapshot.context, snapshot_id: snapshot.snapshot_id, operation,
+    });
+  }, [snapshot, start]);
+
+  useEffect(() => {
+    if (!snapshot?.operations.includes("forecast")) return;
+    const timer = setTimeout(() => launch("forecast", { tyre_sets: [] }), 0);
+    return () => clearTimeout(timer);
+  }, [launch, snapshot]);
+
+  function invalidate(key: JobKey) {
+    controllers.current[key]?.abort();
+    delete controllers.current[key];
+    setJobs(old => ({ ...old, [key]: undefined, replay: undefined }));
+  }
+
+  function cancel(key: JobKey) {
+    const job = jobs[key];
+    invalidate(key);
+    if (job?.id && active(job)) {
+      setJobs(old => ({ ...old, [key]: { ...job, state: "CANCELED", message: "Cancellation requested." } }));
+      void api<Job>(`/analyses/${job.id}`, { method: "DELETE" }).catch(() => undefined);
+    }
+  }
+
+  function change(next: Context) {
+    if (JSON.stringify(next) === contextKey) return;
+    Object.values(controllers.current).forEach(c => c.abort());
+    setJobs({});
+    setContext(next);
+  }
+
+  function select(id: PresetId, nextView?: View) {
+    change({ preset: id, driver: id === "timing" ? 63 : context.driver, horizon: id === "timing" ? 5 : context.horizon });
+    setBrowse(false);
+    if (nextView) navigate(nextView);
+  }
+
+  function navigate(next: View) {
+    setView(next);
+    setMenu(false);
+    setBrowse(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function applyAssumptions(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const values = new FormData(event.currentTarget);
+    const entered = (key: string) => Number(values.get(key));
+    change({ ...context, mode: String(values.get("mode")) as Context["mode"],
+      model_era: String(values.get("era")) as Context["model_era"],
+      cutoff: String(values.get("cutoff") ?? "").trim() || undefined,
+      assumptions: { gap_m: entered("gap"), service_s: entered("service"), pace_offset_s: entered("pace"),
+        extra_pit_travel_s: entered("pit"), vsc_at_s: entered("vscAt"), vsc_duration_s: entered("vscWindow"),
+        sc_at_s: entered("scAt"), sc_duration_s: entered("scWindow") },
+    });
+  }
+
+  function verify(result: Result) {
+    void start("replay", "/replays", { request: result.request, expected_sha256: result.result_sha256 });
+  }
+  const op: Operation | undefined = view === "Pace Forecast" ? "forecast" : view === "Strategy Lab" ? comparison :
+    view === "Robust Strategy" ? "robust" : view === "Timing Risk" ? "timing" : undefined;
+  const descriptor = nav.find(item => item.name === view);
+  const declared = () => select("two-car", view === "Race State" ? "Race State" : "Strategy Lab");
+  const chosen = op ? jobs[op] : undefined;
+  const jobProps = op ? { job: chosen, launch, cancel: () => cancel(op), invalidate: () => invalidate(op) } :
+    { job: undefined, launch, cancel: () => undefined, invalidate: () => undefined };
+  const timing = context.preset === "timing";
+  const contextOptions = context.assumptions ?? {};
+
+  return <div className="app-shell">
+    <a className="skip-link" href="#main">Skip to workspace</a>
+    <aside className={`sidebar${menu ? " mobile-open" : ""}`}>
+      <button className="brand" onClick={() => navigate("Overview")} aria-label="F1 Race Intelligence home">
+        <span className="brand-mark"><Flag size={24} strokeWidth={2.5} /></span>
+        <span><strong>F1 RACE INTELLIGENCE</strong><small>Research workspace</small></span>
+      </button>
+      <nav aria-label="Research workspace">{nav.map(({ name, icon: Icon }) => <button className={view === name ? "nav-active" : ""}
+        aria-current={view === name ? "page" : undefined} key={name} onClick={() => navigate(name)}>
+        <Icon size={17} strokeWidth={1.75} /><span>{name}</span>{view === name && <span className="nav-dot" />}</button>)}</nav>
+      <div className="side-bottom"><div className="side-status"><span className="indicator" /><div><strong>Private research</strong><small>Local workspace · API v1</small></div></div>
+        <button className="side-evidence" onClick={() => navigate("Research Evidence")}>Model and source limits <ArrowUpRight size={14} /></button></div>
+    </aside>
+    {menu && <button className="overlay" aria-label="Close navigation backdrop" onClick={() => setMenu(false)} />}
+    <div className="content-shell">
+      <header className="topbar">
+        <button className="mobile-toggle icon-button" aria-label={menu ? "Close navigation" : "Open navigation"} onClick={() => setMenu(!menu)}>
+          {menu ? <X size={21} /> : <Menu size={21} />}</button>
+        <div className="breadcrumb"><span>Workspace</span><ChevronDown size={13} /><strong>{view}</strong></div>
+        <div className="live-chip"><Radio size={15} /><span>Live strategy unavailable</span></div>
+      </header>
+      <main id="main">
+        <div className="context-bar">
+          <label className="field scenario"><span><Flag size={13} />Research preset</span>
+            <select value={context.preset} onChange={e => select(e.target.value as PresetId)} aria-label="Research preset">
+              {!preset && <option value={context.preset}>Loading presets…</option>}
+              {presets.map(p => <option key={p.id} value={p.id}>{p.title}</option>)}</select></label>
+          <label className="field"><span>Driver</span><select aria-label="Driver" value={context.driver} disabled={timing}
+            onChange={e => change({ ...context, driver: Number(e.target.value) as 63 | 4 })}>
+            {(snapshot?.driver_options ?? [{ id: 63, code: "RUS" }, { id: 4, code: "NOR" }]).map(d =>
+              <option key={d.id} value={d.id}>#{d.id} · {d.code}</option>)}
+          </select></label>
+          <label className="field"><span>Horizon</span><select aria-label="Horizon" value={context.horizon} disabled={timing}
+            onChange={e => change({ ...context, horizon: Number(e.target.value) as Context["horizon"] })}>
+            {[3, 5, 10].map(n => <option key={n} value={n}>{n} laps</option>)}</select></label>
+          <div className="context-actions"><button className="secondary" aria-expanded={browse} onClick={() => setBrowse(!browse)}>Browse presets <ChevronDown size={15} /></button></div>
+        </div>
+        {browse && <section className="preset-picker" aria-label="Available research presets">
+          {presets.map(p => <button key={p.id} onClick={() => select(p.id)} className={p.id === context.preset ? "chosen" : ""}>
+            <strong>{p.title}</strong><span>{p.summary}</span><small>{readable(p.mode)}</small></button>)}</section>}
+        {snapshot && <details className="workspace-details">
+          <summary>Assumptions and context</summary>
+          <form key={contextKey} onSubmit={applyAssumptions}>
+            <div className="form-row">
+              <label className="field">Research mode<select name="mode" defaultValue={snapshot.context.mode ?? undefined}>
+                {snapshot.preset.mode !== "SHADOW_OBSERVATION" &&
+                  <option value={snapshot.preset.mode}>{readable(snapshot.preset.mode)}</option>}
+                {snapshot.preset.mode === "DECLARED_COUNTERFACTUAL" && <option value="HINDSIGHT_ANALYSIS">Retrospective analysis</option>}
+                {snapshot.preset.mode === "SHADOW_OBSERVATION" ? <option value="SHADOW_OBSERVATION">Shadow observation</option> :
+                  <option value="LIVE" disabled>Live unavailable</option>}
+              </select></label>
+              <label className="field">Regulation era<select name="era" defaultValue={context.model_era ?? "2023_2025"}>
+                <option value="2023_2025">2023–2025</option><option value="2026">2026 support check</option></select></label>
+              <label className="field">Cutoff (UTC)<input name="cutoff" placeholder={snapshot.context.cutoff ?? "ISO 8601 UTC"}
+                defaultValue={context.cutoff ?? ""} /></label>
+            </div>
+            <div className="form-row assumptions">
+              <label className="field">Initial gap (m)<input name="gap" type="number" min=".001" max="690" step="any" defaultValue={contextOptions.gap_m ?? 24.635} /></label>
+              <label className="field">Pace offset (s)<input name="pace" type="number" min="-1" max="1" step="any" defaultValue={contextOptions.pace_offset_s ?? 0} /></label>
+              <label className="field">Service (s)<input name="service" type="number" min="1" max="10" step="any" defaultValue={contextOptions.service_s ?? 3} /></label>
+              <label className="field">Extra pit travel (s)<input name="pit" type="number" min="0" max="10" step="any" defaultValue={contextOptions.extra_pit_travel_s ?? 0} /></label>
+              <label className="field">VSC start (s)<input name="vscAt" type="number" min="1" max="240" defaultValue={contextOptions.vsc_at_s ?? 5} /></label>
+              <label className="field">VSC duration (s)<input name="vscWindow" type="number" min="20" max="240" defaultValue={contextOptions.vsc_duration_s ?? 75} /></label>
+              <label className="field">SC start (s)<input name="scAt" type="number" min="1" max="240" defaultValue={contextOptions.sc_at_s ?? 5} /></label>
+              <label className="field">SC duration (s)<input name="scWindow" type="number" min="20" max="240" defaultValue={contextOptions.sc_duration_s ?? 92} /></label>
+            </div>
+            <button className="secondary" type="submit">Apply context</button>
+          </form>
+        </details>}
+        {view !== "Overview" && <div className="page-heading"><div className="eyebrow"><Gauge size={14} />Research workspace</div>
+          <h1>{view}</h1><p>{descriptor?.description}</p></div>}
+        {snapshotError || catalogError ? <div className="flow">
+          <Notice bad>{snapshotError || catalogError}</Notice>
+          <button className="secondary" onClick={() => { setCatalogError(""); setLoaded(undefined); setGeneration(n => n + 1); }}>Try again</button>
+          {snapshotError && <button className="secondary" onClick={() => change({ preset: context.preset, driver: context.driver, horizon: context.horizon })}>Reset context</button>}
+        </div> : !snapshot ? <Empty title="Loading the research snapshot" loading /> :
+          <div className="flow" key={snapshot.snapshot_id}>
+            {snapshot.support.includes("MODEL_ERA_UNSUPPORTED") && <Notice>2026 regulation transfer is unsupported. <code>MODEL_ERA_UNSUPPORTED</code></Notice>}
+            {snapshot.support.some(s => s.endsWith("NOT_IN_VERIFIED_CATALOG")) &&
+              <Notice>The requested cutoff or session is outside the verified catalog.</Notice>}
+            {view === "Overview" && <Overview snapshot={snapshot} forecast={jobs.forecast}
+              comparison={jobs.robust?.result ? jobs.robust : jobs.manual} navigate={navigate} chooseDeclared={declared} />}
+            {view === "Race State" && <RaceState snapshot={snapshot} chooseDeclared={declared} />}
+            {view === "Pace Forecast" && <ForecastView snapshot={snapshot} {...jobProps} />}
+            {view === "Strategy Lab" && <StrategyView snapshot={snapshot} {...jobProps} operation={comparison}
+              chooseDeclared={declared} selectOperation={op => { invalidate(comparison); setComparison(op); }} />}
+            {view === "Robust Strategy" && <RobustView snapshot={snapshot} {...jobProps} chooseDeclared={() => select("neutralization", "Robust Strategy")} />}
+            {view === "Timing Risk" && <TimingView snapshot={snapshot} {...jobProps} choose={() => select("timing", "Timing Risk")} />}
+            {view === "Research Evidence" && <ResearchEvidence snapshot={snapshot} />}
+            {chosen?.result && <Reproducibility job={chosen} replay={verify}
+              replayJob={jobs.replay?.result && jobs.replay.result.analysis_id !== chosen.result.analysis_id ? undefined : jobs.replay}
+              cancelReplay={() => cancel("replay")} />}
+          </div>}
+        <footer><ShieldCheck size={14} /> Private research only <span>·</span> No live strategy or operational race probabilities</footer>
+      </main>
+    </div>
+  </div>;
+}
