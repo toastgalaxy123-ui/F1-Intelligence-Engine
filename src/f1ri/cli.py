@@ -210,6 +210,20 @@ def main() -> None:
     receipt_replay.add_argument("--receipt-cutoff", required=True, help="Latest usable receipt UTC")
     receipt_replay.add_argument("--expected-driver", action="append", type=int, default=[])
     receipt_replay.add_argument("--snapshot", type=Path, required=True)
+    shadow = sub.add_parser("stage7-s7-c0", help="Run the bounded shadow preflight")
+    shadow_mode = shadow.add_subparsers(dest="shadow_command", required=True)
+    shadow_study = shadow_mode.add_parser("study")
+    shadow_study.add_argument("--output", type=Path, required=True)
+    shadow_study.add_argument("--s7-b-run", type=Path)
+    shadow_verify = shadow_mode.add_parser("verify")
+    shadow_verify.add_argument("--export", type=Path, required=True)
+    shadow_capture = shadow_mode.add_parser("capture")
+    shadow_capture.add_argument("--output", type=Path, required=True)
+    shadow_capture.add_argument("--session", type=int)
+    shadow_capture.add_argument("--window-start")
+    shadow_capture.add_argument("--window-end")
+    shadow_capture.add_argument("--mode", choices=("RETROSPECTIVE_RETRIEVAL", "FIRST_SEEN_OBSERVED"),
+                                default="RETROSPECTIVE_RETRIEVAL")
     p.add_argument("--verify-run", type=Path, help="Check a sealed run and independently repeat its held-out predictions")
     p.add_argument("--output", type=Path)
     p.add_argument("--acquire", action="store_true", help="Retrieve only frozen missing historical endpoints")
@@ -408,6 +422,24 @@ def main() -> None:
         except (ValueError, FileExistsError, FileNotFoundError) as error:
             parser.exit(2, json.dumps({"error": getattr(error, "code", type(error).__name__),
                                        "message": str(error)}) + "\n")
+    elif args.command == "stage7-s7-c0":
+        import json
+
+        from f1ri.ingestion.source_capture import CapturePlan, capture
+        from f1ri.validation.shadow_preflight import PLAN, run, verify_export
+
+        if args.shadow_command == "study":
+            print(run(root, root / args.s7_b_run if args.s7_b_run else None, root / args.output))
+        elif args.shadow_command == "verify":
+            print(verify_export(root, root / args.export))
+        else:
+            plan = json.loads((root / PLAN).read_bytes())["rehearsal"]
+            if any((args.session, args.window_start, args.window_end)) or args.mode == "FIRST_SEEN_OBSERVED":
+                if not all((args.session, args.window_start, args.window_end)):
+                    parser.error("A custom capture requires --session, --window-start and --window-end.")
+                plan.update(session=args.session, window_start=args.window_start,
+                            window_end=args.window_end, mode=args.mode)
+            print(capture(root / args.output, CapturePlan(**plan)))
     elif args.command == "stage7-s7-b":
         if args.receipt_command == "capture":
             from f1ri.ingestion.source_capture import CapturePlan, capture, recover_lock

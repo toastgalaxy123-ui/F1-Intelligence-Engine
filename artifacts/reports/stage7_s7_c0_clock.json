@@ -1,0 +1,1 @@
+{"command":"w32tm /query /status","checked_at_utc":"2026-11-16T01:21:41.3249713+00:00","scope":"POST_REHEARSAL_HOST_CHECK","source":"Local CMOS Clock","leap_indicator":3,"stratum":0,"synchronization":"UNSYNCHRONIZED","verified_offset_seconds":null,"monotonic_elapsed_scope":"SINGLE_LOCAL_EPOCH"}

@@ -1,0 +1,26 @@
+{
+  "version": "s7-c0-shadow-preflight-v1",
+  "baseline": "47ff2fbe6e5bb50061964c89800338bb785bb5b8",
+  "minimum_start_spacing_s": 2.1,
+  "request_ceiling_per_60_s": 29,
+  "concurrency": 1,
+  "freshness_limits_s": {"location": 2, "position": 15, "race_control": 30, "laps": 150},
+  "planning_policies": ["S0", "S1", "S2", "S3", "S4"],
+  "comparison": {"horizon_s": 60, "request_budget": 27, "checkpoint_step_s": 1},
+  "rehearsal": {
+    "session": 9896, "endpoints": ["sessions", "location", "position", "laps", "race_control"],
+    "duration_s": 45, "interval_s": 2.1, "request_budget": 12, "max_retries": 1,
+    "mode": "RETROSPECTIVE_RETRIEVAL",
+    "window_start": "2025-10-05T12:52:26Z", "window_end": "2025-10-05T12:52:32Z",
+    "scheduler": {"method": "S4", "rules": {
+      "sessions": {"weight": 1, "period_s": 150, "max_gap_s": 300, "budget": 1, "dependency": false},
+      "location": {"weight": 5, "period_s": 2, "max_gap_s": 9, "budget": 18, "dependency": true},
+      "position": {"weight": 2, "period_s": 12, "max_gap_s": 15, "budget": 7, "dependency": true},
+      "laps": {"weight": 1, "period_s": 20, "max_gap_s": 24, "budget": 6, "dependency": false},
+      "race_control": {"weight": 3, "period_s": 8, "max_gap_s": 12, "budget": 8, "dependency": true}
+    }}
+  },
+  "capture_scope": "Archived Singapore sampler with fixed public queries. No original race-time or contemporary racing receipt claims.",
+  "maturity": {"target_session": 9896, "driver": 63, "lap": 31, "cutoff": "2025-10-05T12:52:29.272Z"},
+  "clock_synchronization": "Requires independent evidence; monotonic intervals remain local to the collection epoch."
+}

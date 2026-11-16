@@ -23,7 +23,7 @@ from f1ri.decision_board import (
 )
 
 PAGES = ("Overview", "Race State", "Forecasts", "Strategy Comparison", "Robust Strategy",
-         "Timing Risk", "Source Availability & Replay", "Evidence & Validation")
+         "Timing Risk", "Source Availability & Replay", "Shadow-Mode Readiness", "Evidence & Validation")
 MODE_LABELS = dict(zip(MODES, ("Historical cutoff replay", "Declared counterfactual", "Hindsight analysis",
                               "Live · unavailable"), strict=True))
 
@@ -174,6 +174,10 @@ def decision_board(root):
         from f1ri.dashboard.source_availability import source_panel
 
         source_panel(root)
+    elif page == "Shadow-Mode Readiness":
+        from f1ri.dashboard.shadow_readiness import shadow_panel
+
+        shadow_panel(root)
     elif page == "Evidence & Validation":
         from f1ri.dashboard.historical_field import evidence
 

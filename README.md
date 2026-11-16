@@ -141,6 +141,14 @@ observed collector receipts and controlled delivery failures. Run
 `f1ri stage7-s7-b study --output artifacts/runs/stage7_s7_b_reproduced` to reproduce the study.
 The [S7-B report](artifacts/reports/stage7_s7_b_validation.md) documents the capture, outcome and limits.
 
+### Stage 7-C0 — Shadow-mode preflight
+
+Open **Shadow-Mode Readiness** in the Decision Board to inspect priority polling, field-level
+timing and sealed research snapshots. Run
+`f1ri stage7-s7-c0 study --output artifacts/runs/stage7_s7_c0_reproduced` to reproduce the
+bounded study. The [S7-C0 report](artifacts/reports/stage7_s7_c0_validation.md) documents the
+readiness gates and the evidence needed for a contemporary capture.
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

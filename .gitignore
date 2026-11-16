@@ -81,6 +81,11 @@ artifacts/reports/*
 !artifacts/reports/stage7_s7_b_evidence.zip
 !artifacts/reports/stage7_s7_b_dashboard.json
 !artifacts/reports/stage7_s7_b_metrics.json
+!artifacts/reports/stage7_s7_c0_rehearsal.zip
+!artifacts/reports/stage7_s7_c0_clock.json
+!artifacts/reports/stage7_s7_c0_dashboard.json
+!artifacts/reports/stage7_s7_c0_evidence.zip
+!artifacts/reports/stage7_s7_c0_metrics.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/

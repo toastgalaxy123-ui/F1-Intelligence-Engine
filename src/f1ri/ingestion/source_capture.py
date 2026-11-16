@@ -55,6 +55,7 @@ class CapturePlan:
     mode: str = RETROSPECTIVE
     window_start: str | None = None
     window_end: str | None = None
+    scheduler: dict | None = None
 
     def __post_init__(self):
         object.__setattr__(self, "endpoints", tuple(self.endpoints))
@@ -70,6 +71,13 @@ class CapturePlan:
             raise ValueError("Provide a paired UTC source window of at most 120 seconds.")
         if set(self.endpoints) & {"location", "car_data", "intervals"} and start is None:
             raise ValueError("High-volume endpoints require a bounded UTC source window.")
+        if self.scheduler is not None:
+            from f1ri.ingestion.priority_polling import PriorityScheduler
+
+            PriorityScheduler(self.endpoints, self.scheduler, self.interval_s, max_retries=self.max_retries)
+
+    def document(self):
+        return {key: value for key, value in self.__dict__.items() if key != "scheduler" or value is not None}
 
     def params(self, endpoint):
         params = {"session_key": self.session}
@@ -86,13 +94,13 @@ def _manifest(directory, plan, resume):
     path = directory/"manifest.json"
     if resume:
         manifest = loads(path.read_bytes())
-        if manifest["schema"] != CAPTURE_SCHEMA or manifest["plan"] != loads(canonical(plan.__dict__)):
+        if manifest["schema"] != CAPTURE_SCHEMA or manifest["plan"] != loads(canonical(plan.document())):
             raise ValueError("Resume must use the original immutable capture plan.")
         return manifest
     directory.mkdir(parents=True, exist_ok=False)
     (directory/"raw").mkdir()
     (directory/"journal").mkdir()
-    manifest = {"schema": CAPTURE_SCHEMA, "capture_id": uuid4().hex, "plan": plan.__dict__,
+    manifest = {"schema": CAPTURE_SCHEMA, "capture_id": uuid4().hex, "plan": plan.document(),
                 "started_utc": datetime.now(UTC), "coverage": "UNVERIFIED",
                 "provider_publication_utc": None}
     _write_new(path, canonical(manifest))
@@ -180,6 +188,8 @@ def _collect(directory, journal, manifest, plan, client):
     result = None
     stop = "REQUEST_BUDGET"
     transport = nullcontext(client) if client is not None else OpenF1Client(BASE_URL, plan.interval_s)
+    if plan.scheduler is not None:
+        return _collect_priority(directory, journal, manifest, plan, transport, prior, epoch, deadline)
     try:
         with transport as source:
             # A resumed process has a distinct monotonic epoch. Keep the
@@ -193,27 +203,12 @@ def _collect(directory, journal, manifest, plan, client):
                     if sequence >= plan.request_budget:
                         break
                     seq = sequence+1
-                    intent, commit = _names(seq)
-                    tracking = {"provider": "openf1", "endpoint": endpoint, "session": plan.session,
-                                "parameters": plan.params(endpoint), "capture_id": manifest["capture_id"],
-                                "sequence": seq, "poll": poll, "retry": attempt,
-                                "request_id": f"{manifest['capture_id']}:{seq}", "clock_epoch": epoch}
-
-                    def started(clock, mono, path=journal/intent, row=tracking):
-                        _write_new(path, canonical(row | {"request_utc": clock, "request_ns": mono}))
-
-                    payload = source.capture_attempt(endpoint, tracking["parameters"], deadline=deadline,
-                                                     max_bytes=MAX_BODY_BYTES, started=started)
-                    if payload is None:
+                    result = _record_attempt(directory, journal, manifest, plan, source, deadline,
+                                             endpoint, seq, poll, attempt, epoch)
+                    if result is None:
                         stop = "CAPTURE_DURATION"
                         break
                     sequence = seq
-                    meta, raw = payload
-                    result = _receipt(meta, raw, tracking, plan.mode)
-                    body = directory/"raw"/f"{result.body_sha256}.bin"
-                    if not body.exists():
-                        _write_new(body, raw)
-                    _write_new(journal/commit, canonical(result.document()))
                     if result.error == "INTERRUPTED":
                         stop = "INTERRUPTED"
                         break
@@ -234,6 +229,101 @@ def _collect(directory, journal, manifest, plan, client):
         _write_new(journal/f"end-{epoch}.json", canonical({"epoch": epoch, "stop": stop, "finished": datetime.now(UTC)}))
     return {"capture_id": manifest["capture_id"], "attempts": len(list(journal.glob("*.intent.json"))),
             "stop": stop, "last_status": result.http_status if result else None}
+
+
+def _record_attempt(directory, journal, manifest, plan, source, deadline, endpoint, seq, poll, retry, epoch):
+    intent, commit = _names(seq)
+    tracking = {"provider": "openf1", "endpoint": endpoint, "session": plan.session,
+                "parameters": plan.params(endpoint), "capture_id": manifest["capture_id"],
+                "sequence": seq, "poll": poll, "retry": retry, "request_id": f"{manifest['capture_id']}:{seq}",
+                "clock_epoch": epoch}
+
+    def started(clock, mono):
+        _write_new(journal/intent, canonical(tracking | {"request_utc": clock, "request_ns": mono}))
+
+    payload = source.capture_attempt(endpoint, tracking["parameters"], deadline=deadline,
+                                     max_bytes=MAX_BODY_BYTES, started=started)
+    if payload is None:
+        return None
+    meta, raw = payload
+    result = _receipt(meta, raw, tracking, plan.mode)
+    body = directory/"raw"/f"{result.body_sha256}.bin"
+    if not body.exists():
+        _write_new(body, raw)
+    _write_new(journal/commit, canonical(result.document()))
+    return result
+
+
+def _collect_priority(directory, journal, manifest, plan, transport, prior, epoch, deadline):
+    from f1ri.ingestion.priority_polling import PriorityScheduler
+
+    origin = utc(manifest["started_utc"])
+    base = time.monotonic()-(datetime.now(UTC)-origin).total_seconds()
+    schedule = PriorityScheduler(plan.endpoints, plan.scheduler, plan.interval_s, max_retries=plan.max_retries)
+    sequence = len(prior)
+    last_poll = max((r["poll"] for r in prior), default=0)
+    stop, receipt = "REQUEST_BUDGET", None
+    try:
+        for intent in prior:
+            ep = intent["endpoint"]
+            at = (utc(intent["request_utc"])-origin).total_seconds()
+            schedule.started(ep, at)
+            path = journal/_names(intent["sequence"])[1]
+            if path.is_file():
+                row = SourceReceiptEnvelope.from_document(loads(path.read_bytes()))
+                schedule.completed(ep, (row.available_utc-origin).total_seconds(), not row.error,
+                                   status=row.http_status, retry_after=retry_wait(row), poll=row.poll, retry=row.retry)
+            else:
+                # The interrupted request may have returned a rate-limit
+                # response we did not see. Do not treat it as a success.
+                schedule.next_global = max(schedule.next_global, at+60.)
+        if prior:
+            # Preserve the global floor when restarting into a new monotonic epoch.
+            schedule.next_global = max(schedule.next_global, time.monotonic()-base+plan.interval_s)
+        with transport as source:
+            while sequence < plan.request_budget and time.monotonic() < deadline:
+                now = time.monotonic()-base
+                ep, ready = schedule.choose(now)
+                if ready is None or base+ready >= deadline:
+                    stop = "NO_ELIGIBLE_POLL" if ready is None else "CAPTURE_DURATION"
+                    break
+                if ep is None:
+                    time.sleep(max(0., base+ready-time.monotonic()))
+                    continue
+                if ep in schedule.retry:
+                    poll, retry = schedule.retry[ep]
+                else:
+                    last_poll += 1
+                    poll, retry = last_poll, 0
+                chosen = schedule.last_block
+                receipt = _record_attempt(directory, journal, manifest, plan, source, deadline,
+                                          ep, sequence+1, poll, retry, epoch)
+                if receipt is None:
+                    stop = "CAPTURE_DURATION"
+                    break
+                sequence += 1
+                began = receipt.request_ns/1e9-base
+                usable = time.monotonic()-base
+                schedule.started(ep, began)
+                cooldown = retry_wait(receipt)
+                schedule.completed(ep, usable, not receipt.error, status=receipt.http_status, retry_after=cooldown,
+                                   poll=poll, retry=retry)
+                _write_new(journal/f"{sequence:06d}.scheduler.json", canonical({
+                    "request_id": receipt.request_id, "selected": ep, "reason": chosen, "eligible_elapsed_s": ready,
+                    "actual_start_elapsed_s": began, "available_elapsed_s": usable, "retry_delay_s": cooldown,
+                    "queue_delay_s": max(0., began-ready), "next_global_elapsed_s": schedule.next_global,
+                }))
+                if receipt.error == "INTERRUPTED":
+                    stop = "INTERRUPTED"
+                    break
+            if sequence < plan.request_budget and stop == "REQUEST_BUDGET":
+                stop = "CAPTURE_DURATION"
+    except KeyboardInterrupt:
+        stop = "INTERRUPTED"
+    finally:
+        _write_new(journal/f"end-{epoch}.json", canonical({"epoch": epoch, "stop": stop, "finished": datetime.now(UTC)}))
+    return {"capture_id": manifest["capture_id"], "attempts": len(list(journal.glob("*.intent.json"))),
+            "stop": stop, "last_status": receipt.http_status if receipt else None}
 
 
 def recover_lock(directory):
