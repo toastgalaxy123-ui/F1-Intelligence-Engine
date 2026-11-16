@@ -22,7 +22,13 @@ from f1ri.validation.historical_field_sources import checked_members, load_pilot
 from f1ri.validation.historical_field_study import _parquet, _seal, write_json
 from f1ri.validation.shadow_controls import control_experiments, shadow_cases
 from f1ri.validation.shadow_polling_study import compare, feasibility, measured
-from f1ri.validation.shadow_temporal_audit import d8r1_cutoff_audit, matrix, maturity_experiments
+from f1ri.validation.shadow_temporal_audit import (
+    S1_SNAPSHOT,
+    S1_SNAPSHOT_SHA,
+    d8r1_cutoff_audit,
+    matrix,
+    maturity_experiments,
+)
 from f1ri.validation.source_availability_study import CAPTURE, CAPTURE_SHA, _frozen, open_source
 
 REPORTS = Path("artifacts/reports")
@@ -37,7 +43,7 @@ PINNED = {
     CAPTURE: CAPTURE_SHA,
     REPORTS/"stage7_s7_b_metrics.json": "ba36c2bab5804aa479a54e723e0f641e532d436bbe1f073f61893ea705eba767",
     REPORTS/"stage7_s7_b_dashboard.json": "367a2b3a55d48a1813132245c3112668f542a07792dd0ae7f6dde0448c452413",
-    REHEARSAL: REHEARSAL_SHA, CLOCK: CLOCK_SHA,
+    REHEARSAL: REHEARSAL_SHA, CLOCK: CLOCK_SHA, S1_SNAPSHOT: S1_SNAPSHOT_SHA,
 }
 
 

@@ -15,6 +15,11 @@ dist/
 artifacts/models/*
 !artifacts/models/PaceV2_D8R1/
 artifacts/runs/*
+!artifacts/runs/stage5_s1_pace/
+artifacts/runs/stage5_s1_pace/*
+!artifacts/runs/stage5_s1_pace/metrics.json
+!artifacts/runs/stage5_s1_pace/snapshot.json
+!artifacts/runs/stage5_s1_pace/trajectory_samples.npz
 artifacts/reports/*
 !artifacts/reports/*.md
 !artifacts/reports/stage4_*.png

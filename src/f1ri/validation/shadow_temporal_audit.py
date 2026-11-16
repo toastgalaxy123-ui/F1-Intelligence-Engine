@@ -21,11 +21,12 @@ from f1ri.ingestion.compound_allocations import populate_silver_compound_allocat
 from f1ri.ingestion.source_receipt import canonical, digest, utc
 from f1ri.validation.historical_field_sources import INPUT_ARCHIVE, checked_members
 from f1ri.validation.pit_branch_sources import PINNED
-from f1ri.validation.strategy_sources import audit_model_assets
 from f1ri.warehouse.build import _load_silver_table
 from f1ri.warehouse.schema import SILVER_SCHEMAS
 
 CUT = utc("2025-10-05T12:52:29.272Z")
+S1_SNAPSHOT = Path("artifacts/runs/stage5_s1_pace/snapshot.json")
+S1_SNAPSHOT_SHA = "f36417292a3333c410ee24852a8c7591b2b819a26f6f0bfee2f7d7b13a864627"
 
 
 def _driver_63(snapshot):
@@ -35,11 +36,10 @@ def _driver_63(snapshot):
 def d8r1_cutoff_audit(root):
     """Rebuild the same historical request and mutate only the future lap outcomes."""
     checked_members(root/INPUT_ARCHIVE, PINNED[INPUT_ARCHIVE])
-    spec, _, assets = audit_model_assets(root)
-    if assets["frozen_pace_replay"]["status"] != "VERIFIED_CONTINUATION_ONLY":
-        raise ValueError("Frozen Stage 3-R/S1 request evidence is unavailable.")
-    ref = root/spec["frozen_pace"]["path"]/"snapshot.json"
-    saved = loads(ref.read_bytes())
+    ref = (root/S1_SNAPSHOT).read_bytes()
+    if digest(ref) != S1_SNAPSHOT_SHA:
+        raise ValueError("Frozen Stage 3-R/S1 request evidence differs.")
+    saved = loads(ref)
     request = next(row["request"] for row in saved["drivers"] if row["driver_number"] == 63)
     with ZipFile(root/INPUT_ARCHIVE) as z:
         data = {ep: loads(z.read(f"singapore_timing/{ep}.json")) for ep in SILVER_SCHEMAS}
@@ -88,7 +88,7 @@ def d8r1_cutoff_audit(root):
     return original, future, utc(laps[32]["date_start"]), {
         "outcome": "NO_LEAKAGE_FOUND_IN_AUDITED_PATH" if same and exact else
         "LEAKAGE_CONFIRMED" if not same else "INCONCLUSIVE",
-        "snapshot_manifest_sha256": digest(ref.read_bytes()), "same_frozen_request": exact,
+        "snapshot_manifest_sha256": S1_SNAPSHOT_SHA, "same_frozen_request": exact,
         "mutated_request_unchanged": same, "complete_snapshot_sha256": digest(canonical(asdict(vanilla))),
         "cutoff": CUT, "request": baseline_req, "clean_stint_history": evidence[63],
         "scope": scope, "release": "MEAN_ONLY_VALIDATED", "historical_receipt": "UNAVAILABLE",

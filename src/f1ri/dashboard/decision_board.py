@@ -151,7 +151,7 @@ def decision_board(root):
         st.error(" · ".join(unsupported))
     elif saved and current is None:
         st.info("Inputs changed. Run the analysis to evaluate the selected snapshot.")
-    elif current is None and preset != "timing":
+    elif current is None and preset != "timing" and page != "Shadow-Mode Readiness":
         st.info("Run the research analysis to calculate results for this snapshot.")
     if mode == MODES[2]:
         st.warning("REALIZED_HINDSIGHT · Retrospective results and oracle benchmarks cannot produce a recommendation.")
