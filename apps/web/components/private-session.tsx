@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { LogOut, ShieldCheck } from "lucide-react";
+import { redirectOnExpiredSession, setSignOutInProgress } from "../lib/api";
 
 export function PrivateSession() {
   const [label, setLabel] = useState("");
@@ -14,7 +15,10 @@ export function PrivateSession() {
       clearTimeout(refreshId);
       try {
         const res = await fetch("/auth/session", { signal: abort.signal, cache: "no-store" });
-        if (res.status === 401) { window.location.replace("/auth/sign-in"); return; }
+        if (res.status === 401) {
+          if (!redirectOnExpiredSession()) refreshId = setTimeout(refresh, 1_000);
+          return;
+        }
         if (!res.ok) throw new Error("Session unavailable");
         const account = await res.json();
         setLabel(account.label);
@@ -34,16 +38,18 @@ export function PrivateSession() {
   }, []);
 
   async function signOut() {
+    if (signingOut) return;
+    setSignOutInProgress(true);
     setSigningOut(true);
     try {
       const response = await fetch("/auth/logout", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
       if (response.ok || response.status === 401) { window.location.replace("/auth/signed-out"); return; }
-      setOffline(true);
     } catch {
-      setOffline(true);
-    } finally {
-      setSigningOut(false);
+      // Permit a retry when the service cannot be reached.
     }
+    setSignOutInProgress(false);
+    setOffline(true);
+    setSigningOut(false);
   }
 
   return <div className="private-session">

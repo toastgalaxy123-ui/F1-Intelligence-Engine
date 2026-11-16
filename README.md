@@ -171,6 +171,13 @@ from a second signed-in browser. The local research workflow remains available. 
 [private hosting setup](docs/web/private-beta.md), [validation report](artifacts/reports/stage8_s8_c_validation.md)
 and [checksummed verification archive](artifacts/reports/stage8_s8_c_evidence.zip).
 
+### Stage 8-C.1 — Private-beta launch preflight
+
+The frozen research results and authenticated workflows were reverified in a fresh local HTTPS
+rehearsal. Remote activation requires an approved host and identity setup. See the
+[operator checklist](docs/web/remote-private-beta.md), [preflight report](artifacts/reports/stage8_s8_c1_validation.md)
+and [checksummed local evidence](artifacts/reports/stage8_s8_c1_evidence.zip).
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

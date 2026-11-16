@@ -119,3 +119,5 @@ apps/web/.env.local
 *.sqlite3.scratch/
 !artifacts/reports/stage8_s8_c_evidence.zip
 !artifacts/reports/stage8_s8_c_metrics.json
+!artifacts/reports/stage8_s8_c1_evidence.zip
+!artifacts/reports/stage8_s8_c1_metrics.json

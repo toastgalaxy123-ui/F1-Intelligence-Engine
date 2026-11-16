@@ -28,7 +28,28 @@ test("H1 H2 H11 — HTTPS sign-in, invitation, callback validation and sign-out"
   await capture(page, "03-authenticated-overview");
   const issued = (await page.context().cookies()).find(c => c.name === "__Host-f1ri-session");
   expect(issued?.secure && issued.httpOnly && issued.sameSite === "Lax" && issued.expires > Date.now() / 1000).toBeTruthy();
-  await page.getByRole("button", btn("Sign out")).click();
+  let sessionRevoked!: () => void;
+  let sendLogoutResponse!: () => void;
+  const revoked = new Promise<void>(resolve => { sessionRevoked = resolve; });
+  const releaseLogout = new Promise<void>(resolve => { sendLogoutResponse = resolve; });
+  await page.route("**/auth/logout", async route => {
+    const response = await route.fetch();
+    sessionRevoked();
+    await releaseLogout;
+    await route.fulfill({ response });
+  });
+  try {
+    await page.getByRole("button", btn("Sign out")).click();
+    await revoked;
+    const expired = page.waitForResponse(r => r.url() === `${origin}/auth/session` && r.status() === 401);
+    const forbidden = page.waitForResponse(r => r.url() === `${origin}${api}/workspaces` && r.status() === 401);
+    await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
+    await nav(page, "Workspaces");
+    await Promise.all([expired, forbidden]);
+    await expect(page.getByRole("button", btn("Sign out"))).toBeDisabled();
+  } finally {
+    sendLogoutResponse();
+  }
   await expect(page.getByRole("heading", btn("Signed out"))).toBeVisible();
   expect((await page.request.get(`${api}/workspaces`)).status()).toBe(401);
   const replay = await page.request.get("/auth/session", { headers: { Cookie: `__Host-f1ri-session=${issued?.value}` } });

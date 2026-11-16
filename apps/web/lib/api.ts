@@ -143,6 +143,18 @@ function checkEnvelope(path: string, payload: unknown) {
   }
 }
 
+let signOutInProgress = false;
+
+export function setSignOutInProgress(value: boolean) {
+  signOutInProgress = value;
+}
+
+export function redirectOnExpiredSession() {
+  if (!privateMode || signOutInProgress) return false;
+  window.location.replace("/auth/sign-in");
+  return true;
+}
+
 export async function api<T>(path: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(apiUrl(path), {
     ...options,
@@ -150,7 +162,7 @@ export async function api<T>(path: string, options: RequestInit = {}): Promise<T
     cache: "no-store",
   });
   if (!response.ok) {
-    if (response.status === 401 && privateMode) window.location.replace("/auth/sign-in");
+    if (response.status === 401) redirectOnExpiredSession();
     const problem = await response.json().catch(() => null);
     throw new Error(problem?.error?.message ?? `Research service returned ${response.status}.`);
   }
