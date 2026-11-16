@@ -29,7 +29,11 @@ export const precision = (value: number | null | undefined, decimals = 3) => val
 export const seconds = (us: number | null | undefined, decimals = 3) => precision(us == null ? null : us / 1_000_000, decimals);
 export const valueOf = <T,>(field: Sourced<T> | undefined) => field?.value ?? null;
 
-export function policyName(id: string) {
+export function policyName(id: string): string {
+  if (id.includes("__")) return id.split("__").map(piece => {
+    const driver = piece.split("-")[0];
+    return `#${driver} ${policyName(piece)}`;
+  }).join(" + ");
   if (id.includes("reference") || id === "stay-out" || id === "p0-stay-out") return "Stay out";
   const stop = id.match(/^\d+-L(\d+)-(.+)$/);
   if (stop) return `Lap ${stop[1]} · ${stop[2]}`;

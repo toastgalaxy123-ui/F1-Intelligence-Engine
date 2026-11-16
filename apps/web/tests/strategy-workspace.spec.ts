@@ -1,0 +1,246 @@
+import { expect, test, type Page } from "@playwright/test";
+import { mkdir, readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+const capture = async (page: Page, label: string, anchor?: string) => {
+  const directory = process.env.F1RI_S8B_SCREENSHOTS;
+  if (!directory) return;
+  await mkdir(directory, { recursive: true });
+  if (anchor) await page.getByRole("heading", { name: anchor, exact: true }).scrollIntoViewIfNeeded();
+  else await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: join(directory, `${label}.png`), animations: "disabled" });
+};
+const nav = (page: Page, title: string) => page.getByRole("navigation", { name: "Research workspace" })
+  .getByRole("button", { name: title, exact: true }).click();
+const preset = (page: Page, id: string) => page.getByLabel("Research preset", { exact: true }).selectOption(id);
+const scope = (page: Page, title: string) => page.locator("section.panel").filter({ has: page.getByRole("heading", { name: title, exact: true }) });
+const team = ["4-L30-hard__63-L31-hard", "4-L30-hard__63-L32-soft"];
+
+async function landing(page: Page) {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: "Singapore 2025", exact: true })).toBeVisible();
+}
+async function add(page: Page, policy: string) {
+  await page.getByLabel("Legal stop").selectOption(policy);
+  await page.getByRole("button", { name: "Add alternative", exact: true }).click();
+}
+async function exportJson(page: Page, role: "link" | "button", name: string) {
+  const pending = page.waitForEvent("download");
+  await page.getByRole(role, { name, exact: true }).click();
+  const download = await pending;
+  return JSON.parse(await readFile((await download.path())!, "utf8"));
+}
+
+test("W1, W14, W15 — archived forecast, evidence, keyboard and 2026 support", async ({ page }) => {
+  await landing(page);
+  await expect(page.getByRole("img", { name: "D8R1 mean pace by lap" })).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to workspace" })).toBeFocused();
+  await capture(page, "01-refined-landing");
+  await page.getByRole("button", { name: "Browse presets" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("region", { name: "Available research presets" })).toBeVisible();
+  await capture(page, "02-workspace-selection");
+  await nav(page, "Race State");
+  await expect(page.getByRole("heading", { name: "S7-A historical field" })).toBeVisible();
+  await capture(page, "03-historical-cutoff");
+  await nav(page, "Pace Forecast");
+  await expect(page.getByRole("heading", { name: "Lap and stint means" })).toBeVisible();
+  await capture(page, "05-mean-pace");
+  await preset(page, "unsupported");
+  await nav(page, "Strategy Lab");
+  await expect(page.getByText("Physical strategy execution is unavailable", { exact: false })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Run comparison", exact: true })).toHaveCount(0);
+  await capture(page, "23-unsupported-historical-strategy");
+  await page.getByText("Assumptions and context", { exact: true }).click();
+  await page.getByLabel("Regulation era").selectOption("2026");
+  await page.getByRole("button", { name: "Apply context" }).click();
+  await expect(page.getByText("MODEL_ERA_UNSUPPORTED", { exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Run comparison", exact: true })).toHaveCount(0);
+  await capture(page, "24-model-era-restriction");
+  await preset(page, "two-car");
+  await nav(page, "Race State");
+  await expect(page.getByText("Declared physical state", { exact: false }).first()).toBeVisible();
+  await capture(page, "04-declared-scenario");
+  await preset(page, "shadow");
+  await nav(page, "Research Evidence");
+  await expect(page.getByText("28 sealed checkpoints")).toBeVisible();
+  await page.getByText("Frozen source hashes", { exact: true }).click();
+  await expect(page.getByText("stage7_s7_c0_dashboard.json", { exact: false }).first()).toBeVisible();
+  await capture(page, "26-research-evidence-hashes", "Snapshot and source provenance");
+  await expect(scope(page, "Research release readiness").getByText("Live strategy unavailable")).toBeVisible();
+  await capture(page, "30-local-readiness", "Research release readiness");
+});
+
+test("W2, W3, W4, W11 — exact tie, matched checkpoints, drilldown and stale results", async ({ page }, info) => {
+  await landing(page);
+  await preset(page, "two-car");
+  await nav(page, "Strategy Lab");
+  for (const tyre of ["hard", "medium", "soft"]) await add(page, `63-L31-${tyre}`);
+  await page.getByRole("button", { name: "Run comparison", exact: true }).click();
+  const results = scope(page, "Common-marker results");
+  await expect(results.getByText("Exact simulation tie", { exact: true })).toHaveCount(4);
+  const drilldownStart = performance.now();
+  await page.getByLabel("First policy", { exact: true }).selectOption("63-L31-hard");
+  await page.getByLabel("Second policy", { exact: true }).selectOption("63-L31-soft");
+  await page.getByLabel("Comparison reference", { exact: true }).selectOption("63-L31-hard");
+  await expect(page.getByRole("img", { name: "Discrete relative elapsed times by checkpoint. A data table follows." })).toBeVisible();
+  await info.attach("drilldown_ms", { body: String(performance.now() - drilldownStart), contentType: "text/plain" });
+  await capture(page, "06-two-strategy-comparison", "Two-policy drilldown");
+  await capture(page, "07-clean-air-and-effective", "Common-marker results");
+  await expect(page.getByText("Following constraints make different pace forecasts", { exact: false })).toBeVisible();
+  await capture(page, "08-following-constrained-tie", "Recommendation support");
+  const pit = scope(page, "Physical pit timeline");
+  await pit.getByRole("button", { name: /Lap 31 · soft · Track rejoin/ }).focus();
+  await page.keyboard.press("Enter");
+  await expect(pit.locator(".timeline-label")).toContainText("Track rejoin");
+  await capture(page, "09-physical-pit-timeline", "Physical pit timeline");
+  await expect(page.getByRole("heading", { name: "Two-policy drilldown" })).toBeVisible();
+  await capture(page, "10-policy-detail", "Two-policy drilldown");
+  const original = await exportJson(page, "link", "Export result");
+  expect(original.recommendation.alternatives).toHaveLength(4);
+  const detail = await page.request.get(`http://127.0.0.1:8000/api/v1/analyses/${original.analysis_id}/details`);
+  expect((await detail.json()).result_sha256).toBe(original.result_sha256);
+  await page.getByLabel("Horizon", { exact: true }).selectOption("3");
+  await expect(page.getByRole("heading", { name: "Common-marker results" })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Previous analysis" })).toBeVisible();
+  await page.getByRole("button", { name: "Conditional optimization", exact: true }).click();
+  await page.getByLabel("Search budget", { exact: true }).fill("128");
+  await page.getByRole("button", { name: "Run conditional search" }).click();
+  await expect(page.getByText("Legal search space exhausted", { exact: true })).toBeVisible();
+  await capture(page, "11-conditional-search", "Recommendation support");
+  await page.getByLabel("Search budget", { exact: true }).fill("2");
+  await expect(page.getByRole("heading", { name: "Common-marker results" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Run conditional search" }).click();
+  await expect(page.getByText("The search covered a bounded subset", { exact: false })).toBeVisible();
+  await capture(page, "12-incomplete-search", "Recommendation support");
+  await page.route("**/api/v1/analyses", async route => {
+    if (route.request().postDataJSON()?.operation === "conditional") await new Promise(resolve => setTimeout(resolve, 1000));
+    await route.continue().catch(() => undefined);
+  });
+  await page.getByLabel("Search budget", { exact: true }).fill("6");
+  await page.getByRole("button", { name: "Run conditional search" }).click();
+  await expect(page.getByText("Waiting for the local worker")).toBeVisible();
+  await page.getByLabel("Horizon", { exact: true }).selectOption("10");
+  await expect(page.getByText("No conditional search yet")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Common-marker results" })).toHaveCount(0);
+});
+
+test("W5, W6, W7 — robust matrix, family sensitivity, Pareto and frozen timing", async ({ page }, info) => {
+  await landing(page);
+  await preset(page, "neutralization");
+  await nav(page, "Robust Strategy");
+  await page.getByLabel("Robust search budget").fill("240");
+  const matrixStart = performance.now();
+  await page.getByRole("button", { name: "Run robust comparison" }).click();
+  const heatmap = scope(page, "Regret heatmap");
+  await expect(heatmap.getByRole("button", { name: /\bSC regret/ }).first()).toBeVisible();
+  await info.attach("matrix_click_to_visible_ms", { body: String(performance.now() - matrixStart), contentType: "text/plain" });
+  const selectStart = performance.now();
+  await heatmap.getByRole("button", { name: /\bSC regret/ }).first().click();
+  await expect(page.getByLabel("Inspect future", { exact: true })).toHaveValue("SC");
+  await info.attach("matrix_cell_to_drilldown_ms", { body: String(performance.now() - selectStart), contentType: "text/plain" });
+  await capture(page, "13-robust-regret-heatmap", "Regret heatmap");
+  await expect(page.getByText("Ranking varies across declared futures.", { exact: true })).toBeVisible();
+  await expect(page.getByText("Executed actions · SC", { exact: true })).toBeVisible();
+  await capture(page, "14-family-ranking", "Selected-policy comparison");
+  await expect(scope(page, "Pareto alternatives").getByRole("button").first()).toBeVisible();
+  await capture(page, "15-pareto-alternatives", "Pareto alternatives");
+  await page.getByText("Retrospective perfect-information oracle", { exact: true }).click();
+  await expect(page.getByText("Hindsight benchmark", { exact: false })).toBeVisible();
+  await nav(page, "Timing Risk");
+  await page.getByRole("button", { name: "Select the timing preset" }).click();
+  await page.getByRole("button", { name: "Reproduce timing case" }).click();
+  await expect(page.getByText("46.754185 s", { exact: true })).toBeVisible();
+  await capture(page, "16-safety-car-research");
+  await page.getByLabel("Frozen policy trace").selectOption("p5-scheduled-conditional");
+  await expect(scope(page, "Physical pit timeline").getByRole("button", { name: /p5-scheduled-conditional/ }).first()).toBeVisible();
+  await capture(page, "17-reactive-versus-scheduled", "Physical pit timeline");
+});
+
+test("W8, W9, W10 — paired team strategies and workspace shelf verification", async ({ page }, info) => {
+  await landing(page);
+  await preset(page, "shared-box");
+  await nav(page, "Strategy Lab");
+  await expect(page.getByLabel("Maximum selected stops")).toHaveValue("2");
+  for (const policy of team) await add(page, policy);
+  await capture(page, "18-shared-box-setup");
+  await page.getByRole("button", { name: "Run comparison", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Two-policy drilldown" })).toBeVisible();
+  await page.getByLabel("Second policy", { exact: true }).selectOption(team[1]);
+  await expect(page.getByText("2.903848", { exact: true }).first()).toBeVisible();
+  await capture(page, "19-two-car-team-comparison", "Two-policy drilldown");
+  await capture(page, "20-team-service-queue", "Physical pit timeline");
+  const original = await exportJson(page, "link", "Export result");
+  expect(original.executed_policies.sort()).toEqual([...team, "reference"].sort());
+  expect(original.payload.decision.timelines[team[0]].pit.map((r: {wait_us:number}) => r.wait_us)).toEqual([0, 2903848]);
+  expect(original.payload.decision.timelines[team[1]].pit.map((r: {wait_us:number}) => r.wait_us)).toEqual([0, 0]);
+  await page.getByLabel("Comparison reference", { exact: true }).selectOption(team[1]);
+  await page.getByRole("button", { name: "Save this investigation" }).click();
+  await page.getByLabel("Workspace title").fill("Shared-box comparison");
+  const saveStart = performance.now();
+  await page.getByRole("button", { name: "Save current workspace", exact: true }).click();
+  await expect(page.getByText("Workspace saved.", { exact: true })).toBeVisible();
+  await info.attach("workspace_save_ms", { body: String(performance.now() - saveStart), contentType: "text/plain" });
+  await capture(page, "21-saved-workspace");
+  const doc = await exportJson(page, "button", "Export Shared-box comparison");
+  expect(doc.reference).toBe(team[1]);
+  await page.getByRole("button", { name: "Duplicate Shared-box comparison", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Shared-box comparison (copy)", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Delete Shared-box comparison (copy)", exact: true }).click();
+  await page.getByRole("button", { name: "Confirm delete Shared-box comparison (copy)", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Shared-box comparison (copy)", exact: true })).toHaveCount(0);
+  const input = page.getByLabel("Import workspace file");
+  const candidate = { ...doc, id: "28062762-bd60-449e-b7a0-dbd1f460a581", title: "Imported comparison" };
+  const upload = (value: unknown) => input.setInputFiles({
+    name: "workspace.json", mimeType: "application/json", buffer: Buffer.from(JSON.stringify(value)),
+  });
+  await upload({ ...candidate, model_sha256:"0".repeat(64) });
+  await expect(page.getByText("The saved model differs", { exact: false })).toBeVisible();
+  await upload({ ...candidate, source_hashes: { invalid: "0".repeat(64) } });
+  await expect(page.getByText("The saved source hashes differ", { exact: false })).toBeVisible();
+  await upload(candidate);
+  await expect(page.getByText("Verified workspace imported.", { exact: true })).toBeVisible();
+  await page.reload();
+  await nav(page, "Workspaces");
+  const restoreStart = performance.now();
+  await page.getByRole("button", { name: "Reopen Shared-box comparison", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Reopened · Shared-box comparison" })).toBeVisible();
+  await info.attach("workspace_reopen_ms", { body: String(performance.now() - restoreStart), contentType: "text/plain" });
+  await page.getByRole("button", { name: "Reproduce saved analysis", exact: true }).click();
+  await expect(page.getByText("Saved result checksum verified", { exact: false })).toBeVisible();
+  await expect(page.getByLabel("Comparison reference", { exact: true })).toHaveValue(team[1]);
+  await capture(page, "22-reopened-workspace", "Reopened · Shared-box comparison");
+  expect((await exportJson(page, "link", "Export result")).result_sha256).toBe(original.result_sha256);
+  await capture(page, "29-api-parity", "Run provenance");
+});
+
+test("W12, W13 — actual cancellation, failure, and mobile strategy comparison", async ({ page }) => {
+  await landing(page);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole("img", { name: "D8R1 mean pace by lap" })).toBeVisible();
+  await capture(page, "27-mobile-overview");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await preset(page, "two-car");
+  await page.getByRole("button", { name: "Open navigation" }).click();
+  await nav(page, "Strategy Lab");
+  await add(page, "63-L31-medium");
+  await page.getByRole("button", { name: "Run comparison", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Common-marker results" })).toBeVisible();
+  await capture(page, "28-mobile-strategy", "Common-marker results");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+  await page.getByRole("button", { name: "Open navigation" }).click();
+  await nav(page, "Robust Strategy");
+  await page.getByLabel("Robust search budget").fill("237");
+  const scheduled = page.waitForResponse(res => res.url().endsWith("/api/v1/analyses") && res.request().postDataJSON()?.operation === "robust");
+  await page.getByRole("button", { name: "Run robust comparison" }).click();
+  const job = await (await scheduled).json();
+  await page.getByRole("button", { name: "Cancel analysis" }).click();
+  await expect(page.getByText("CANCELED", { exact: true })).toBeVisible();
+  expect(await (await page.request.get(`http://127.0.0.1:8000/api/v1/analyses/${job.id}`)).json()).toMatchObject({ state: "CANCELED", result: null });
+  await capture(page, "25-canceled-analysis", "Declared futures");
+  await page.route("**/api/v1/analyses", route => route.abort());
+  await page.getByLabel("Robust search budget").fill("236");
+  await page.getByRole("button", { name: "Run robust comparison" }).click();
+  await expect(page.getByRole("main").getByRole("alert")).toBeVisible();
+});

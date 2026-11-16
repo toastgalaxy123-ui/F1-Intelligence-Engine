@@ -18,6 +18,7 @@ import psutil
 from f1ri.api.contracts import Job, Result
 from f1ri.api.research import ResearchError
 from f1ri.api.worker import MAX_RESULT_BYTES
+from f1ri.api.workspace import AnalysisDetails
 
 WALL_SECONDS = 35
 RSS_BYTES = 720 * 1024**2
@@ -32,6 +33,7 @@ class Entry:
     job: Job
     stop: Event = field(default_factory=Event)
     size: int = 0
+    details: AnalysisDetails | None = None
 
 
 class Jobs:
@@ -76,6 +78,14 @@ class Jobs:
                 if job.state == "QUEUED":
                     self._set(self.entries[identity], "CANCELED", code="CANCELED", message="Analysis canceled.")
             return self.entries[identity].job
+
+    def details(self, identity):
+        with self.lock:
+            self.get(identity)
+            result = self.entries[identity].details
+            if result is None:
+                raise ResearchError("DETAILS_UNAVAILABLE", "Checkpoint traces require a completed physical comparison.", 409)
+            return result
 
     def close(self):
         with self.lock:
@@ -154,7 +164,11 @@ class Jobs:
                     return self._set(entry, "FAILED", code="REPLAY_CHECKSUM_MISMATCH",
                                      message="The recomputed result checksum differs.", measurements=measurements)
                 with self.lock:
+                    if entry.stop.is_set():
+                        return self._set(entry, "CANCELED", code="CANCELED", message="Analysis canceled.",
+                                         measurements=measurements)
                     entry.size = path.stat().st_size
+                    entry.details = AnalysisDetails.model_validate(value["details"]) if "details" in value else None
                     self._set(entry, "COMPLETED", result=result, measurements=measurements)
                     self._prune()
         except Exception:  # noqa: BLE001 -- Worker failures have a stable public error envelope.

@@ -1,14 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, Download, Flag, Play, RotateCcw } from "lucide-react";
-import { active, apiUrl, type AnalysisRequest, type Future, type Job, type Objective, type Operation,
-  type Result, type Score, type Snapshot, type TyreSet } from "../lib/api";
+import { useEffect, useState } from "react";
+import { ArrowRight, Download, Play, RotateCcw } from "lucide-react";
+import { active, apiUrl, post, type AnalysisRequest, type Future, type Job, type Objective, type Operation,
+  type Policy, type Result, type Snapshot, type TyreSet } from "../lib/api";
 import { AuditTable, Compound, DataTable, Empty, Notice, PaceChart, Panel, Status, optionLabel,
   policyName, precision, readable, seconds, valueOf } from "./ui";
+import { EventTimeline, PhysicalComparison, eventsFromLedger } from "./physical-comparison";
+import { RobustMatrix } from "./robust-matrix";
 
 export type Launch = (operation: Operation, options?: Partial<AnalysisRequest>) => void;
-type Props = { snapshot: Snapshot; job?: Job; launch: Launch; cancel: () => void; invalidate: () => void };
+type Props = { snapshot: Snapshot; job?: Job; launch: Launch; cancel: () => void; invalidate: () => void;
+  draft?: Partial<AnalysisRequest>; edit?: (fields: Partial<AnalysisRequest>) => void };
 
 export function JobFeedback({ job, cancel, empty = "Run an analysis to see results" }:
   { job?: Job; cancel: () => void; empty?: string }) {
@@ -28,6 +31,9 @@ export function Reproducibility({ job, replay, replayJob, cancelReplay }:
     <div className="provenance-ids"><span>Analysis <code>{result.analysis_id}</code></span>
       <span>Result checksum <code>{result.result_sha256}</code></span>
       <span>Snapshot <code>{result.snapshot_id}</code></span></div>
+    <details><summary>Submitted analysis inputs</summary>
+      <pre className="ledger-json">{JSON.stringify(result.request, null, 2)}</pre>
+    </details>
     {job.measurements && <p className="muted">{precision(job.measurements.wall_s, 2)} s wall · {precision(job.measurements.cpu_s, 2)} s CPU · {precision(job.measurements.peak_rss_mib, 0)} MiB sampled peak RSS</p>}
     <div className="actions">
       <a className="secondary" href={apiUrl(`/analyses/${job.id}/export`)}><Download size={15} /> Export result</a>
@@ -38,8 +44,8 @@ export function Reproducibility({ job, replay, replayJob, cancelReplay }:
   </Panel>;
 }
 
-export function ForecastView({ snapshot, job, launch, cancel, invalidate }: Props) {
-  const [options, setOptions] = useState<TyreSet[]>(job?.result?.request.tyre_sets ?? []);
+export function ForecastView({ snapshot, job, launch, cancel, edit, draft }: Props) {
+  const options: TyreSet[] = draft?.tyre_sets ?? job?.result?.request.tyre_sets ?? [];
   const [visible, setVisible] = useState<string[] | null>(null);
   const driver = snapshot.fields.drivers?.find(d => valueOf(d.identity)?.number === snapshot.context.driver);
   const inventory = valueOf(driver?.inventory);
@@ -51,7 +57,7 @@ export function ForecastView({ snapshot, job, launch, cancel, invalidate }: Prop
       {snapshot.operations.includes("forecast") ? <>
         {inventory && <div className="choice-row">
           {inventory.map(row => <label className="choice" key={row.set_id}><input type="checkbox" checked={options.includes(row.set_id)}
-            onChange={e => { invalidate(); setOptions(existing => e.target.checked ? [...existing, row.set_id] : existing.filter(v => v !== row.set_id)); }} />
+            onChange={e => edit?.({ tyre_sets: e.target.checked ? [...options, row.set_id] : options.filter(v => v !== row.set_id) })} />
             <Compound compact name={row.set_id} /> {row.set_id}</label>)}
         </div>}
         <button className="primary" onClick={() => { setVisible(null); launch("forecast", { tyre_sets: options }); }}
@@ -74,53 +80,51 @@ export function ForecastView({ snapshot, job, launch, cancel, invalidate }: Prop
   </>;
 }
 
-function ScoreView({ score, result }: { score: Score; result: Result }) {
-  const [traceId, setTraceId] = useState("");
-  const id = score.timelines[traceId] ? traceId : score.rows.find(row => row.pit_visits > 0)?.candidate ?? score.rows[0]?.candidate;
-  const trace = score.timelines[id];
-  return <>
-    <Panel title="Common-marker results" subtitle={result.evaluation_marker?.map(([driver, marker]) => `#${driver} · checkpoint ${marker}`).join("  /  ")}>
-      <DataTable headings={["Policy", "Effective total (s)", "Δ vs stay out (s)", "Clean-air (s)", "Following (s)", "Neutralization (s)", "Result"]}
-        rows={score.rows.map(r => [
-          <button key={r.candidate} className="row-button" onClick={() => setTraceId(r.candidate)}>{policyName(r.candidate)}</button>,
-          seconds(r.objective_us), seconds(r.objective_delta_us), seconds(r.latent_racing_us),
-          <span key="following" className={r.following_us > 0 ? "accent" : undefined}>{seconds(r.following_us)}</span>,
-          seconds(r.neutralization_us), <span key="status" title={r.reasons.join(" · ")}>{readable(r.comparison)}</span>,
-        ])} />
-      {!!score.best.length && <div className="statement"><Flag size={16} /> Best evaluated · {score.best.map(policyName).join(" / ")}</div>}
-      {!!score.near.length && <p className="muted">Near alternatives · {score.near.map(policyName).join(" / ")}</p>}
-    </Panel>
-    {trace && <Panel title="Physical pit timeline" subtitle="Absolute race clock · times shown in seconds">
-      <label className="field">Policy trace<select value={id} onChange={e => setTraceId(e.target.value)}>
-        {score.rows.map(r => <option key={r.candidate} value={r.candidate}>{policyName(r.candidate)}</option>)}</select></label>
-      {trace.pit.length ? <PitTable visits={trace.pit} /> : <p className="muted">No completed pit visit.</p>}
-      <details><summary>Policy decisions and pit events</summary><AuditTable rows={trace.decisions} /><AuditTable rows={trace.pit_events} /></details>
-    </Panel>}
-  </>;
-}
-
-function PitTable({ visits }: { visits: NonNullable<Score["timelines"][string]["pit"]> }) {
-  return <DataTable headings={["Stop lap", "Entry (s)", "Service start (s)", "Service end (s)", "Exit (s)", "Rejoin (s)", "Set"]}
-    rows={visits.map(p => [p.target_lap ?? "—", seconds(p.entry_us, 6), seconds(p.service_start_us, 6),
-      seconds(p.service_end_us, 6), seconds(p.lane_exit_us ?? p.exit_us, 6), seconds(p.merge_us ?? p.rejoin_us, 6),
-      p.set_id ?? "—"])} />;
-}
-
-export function StrategyView({ snapshot, job, launch, cancel, invalidate, operation, chooseDeclared, selectOperation }:
-  Props & { operation: "manual" | "conditional"; chooseDeclared: () => void; selectOperation: (op: "manual" | "conditional") => void }) {
+export function StrategyView({ snapshot, job, launch, cancel, draft, edit, operation, chooseDeclared, selectOperation,
+  reference, setReference, chooseTeam }:
+  Props & { operation: "manual" | "conditional"; chooseDeclared: () => void; selectOperation: (op: "manual" | "conditional") => void;
+    reference: string; setReference: (id: string) => void; chooseTeam: () => void }) {
   const [candidate, setCandidate] = useState("");
-  const [selected, setSelected] = useState<string[]>(job?.result?.request.policies ?? []);
-  const [future, setFuture] = useState<Future>(job?.result?.request.future ?? "GREEN");
-  const [budget, setBudget] = useState(job?.result?.request.budget ?? 32);
+  const selected = draft?.policies ?? job?.result?.request.policies ?? [];
+  const future = draft?.future ?? job?.result?.request.future ?? "GREEN";
+  const budget = draft?.budget ?? job?.result?.request.budget ?? 32;
+  const team = snapshot.context.preset === "shared-box";
+  const maxStops = draft?.max_stops ?? (team ? 2 : 1);
+  const teamObjective = draft?.team_objective ?? "TEAM_COMBINED";
   const [basis, setBasis] = useState("decision");
   const enabled = snapshot.operations.includes(operation);
-  const available = snapshot.legal_policies.filter(p => p.stops.length && !selected.includes(p.id));
+  const [catalog, setCatalog] = useState<{ key: string; policies?: Policy[]; error?: string }>();
+  const catalogKey = `${snapshot.snapshot_id}/${maxStops}`;
+  useEffect(() => {
+    if (!team || !enabled || operation !== "manual") return;
+    const abort = new AbortController();
+    post<{ snapshot_id: string; policies: Policy[] }>("/policy-catalog", {
+      context: snapshot.context, snapshot_id: snapshot.snapshot_id, max_stops: maxStops,
+    }, abort.signal).then(value => {
+      if (value.snapshot_id === snapshot.snapshot_id) setCatalog({ key: catalogKey, policies: value.policies });
+    }).catch(e => { if (!abort.signal.aborted) setCatalog({ key: catalogKey, error: e.message }); });
+    return () => abort.abort();
+  }, [snapshot, enabled, maxStops, team, operation, catalogKey]);
+  const available = (team ? catalog?.key === catalogKey ? catalog.policies ?? [] : [] : snapshot.legal_policies)
+    .filter(p => p.stops.length && !selected.includes(p.id));
   const score = job?.result?.payload;
   const current = basis === "decision" ? score?.decision : score?.declared ?? score?.conditional;
   return <>
     <Panel title="Strategy comparison" subtitle="Same initial state, legal tire sets and a common evaluation marker">
       {!enabled ? <><Notice>Physical strategy execution is unavailable for this research context. Historical tires and pit geometry cannot be established.</Notice>
         <button className="secondary" onClick={chooseDeclared}>Open a declared counterfactual <ArrowRight size={14} /></button></> : <>
+        {!team && <p><button className="text-button" onClick={chooseTeam}>Open shared-box team comparison <ArrowRight size={15} /></button></p>}
+        {team && <><Notice>Shared-box team strategy · pick single-driver, simultaneous, or staggered alternatives supported by the engine.</Notice>
+          <div className="form-row">
+            <label className="field">Maximum selected stops<select value={maxStops} onChange={e => {
+              setCandidate(""); edit?.({ max_stops: Number(e.target.value) as 1 | 2, policies: [] });
+            }}><option value="1">One total stop</option><option value="2">Up to two total stops</option></select></label>
+            <label className="field">Declared team objective<select value={teamObjective} onChange={e => edit?.({ team_objective: e.target.value as AnalysisRequest["team_objective"] })}>
+              <option value="TEAM_COMBINED">Combined elapsed time</option><option value="LEAD_DRIVER">Lead driver time</option>
+              <option value="TEAM_WEIGHTED">Weighted team time</option></select></label>
+          </div>
+          {catalog?.key === catalogKey && catalog.error && <Notice bad>{catalog.error}</Notice>}
+        </>}
         <div className="segmented" aria-label="Strategy operation">{(["manual", "conditional"] as const).map(mode =>
           <button key={mode} className={operation === mode ? "selected" : ""} onClick={() => selectOperation(mode)}>
             {mode === "manual" ? "Manual comparison" : "Conditional optimization"}</button>)}</div>
@@ -128,18 +132,19 @@ export function StrategyView({ snapshot, job, launch, cancel, invalidate, operat
           {operation === "manual" && <><label className="field">Legal stop<select value={candidate} onChange={e => setCandidate(e.target.value)}>
             <option value="">Choose a tire set and lap</option>
             {available.map(p => <option value={p.id} key={p.id}>{optionLabel(p)}</option>)}</select></label>
-            <button className="secondary" disabled={!candidate || selected.length >= 5}
-              onClick={() => { invalidate(); setSelected([...selected, candidate]); setCandidate(""); }}>Add alternative</button></>}
-          <label className="field">Declared future<select value={future} onChange={e => { invalidate(); setFuture(e.target.value as Future); }}>
+            <button className="secondary" disabled={!available.some(p => p.id === candidate) || selected.length >= 5}
+              onClick={() => { edit?.({ policies: [...selected, candidate] }); setCandidate(""); }}>Add alternative</button></>}
+          <label className="field">Declared future<select value={future} onChange={e => edit?.({ future: e.target.value as Future })}>
             <option>GREEN</option><option>VSC</option><option>SC</option><option value="SC_LATE">SC late</option>
           </select></label>
-          {operation === "conditional" && <label className="field">Search budget<input type="number" min="2" max="128" value={budget} onChange={e => { invalidate(); setBudget(Number(e.target.value)); }} /></label>}
+          {operation === "conditional" && <label className="field">Search budget<input type="number" min="2" max="128" value={budget} onChange={e => edit?.({ budget: Number(e.target.value) })} /></label>}
         </div>
         {operation === "manual" && <div className="chips strategy-chips"><span>Stay out · reference</span>
-          {selected.map(p => <button key={p} onClick={() => { invalidate(); setSelected(selected.filter(item => item !== p)); }}
+          {selected.map(p => <button key={p} onClick={() => edit?.({ policies: selected.filter(item => item !== p) })}
             aria-label={`Remove ${policyName(p)}`}>{policyName(p)} ×</button>)}</div>}
         <button className="primary" disabled={Boolean(job && active(job)) || (operation === "conditional" && (budget < 2 || budget > 128))}
-          onClick={() => { setBasis("decision"); launch(operation, { future, ...(operation === "manual" ? { policies: selected } : { budget }) }); }}>
+          onClick={() => { setBasis("decision"); launch(operation, { future, max_stops: maxStops, team_objective: teamObjective,
+            ...(operation === "manual" ? { policies: selected } : { budget }) }); }}>
           <Play size={14} /> {operation === "manual" ? "Run comparison" : "Run conditional search"}</button>
       </>}
       {enabled && <JobFeedback job={job} cancel={cancel} empty={operation === "manual" ? "No strategy comparison yet" : "No conditional search yet"} />}
@@ -154,18 +159,26 @@ export function StrategyView({ snapshot, job, launch, cancel, invalidate, operat
         </div>
         {score?.search && <p className="muted">Evaluated {String(score.search.evaluated)} of {String(score.search.legal)} legal policies.</p>}
       </Panel>
-      {current && <ScoreView score={current} result={job.result} />}
+      {current && <PhysicalComparison key={`${job.id}/${basis}`} score={current} result={job.result} jobId={job.id}
+        branch={basis} requestedReference={reference} chooseReference={setReference} team={team} />}
     </>}
   </>;
 }
 
 export function Recommendation({ result }: { result: Result }) {
   const rec = result.recommendation;
+  const reason = ["BOUNDED_SEARCH_INCOMPLETE", "CONSTRAINT_DOMINATED_IDENTIFIABILITY",
+    "EXACT_SIMULATION_TIE", "NEAR_EQUAL_ALTERNATIVES", "ROBUST_WITHIN_DECLARED_FAMILY"]
+    .find(code => rec.statuses.includes(code));
   return <Panel title="Recommendation support" action={<Status tone={rec.unique_action ? "good" : "warm"}>{readable(result.completion)}</Status>}>
     <h3>{rec.unique_action ? policyName(rec.unique_action) : "No unique supported recommendation"}</h3>
     {rec.statuses.some(x => x.includes("INCOMPLETE")) && <Notice>The search covered a bounded subset. Rankings apply only to evaluated policies.</Notice>}
-    {rec.alternatives.length > 0 && <div className="chips">{rec.alternatives.map(p => <span key={p}>{policyName(p)}</span>)}</div>}
-    <ul className="status-list">{rec.statuses.filter(s => s !== "NO_UNIQUE_RECOMMENDATION").map(s => <li key={s}>{readable(s)}</li>)}</ul>
+    {rec.alternatives.length > 0 && <><p className="muted">Best evaluated alternatives</p>
+      <div className="chips">{rec.alternatives.map(p => <span key={p}>{policyName(p)}</span>)}</div></>}
+    {reason && <p>{readable(reason)}</p>}
+    {rec.statuses.includes("FAMILY_SENSITIVE") && <p className="accent">Ranking varies across declared futures.</p>}
+    {rec.near.length > 0 && <p>{rec.near.length} near-equal evaluated alternatives. Near-equality describes the simulated results.</p>}
+    <p className="muted">D8R1 mean-only · declared physics · no calibrated uncertainty intervals.</p>
     <details><summary>Technical status codes</summary><div className="code-list">{rec.statuses.map(s => <code key={s}>{s}</code>)}</div></details>
   </Panel>;
 }
@@ -173,11 +186,11 @@ export function Recommendation({ result }: { result: Result }) {
 const futureOptions: Future[] = ["GREEN", "VSC", "SC", "SC_LATE"];
 const objectives: Objective[] = ["MINIMAX_REGRET", "WORST_CASE_RELATIVE_LOSS", "DECLARED_WEIGHTED_DELTA", "PARETO"];
 
-export function RobustView({ snapshot, job, launch, cancel, invalidate, chooseDeclared }: Props & { chooseDeclared: () => void }) {
-  const [futures, setFutures] = useState<Future[]>(job?.result?.request.futures ?? ["GREEN", "VSC", "SC"]);
-  const [objective, setObjective] = useState<Objective>(job?.result?.request.objective ?? "MINIMAX_REGRET");
-  const [budget, setBudget] = useState(job?.result?.request.robust_budget ?? 100);
-  const [weights, setWeights] = useState<Partial<Record<Future, number>>>({});
+export function RobustView({ snapshot, job, launch, cancel, draft, edit, chooseDeclared }: Props & { chooseDeclared: () => void }) {
+  const futures: Future[] = draft?.futures ?? job?.result?.request.futures ?? ["GREEN", "VSC", "SC"];
+  const objective = draft?.objective ?? job?.result?.request.objective ?? "MINIMAX_REGRET";
+  const budget = draft?.robust_budget ?? job?.result?.request.robust_budget ?? 100;
+  const weights = draft?.weights ?? job?.result?.request.weights ?? [];
   const result = job?.result;
   const data = result?.payload;
   const evaluated = Object.keys(data?.cases ?? {});
@@ -186,17 +199,23 @@ export function RobustView({ snapshot, job, launch, cancel, invalidate, chooseDe
     <Panel title="Declared futures" subtitle="Select scenarios and a comparison objective">
       {canRun ? <>
         <div className="choice-row">{futureOptions.map(flag => <label className={`choice flag ${flag.toLowerCase()}`} key={flag}>
-          <input type="checkbox" checked={futures.includes(flag)} onChange={e => { invalidate(); setFutures(e.target.checked ? [...futures, flag] : futures.filter(f => f !== flag)); }} />
+          <input type="checkbox" checked={futures.includes(flag)} onChange={e => {
+            const next = e.target.checked ? [...futures, flag] : futures.filter(f => f !== flag);
+            edit?.({ futures: next, weights: objective === "DECLARED_WEIGHTED_DELTA" ?
+              next.map(f => weights[futures.indexOf(f)] ?? 1) : [] });
+          }} />
           {flag.replace("_", " ")}</label>)}</div>
-        <div className="form-row"><label className="field">Comparison objective<select value={objective} onChange={e => { invalidate(); setObjective(e.target.value as Objective); }}>
+        <div className="form-row"><label className="field">Comparison objective<select value={objective} onChange={e =>
+          edit?.({ objective: e.target.value as Objective, weights: e.target.value === "DECLARED_WEIGHTED_DELTA" ? futures.map(() => 1) : [] })}>
           {objectives.map(o => <option key={o} value={o}>{readable(o)}</option>)}</select></label>
-          <label className="field">Robust search budget<input type="number" value={budget} min="4" max="240" onChange={e => { invalidate(); setBudget(Number(e.target.value)); }} /></label>
-          {objective === "DECLARED_WEIGHTED_DELTA" && futures.map(f => <label className="field" key={f}>{f} weight
-            <input type="number" min="1" max="10" value={weights[f] ?? 1} onChange={e => { invalidate(); setWeights({ ...weights, [f]: Number(e.target.value) }); }} /></label>)}
+          <label className="field">Robust search budget<input type="number" value={budget} min="4" max="240" onChange={e => edit?.({ robust_budget: Number(e.target.value) })} /></label>
+          {objective === "DECLARED_WEIGHTED_DELTA" && futures.map((f, i) => <label className="field" key={f}>{f} weight
+            <input type="number" min="1" max="10" value={weights[i] ?? 1} onChange={e =>
+              edit?.({ weights: futures.map((_, index) => index === i ? Number(e.target.value) : weights[index] ?? 1) })} /></label>)}
         </div>
         <button className="primary" disabled={!futures.length || budget < 4 || budget > 240 || Boolean(job && active(job))}
           onClick={() => launch("robust", { futures, objective, budget: 128, robust_budget: budget,
-            weights: objective === "DECLARED_WEIGHTED_DELTA" ? futures.map(f => weights[f] ?? 1) : [] })}>
+            weights: objective === "DECLARED_WEIGHTED_DELTA" ? futures.map((_, i) => weights[i] ?? 1) : [] })}>
           <Play size={14} /> Run robust comparison</button>
         <JobFeedback job={job} cancel={cancel} empty="No robust comparison yet" />
       </> : <><Notice>The current context lacks the declared physical inputs needed for robust strategy comparison.</Notice>
@@ -204,6 +223,7 @@ export function RobustView({ snapshot, job, launch, cancel, invalidate, chooseDe
     </Panel>
     {result && data && <>
       <Recommendation result={result} />
+      <RobustMatrix result={result} key={result.result_sha256} />
       <Panel title="Policy regret by scenario" subtitle={`Regret (s) at common markers · comparator ${data.comparator ?? "unavailable"}`}>
         <DataTable headings={["Executable policy", "Policy behavior", ...evaluated, "Worst regret (s)", "Worst relative loss (s)", "Pareto"]}
           rows={(data.analysis?.rows ?? []).map(r => [policyName(r.policy),
@@ -235,6 +255,10 @@ export function TimingView({ snapshot, job, launch, cancel, choose }: Props & { 
   const commitment = (data?.commitments ?? []).filter(event => event.policy === policy);
   const visit = data?.case?.[policy]?.visited_pits[0];
   const service = commitment.find(row => row.status === "SERVICE_QUEUE");
+  const lanes = [...new Set(["sc-63-soft", policy])].map(id => {
+    const steps = (data?.commitments ?? []).filter(e => e.policy === id);
+    return { label: id, events: eventsFromLedger([], steps, (data?.race_control ?? []).filter(e => e.policy === id), steps) };
+  });
   const timeline = [
     ["SC deployed", control.find(row => row.after === "SC_COLLECTING_FIELD")?.clock_us],
     ["Stop selected · policy information clock", commitment.find(row => row.status === "REQUESTED")?.at_us],
@@ -268,6 +292,7 @@ export function TimingView({ snapshot, job, launch, cancel, choose }: Props & { 
           {Object.keys(data.case).map(id => <option key={id}>{id}</option>)}</select></label>
         <DataTable headings={["Event", "Race clock (s)"]} rows={timeline.map(([name, clock]) =>
           [name, seconds(typeof clock === "number" ? clock : null, 6)])} />
+        <EventTimeline lanes={lanes} />
         {policy === "sc-63-soft" && <Notice>In this declared case, the original reactive policy observes the
           SC deployment when it requests the lap-32 stop. GREEN resumes before physical entry.</Notice>}
         <details><summary>Original commitment and race-control ledgers</summary>

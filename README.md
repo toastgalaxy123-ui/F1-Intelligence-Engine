@@ -157,6 +157,13 @@ strategy comparisons, bounded optimization, timing risk and source evidence. Fol
 [S8-A validation report](artifacts/reports/stage8_s8_a_validation.md) records the browser and
 engine parity checks and the limits on historical and live strategy.
 
+### Stage 8-B — Interactive strategy workspace
+
+Strategy Lab adds matched checkpoints, policy drilldown, pit timelines and legal two-car shared-box
+comparisons. The Workspaces shelf can verify and reproduce a saved investigation. See the
+[workspace guide](docs/web/strategy-workspace.md) and
+[validation report](artifacts/reports/stage8_s8_b_validation.md).
+
 ## Stage 5 — Deterministic race simulation and replay
 
 The [Stage 5 specification](docs/STAGE5_SPEC.md) defines the simulation modes,

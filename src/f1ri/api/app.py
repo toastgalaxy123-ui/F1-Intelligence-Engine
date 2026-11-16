@@ -32,8 +32,17 @@ from f1ri.api.research import (
     ResearchError,
     assets,
     evidence,
+    policy_catalog,
     prepare_analysis,
     snapshot_bytes,
+    verify_workspace,
+)
+from f1ri.api.workspace import (
+    AnalysisDetails,
+    PolicyCatalog,
+    PolicyCatalogRequest,
+    WorkspaceFile,
+    WorkspaceVerification,
 )
 from f1ri.decision_board import canonical
 
@@ -144,6 +153,14 @@ def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
     def selected_snapshot(context: Context):
         return resolve(context)
 
+    @api.post("/policy-catalog", response_model=PolicyCatalog)
+    def available_policies(request: PolicyCatalogRequest):
+        return policy_catalog(root, request)
+
+    @api.post("/workspaces/verify", response_model=WorkspaceVerification)
+    def verify_saved_workspace(workspace: WorkspaceFile):
+        return verify_workspace(root, workspace)
+
     @api.get("/evidence")
     def validation():
         data, metrics = evidence(root)
@@ -198,6 +215,10 @@ def create_app(root=None, *, queue_factory=Jobs, allowed_hosts=None):
     @api.get("/analyses/{identity}", response_model=Job)
     def job(identity: Hash, http: Request):
         return http.app.state.jobs.get(identity)
+
+    @api.get("/analyses/{identity}/details", response_model=AnalysisDetails)
+    def analysis_details(identity: Hash, http: Request):
+        return http.app.state.jobs.details(identity)
 
     @api.delete("/analyses/{identity}", response_model=Job)
     def cancel(identity: Hash, http: Request):

@@ -7,6 +7,7 @@ from time import process_time
 
 from f1ri.api.contracts import AnalysisRequest
 from f1ri.api.research import ResearchError, run_analysis
+from f1ri.api.workspace import AnalysisDetails
 from f1ri.decision_board import canonical
 
 MAX_RESULT_BYTES = 3_000_000
@@ -16,8 +17,12 @@ def main(root, directory):
     start = process_time()
     try:
         request = AnalysisRequest.model_validate_json((directory / "request.json").read_bytes())
-        result = run_analysis(root, request)
+        details = {}
+        result = run_analysis(root, request, diagnostics=details)
         data = {"result": result.model_dump(mode="json"), "cpu_s": process_time()-start}
+        if details:
+            data["details"] = AnalysisDetails(analysis_id=result.analysis_id, result_sha256=result.result_sha256,
+                                               **details).model_dump(mode="json")
         raw = canonical(data)
         if len(raw) > MAX_RESULT_BYTES:
             raise ResearchError("RESULT_LIMIT", "The analysis exceeds the local result size limit.")

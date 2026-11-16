@@ -55,11 +55,21 @@ export type ScoreRow = {
   candidate: string; status: string; reasons: string[]; objective_us: number | null; objective_delta_us: number | null;
   latent_racing_us: number; effective_racing_us: number; following_us: number; neutralization_us: number; restart_us: number;
   pit_route_us: number; service_wait_us: number; pit_visits: number; comparison: string;
+  driver_elapsed_us: Record<string, number>; driver_delta_us: Record<string, number | null>;
+  visited_pits?: PitVisit[]; committed_actions?: unknown[];
 };
 export type PitVisit = { target_lap?: number; entry_us?: number; service_start_us?: number; service_end_us?: number;
-  lane_exit_us?: number; merge_us?: number; rejoin_us?: number; exit_us?: number; pit_elapsed_us?: number; set_id?: string };
+  lane_exit_us?: number; merge_us?: number; rejoin_us?: number; exit_us?: number; pit_elapsed_us?: number; set_id?: string;
+  driver?: number; arrival_us?: number; wait_us?: number; lane_motion_us?: number; service_us?: number; box?: string };
 export type AuditRow = Record<string, string | number | boolean | null>;
 export type Timeline = { pit: PitVisit[]; decisions: AuditRow[]; race_control: AuditRow[]; pit_events: AuditRow[] };
+export type Checkpoint = { driver: number; checkpoint: number; clock_us: number; elapsed_us: number; event: string;
+  route: string; progress_m: number | null };
+export type Trace = { initial_tyres: Record<string, { compound: string; age_laps: number } | null>;
+  mounted_tyres: Record<string, Record<string, { compound: string; initial_age_laps: number | null }>>;
+  checkpoints: Checkpoint[]; policy: { kind: string; stops: Policy["stops"] }; run_status: string };
+export type Details = { version: "s8b-traces-v1"; analysis_id: string; result_sha256: string; race_start_us: number;
+  branches: Record<string, Record<string, Trace>> };
 export type Score = { rows: ScoreRow[]; best: string[]; near: string[]; ranked: string[]; timelines: Record<string, Timeline> };
 export type RobustRow = {
   policy: string; worst_regret_us?: number | null; worst_delta_us?: number | null;

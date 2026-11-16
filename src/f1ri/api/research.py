@@ -7,6 +7,7 @@ from json import loads
 
 from f1ri import decision_board as board
 from f1ri.api.contracts import MODEL_SHA, Context, Preset, Result, SnapshotResponse
+from f1ri.api.workspace import record_branch
 from f1ri.simulator.strategy_optimization import (
     REFERENCE,
     _enumerate,
@@ -189,6 +190,38 @@ def prepare_analysis(root, request):
     return request, state, settings, identity
 
 
+def policy_catalog(root, request):
+    state = snapshot(root, request.context)
+    if state.snapshot_id != request.snapshot_id:
+        raise ResearchError("SNAPSHOT_MISMATCH", "Reload the selected snapshot.", 409)
+    if "manual" not in state.operations:
+        raise ResearchError("PHYSICAL_COMPARISON_UNAVAILABLE", "This preset cannot execute physical comparisons.", 409)
+    settings = replace(_settings(state.context), sets=request.tyre_sets, max_stops=request.max_stops)
+    _, model_request, _ = board.prepare(root, settings, assets(root))
+    return {"snapshot_id": state.snapshot_id, "policies": _policies(model_request)}
+
+
+def verify_workspace(root, workspace):
+    if workspace.model_sha256 != MODEL_SHA or workspace.context.model_sha256 != MODEL_SHA:
+        raise ResearchError("WORKSPACE_MODEL_MISMATCH", "The saved model differs from the pinned model.", 409)
+    state = snapshot(root, workspace.context)
+    if workspace.source_hashes != state.source_hashes:
+        raise ResearchError("WORKSPACE_SOURCE_MISMATCH", "The saved source hashes differ from the pinned inputs.", 409)
+    if workspace.snapshot_id != state.snapshot_id:
+        raise ResearchError("WORKSPACE_SNAPSHOT_MISMATCH", "The saved snapshot cannot be reproduced.", 409)
+    identity = None
+    if workspace.analysis:
+        if workspace.analysis.snapshot_id != workspace.snapshot_id:
+            raise ResearchError("WORKSPACE_SNAPSHOT_MISMATCH", "The saved analysis uses a different snapshot.", 409)
+        _, _, _, identity = prepare_analysis(root, workspace.analysis)
+        if workspace.receipt and workspace.receipt.analysis_id != identity:
+            raise ResearchError("WORKSPACE_ANALYSIS_MISMATCH", "The saved request does not match its result identity.", 409)
+        if workspace.reference not in (REFERENCE, *workspace.analysis.policies):
+            raise ResearchError("WORKSPACE_REFERENCE_MISMATCH", "The saved reference is outside the selected policies.", 409)
+    return {"status": "INPUTS_VERIFIED", "analysis_id": identity, "snapshot_id": state.snapshot_id,
+            "replay_available": workspace.receipt is not None}
+
+
 def _score_summary(score):
     paired = score["paired"]
     pit = {name: {key: run[key] for key in ("pit", "pit_events", "decisions", "race_control")}
@@ -212,7 +245,7 @@ def _comparison(settings, scenario):
     return replace(request, information_mode="PERFECT_FORESIGHT") if settings.mode == board.MODES[2] else request
 
 
-def _manual(comparison, request, bundle):
+def _manual(comparison, request, bundle, branches):
     selected = (REFERENCE, *request.policies)
     policies = [p for p in _enumerate(comparison)[0] if p.strategy_id in selected]
     base = _known_scenario(comparison.scenario)
@@ -221,6 +254,9 @@ def _manual(comparison, request, bundle):
     known = _score(base, policies, adapter, weights)
     future = (_score(comparison.scenario, policies, adapter, weights)
               if base != comparison.scenario and request.context.mode != board.MODES[2] else known)
+    if branches is not None:
+        record_branch(branches, "decision", known, base)
+        record_branch(branches, "future", future, comparison.scenario)
     return {"decision": _score_summary(known), "declared": _score_summary(future)}
 
 
@@ -236,10 +272,14 @@ def timing(root):
     return frozen | {"reproduced_regret_us": reproduced["regret_us"], "marker_gap": reproduced["marker_gap"]}
 
 
-def run_analysis(root, request):
+def run_analysis(root, request, *, diagnostics=None):
     request, snapshot, settings, identity = prepare_analysis(root, request)
     inputs = assets(root)
     prepared = board.prepare(root, settings, inputs)
+    branches = None
+    if diagnostics is not None and request.operation in ("manual", "conditional"):
+        diagnostics.update(race_start_us=prepared[1].scenario.initial.race_clock_us, branches={})
+        branches = diagnostics["branches"]
     operation = request.operation
     warnings = list(snapshot.support)
     statuses, unique, alternatives, near = ["NO_UNIQUE_RECOMMENDATION"], None, [], []
@@ -258,7 +298,7 @@ def run_analysis(root, request):
         cases = board.scenarios(prepared[1], settings)
         comparison = _comparison(settings, cases[request.future])
         if operation == "manual":
-            payload = _manual(comparison, request, inputs[0])
+            payload = _manual(comparison, request, inputs[0], branches)
             active = payload["decision"]
             executed = [row["candidate"] for row in active["rows"]]
             alternatives, near = active["best"], active["near"]
@@ -271,7 +311,11 @@ def run_analysis(root, request):
             if near:
                 statuses.append("NEAR_EQUAL_ALTERNATIVES")
         elif operation == "conditional":
-            payload = _conditional(optimize(comparison, inputs[0]))
+            optimized = optimize(comparison, inputs[0])
+            if branches is not None:
+                record_branch(branches, "decision", optimized["decision"], comparison.scenario)
+                record_branch(branches, "future", optimized["conditional"], comparison.scenario)
+            payload = _conditional(optimized)
             executed = [row["candidate"] for row in payload["decision"]["rows"]]
             alternatives, near = payload["decision"]["best"], payload["decision"]["near"]
             completion = payload["completion"]

@@ -13,6 +13,7 @@ export default defineConfig({
     channel: process.env.F1RI_BROWSER_CHANNEL || "chrome",
     baseURL: process.env.F1RI_WEB_URL || "http://127.0.0.1:3000",
     acceptDownloads: true,
+    actionTimeout: 15_000,
     trace: "retain-on-failure",
   },
 });

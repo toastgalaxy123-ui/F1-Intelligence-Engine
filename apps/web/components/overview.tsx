@@ -4,7 +4,7 @@ import { ArrowRight, Binary, CalendarClock, CircleHelp, Flag, Gauge, Layers3, Ma
 import type { Job, Snapshot } from "../lib/api";
 import { Compound, DataTable, Empty, LinkButton, Notice, PaceChart, Panel, Status, policyName, readable, valueOf } from "./ui";
 
-export type View = "Overview" | "Race State" | "Pace Forecast" | "Strategy Lab" | "Robust Strategy" | "Timing Risk" | "Research Evidence";
+export type View = "Overview" | "Race State" | "Pace Forecast" | "Strategy Lab" | "Robust Strategy" | "Timing Risk" | "Research Evidence" | "Workspaces";
 const utcTime = (stamp?: string | null) => stamp ? new Date(stamp).toLocaleTimeString("en-GB", {
   timeZone: "UTC", hour: "2-digit", minute: "2-digit", second: "2-digit",
 }) + " UTC" : "Unavailable";
@@ -40,11 +40,11 @@ export function Overview({ snapshot, forecast, comparison, navigate, chooseDecla
           <span>Session {context.session ?? "—"}</span><span>{driverLabel?.code} #{context.driver}</span></div>
         <p>{snapshot.preset.summary}</p>
         <div className="hero-actions">
-          {snapshot.operations.includes("forecast") && <button className="primary" onClick={() => navigate("Pace Forecast")}>View pace forecast <ArrowRight size={17} /></button>}
-          {canCompare && <button className="secondary" onClick={() => navigate("Strategy Lab")}>Open Strategy Lab <ArrowRight size={16} /></button>}
+          {canCompare && <button className="primary" onClick={() => navigate("Strategy Lab")}>Compare pit strategies <ArrowRight size={16} /></button>}
+          {snapshot.operations.includes("forecast") && <button className={canCompare ? "secondary" : "primary"} onClick={() => navigate("Pace Forecast")}>Explore pace forecast <ArrowRight size={17} /></button>}
           {context.preset === "timing" && <button className="primary" onClick={() => navigate("Timing Risk")}>Inspect timing case <ArrowRight size={17} /></button>}
           {(context.preset === "shadow" || context.preset === "unsupported") &&
-            <button className="primary" onClick={() => navigate(context.preset === "shadow" ? "Research Evidence" : "Race State")}>Inspect evidence <ArrowRight size={17} /></button>}
+            <button className="primary" onClick={() => navigate(context.preset === "shadow" ? "Research Evidence" : "Race State")}>{context.preset === "shadow" ? "Inspect source availability" : "Inspect evidence"} <ArrowRight size={17} /></button>}
           {context.preset === "archive" && <button className="secondary" onClick={chooseDeclared}>Try a declared scenario</button>}
         </div>
       </div>

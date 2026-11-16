@@ -93,6 +93,8 @@ artifacts/reports/*
 !artifacts/reports/stage7_s7_c0_metrics.json
 !artifacts/reports/stage8_s8_a_evidence.zip
 !artifacts/reports/stage8_s8_a_metrics.json
+!artifacts/reports/stage8_s8_b_evidence.zip
+!artifacts/reports/stage8_s8_b_metrics.json
 !artifacts/**/.gitkeep
 data/raw/*
 !data/raw/reference/
